@@ -1,28 +1,8 @@
 
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-I
-src/main/java/Utente.java,6\4\648a7207de687b63039c1ed78b891795ff08a8bc
-I
-src/main/java/Pagina.java,5\a\5a2f24a7f740522c1d1d91be9e0bcad50523d7d9
-Q
-!src/main/java/Frase_Corrente.java,3\9\39cc4613dbd225702a6ca7a625fc8a30eaf23f04
-I
-src/main/java/Autore.java,b\7\b7aaecf6feb1138ac9586732ba477091ad218fd0
-H
-src/main/java/Frase.java,5\d\5dabf3efd46ff36fdae01b83593eeb6d894760c6
-H
-src/main/java/Testo.java,2\6\26d752397aa34adcd903c87b8a12753375efad49
-J
-src/main/java/Visiona.java,f\e\feedf9f16e024bdcd39c212af2781b6634602c35
-S
-#src/main/java/ModificaProposta.java,c\a\ca61309f76ac5b81def91fa301055dc52300b306
 A
 Progetto_Basi.iml,3\4\3468b99b2c9630487a7a775db721eb66f00936af
-G
-src/main/java/Home.java,0\d\0d112f166116e443d6a1c883b1ed92b98ce71abc
-G
-src/main/java/Home.form,3\1\31f13a349c980eda87124b37c0cc791aedf76555
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 :
@@ -64,3 +44,23 @@ w
 G.idea/sonarlint/issuestore/3/1/31f13a349c980eda87124b37c0cc791aedf76555,6\0\605cda13a1a5318a306d1da7827024c604d8134d
 Å
 Q.idea/sonarlint/securityhotspotstore/3/1/31f13a349c980eda87124b37c0cc791aedf76555,b\7\b74873ed4203a403ce1892448601fe85f000c75d
+K
+src/main/java/GUI/Home.java,3\c\3cdbf704492b54ced45c9ce2d236deccb04af514
+K
+src/main/java/GUI/Home.form,7\d\7dcdd7a9bdb225cf74b15d4425ef6e1139aaa09c
+O
+src/main/java/MODEL/Autore.java,3\a\3aa8fcc81f42d10eb2ed9c73517e22a21c7670a6
+O
+src/main/java/MODEL/Utente.java,3\b\3b07e6bbcf3da3f26471c7d6aa3734832a32ece5
+W
+'src/main/java/MODEL/Frase_Corrente.java,d\1\d16f8025f9ec5d15d951bfb96711437068fc83aa
+N
+src/main/java/MODEL/Frase.java,b\7\b7cb78e5cdb18e3df27626c87593ba455ca367cf
+Y
+)src/main/java/MODEL/ModificaProposta.java,7\2\72d869dba596df1b795455cb84cc702d1a9a5c6f
+N
+src/main/java/MODEL/Testo.java,3\d\3d0c475fd9add6ca2a5e17599b5b521b9b6c7039
+P
+ src/main/java/MODEL/Visiona.java,b\7\b702b053d5e58c426cddfcd0b01ffbfbb5bb288c
+O
+src/main/java/MODEL/Pagina.java,5\c\5c4ef6c5234932e38c01f0804bf05bfdb2632174

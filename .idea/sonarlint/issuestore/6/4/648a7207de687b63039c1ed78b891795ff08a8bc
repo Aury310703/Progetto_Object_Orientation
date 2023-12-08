@@ -1,5 +1,0 @@
-
-7
-java:S1220""Move this file to a named package.8ê¶‚µÂ1
-l	java:S116"PRename this field "Email" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾½ÊÂ8ï¶‚µÂ1
-r	java:S116	"VRename this field "DataNascita" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ß½¨Ç8ï¶‚µÂ1
