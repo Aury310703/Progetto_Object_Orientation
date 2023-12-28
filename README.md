@@ -217,4 +217,56 @@ BEFORE INSERT ON frasecorrente
 FOR EACH ROW
 EXECUTE FUNCTION inserimento_frase()
 ```
-    
+
+**- setta la data di valutazione e l'ora di valutazione quando viene accettata o rifiutata una proposta di modifica**
+```SQL
+CREATE OR REPLACE settaggioDataOraValutazione() RETURNS TRIGGER
+AS $$
+BEGIN
+	UPDATE modificaProposta SET dataValutazione = NOW() WHERE idModifica = old.idModifica;
+	UPDATE modificaProposta SET oraValutazione = NOW() WHERE idModifica = old.idModifica;
+	RETURN new;
+END;
+
+CREATE OR REPLACE TRIGGER settaggioDataOraValutazione
+AFTER UPDATE modificaProposta
+FOR EACH ROW
+WHEN (old.stato = 0)
+	EXECUTE FUNCTION settaggioDataOraValutazione();
+ ```
+***PROCEDURE***
+
+**- data una data inserita si visualizza la versione piú recente fino a quella data**
+```SQL
+CREATE OR REPLACE PROCEDURE ricostruzione_versione(pagina IN pagina.idpagina%type, dataInsertita IN DATE)
+AS $$
+DECLARE
+    frase varchar(1000);
+    num INTEGER;
+    dataVal DATE;
+    sProposta varchar(1000);
+    k RECORD;
+BEGIN
+    CREATE TABLE tempVersione
+    (
+        stringa varchar(1000),
+        numerazione INTEGER
+    );
+
+    FOR k IN (SELECT stringaInserita, numerazione, datainserimento FROM frasecorrente WHERE pagina = idpagina) LOOP
+        SELECT numerazione, dataValutazione, stringaProposta INTO num, dataVal, sProposta
+        FROM modificaproposta 
+        WHERE pagina = idpagina AND k.stringainserita = stringainserita AND numerazione = k.numerazione AND stato = 1 AND datavalutazione <= dataInsertita
+        ORDER BY dataValutazione DESC, oraValutazione DESC LIMIT 1;
+        IF num IS NULL THEN 
+            INSERT INTO tempVersione VALUES (k.StringaInserita, k.numerazione);
+        ELSE
+            INSERT INTO tempVersione VALUES (sProposta, num);
+        END IF;
+    END LOOP;
+
+    DROP TABLE tempVersione;
+END;
+$$
+LANGUAGE PLPGSQL;
+```
