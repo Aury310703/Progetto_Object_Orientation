@@ -52,7 +52,7 @@ CREATE TABLE fraseCorrente
     collegamento pk_pagina,
     CONSTRAINT pk_frase PRIMARY KEY(StringaInserita, numerazione, idPagina),
     CONSTRAINT fk_pagina FOREIGN KEY(idPagina) REFERENCES PAGINA(idPagina),
-    CONSTRAINT fk_pagina FOREIGN KEY(collegamento) REFERENCES PAGINA(idPagina)
+    CONSTRAINT fk_collegamento FOREIGN KEY(collegamento) REFERENCES PAGINA(idPagina)
 )
 ```
 **- MODIFICA PROPOSTA**
