@@ -49,8 +49,10 @@ CREATE TABLE fraseCorrente
     dataInserimento DATE DEFAULT CURRENT_DATE,
     oraInserimento TIME DEFAULT CURRENT_TIME,
     idPagina int,
+    collegamento pk_pagina,
     CONSTRAINT pk_frase PRIMARY KEY(StringaInserita, numerazione, idPagina),
-    CONSTRAINT fk_pagina FOREIGN KEY(idPagina) REFERENCES PAGINA(idPagina)
+    CONSTRAINT fk_pagina FOREIGN KEY(idPagina) REFERENCES PAGINA(idPagina),
+    CONSTRAINT fk_pagina FOREIGN KEY(collegamento) REFERENCES PAGINA(idPagina)
 )
 ```
 **- MODIFICA PROPOSTA**
