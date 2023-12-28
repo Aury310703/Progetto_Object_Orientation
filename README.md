@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS UTENTE
 )
 ```
 **- PAGINA:**
-
+```SQL
 CREATE TABLE Pagina
 (
     idPagina SERIAL,
@@ -26,9 +26,9 @@ CREATE TABLE Pagina
     constraint pk_pagina PRIMARY KEY(idPagina),
     constraint Fk_utente FOREIGN KEY(idAutore) REFERENCES utente(idUtente)
 )
-
+```
 **- VISIONA:**
-
+```SQL
 CREATE TABLE Visiona
 (
     idUtente int,
@@ -39,9 +39,9 @@ CREATE TABLE Visiona
     CONSTRAINT Fk_Utente FOREIGN KEY(idUtente) REFERENCES UTENTE(idUtente),
     CONSTRAINT Fk_pagina FOREIGN KEY(idPagina) REFERENCES PAGINA(idpagina)
 )
-
+```
 **- FRASE CORRENTE**
-
+```SQL
 CREATE TABLE fraseCorrente
 (
     StringaInserita varchar(1000),
@@ -52,9 +52,9 @@ CREATE TABLE fraseCorrente
     CONSTRAINT pk_frase PRIMARY KEY(StringaInserita, numerazione, idPagina),
     CONSTRAINT fk_pagina FOREIGN KEY(idPagina) REFERENCES PAGINA(idPagina)
 )
-
+```
 **- MODIFICA PROPOSTA**
-
+```SQL
 CREATE TABLE ModificaProposta
 (
     idModifica Serial,
@@ -74,9 +74,9 @@ CREATE TABLE ModificaProposta
     CONSTRAINT fk_AutoreV FOREIGN KEY(AutoreV) REFERENCES UTENTE(idUtente),
     CONSTRAINT fk_UtenteP FOREIGN KEY(utenteP) REFERENCES UTENTE(idUtente)
 )
-
+```
 **- NOTIFICA**
-
+```SQL
 CREATE TABLE NOTIFICA 
 (
     idPagina pk_utente NOT NULL,
@@ -89,11 +89,11 @@ CREATE TABLE NOTIFICA
     FOREIGN KEY(idUtente) REFERENCES utente(idUtente),
     FOREIGN KEY(idAutore) REFERENCES utente(idUtente)
 )
-
+```
 ***TRIGGER***
 
 **- Aggiunge una tupla all'interno di notifica ogni qualvolta viene proposta una modifica**
-
+```SQL
 CREATE OR REPLACE FUNCTION notificaM() RETURNS TRIGGER AS $$
 DECLARE
     v_titolo VARCHAR(80);
@@ -131,9 +131,9 @@ CREATE OR REPLACE TRIGGER Notifica_modifica
 AFTER INSERT ON ModificaProposta
 FOR EACH ROW
     EXECUTE function notificaM();
-
+```
 **- quando un utente scrive per la prima volta una pagina, il suo ruolo passa da _utente_ ad _autore_**
-
+```SQL
 CREATE OR REPLACE FUNCTION diventaAutore() RETURNS TRIGGER AS $$
 DECLARE
     ruoloUtente Utente.ruolo%TYPE;
@@ -155,9 +155,9 @@ CREATE OR REPLACE TRIGGER diventaAutore
 AFTER INSERT ON pagina
 FOR EACH ROW
     EXECUTE FUNCTION diventaAutore();
-
+```
 **- quando una proposta di modifica viene fatto dall'autore della pagina, la proposta viene direttamente accettata**
-
+```SQL
 REATE OR REPLACE FUNCTION ModificaAutore ()
 RETURNS TRIGGER
 AS $$
@@ -176,32 +176,9 @@ CREATE OR REPLACE TRIGGER ModificaAutore
 AFTER INSERT ON modificaproposta
 FOR EACH ROW
 EXECUTE FUNCTION ModificaAutore()
-
+```
 **- quando viene inserita una nuova frase all'interno di una pagina, la numerazione viene impostata dal trigger**
-
-CREATE OR REPLACE FUNCTION inserimento_frase() RETURNS TRIGGER
-AS $$
-DECLARE
-valore INTEGER;
-BEGIN
-    SELECT numerazione INTO valore
-    FROM frasecorrente
-    WHERE new.idpagina = idpagina
-    ORDER BY numerazione DESC LIMIT 1;
-    IF valore != NULL THEN 
-           new.numerazione = valore+1;
-    ELSE
-        new.numerazione = 0;
-    END IF;
-    RETURN new;
-END;
-$$
-language plpgsql;
-
-CREATE OR REPLACE TRIGGER inserimento_frase
-BEFORE INSERT ON frasecorrente
-FOR EACH ROW
-EXECUTE FUNCTION inserimento_frase()
+```SQL
 CREATE OR REPLACE FUNCTION inserimento_frase() RETURNS TRIGGER
 AS $$
 DECLARE
@@ -225,5 +202,5 @@ CREATE OR REPLACE TRIGGER inserimento_frase
 BEFORE INSERT ON frasecorrente
 FOR EACH ROW
 EXECUTE FUNCTION inserimento_frase()
-
+```
     
