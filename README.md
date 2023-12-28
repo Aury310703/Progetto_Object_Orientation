@@ -1,7 +1,7 @@
 ***TABELLE***
 
 **- UTENTE:**
-
+```SQL
 CREATE TABLE IF NOT EXISTS UTENTE
 (
     idUtente SERIAL,
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS UTENTE
     ruolo char(6) DEFAULT 'Utente',
     CONSTRAINT pk_utente PRIMARY KEY(idUtente)
 )
-
+```
 **- PAGINA:**
 
 CREATE TABLE Pagina
