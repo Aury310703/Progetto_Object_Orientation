@@ -1,6 +1,7 @@
 ***TABELLE***
 
 **- UTENTE:**
+
 CREATE TABLE IF NOT EXISTS UTENTE
 (
     idUtente SERIAL,
@@ -15,6 +16,7 @@ CREATE TABLE IF NOT EXISTS UTENTE
 )
 
 **- PAGINA:**
+
 CREATE TABLE Pagina
 (
     idPagina SERIAL,
@@ -26,6 +28,7 @@ CREATE TABLE Pagina
 )
 
 **- VISIONA:**
+
 CREATE TABLE Visiona
 (
     idUtente int,
@@ -38,6 +41,7 @@ CREATE TABLE Visiona
 )
 
 **- FRASE CORRENTE**
+
 CREATE TABLE fraseCorrente
 (
     StringaInserita varchar(1000),
@@ -50,6 +54,7 @@ CREATE TABLE fraseCorrente
 )
 
 **- MODIFICA PROPOSTA**
+
 CREATE TABLE ModificaProposta
 (
     idModifica Serial,
@@ -71,6 +76,7 @@ CREATE TABLE ModificaProposta
 )
 
 **- NOTIFICA**
+
 CREATE TABLE NOTIFICA 
 (
     idPagina pk_utente NOT NULL,
@@ -85,7 +91,9 @@ CREATE TABLE NOTIFICA
 )
 
 ***TRIGGER***
+
 **- Aggiunge una tupla all'interno di notifica ogni qualvolta viene proposta una modifica**
+
 CREATE OR REPLACE FUNCTION notificaM() RETURNS TRIGGER AS $$
 DECLARE
     v_titolo VARCHAR(80);
@@ -125,6 +133,7 @@ FOR EACH ROW
     EXECUTE function notificaM();
 
 **- quando un utente scrive per la prima volta una pagina, il suo ruolo passa da _utente_ ad _autore_**
+
 CREATE OR REPLACE FUNCTION diventaAutore() RETURNS TRIGGER AS $$
 DECLARE
     ruoloUtente Utente.ruolo%TYPE;
@@ -148,6 +157,7 @@ FOR EACH ROW
     EXECUTE FUNCTION diventaAutore();
 
 **- quando una proposta di modifica viene fatto dall'autore della pagina, la proposta viene direttamente accettata**
+
 REATE OR REPLACE FUNCTION ModificaAutore ()
 RETURNS TRIGGER
 AS $$
@@ -168,6 +178,7 @@ FOR EACH ROW
 EXECUTE FUNCTION ModificaAutore()
 
 **- quando viene inserita una nuova frase all'interno di una pagina, la numerazione viene impostata dal trigger**
+
 CREATE OR REPLACE FUNCTION inserimento_frase() RETURNS TRIGGER
 AS $$
 DECLARE
