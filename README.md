@@ -92,6 +92,18 @@ CREATE TABLE NOTIFICA
     FOREIGN KEY(idAutore) REFERENCES utente(idUtente)
 )
 ```
+**- COLLEGAMENTO**
+```SQL
+CREATE TABLE COLLEGAMENTO
+(
+	stringaInserita varchar(1000),
+	numerazione INTEGER,
+	idPagina pk_utente,
+	paginaCollegata pk_utente,
+	PRIMARY KEY(StringaInserita, numerazione, idPagina, paginaCollegata),
+	CONSTRAINT pk_fraseInserita FOREIGN KEY(StringaInserita, numerazione, idPagina) REFERENCES fraseCorrente(stringaInserita, numerazione, idPagina)
+)
+```
 ***TRIGGER***
 
 **- Aggiunge una tupla all'interno di notifica ogni qualvolta viene proposta una modifica**
