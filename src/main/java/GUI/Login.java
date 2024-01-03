@@ -1,7 +1,10 @@
 package GUI;
 
+import controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
+
 
 public class Login {
 
@@ -13,6 +16,7 @@ public class Login {
     private JPanel panel3;
     private JPanel panel2;
     private JPanel panel1;
+
 
     public Login(JFrame frameChiamante) {
         this.frameChiamante = frameChiamante;

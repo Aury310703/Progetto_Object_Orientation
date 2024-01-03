@@ -1,5 +1,7 @@
 package GUI;
 
+import controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,7 +17,7 @@ public class Home {
     private JPanel JPanel3;
     private JLabel TitoloLabel;
     static JFrame frame = new JFrame("Home");
-
+    public Controller controller = new Controller();
 
 
     public static void main(String[] args) {
@@ -25,11 +27,12 @@ public class Home {
         frame.pack();
         frame.setVisible(true);
     }
-    public Home()
-    {
+
+    public Home() {
         LoginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                controller.eseguiQueryDB();
                 Login login = new Login(frame);
                 login.frame.setVisible(true);
                 frame.setVisible(false);
