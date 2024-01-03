@@ -32,6 +32,7 @@ public class Home {
         LoginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 controller.eseguiQueryDB();
                 Login login = new Login(frame);
                 login.frame.setVisible(true);
