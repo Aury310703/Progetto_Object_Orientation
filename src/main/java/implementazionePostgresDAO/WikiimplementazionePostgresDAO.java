@@ -31,6 +31,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
                 System.out.println(rs.getString("login"));
             }
             System.out.println("La query funziona - Step 4");
+            System.out.println("La query funziona - Step 4");
         } catch (Exception e) {
             System.out.println("Errore durante l'esecuzione della query: " + e.getMessage());
             e.printStackTrace();
