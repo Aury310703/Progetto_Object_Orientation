@@ -9,8 +9,8 @@ public class ConnessioneDatabase {
     private static ConnessioneDatabase instance;
     public Connection connection = null;
     private String nome = "postgres";
-    private String password = "Ranavolo16";
-    private String url = "jdbc:postgresql://localhost:5050/progetto";
+    private String password = "ranavolo16";
+    private String url = "jdbc:postgresql://localhost:5432/progetto";
     private String driver = "org.postgresql.Driver";
 
     // COSTRUTTORE
@@ -36,5 +36,10 @@ public class ConnessioneDatabase {
         }
         return instance;
     }
+
+    public Connection getConnection() {
+        return connection;
+    }
 }
+
 

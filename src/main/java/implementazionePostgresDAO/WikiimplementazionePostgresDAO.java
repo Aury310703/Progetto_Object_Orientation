@@ -14,25 +14,27 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
 
     public WikiimplementazionePostgresDAO() {
         try {
-            connection = ConnessioneDatabase.getInstance().connection;
+            connection = ConnessioneDatabase.getInstance().getConnection();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
-    public void eseguiQueryDB(){
+    public void eseguiQueryDB() {
         try {
-            PreparedStatement query = connection.prepareStatement("select * from auotore");
+            PreparedStatement query = connection.prepareStatement("SELECT login FROM \"utente\"");
+            System.out.println("La query funziona");
             ResultSet rs = query.executeQuery();
+            System.out.println("La query funziona - Step 1");
             while (rs.next()) {
-                System.out.println("cazzo funziona");
+                System.out.println(rs.getString("login"));
             }
-            rs.close();
-            query.close();
-            connection.close();
-        } catch(Exception e){
-            System.out.println("Errore: ");
+            System.out.println("La query funziona - Step 4");
+        } catch (Exception e) {
+            System.out.println("Errore durante l'esecuzione della query: " + e.getMessage());
+            e.printStackTrace();
         }
     }
+
 }
