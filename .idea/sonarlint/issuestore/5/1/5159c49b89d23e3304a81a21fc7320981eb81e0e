@@ -1,11 +1,11 @@
 
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ü²ñ™8…ÖôƒÍ1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ü²ñ™8‡¹ƒ„Í1
 l
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ºÔí8ğóôƒÍ1
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ºÔí8‘¹ƒ„Í1
 T
-java:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ŠÖôƒÍ1
-L	java:S106"+Replace this use of System.out by a logger.(§æ¯Çøÿÿÿÿ8‹ÖôƒÍ1
-L	java:S106"+Replace this use of System.out by a logger.(É²ƒ±ıÿÿÿÿ8ŒÖôƒÍ1
-L	java:S106"+Replace this use of System.out by a logger.(Å“Ìéùÿÿÿÿ8ŒÖôƒÍ1
-L	java:S106!"+Replace this use of System.out by a logger.(Ã¯ÖÏşÿÿÿÿ8ŒÖôƒÍ1
-G	java:S106#"+Replace this use of System.out by a logger.(ü¸œã8ŒÖôƒÍ1
+java:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8“¹ƒ„Í1
+L	java:S106"+Replace this use of System.out by a logger.(§æ¯Çøÿÿÿÿ8”¹ƒ„Í1
+L	java:S106"+Replace this use of System.out by a logger.(É²ƒ±ıÿÿÿÿ8•¹ƒ„Í1
+L	java:S106"+Replace this use of System.out by a logger.(Å“Ìéùÿÿÿÿ8•¹ƒ„Í1
+L	java:S106!"+Replace this use of System.out by a logger.(Ã¯ÖÏşÿÿÿÿ8•¹ƒ„Í1
+G	java:S106#"+Replace this use of System.out by a logger.(ü¸œã8•¹ƒ„Í1
