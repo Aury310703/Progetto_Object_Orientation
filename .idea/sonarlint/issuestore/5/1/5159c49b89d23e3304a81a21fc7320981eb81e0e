@@ -1,11 +1,17 @@
 
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ü²ñ™8‡¹ƒ„Í1
+l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡Ÿ×8’›•öÏ1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ü²ñ™8“›•öÏ1
 l
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ºÔí8‘¹ƒ„Í1
+java:S2095+"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ùà­º8áœ•öÏ1
+l
+java:S2095""OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ˆşçÉ8áœ•öÏ1
 T
-java:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8“¹ƒ„Í1
-L	java:S106"+Replace this use of System.out by a logger.(§æ¯Çøÿÿÿÿ8”¹ƒ„Í1
-L	java:S106"+Replace this use of System.out by a logger.(É²ƒ±ıÿÿÿÿ8•¹ƒ„Í1
-L	java:S106"+Replace this use of System.out by a logger.(Å“Ìéùÿÿÿÿ8•¹ƒ„Í1
-L	java:S106!"+Replace this use of System.out by a logger.(Ã¯ÖÏşÿÿÿÿ8•¹ƒ„Í1
-G	java:S106#"+Replace this use of System.out by a logger.(ü¸œã8•¹ƒ„Í1
+java:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ãœ•öÏ1
+^
+java:S1854*"<Remove this useless assignment to local variable "idAutore".(×á®àüÿÿÿÿ8äœ•öÏ1
+J	java:S108$")Either remove or fill this block of code.(£–»ûÿÿÿÿ8åœ•öÏ1
+O
+java:S1481*"-Remove this unused "idAutore" local variable.(×á®àüÿÿÿÿ8æœ•öÏ1
+G	java:S1061"+Replace this use of System.out by a logger.(ü¸œã8êœ•öÏ1
+K
+java:S1128")Remove this unused import 'MODEL.Autore'.(Ë¾ˆøüÿÿÿÿ8ëœ•öÏ1

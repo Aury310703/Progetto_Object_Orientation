@@ -1,2 +1,14 @@
 
-L	java:S106"+Replace this use of System.out by a logger.(ØôİÎùÿÿÿÿ8İùãÍ1
+_
+java:S2094
+"BRemove this empty class, write its code or make it an "interface".(Øó´Ÿ8ÚÂ¹ìÏ1
+K
+java:S1128")Remove this unused import 'MODEL.Autore'.(Ë¾ˆøüÿÿÿÿ8â¥«ñÏ1
+F
+java:S1128")Remove this unused import 'MODEL.Utente'.(òêˆˆ8â¥«ñÏ1
+J
+java:S1128"(Remove this unused import 'dao.WikiDAO'.(¢¢…øşÿÿÿÿ8è¥«ñÏ1
+s
+java:S1128"VRemove this unused import 'implementazionePostgresDAO.WikiimplementazionePostgresDAO'.(Ğ‚§Ê8è¥«ñÏ1
+R
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8ê¥«ñÏ1

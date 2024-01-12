@@ -1,7 +1,10 @@
 package dao;
 
+import MODEL.Pagina;
+
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public interface WikiDAO {
-void eseguiQueryDB() throws SQLException;
+public ArrayList<Pagina> ricercaTitoli(String titoloInserito) throws SQLException;
 }
