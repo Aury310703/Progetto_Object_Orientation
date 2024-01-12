@@ -1,0 +1,53 @@
+
+Q
+java:S3740"/Provide the parametrized type for this generic.(‘á³ìşÿÿÿÿ8€óºóÏ1
+L
+java:S3740B"/Provide the parametrized type for this generic.(§ÒÀÿ8ğòçôÏ1
+L
+java:S3740C"/Provide the parametrized type for this generic.(—ö¬à8ñòçôÏ1
+L
+java:S3740C"/Provide the parametrized type for this generic.(—ö¬à8òòçôÏ1
+h
+java:S11925"FDefine a constant instead of duplicating this literal "it_IT" 3 times.(åÔôãıÿÿÿÿ8øòçôÏ1
+t	java:S127c"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8ùòçôÏ1
+t	java:S127~"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8úòçôÏ1
+n
+java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8®÷óÏ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8‡¬üòÏ1
+w	java:S116"VRename this field "TitoloPanel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Å»Ìıÿÿÿÿ8´¤óÏ1
+x	java:S116"WRename this field "BottoniPanel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»…¨²úÿÿÿÿ8İÖ¤óÏ1
+w	java:S116"VRename this field "TitoloLabel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íÿ´Éşÿÿÿÿ8§Ì¨óÏ1
+v	java:S116"URename this field "TitoliList" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘á³ìşÿÿÿÿ8ÜÑ»óÏ1
+ˆ
+java:S3008H"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8ñôçôÏ1
+}
+java:S1450"[Remove the "BottoniPanel" field and declare it as a local variable in the relevant methods.(»…¨²úÿÿÿÿ8†Ë¯óÏ1
+{
+java:S1450"YRemove the "TitoliList" field and declare it as a local variable in the relevant methods.(‘á³ìşÿÿÿÿ8öôçôÏ1
+|
+java:S1450"ZRemove the "TitoloLabel" field and declare it as a local variable in the relevant methods.(íÿ´Éşÿÿÿÿ8†Ë¯óÏ1
+|
+java:S1450"ZRemove the "TitoloPanel" field and declare it as a local variable in the relevant methods.(´Å»Ìıÿÿÿÿ8‡Ë¯óÏ1
+v
+java:S1450"ZRemove the "entraButton" field and declare it as a local variable in the relevant methods.(¾’¿8‡Ë¯óÏ1
+‚
+java:S1450"eRemove the "paginaPrecedenteButton" field and declare it as a local variable in the relevant methods.(ÊÃé±8ˆË¯óÏ1
+
+java:S1149]"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8şôçôÏ1
+
+java:S1149x"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8ÿôçôÏ1
+Z
+java:S1172"=Remove these unused method parameters "controller", "titolo".(è§¤8”®üòÏ1
+f
+java:S3252"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8Ë¯óÏ1
+{
+java:S1171 "YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8†õçôÏ1
+o	java:S100."NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8‡õçôÏ1
+o	java:S100J"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8ŸõçôÏ1
+S
+java:S2696P"6Make the enclosing method "static" or remove this set.(§¾ã8¤õçôÏ1
+j	java:S100\"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§¨¡³8§õçôÏ1
+j	java:S100w"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8²õçôÏ1
+p	java:S100’"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8ºõçôÏ1
+T
+java:S1068"2Remove this unused "frameChiamante" private field.(°ˆ‚àıÿÿÿÿ8™®üòÏ1
