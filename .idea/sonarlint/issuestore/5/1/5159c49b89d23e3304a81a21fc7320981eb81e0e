@@ -2,9 +2,9 @@
 l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡Ÿ×8’›•öÏ1
 v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ü²ñ™8“›•öÏ1
 l
-java:S2095+"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ùà­º8áœ•öÏ1
-l
 java:S2095""OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ˆşçÉ8áœ•öÏ1
+l
+java:S2095+"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ùà­º8áœ•öÏ1
 T
 java:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ãœ•öÏ1
 ^
