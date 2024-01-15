@@ -31,24 +31,31 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         ArrayList<Pagina> PagineTrovate = new ArrayList<>();
 
         try {
-            PreparedStatement query = connection.prepareStatement("SELECT * FROM pagina WHERE titolo LIKE \"%titoloInserito%\"");
-            ResultSet rs = query.executeQuery();
+            String query = "SELECT * FROM pagina WHERE titolo LIKE ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, "%" + titoloInserito + "%");
+            ResultSet rs = preparedStatement.executeQuery();
             if(rs.wasNull()){
-
+                System.out.println("no");
             }
             while (rs.next()) {
                 String titolo = rs.getString("titolo");
                 LocalDateTime dataOra = rs.getTimestamp("dataOraCreazione").toLocalDateTime();
                 int idAutore = rs.getInt("idAutore");
-                PreparedStatement query1 = connection.prepareStatement("SELECT * FROM autore WHERE idAutore = \"idAutore\" GROUP BY idAutore LIMIT 1");
-                ResultSet rs1 = query1.executeQuery();
+                String query2 = "SELECT * FROM utente WHERE idUtente = ? GROUP BY idUtente LIMIT 1";
+                PreparedStatement preparedStatement2 = connection.prepareStatement(query2);
+                preparedStatement2.setInt(1, idAutore);
+                ResultSet rs1 = preparedStatement2.executeQuery();
+                rs1.next();
                 Pagina pagina = new Pagina(titolo, dataOra, rs1.getString("nome"), rs1.getString("cognome"),rs1.getString("login"), rs1.getString("password"), rs1.getString("email"), rs1.getDate("dataNascita"));
                 PagineTrovate.add(pagina);
+                System.out.println(pagina.getTitolo());
             }
         } catch (Exception e) {
             System.out.println("Errore durante l'esecuzione della query: " + e.getMessage());
             e.printStackTrace();
         }
+        connection.close();
         return PagineTrovate;
     }
 }

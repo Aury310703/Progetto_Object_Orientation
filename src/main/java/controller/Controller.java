@@ -1,12 +1,26 @@
 package controller;
 
 import MODEL.Autore;
+import MODEL.Pagina;
 import MODEL.Utente;
 import dao.WikiDAO;
 import implementazionePostgresDAO.WikiimplementazionePostgresDAO;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Controller {
+
+    public ArrayList<Pagina> ricercaTitoli(String titoloInserito){
+        ArrayList<Pagina> pagineTrovate = new ArrayList<>();
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        try {
+           pagineTrovate = w.ricercaTitoli(titoloInserito);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return pagineTrovate;
+    }
 
 }

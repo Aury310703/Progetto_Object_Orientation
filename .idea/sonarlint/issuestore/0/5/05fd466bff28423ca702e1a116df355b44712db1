@@ -1,14 +1,11 @@
 
-_
-java:S2094
-"BRemove this empty class, write its code or make it an "interface".(Øó´Ÿ8ÚÂ¹ìÏ1
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ÔüğäĞ1
+Œ
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(„Ê18ÚüğäĞ1
 K
-java:S1128")Remove this unused import 'MODEL.Autore'.(Ë¾ˆøüÿÿÿÿ8â¥«ñÏ1
+java:S1128")Remove this unused import 'MODEL.Autore'.(Ë¾ˆøüÿÿÿÿ8şüğäĞ1
 F
-java:S1128")Remove this unused import 'MODEL.Utente'.(òêˆˆ8â¥«ñÏ1
-J
-java:S1128"(Remove this unused import 'dao.WikiDAO'.(¢¢…øşÿÿÿÿ8è¥«ñÏ1
-s
-java:S1128"VRemove this unused import 'implementazionePostgresDAO.WikiimplementazionePostgresDAO'.(Ğ‚§Ê8è¥«ñÏ1
+java:S1128")Remove this unused import 'MODEL.Utente'.(òêˆˆ8ığäĞ1
 R
-java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8ê¥«ñÏ1
+java:S1128
+"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8ƒığäĞ1

@@ -33,12 +33,6 @@ R
 "src/main/java/GUI/ListaTitoli.java,6\f\6f2ff77e5590b1be460b639a59389b23294b00f2
 R
 "src/main/java/GUI/ListaTitoli.form,0\4\042cfb462597e11ed7b6ea36889485ddd7c28e22
-ƒ
-Ssrc/main/java/implementazionePostgresDAO/ListaTitoliImplementazionePostgresDAO.java,2\a\2a455940dbf3d4f4b2a88ae3de4e053acf9e7f46
-P
- src/main/java/GUI/masissimo.java,2\6\26fa9580bf82b653aefcb7f7689b0353c4113ca4
-P
- src/main/java/GUI/masissimo.form,c\7\c789881ffe8f035d1b2d8f5c604af5daece314c5
 L
 src/main/java/GUI/Login.form,0\2\02109b8a5187c8648f06d4aba1ff20ff84cd97f4
 S

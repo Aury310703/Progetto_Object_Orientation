@@ -1,22 +1,0 @@
-
-n
-java:S1104	"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8¸Ş¾öÏ1
-b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ãŒ¢ª
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ
-o	java:S116"SRename this field "Username" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ¨¾¶8şº¹öÏ1
-t
-java:S1450"WRemove the "Username" field and declare it as a local variable in the relevant methods.(Õ¨¾¶8ıµÃöÏ1
-s
-java:S1450"VRemove the "button1" field and declare it as a local variable in the relevant methods.(İ¢ÈÒ8Ò‚ñöÏ1
-v
-java:S1450
-"YRemove the "textField1" field and declare it as a local variable in the relevant methods.(×ŒàÌ8ıµÃöÏ1
-{
-java:S1450"YRemove the "textField2" field and declare it as a local variable in the relevant methods.(ˆûÓ‘ûÿÿÿÿ8şµÃöÏ1
-f
-java:S3252"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ŠˆÉöÏ1
-W	java:S125"<This block of commented-out lines of code should be removed.(÷ßí8´õæöÏ1
-{
-java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8¶ÃöÏ1
-o	java:S100'"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8‚¶ÃöÏ1
-o	java:S100I"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8—ÕöÏ1

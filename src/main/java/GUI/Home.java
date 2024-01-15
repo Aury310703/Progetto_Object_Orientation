@@ -1,5 +1,6 @@
 package GUI;
 
+import MODEL.Pagina;
 import controller.Controller;
 
 import javax.swing.*;
@@ -7,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -26,7 +28,7 @@ public class Home {
         frame.setContentPane(new Home().panel);
         frame.setSize(800, 700);
         frame.setLocationRelativeTo(null);
-        frame.setResizable(false);
+        //frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
@@ -60,6 +62,9 @@ public class Home {
                 listaTitoli.frame.setSize(500, 500);
                 listaTitoli.frame.setVisible(true);
                 frame.setVisible(false);
+                ArrayList<Pagina> pagine = new ArrayList<>();
+                pagine = controller.ricercaTitoli(titolo);
+
             }
         });
     }
