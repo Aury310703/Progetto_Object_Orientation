@@ -1,9 +1,14 @@
 package MODEL;
 
+import javax.xml.crypto.Data;
+import java.sql.Time;
+import java.util.Date;
+
 public class Frase {
     protected String stringa_inserita;
     public Frase(String s) {
         this.stringa_inserita = s;
+
     }
     protected Pagina pagina;
 
@@ -22,4 +27,5 @@ public class Frase {
     public void setPagina(Pagina pagina) {
         this.pagina = pagina;
     }
+
 }

@@ -23,7 +23,7 @@ public class Pagina {
     public Pagina(String titolo, LocalDateTime dataOra, String nome, String cognome, String login, String password, String email, Date dataNascita){
         this.titolo = titolo;
         this.dataOraCreazione = dataOra;
-        Autore autore = new Autore(nome, cognome, login, password, email, dataNascita,this);
+        this.autore = new Autore(nome, cognome, login, password, email, dataNascita,this);
     }
     private ArrayList <Visiona> visualizzatori = new ArrayList<>();
     private Autore autore;

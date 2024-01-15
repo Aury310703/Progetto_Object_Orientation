@@ -44,7 +44,7 @@ public class Home {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Login login = new Login(frame);
-                login.frame.setLocationRelativeTo(null);
+                login.frame.setLocationRelativeTo(frame);
                 login.frame.setResizable(false);
                 login.frame.setSize(400, 200);
                 login.frame.setVisible(true);
@@ -58,13 +58,10 @@ public class Home {
                 String titolo = CercaTestoField.getText();
                 ListaTitoli listaTitoli = new ListaTitoli(controller, frame, titolo);
                 //listaTitoli.frame.setResizable(false);
-                listaTitoli.frame.setLocationRelativeTo(null);
+                listaTitoli.frame.setLocationRelativeTo(frame);
                 listaTitoli.frame.setSize(500, 500);
                 listaTitoli.frame.setVisible(true);
                 frame.setVisible(false);
-                ArrayList<Pagina> pagine = new ArrayList<>();
-                pagine = controller.ricercaTitoli(titolo);
-
             }
         });
     }

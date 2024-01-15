@@ -1,36 +1,34 @@
 
 c
-java:S1192"FDefine a constant instead of duplicating this literal "it_IT" 3 times.(å¥•ı8òËôäĞ1
-u	java:S127‰"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8âßôäĞ1
+java:S1192"FDefine a constant instead of duplicating this literal "it_IT" 3 times.(å¥•ı8æÊŠèĞ1
+u	java:S127†"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8èÊŠèĞ1
 E
-java:S1604+"(Make this anonymous inner class a lambda(ô¯òÜ8öËôäĞ1
+java:S1604+"(Make this anonymous inner class a lambda(ô¯òÜ8ëÊŠèĞ1
 E
-java:S16047"(Make this anonymous inner class a lambda(±®Èî8öËôäĞ1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8ùËôäĞ1
-q	java:S116"VRename this field "LoginButton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú–€N8ŒÍôäĞ1
-{	java:S116"ZRename this field "CercaTestoField" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İíßÌûÿÿÿÿ8ÍôäĞ1
-w	java:S116"VRename this field "CercaButton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Üª¿ûÿÿÿÿ8ÍôäĞ1
+java:S16047"(Make this anonymous inner class a lambda(±®Èî8çëõîĞ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8„ËŠèĞ1
+q	java:S116"VRename this field "LoginButton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú–€N8ÒÌŠèĞ1
+{	java:S116"ZRename this field "CercaTestoField" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İíßÌûÿÿÿÿ8ÓÌŠèĞ1
+w	java:S116"VRename this field "CercaButton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Üª¿ûÿÿÿÿ8ÔÌŠèĞ1
 ˆ
-java:S3008n"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8³áôäĞ1
+java:S3008k"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8ÕÌŠèĞ1
 r
-java:S1450"URemove the "panel1" field and declare it as a local variable in the relevant methods.(–¾Ê‰8“ÍôäĞ1
+java:S1450"URemove the "panel1" field and declare it as a local variable in the relevant methods.(–¾Ê‰8İÌŠèĞ1
 ‚
-java:S1149ƒ"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8¼áôäĞ1
-]	java:S125"<This block of commented-out lines of code should be removed.(úÒ˜­ÿÿÿÿÿ8ßÍôäĞ1
+java:S1149€"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8âÌŠèĞ1
+]	java:S125"<This block of commented-out lines of code should be removed.(úÒ˜­ÿÿÿÿÿ8ïÌŠèĞ1
 f
-java:S3252 "IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8àÍôäĞ1
-\
-java:S1854B":Remove this useless assignment to local variable "pagine".(¯İè˜ÿÿÿÿÿ8üÍôäĞ1
-W
-java:S1854A":Remove this useless assignment to local variable "pagine".(åî¢Å8üÍôäĞ1
-]	java:S125<"<This block of commented-out lines of code should be removed.(ÂôØîøÿÿÿÿ8ÿÍôäĞ1
-H
-java:S1481A"+Remove this unused "pagine" local variable.(åî¢Å8ƒÎôäĞ1
+java:S3252 "IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ğÌŠèĞ1
+]	java:S125<"<This block of commented-out lines of code should be removed.(ÂôØîøÿÿÿÿ8ŒÍŠèĞ1
 {
-java:S1171H"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ÚáôäĞ1
-o	java:S100V"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8ÛáôäĞ1
-o	java:S100p"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8ïáôäĞ1
+java:S1171E"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8’ÍŠèĞ1
+o	java:S100S"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8“ÍŠèĞ1
+o	java:S100m"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8´ÍŠèĞ1
 S
-java:S2696v"6Make the enclosing method "static" or remove this set.(§¾ã8÷áôäĞ1
-k	java:S100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8úáôäĞ1
-p	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8…âôäĞ1
+java:S2696s"6Make the enclosing method "static" or remove this set.(§¾ã8¸ÍŠèĞ1
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8»ÍŠèĞ1
+p	java:S100š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8ÊÍŠèĞ1
+F
+java:S1128")Remove this unused import 'MODEL.Pagina'.(ÌñŸÈ8ƒíõîĞ1
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8„íõîĞ1

@@ -1,12 +1,18 @@
 package GUI;
 
+import MODEL.Pagina;
 import controller.Controller;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ListaTitoli {
@@ -19,7 +25,11 @@ public class ListaTitoli {
     private JButton entraButton;
     private JButton paginaPrecedenteButton;
     private JLabel TitoloLabel;
-    private JList TitoliList;
+    private JTable TitoliTable;
+    private JScrollPane scrollpane;
+
+    private Pagina paginaSelezionata;
+    ArrayList<Pagina>  pagine = new ArrayList<>();
 
     public ListaTitoli(Controller controller, JFrame frameC, String titolo) {
         frameChiamante = frameC;
@@ -27,6 +37,70 @@ public class ListaTitoli {
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+
+        pagine = controller.ricercaTitoli(titolo);
+//        DefaultListModel<String> listModel = new DefaultListModel<>();
+//        listModel.addElement("elemento 1");
+//        TitoliList = new JList<>(listModel);
+//
+//        for (Pagina i : pagine) {
+//            System.out.println("2");
+//            listModel.addElement(controller.getPaginaTitolo(i));
+//        }
+        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Pagine Trovate"}) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        TitoliTable.setModel(model);
+        TitoliTable.setRowHeight(50);
+        for (Pagina i : pagine) {
+            model.addRow(new Object[]{i.getTitolo()});
+
+        }
+
+        TitoliTable.addMouseListener((new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int selectedRow = TitoliTable.getSelectedRow();
+                    if (selectedRow != -1) {
+                        Object cellValue = TitoliTable.getValueAt(selectedRow, 0);
+                        String titolo = cellValue.toString();
+                        System.out.println(titolo);
+                        System.out.println("aia" + pagine.get(selectedRow).getAutore().getNome());
+
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, pagine.get(selectedRow));
+                        paginaTesto.frame.setLocationRelativeTo(frame);
+                        paginaTesto.frame.setResizable(false);
+                        //paginaTesto.frame.setSize(400, 200);
+                        paginaTesto.frame.setVisible(true);
+                        frame.setVisible(false);
+                    }
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        }));
 
         paginaPrecedenteButton.addActionListener(new ActionListener() {
             @Override
@@ -38,7 +112,6 @@ public class ListaTitoli {
         });
 
     }
-
 
 
     {
@@ -57,7 +130,7 @@ public class ListaTitoli {
      */
     private void $$$setupUI$$$() {
         panel = new JPanel();
-        panel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 2, new Insets(0, 0, 0, 0), -1, -1));
+        panel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 4, new Insets(0, 0, 0, 0), -1, -1));
         TitoloPanel = new JPanel();
         TitoloPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel.add(TitoloPanel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
@@ -66,7 +139,7 @@ public class ListaTitoli {
         TitoloPanel.add(TitoloLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         BottoniPanel = new JPanel();
         BottoniPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
-        panel.add(BottoniPanel, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        panel.add(BottoniPanel, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         entraButton = new JButton();
         this.$$$loadButtonText$$$(entraButton, this.$$$getMessageFromBundle$$$("it_IT", "LOGIN"));
         BottoniPanel.add(entraButton);
@@ -74,11 +147,11 @@ public class ListaTitoli {
         this.$$$loadButtonText$$$(paginaPrecedenteButton, this.$$$getMessageFromBundle$$$("it_IT", "paginaPrecedente"));
         BottoniPanel.add(paginaPrecedenteButton);
         final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
-        panel.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        TitoliList = new JList();
-        final DefaultListModel defaultListModel1 = new DefaultListModel();
-        TitoliList.setModel(defaultListModel1);
-        panel.add(TitoliList, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
+        panel.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(1, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        scrollpane = new JScrollPane();
+        panel.add(scrollpane, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        TitoliTable = new JTable();
+        scrollpane.setViewportView(TitoliTable);
     }
 
     private static Method $$$cachedGetBundleMethod$$$ = null;

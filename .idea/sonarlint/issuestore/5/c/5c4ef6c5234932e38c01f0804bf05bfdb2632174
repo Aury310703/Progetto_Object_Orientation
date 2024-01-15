@@ -23,10 +23,6 @@ java:S4165F"mRemove this useless assignment; "frasi_collegate" already holds th
 java:S4165V"cRemove this useless assignment; "frasi" already holds the assigned value along all execution paths.(‡¤†Ê8«ååõÏ1
 v	java:S116"ZRename this field "frasi_collegate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îºÔÎ8¬ååõÏ1
 ]	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.( ½‹«8°ååõÏ1
-\
-java:S1117":Rename "autore" which hides the field declared at line 29.(ù¯ıŸÿÿÿÿÿ8œ¤çõÏ1
-M
-java:S1481"+Remove this unused "autore" local variable.(ù¯ıŸÿÿÿÿÿ8¤çõÏ1
 o	java:S100A"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÄŠ•Âøÿÿÿÿ8¸ååõÏ1
 o	java:S100E"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å¾Ìüÿÿÿÿ8¸ååõÏ1
 `

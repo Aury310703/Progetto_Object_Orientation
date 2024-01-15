@@ -23,4 +23,18 @@ public class Controller {
         return pagineTrovate;
     }
 
+    public String getPaginaTitolo(Pagina i) {
+        return i.getTitolo();
+    }
+
+    public String getTestoPagina(Pagina paginaSelezionata) {
+        String testoPagina;
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        try {
+            testoPagina = w.getTestoPagina(paginaSelezionata);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return testoPagina;
+    }
 }
