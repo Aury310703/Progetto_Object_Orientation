@@ -1,5 +1,6 @@
 package dao;
 
+import MODEL.Frase;
 import MODEL.Pagina;
 
 import java.sql.SQLException;
@@ -8,5 +9,5 @@ import java.util.ArrayList;
 public interface WikiDAO {
 public ArrayList<Pagina> ricercaTitoli(String titoloInserito) throws SQLException;
 
-public String getTestoPagina(Pagina paginaSelezionata) throws SQLException;
+public ArrayList<Frase> getTestoPagina(Pagina paginaSelezionata) throws SQLException;
 }

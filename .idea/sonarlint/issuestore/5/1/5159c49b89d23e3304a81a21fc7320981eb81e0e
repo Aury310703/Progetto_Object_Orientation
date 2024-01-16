@@ -1,36 +1,32 @@
 
-l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡Ÿ×8Æ®íıĞ1
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ü²ñ™8É®íıĞ1
+n
+java:S1192R"LDefine a constant instead of duplicating this literal "numerazione" 3 times.(‘æ•×øÿÿÿÿ8ì˜ÿ›Ñ1
+r
+java:S1192R"PDefine a constant instead of duplicating this literal "stringainserita" 3 times.(‘æ•×øÿÿÿÿ8ì˜ÿ›Ñ1
+l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡Ÿ×8í˜ÿ›Ñ1
+m	java:S117n"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8í˜ÿ›Ñ1
+m	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿ€ø¾8í˜ÿ›Ñ1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ü²ñ™8ï˜ÿ›Ñ1
 q
-java:S2095#"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8çÉíıĞ1
+java:S2095B"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8ï²ÿ›Ñ1
 l
-java:S2095W"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ã²Ë8™ÉšşĞ1
+java:S2095V"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ã²Ë8ï²ÿ›Ñ1
 q
-java:S2095D"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8™ÉšşĞ1
-l
-java:S2095_"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Õ†‘¶8™ÉšşĞ1
+java:S2095#"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8ğ²ÿ›Ñ1
+q
+java:S2095."OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ÌÂæúÿÿÿÿ8ï²ÿ›Ñ1
 k
-java:S2095L"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8™ÉšşĞ1
-q
-java:S2095."OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ÌÂæúÿÿÿÿ8çÉíıĞ1
+java:S2095J"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8ï²ÿ›Ñ1
+l
+java:S2095^"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Õ†‘¶8ï²ÿ›Ñ1
 T
-java:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8êÉíıĞ1
-F	java:S106'"+Replace this use of System.out by a logger.(À®ù8ìÉíıĞ1
-L	java:S1064"+Replace this use of System.out by a logger.(Ô£Ïïıÿÿÿÿ8îÉíıĞ1
-G	java:S1067"+Replace this use of System.out by a logger.(ü¸œã8îÉíıĞ1
-t
-java:S3776?"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ªáÏôùÿÿÿÿ8ïÉíıĞ1
-<
-java:S1659m"Declare "k" on a separate line.(ÙÏÉÄ8ÜäûıĞ1
-X	java:S125B"<This block of commented-out lines of code should be removed.(ˆı™ñ8ğÉíıĞ1
-X	java:S125h"<This block of commented-out lines of code should be removed.(Îñä¸8Èø¨şĞ1
-F	java:S106r"+Replace this use of System.out by a logger.(ğä8“ÑùıĞ1
-G	java:S106s"+Replace this use of System.out by a logger.(¼Å‘ğ8”ÑùıĞ1
-L	java:S106t"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8•ÑùıĞ1
-L	java:S106w"+Replace this use of System.out by a logger.(Ö“Ñ»üÿÿÿÿ8•ÑùıĞ1
-G	java:S106x"+Replace this use of System.out by a logger.(Ú¢™ë8•ÑùıĞ1
-L	java:S106y"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8ÑüıĞ1
-H	java:S106€"+Replace this use of System.out by a logger.(ÈË“¥8§ç–şĞ1
-M	java:S106ƒ"+Replace this use of System.out by a logger.(­›Ëúÿÿÿÿ8÷Ç—şĞ1
-H	java:S106"+Replace this use of System.out by a logger.(ÇïÍ¿8¼Ë˜şĞ1
-H	java:S106"+Replace this use of System.out by a logger.(­à÷Ó8¼Ë˜şĞ1
+java:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ó²ÿ›Ñ1
+F	java:S106'"+Replace this use of System.out by a logger.(À®ù8õ²ÿ›Ñ1
+L	java:S1064"+Replace this use of System.out by a logger.(Ô£Ïïıÿÿÿÿ8ù²ÿ›Ñ1
+G	java:S1067"+Replace this use of System.out by a logger.(ü¸œã8ù²ÿ›Ñ1
+o
+java:S3776?"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÿÊü8û²ÿ›Ñ1
+L	java:S106R"+Replace this use of System.out by a logger.(‘æ•×øÿÿÿÿ8ÿ²ÿ›Ñ1
+X	java:S125g"<This block of commented-out lines of code should be removed.(Îñä¸8…³ÿ›Ñ1
+L	java:S106|"+Replace this use of System.out by a logger.(²øŸæûÿÿÿÿ8‡³ÿ›Ñ1
+G	java:S106"+Replace this use of System.out by a logger.(½ˆå­8ˆ³ÿ›Ñ1

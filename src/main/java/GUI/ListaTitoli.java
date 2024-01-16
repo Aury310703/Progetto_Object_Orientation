@@ -73,7 +73,7 @@ public class ListaTitoli {
 
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame, pagine.get(selectedRow));
                         paginaTesto.frame.setLocationRelativeTo(frame);
-                        paginaTesto.frame.setResizable(false);
+                        //paginaTesto.frame.setResizable(false);
                         //paginaTesto.frame.setSize(400, 200);
                         paginaTesto.frame.setVisible(true);
                         frame.setVisible(false);

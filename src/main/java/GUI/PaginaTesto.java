@@ -1,5 +1,6 @@
 package GUI;
 
+import MODEL.Frase;
 import MODEL.Pagina;
 import controller.Controller;
 
@@ -8,6 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PaginaTesto {
@@ -20,31 +22,43 @@ public class PaginaTesto {
     private JButton PrecedenteButton;
     private JLabel TitoloPaginaLabel;
     private JPanel TitoloPanel;
-    private JLabel testoLabel;
+    private JTextPane panelTesto;
+    //private JLabel testoLabel;
 
     public PaginaTesto(Controller controller, JFrame frameC, Pagina paginaSelezionata) {
+        panelTesto.setText("");
         frameChiamante = frameC;
         this.frame = new JFrame("Pagina");
         frame.setContentPane(panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        // Solo per visualizzare i confini del JLabel
+
+
+        // Impostare la politica di avvolgimento del testo
+        //estoLabel.setLineWrap(true);
+        //testoLabel.setWrapStyleWord(true);
 
         TitoloPaginaLabel.setText(paginaSelezionata.getTitolo());
 
-        String testoPagina = controller.getTestoPagina(paginaSelezionata);
-        System.out.println(testoPagina);
+        ArrayList<Frase> testoPagina = controller.getTestoPagina(paginaSelezionata);
+        String testo = "";
+        for (Frase f : testoPagina) {
+            testo = testo + " " + f.getStringa_inserita();
+        }
+        panelTesto.setText(testo);
+        panelTesto.setEditable(false);
 
         PrecedenteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 frameChiamante.setVisible(true);
-                //frame.dispose();
+                frame.dispose();
             }
         });
 
     }
-
 
 
     {
@@ -75,18 +89,17 @@ public class PaginaTesto {
         barraSUperiorePanel.add(PrecedenteButton);
         final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
         panel1.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(1, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        final JPanel panel2 = new JPanel();
-        panel2.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        panel1.add(panel2, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        testoLabel = new JLabel();
-        testoLabel.setText("Label");
-        panel2.add(testoLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         TitoloPanel = new JPanel();
         TitoloPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(TitoloPanel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         TitoloPaginaLabel = new JLabel();
         TitoloPaginaLabel.setText("Label");
         TitoloPanel.add(TitoloPaginaLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panelTesto = new JTextPane();
+        panelTesto.setEditable(false);
+        panelTesto.setVerifyInputWhenFocusTarget(true);
+        panelTesto.setVisible(true);
+        panel1.add(panelTesto, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
     }
 
     private static Method $$$cachedGetBundleMethod$$$ = null;
@@ -139,4 +152,5 @@ public class PaginaTesto {
     public JComponent $$$getRootComponent$$$() {
         return panel1;
     }
+
 }

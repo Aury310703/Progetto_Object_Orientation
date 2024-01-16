@@ -31,9 +31,9 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         ArrayList<Pagina> PagineTrovate = new ArrayList<>();
 
         try {
-            String query = "SELECT * FROM pagina WHERE titolo LIKE ?";
+            String query = "SELECT * FROM pagina WHERE LOWER(titolo) LIKE ?"; //LOWER TRASFORMA TITOLO IN MINUSCOLO
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, "%" + titoloInserito + "%");
+            preparedStatement.setString(1, "%" + titoloInserito.toLowerCase() + "%");
             ResultSet rs = preparedStatement.executeQuery();
             if(rs.wasNull()){
                 System.out.println("no");
@@ -60,10 +60,8 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
     }
 
     @Override
-    public String getTestoPagina(Pagina paginaSelezionata) throws SQLException {
-        String testoPagina = "";
+    public ArrayList<Frase> getTestoPagina(Pagina paginaSelezionata) throws SQLException {
 
-//        if()
         String query = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         Autore autore = paginaSelezionata.getAutore();
@@ -72,16 +70,17 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         rs.next();
         int idAutore = rs.getInt("idutente");
 
-        query ="SELECT * FROM frasecorrente F JOIN pagina P ON F.idPagina = P.idPagina WHERE idAutore = ?";
+        query ="SELECT * FROM frasecorrente F JOIN pagina P ON F.idPagina = P.idPagina WHERE idAutore = ? AND P.titolo = ? ORDER BY f.numerazione";
         preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, idAutore);
+        preparedStatement.setString(2,paginaSelezionata.getTitolo());
         rs = preparedStatement.executeQuery();
 
         Frase_Corrente frase = null;
         ModificaProposta fraseProposta = null;
         while(rs.next()){
+            System.out.println("->"+rs.getString("stringainserita")+rs.getInt("numerazione"));
             frase = new Frase_Corrente(rs.getString("stringainserita"), rs.getInt("numerazione"), paginaSelezionata, rs.getDate("datainserimento"), rs.getTime("orainserimento"));
-            paginaSelezionata.addFrasi(frase);
 
             String queryModifica = "SELECT * FROM modificaproposta WHERE idPagina = ? AND stringainserita = ? AND numerazione = ? AND stato = 1";
             PreparedStatement preparedStatementModifica = connection.prepareStatement(queryModifica);
@@ -106,42 +105,30 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
 
             }
         }
-        int j = 0, k = 0;
         ArrayList<Frase> frasiTesto= new ArrayList<>();
         int controllo = 0;
+        Frase fr_salvata = null;
         for(Frase_Corrente f : paginaSelezionata.getFrasi()){
-            j++;
-            System.out.println("primo for " + j);
-            System.out.println(f.getStringa_inserita());
-            System.out.println();
+            Date data_max = f.getDataInserimento();
             for(ModificaProposta fc : f.getProposte()){
-                k++;
-                System.out.println("secondo for " + k);
-                System.out.println(fc.getStringa_inserita());
-                System.out.println();
                 controllo = 1;
-                Date dataFraseCorrente = f.getDataInserimento();
                 Date dataModifica = fc.getDataValutazione();
 
-                if (dataFraseCorrente.compareTo(dataModifica) > 0) {
-                    frasiTesto.add(f.getNumerazione()-1, f);
-                    System.out.println(">");
+                if (data_max.compareTo(dataModifica) > 0) {
+                   fr_salvata = f;
                 } else {
-                    frasiTesto.add(f.getNumerazione()-1, fc);
-                    System.out.println("<");
+                    fr_salvata = fc;
                 }
             }
             if(controllo == 0){
-                frasiTesto.add(f.getNumerazione()-1, f);
+                System.out.println("ciao1");
+                frasiTesto.add(f.getNumerazione(), f);
+            }else{
+                System.out.println("ciao2");
+                frasiTesto.add(f.getNumerazione(), fr_salvata);
             }
             controllo = 0;
         }
-    int i = 0;
-        for(Frase frase1 : frasiTesto){
-            ++i;
-            System.out.println(i + "-- " + frase1.getStringa_inserita());
-        }
-        System.out.println(testoPagina);
-        return testoPagina;
+       return frasiTesto;
     }
 }

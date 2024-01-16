@@ -1,16 +1,0 @@
-
-
-java:S1319I"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ê•Åş8Ÿ¤ÇëÏ1
-
-java:S1319M"mThe type of "frasiProposte" should be an interface such as "List" rather than the implementation "ArrayList".(ˆ†îšûÿÿÿÿ8 ¤ÇëÏ1
-
-java:S1319Y"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(øĞ—Ö8 ¤ÇëÏ1
-
-java:S1319]"qThe type of "notificheRicevute" should be an interface such as "List" rather than the implementation "ArrayList".(ô¢¢ï8 ¤ÇëÏ1
-
-java:S1319i"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(˜ ¼ÿ8 ¤ÇëÏ1
-”
-java:S1319m"rThe type of "pagineVisualizzate" should be an interface such as "List" rather than the implementation "ArrayList".(¸ö“ıÿÿÿÿ8¡¤ÇëÏ1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™™òøÿÿÿÿ8£¤ÇëÏ1
-q	java:S116"PRename this field "Email" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Äé¡…úÿÿÿÿ8©¤ÇëÏ1
-w	java:S116"VRename this field "DataNascita" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤¸şÿÿÿÿ8ª¤ÇëÏ1

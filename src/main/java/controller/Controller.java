@@ -1,6 +1,7 @@
 package controller;
 
 import MODEL.Autore;
+import MODEL.Frase;
 import MODEL.Pagina;
 import MODEL.Utente;
 import dao.WikiDAO;
@@ -27,8 +28,8 @@ public class Controller {
         return i.getTitolo();
     }
 
-    public String getTestoPagina(Pagina paginaSelezionata) {
-        String testoPagina;
+    public ArrayList<Frase> getTestoPagina(Pagina paginaSelezionata) {
+        ArrayList<Frase> testoPagina;
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
             testoPagina = w.getTestoPagina(paginaSelezionata);
