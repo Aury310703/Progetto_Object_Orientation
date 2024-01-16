@@ -61,62 +61,87 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
 
     @Override
     public String getTestoPagina(Pagina paginaSelezionata) throws SQLException {
-        String testoPagina = null;
+        String testoPagina = "";
 
 //        if()
-        String query = "SELECT idutente FROM utente WHERE login = ? AND ruolo = " + "autore";
+        String query = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         Autore autore = paginaSelezionata.getAutore();
-        System.out.println(autore.getNome());
         preparedStatement.setString(1, autore.getLogin());
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
         int idAutore = rs.getInt("idutente");
 
-        query = "SELECT * FROM frase_corrente F JOIN pagina P ON F.idpagina = P.idpagina WHERE = P.idAutore = ?";
+        query ="SELECT * FROM frasecorrente F JOIN pagina P ON F.idPagina = P.idPagina WHERE idAutore = ?";
+        preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, idAutore);
         rs = preparedStatement.executeQuery();
-        if(rs == null){
 
-        }
         Frase_Corrente frase = null;
         ModificaProposta fraseProposta = null;
         while(rs.next()){
-            frase = new Frase_Corrente(rs.getString("stringainserita"), rs.getInt("numerazione"), paginaSelezionata, rs.getDate("dataonserimento"), rs.getTime("irainserimento"));
+            frase = new Frase_Corrente(rs.getString("stringainserita"), rs.getInt("numerazione"), paginaSelezionata, rs.getDate("datainserimento"), rs.getTime("orainserimento"));
             paginaSelezionata.addFrasi(frase);
-            String query2 = "SELECT * FROM modificaproposta WHERE idPagina = ? AND stringainserita = ? AND numerazione = ?";
-            PreparedStatement preparedStatement2 = connection.prepareStatement(query2);
-            preparedStatement2.setInt(1, rs.getInt("idPagina"));
-            preparedStatement2.setString(2, rs.getString("stringainserita"));
-            preparedStatement2.setInt(3, rs.getInt("numerazione"));
-            ResultSet rs2 = preparedStatement2.executeQuery();
 
-            String query3 = "SELECT * FROM Utente WHERE idutente = ?";
-            PreparedStatement preparedStatement3 = connection.prepareStatement(query3);
-            preparedStatement3.setInt(1, rs2.getInt("idutente"));
-            ResultSet rsUtente = preparedStatement3.executeQuery();
+            String queryModifica = "SELECT * FROM modificaproposta WHERE idPagina = ? AND stringainserita = ? AND numerazione = ? AND stato = 1";
+            PreparedStatement preparedStatementModifica = connection.prepareStatement(queryModifica);
+            preparedStatementModifica.setInt(1, rs.getInt("idPagina"));
+            preparedStatementModifica.setString(2, rs.getString("stringainserita"));
+            preparedStatementModifica.setInt(3, rs.getInt("numerazione"));
+            ResultSet rsModifica = preparedStatementModifica.executeQuery();
+            while(rsModifica.next()){
+                int idUtente = rsModifica.getInt("utentep");
+                String queryUtente = "SELECT * FROM Utente WHERE idutente = ?";
+                PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
+                preparedStatementUtente.setInt(1, idUtente);
+                ResultSet rsUtente = preparedStatementUtente.executeQuery();
+                while(rsUtente.next()){
+                    Utente utente = new Utente(rsUtente.getString("nome"), rsUtente.getString("cognome"), rsUtente.getString("login"), rsUtente.getString("password"), rsUtente.getString("email"), rsUtente.getDate("datanascita"));
 
-            Utente utente = new Utente(rsUtente.getString("nome"), rsUtente.getString("cognome"), rsUtente.getString("login"), rsUtente.getString("password"), rsUtente.getString("email"), rsUtente.getDate("datanascita"));
-
-            fraseProposta = new ModificaProposta(rs2.getDate("dataproposta"), rs2.getTime("oraproposta"), autore, utente, frase, rs2.getString("fraseProposta"));
-            fraseProposta.setDataProposta(rs2.getDate("dataValutazione"));
-            fraseProposta.setOraProposta(rs2.getTime("oravalutazione"));
-            frase.addProposte(fraseProposta);
-        }
-
-        String fraseTemp = "";
-        for(Frase_Corrente f : paginaSelezionata.getFrasi()){
-            for(ModificaProposta fc : frase.getProposte()){
-                Date dataFraseCorrente = f.getDataInserimento();
-                Date dataModifica = fc.getDataValutazione();
-                if(dataFraseCorrente.compareTo(dataModifica) > 0){
-                    fraseTemp = f.getStringa_inserita();
-                }else{
-                    fraseTemp = fc.getStringa_inserita();
+                    fraseProposta = new ModificaProposta(rsModifica.getDate("dataproposta"), rsModifica.getTime("oraproposta"), autore, utente, frase, rsModifica.getString("stringaProposta"));
+                    fraseProposta.setDataValutazione(rsModifica.getDate("dataValutazione"));
+                    fraseProposta.setOraValutazione(rsModifica.getTime("oravalutazione"));
+                    //frase.addProposte(fraseProposta);
                 }
-                testoPagina = testoPagina + fraseTemp;
+
             }
         }
+        int j = 0, k = 0;
+        ArrayList<Frase> frasiTesto= new ArrayList<>();
+        int controllo = 0;
+        for(Frase_Corrente f : paginaSelezionata.getFrasi()){
+            j++;
+            System.out.println("primo for " + j);
+            System.out.println(f.getStringa_inserita());
+            System.out.println();
+            for(ModificaProposta fc : f.getProposte()){
+                k++;
+                System.out.println("secondo for " + k);
+                System.out.println(fc.getStringa_inserita());
+                System.out.println();
+                controllo = 1;
+                Date dataFraseCorrente = f.getDataInserimento();
+                Date dataModifica = fc.getDataValutazione();
+
+                if (dataFraseCorrente.compareTo(dataModifica) > 0) {
+                    frasiTesto.add(f.getNumerazione()-1, f);
+                    System.out.println(">");
+                } else {
+                    frasiTesto.add(f.getNumerazione()-1, fc);
+                    System.out.println("<");
+                }
+            }
+            if(controllo == 0){
+                frasiTesto.add(f.getNumerazione()-1, f);
+            }
+            controllo = 0;
+        }
+    int i = 0;
+        for(Frase frase1 : frasiTesto){
+            ++i;
+            System.out.println(i + "-- " + frase1.getStringa_inserita());
+        }
+        System.out.println(testoPagina);
         return testoPagina;
     }
 }
