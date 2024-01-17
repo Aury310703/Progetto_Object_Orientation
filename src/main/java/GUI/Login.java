@@ -39,7 +39,7 @@ public class Login {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 frameChiamante.setVisible(true);
-                frame.dispose();
+               // frame.dispose();
 
             }
         });
@@ -63,6 +63,16 @@ public class Login {
                     homeLoggato.frame.setVisible(true);
                     frame.setVisible(false);
                 }
+            }
+        });
+
+        registratiButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Registazione registazione = new Registazione(controller, frame);
+                frame.setVisible(false);
+                registazione.frame.setVisible(true);
+                //frame.dispose();
             }
         });
     }

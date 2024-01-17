@@ -41,3 +41,7 @@ R
 "src/main/java/GUI/HomeLoggato.form,8\7\87470c55319e0dd53e9eda90eb905afd4e48d256
 K
 src/main/java/GUI/Home.form,7\d\7dcdd7a9bdb225cf74b15d4425ef6e1139aaa09c
+S
+#src/main/java/GUI/Registazione.java,6\1\61bcb2cf7a5abb571b78c5ba4b090ac1dabc63f4
+S
+#src/main/java/GUI/Registazione.form,e\9\e9b4d9ed3aa2f110878f360ff82cdca98f4625fb

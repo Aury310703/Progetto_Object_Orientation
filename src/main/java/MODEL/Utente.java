@@ -7,6 +7,7 @@ public class Utente {
     protected String cognome;
 
     protected String login;
+
     protected String password;
     protected String Email;
     protected Date DataNascita;

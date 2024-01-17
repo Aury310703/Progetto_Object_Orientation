@@ -65,6 +65,7 @@ public class HomeLoggato {
 
     public HomeLoggato(Controller controller, JFrame frameChiamante, Utente utenteLoggato) {
         this.frameChiamante = frameChiamante;
+        this.controller = controller;
         this.frame = new JFrame("HOME");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

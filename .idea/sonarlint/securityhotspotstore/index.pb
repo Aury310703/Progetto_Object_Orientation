@@ -37,3 +37,7 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+S
+#src/main/java/GUI/Registazione.java,6\1\61bcb2cf7a5abb571b78c5ba4b090ac1dabc63f4
+S
+#src/main/java/GUI/Registazione.form,e\9\e9b4d9ed3aa2f110878f360ff82cdca98f4625fb
