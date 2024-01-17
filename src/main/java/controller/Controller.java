@@ -38,4 +38,15 @@ public class Controller {
         }
         return testoPagina;
     }
+
+    public Utente verificaLoggato(String login, String password) {
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        Utente utenteLoggato = null;
+        try {
+            utenteLoggato = w.verificaLoggato(login, password);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return utenteLoggato;
+    }
 }

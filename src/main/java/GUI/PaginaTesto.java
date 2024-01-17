@@ -32,12 +32,6 @@ public class PaginaTesto {
         frame.setContentPane(panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        // Solo per visualizzare i confini del JLabel
-
-
-        // Impostare la politica di avvolgimento del testo
-        //estoLabel.setLineWrap(true);
-        //testoLabel.setWrapStyleWord(true);
 
         TitoloPaginaLabel.setText(paginaSelezionata.getTitolo());
 

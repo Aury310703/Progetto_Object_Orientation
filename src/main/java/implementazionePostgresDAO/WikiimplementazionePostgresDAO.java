@@ -61,8 +61,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
 
     @Override
     public ArrayList<Frase> getTestoPagina(Pagina paginaSelezionata) throws SQLException {
-
-        String query = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
+        String query = "SELECT idutente, login FROM utente WHERE login = ? LIMIT 1";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         Autore autore = paginaSelezionata.getAutore();
         preparedStatement.setString(1, autore.getLogin());
@@ -70,39 +69,40 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         rs.next();
         int idAutore = rs.getInt("idutente");
 
-        query ="SELECT * FROM frasecorrente F JOIN pagina P ON F.idPagina = P.idPagina WHERE idAutore = ? AND P.titolo = ? ORDER BY f.numerazione";
-        preparedStatement = connection.prepareStatement(query);
-        preparedStatement.setInt(1, idAutore);
-        preparedStatement.setString(2,paginaSelezionata.getTitolo());
-        rs = preparedStatement.executeQuery();
+        if(paginaSelezionata.getFrasi().isEmpty()) {
+            query = "SELECT * FROM frasecorrente F JOIN pagina P ON F.idPagina = P.idPagina WHERE idAutore = ? AND P.titolo = ? ORDER BY f.numerazione";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, idAutore);
+            preparedStatement.setString(2, paginaSelezionata.getTitolo());
+            rs = preparedStatement.executeQuery();
 
-        Frase_Corrente frase = null;
-        ModificaProposta fraseProposta = null;
-        while(rs.next()){
-            System.out.println("->"+rs.getString("stringainserita")+rs.getInt("numerazione"));
-            frase = new Frase_Corrente(rs.getString("stringainserita"), rs.getInt("numerazione"), paginaSelezionata, rs.getDate("datainserimento"), rs.getTime("orainserimento"));
+            Frase_Corrente frase = null;
+            ModificaProposta fraseProposta = null;
+            while (rs.next()) {
+                frase = new Frase_Corrente(rs.getString("stringainserita"), rs.getInt("numerazione"), paginaSelezionata, rs.getDate("datainserimento"), rs.getTime("orainserimento"));
 
-            String queryModifica = "SELECT * FROM modificaproposta WHERE idPagina = ? AND stringainserita = ? AND numerazione = ? AND stato = 1";
-            PreparedStatement preparedStatementModifica = connection.prepareStatement(queryModifica);
-            preparedStatementModifica.setInt(1, rs.getInt("idPagina"));
-            preparedStatementModifica.setString(2, rs.getString("stringainserita"));
-            preparedStatementModifica.setInt(3, rs.getInt("numerazione"));
-            ResultSet rsModifica = preparedStatementModifica.executeQuery();
-            while(rsModifica.next()){
-                int idUtente = rsModifica.getInt("utentep");
-                String queryUtente = "SELECT * FROM Utente WHERE idutente = ?";
-                PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
-                preparedStatementUtente.setInt(1, idUtente);
-                ResultSet rsUtente = preparedStatementUtente.executeQuery();
-                while(rsUtente.next()){
-                    Utente utente = new Utente(rsUtente.getString("nome"), rsUtente.getString("cognome"), rsUtente.getString("login"), rsUtente.getString("password"), rsUtente.getString("email"), rsUtente.getDate("datanascita"));
+                String queryModifica = "SELECT * FROM modificaproposta WHERE idPagina = ? AND stringainserita = ? AND numerazione = ? AND stato = 1";
+                PreparedStatement preparedStatementModifica = connection.prepareStatement(queryModifica);
+                preparedStatementModifica.setInt(1, rs.getInt("idPagina"));
+                preparedStatementModifica.setString(2, rs.getString("stringainserita"));
+                preparedStatementModifica.setInt(3, rs.getInt("numerazione"));
+                ResultSet rsModifica = preparedStatementModifica.executeQuery();
+                while (rsModifica.next()) {
+                    int idUtente = rsModifica.getInt("utentep");
+                    String queryUtente = "SELECT * FROM Utente WHERE idutente = ?";
+                    PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
+                    preparedStatementUtente.setInt(1, idUtente);
+                    ResultSet rsUtente = preparedStatementUtente.executeQuery();
+                    while (rsUtente.next()) {
+                        Utente utente = new Utente(rsUtente.getString("nome"), rsUtente.getString("cognome"), rsUtente.getString("login"), rsUtente.getString("password"), rsUtente.getString("email"), rsUtente.getDate("datanascita"));
 
-                    fraseProposta = new ModificaProposta(rsModifica.getDate("dataproposta"), rsModifica.getTime("oraproposta"), autore, utente, frase, rsModifica.getString("stringaProposta"));
-                    fraseProposta.setDataValutazione(rsModifica.getDate("dataValutazione"));
-                    fraseProposta.setOraValutazione(rsModifica.getTime("oravalutazione"));
-                    //frase.addProposte(fraseProposta);
+                        fraseProposta = new ModificaProposta(rsModifica.getDate("dataproposta"), rsModifica.getTime("oraproposta"), autore, utente, frase, rsModifica.getString("stringaProposta"));
+                        fraseProposta.setDataValutazione(rsModifica.getDate("dataValutazione"));
+                        fraseProposta.setOraValutazione(rsModifica.getTime("oravalutazione"));
+                        //frase.addProposte(fraseProposta);
+                    }
+
                 }
-
             }
         }
         ArrayList<Frase> frasiTesto= new ArrayList<>();
@@ -130,5 +130,19 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             controllo = 0;
         }
        return frasiTesto;
+    }
+
+    public Utente verificaLoggato(String login, String password) throws SQLException {
+        String query = "SELECT * FROM Utente WHERE LOWER(login) = ? AND password = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, login.toLowerCase());
+        preparedStatement.setString(2, password);
+        ResultSet rs = preparedStatement.executeQuery();
+        Utente utenteLoggato = null;
+        while(rs.next()){
+            if(rs != null)
+                utenteLoggato= new Utente(rs.getString("nome"), rs.getString("cognome"), login, password, rs.getString("email"), rs.getDate("dataNascita"));
+        }
+        return utenteLoggato;
     }
 }

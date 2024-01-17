@@ -1,6 +1,7 @@
 package GUI;
 
 import MODEL.Pagina;
+import MODEL.Utente;
 import controller.Controller;
 
 import javax.swing.*;
@@ -19,7 +20,8 @@ public class Home {
     private JButton CercaButton;
     private JPanel panel1;
     static JFrame frame = new JFrame("Home");
-    private Controller controller = new Controller();
+    public JFrame frameChiamante;
+    public Controller controller = new Controller();
     private String locale = "it_IT";
 
 
@@ -36,14 +38,11 @@ public class Home {
 
     }
 
-    public Home() {
-        LoginButton.setText(this.$$$getMessageFromBundle$$$(locale, "LOGIN"));
-        CercaButton.setText(this.$$$getMessageFromBundle$$$(locale, "cerca"));
-
+    void clickOnLoginButton() {
         LoginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Login login = new Login(frame);
+                Login login = new Login(controller, frame);
                 login.frame.setLocationRelativeTo(frame);
                 login.frame.setResizable(false);
                 login.frame.setSize(400, 200);
@@ -51,7 +50,23 @@ public class Home {
                 frame.setVisible(false);
             }
         });
+    }
 
+    void clickOnUsernameButton() {
+        LoginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Login login = new Login(controller, frame);
+                login.frame.setLocationRelativeTo(frame);
+                login.frame.setResizable(false);
+                login.frame.setSize(400, 200);
+                login.frame.setVisible(true);
+                frame.setVisible(false);
+            }
+        });
+    }
+
+    public void clickOnSearchButton() {
         CercaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -64,6 +79,15 @@ public class Home {
                 frame.setVisible(false);
             }
         });
+    }
+
+
+    public Home() {
+        LoginButton.setText(this.$$$getMessageFromBundle$$$(locale, "LOGIN"));
+        CercaButton.setText(this.$$$getMessageFromBundle$$$(locale, "cerca"));
+
+        clickOnLoginButton();
+        clickOnSearchButton();
     }
 
     {

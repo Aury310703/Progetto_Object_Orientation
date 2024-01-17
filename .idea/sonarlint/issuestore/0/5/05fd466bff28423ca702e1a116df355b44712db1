@@ -1,13 +1,12 @@
 
-g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8çè˜Ñ1
-g	java:S112%"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8çè˜Ñ1
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8È¥ò¸Ñ1
+g	java:S112%"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8É¥ò¸Ñ1
+g	java:S1120"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ïã¡¹Ñ1
 Œ
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(„Ê18çè˜Ñ1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(„Ê18Ê¥ò¸Ñ1
 
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¯Šñ§8ÂËé˜Ñ1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¯Šñ§8Ê¥ò¸Ñ1
 K
-java:S1128")Remove this unused import 'MODEL.Autore'.(Ë¾ˆøüÿÿÿÿ8¯Ş¨œÑ1
-F
-java:S1128")Remove this unused import 'MODEL.Utente'.(òêˆˆ8¯Ş¨œÑ1
+java:S1128")Remove this unused import 'MODEL.Autore'.(Ë¾ˆøüÿÿÿÿ8Ì·»Ñ1
 R
-java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8¯Ş¨œÑ1
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8Í·»Ñ1
