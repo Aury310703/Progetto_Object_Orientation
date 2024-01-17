@@ -145,4 +145,26 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         }
         return utenteLoggato;
     }
+
+    @Override
+    public void registrazione(String nome, String cognome, String nomeUtente, String password, String email, Date dataNascita) throws SQLException {
+        String query = "INSERT INTO Utente (nome,cognome,login,password,email,dataNascita) VALUES (?,?,?,?,?,?)";
+        PreparedStatement preparedStatement = null;
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1,nome);
+        preparedStatement.setString(2,cognome);
+        preparedStatement.setString(3,nomeUtente);
+        preparedStatement.setString(4,password);
+        preparedStatement.setString(5,email);
+        long timestamp = dataNascita.getTime();
+        java.sql.Date sqlDate = new java.sql.Date(timestamp);
+        preparedStatement.setDate(6, sqlDate);
+        int rowsAffected = preparedStatement.executeUpdate();
+
+        if (rowsAffected > 0) {
+            System.out.println("Inserimento riuscito!");
+        } else {
+            System.out.println("Nessuna riga inserita.");
+        }
+    }
 }

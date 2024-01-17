@@ -1,35 +1,39 @@
 
 e
-java:S11922"HDefine a constant instead of duplicating this literal "cognome" 3 times.(ª’àó8±©š¹Ñ1
+java:S11922"HDefine a constant instead of duplicating this literal "cognome" 3 times.(ª’àó8˜»ÄÑ1
 c
-java:S11922"FDefine a constant instead of duplicating this literal "email" 3 times.(ª’àó8±©š¹Ñ1
-l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡Ÿ×8²©š¹Ñ1
-m	java:S117n"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8²©š¹Ñ1
-m	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿ€ø¾8²©š¹Ñ1
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ü²ñ™8³©š¹Ñ1
-q
-java:S2095#"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8µÁš¹Ñ1
-q
-java:S2095A"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8µÁš¹Ñ1
+java:S11922"FDefine a constant instead of duplicating this literal "email" 3 times.(ª’àó8˜»ÄÑ1
+l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡Ÿ×8™»ÄÑ1
+m	java:S117n"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8™»ÄÑ1
+m	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿ€ø¾8™»ÄÑ1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ü²ñ™8œ»ÄÑ1
 l
-java:S2095U"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ã²Ë8µÁš¹Ñ1
-r
-java:S2095‰"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8µÁš¹Ñ1
+java:S2095]"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Õ†‘¶8Š”»ÄÑ1
 k
-java:S2095J"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8µÁš¹Ñ1
+java:S2095J"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8Š”»ÄÑ1
+r
+java:S2095‰"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8Š”»ÄÑ1
 l
-java:S2095]"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Õ†‘¶8µÁš¹Ñ1
+java:S2095™"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8Š”»ÄÑ1
 q
-java:S2095."OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ÌÂæúÿÿÿÿ8µÁš¹Ñ1
+java:S2095."OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ÌÂæúÿÿÿÿ8Š”»ÄÑ1
+l
+java:S2095U"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ã²Ë8Š”»ÄÑ1
+q
+java:S2095#"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8Š”»ÄÑ1
+q
+java:S2095A"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8İšÀÄÑ1
 Z
-java:S2589"7Remove this expression which always evaluates to "true"(œ‹ì†üÿÿÿÿ8Îø±¹Ñ1
+java:S2589"7Remove this expression which always evaluates to "true"(œ‹ì†üÿÿÿÿ8Š”»ÄÑ1
 T
-java:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8»Áš¹Ñ1
-F	java:S106'"+Replace this use of System.out by a logger.(À®ù8ÀÁš¹Ñ1
-L	java:S1064"+Replace this use of System.out by a logger.(Ô£Ïïıÿÿÿÿ8ÄÁš¹Ñ1
-G	java:S1067"+Replace this use of System.out by a logger.(ü¸œã8ÅÁš¹Ñ1
+java:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8”»ÄÑ1
+F	java:S106'"+Replace this use of System.out by a logger.(À®ù8”»ÄÑ1
+L	java:S1064"+Replace this use of System.out by a logger.(Ô£Ïïıÿÿÿÿ8“”»ÄÑ1
+G	java:S1067"+Replace this use of System.out by a logger.(ü¸œã8“”»ÄÑ1
 o
-java:S3776?"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÿÊü8ÆÁš¹Ñ1
-X	java:S125f"<This block of commented-out lines of code should be removed.(Îñä¸8ËÁš¹Ñ1
-L	java:S106|"+Replace this use of System.out by a logger.(²øŸæûÿÿÿÿ8ÌÁš¹Ñ1
-G	java:S106"+Replace this use of System.out by a logger.(½ˆå­8ÍÁš¹Ñ1
+java:S3776?"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÿÊü8””»ÄÑ1
+X	java:S125f"<This block of commented-out lines of code should be removed.(Îñä¸8˜”»ÄÑ1
+L	java:S106|"+Replace this use of System.out by a logger.(²øŸæûÿÿÿÿ8™”»ÄÑ1
+G	java:S106"+Replace this use of System.out by a logger.(½ˆå­8™”»ÄÑ1
+H	java:S106¥"+Replace this use of System.out by a logger.(¿›†ª8ªÓÅÑ1
+G	java:S106§"+Replace this use of System.out by a logger.(˜¸®;8ªÓÅÑ1

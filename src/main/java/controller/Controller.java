@@ -10,6 +10,7 @@ import implementazionePostgresDAO.WikiimplementazionePostgresDAO;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Controller {
 
@@ -48,5 +49,14 @@ public class Controller {
             throw new RuntimeException(e);
         }
         return utenteLoggato;
+    }
+
+    public void registrazioneUtente(String nome, String cognome, String nomeUtente, String password, String email, Date dataNascita) {
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        try {
+            w.registrazione(nome,cognome,nomeUtente,password,email,dataNascita);
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
     }
 }

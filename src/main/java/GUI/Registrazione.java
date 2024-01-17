@@ -6,10 +6,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.lang.reflect.Method;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
+import javax.swing.JFormattedTextField;
 
-public class Registazione {
+
+public class Registrazione {
     public JFrame frame;
     public JFrame frameChimante;
     public Controller controller;
@@ -33,16 +40,33 @@ public class Registazione {
     private JLabel emailLabel;
     private JTextField emailField;
     private JPanel dataNascitaPanel;
-    private JTextField textField2;
     private JButton paginaPrecedenteButton;
     private JButton registratiButton;
+    private JFormattedTextField dataField;
 
-    public Registazione(Controller controller, JFrame frameChiamante) {
+    public Registrazione(Controller controller, JFrame frameChiamante) {
         this.frameChimante = frameChiamante;
         this.frame = new JFrame("Registazione");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+
+        dataField.setForeground(Color.GRAY);
+        dataField.setText("AAAA-MM-GG");
+
+        // Colore del cursore quando il campo è vuoto
+        dataField.setCaretColor(Color.GRAY);
+
+        // Aggiungi un listener per rimuovere il testo suggerito quando il campo ottiene il focus
+        dataField.addFocusListener(new FocusAdapter() {
+            public void focusGained(FocusEvent evt) {
+                if (dataField.getText().equals("AAAA-MM_GG")) {
+                    dataField.setText("");
+                    dataField.setForeground(Color.BLACK); // Cambia il colore del testo quando in modifica
+                }
+            }
+        });
+
 
         paginaPrecedenteButton.addActionListener(new ActionListener() {
             @Override
@@ -57,12 +81,43 @@ public class Registazione {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String nome = nomeField.getText();
-                emailField.setText("ciao");
+                String cognome = cognomeField.getText();
+                String nomeUtente = nomeUtenteField.getText();
+                String password = passwordField.getText();
+                String email = emailField.getText();
+                String dataNascita = dataField.getText();
 
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+                Date dataN = null;
+                try {
+                    // Parsa la stringa della data usando il formato predefinito
+                    dataN = dateFormat.parse(dataNascita);
+
+                    // Stampa la data ottenuta
+                    System.out.println("Data ottenuta: " + dataN);
+                } catch (ParseException pe) {
+                    pe.printStackTrace();
+                }
+                controller.registrazioneUtente(nome, cognome, nomeUtente, password, email, dataN);
+                RegistrazioneBuonFine registrazioneBuonFine = new RegistrazioneBuonFine(frame, frameChiamante, controller);
+                registrazioneBuonFine.frame.setVisible(true);
             }
         });
     }
 
+    /*public static boolean isValidEmail(String email) {
+        // Definisci il pattern per un indirizzo email
+        String emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$";
+
+        // Crea il pattern
+        Pattern pattern = Pattern.compile(emailRegex);
+
+        // Crea il matcher
+        Matcher matcher = pattern.matcher(email);
+
+        // Verifica se il formato dell'email è corretto
+        return matcher.matches();
+    }*/
 
 
     {
@@ -97,8 +152,9 @@ public class Registazione {
         final JLabel label1 = new JLabel();
         this.$$$loadLabelText$$$(label1, this.$$$getMessageFromBundle$$$("it_IT", "data nascita"));
         dataNascitaPanel.add(label1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        textField2 = new JTextField();
-        dataNascitaPanel.add(textField2, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        dataField = new JFormattedTextField();
+        dataField.setText("");
+        dataNascitaPanel.add(dataField, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         emailPanel = new JPanel();
         emailPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
         panel.add(emailPanel, new com.intellij.uiDesigner.core.GridConstraints(6, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));

@@ -19,10 +19,12 @@ S
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 _
 /src/main/java/database/ConnessioneDatabase.java,c\c\cc6637f4448f72f749fd185cb4312475e161ad72
-N
-src/main/java/MODEL/Frase.java,b\7\b7cb78e5cdb18e3df27626c87593ba455ca367cf
 W
 'src/main/java/MODEL/Frase_Corrente.java,d\1\d16f8025f9ec5d15d951bfb96711437068fc83aa
+K
+src/main/java/GUI/Home.java,3\c\3cdbf704492b54ced45c9ce2d236deccb04af514
+N
+src/main/java/MODEL/Frase.java,b\7\b7cb78e5cdb18e3df27626c87593ba455ca367cf
 O
 src/main/java/MODEL/Utente.java,3\b\3b07e6bbcf3da3f26471c7d6aa3734832a32ece5
 Y
@@ -33,8 +35,6 @@ L
 src/main/java/GUI/Login.form,0\2\02109b8a5187c8648f06d4aba1ff20ff84cd97f4
 L
 src/main/java/GUI/Login.java,4\c\4cfca573878b5a2d4be5830dba0e07b361ed8e0a
-K
-src/main/java/GUI/Home.java,3\c\3cdbf704492b54ced45c9ce2d236deccb04af514
 R
 "src/main/java/GUI/HomeLoggato.java,4\6\463dc8c734a24d3daeea82e09f8043f6bbcb96f7
 R
@@ -45,3 +45,15 @@ S
 #src/main/java/GUI/Registazione.java,6\1\61bcb2cf7a5abb571b78c5ba4b090ac1dabc63f4
 S
 #src/main/java/GUI/Registazione.form,e\9\e9b4d9ed3aa2f110878f360ff82cdca98f4625fb
+T
+$src/main/java/GUI/Registrazione.java,3\f\3fec6e1d5c80b151f72e3673a7756698bb0c50b0
+T
+$src/main/java/GUI/Registrazione.form,1\f\1f5bf736b8b061396b2e0079b2ecef34571072e6
+\
+,src/main/java/GUI/registrazioneBuonFine.java,8\a\8a4d6ad886091751838894df7ee7cac4e8ae1eb2
+\
+,src/main/java/GUI/registrazioneBuonFine.form,b\e\be8d1ac97a4dcc34296e746150453c052fa9482b
+\
+,src/main/java/GUI/RegistrazioneBuonFine.form,0\d\0d3aa97e41bfbee8de6646e827ee3c980492d3d7
+\
+,src/main/java/GUI/RegistrazioneBuonFine.java,4\e\4e2f35999a8d2d8ab18f2530aea7427e8615f90d
