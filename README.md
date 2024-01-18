@@ -124,7 +124,7 @@ BEGIN
             IF new.utentep != (SELECT idautore FROM Pagina WHERE idPagina = new.idPagina) THEN
                 -- Inserisci un nuovo record nella tabella NOTIFICA
                 INSERT INTO NOTIFICA
-                    VALUES (new.IdPagina, new.utentep, NOW(), NOW(), new.autorev, v_titolo);
+                    VALUES (new.IdPagina, new.utentep, NOW(), NOW(), new.autorev, v_titolo, new.idModifica);
                 RAISE NOTICE 'è stata proposta una modifica alla pagina ';
                 RETURN new;
             ELSE
