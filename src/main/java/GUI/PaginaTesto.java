@@ -60,6 +60,13 @@ public class PaginaTesto {
                 frame.dispose();
             }
         });
+        modificaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Errori errori = new Errori("Loggarsi prima di modificare");
+                errori.frame.setVisible(true);
+            }
+        });
 
     }
 

@@ -1,10 +1,6 @@
 
 R
 "src/main/java/GUI/HomeLoggato.java,4\6\463dc8c734a24d3daeea82e09f8043f6bbcb96f7
-S
-#src/main/java/GUI/Registazione.java,6\1\61bcb2cf7a5abb571b78c5ba4b090ac1dabc63f4
-S
-#src/main/java/GUI/Registazione.form,e\9\e9b4d9ed3aa2f110878f360ff82cdca98f4625fb
 K
 src/main/java/GUI/Home.java,3\c\3cdbf704492b54ced45c9ce2d236deccb04af514
 X
