@@ -2,20 +2,23 @@ package MODEL;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class ModificaProposta extends Frase {
     private int stato = 0;
-    private Date dataProposta;
-    private Time oraProposta;
-    private Date dataValutazione;
-    private Time oraValutazione;
-    public ModificaProposta(Date dP, Time oP, Autore a, Utente u, Frase_Corrente fc, String s){
+    private LocalDate dataProposta;
+    private LocalTime oraProposta;
+    private LocalDate dataValutazione;
+    private LocalTime oraValutazione;
+    public ModificaProposta(LocalDate dP, LocalTime oP, Autore a, Utente u, Frase_Corrente fc, String s, int numerazione){
         super(s);
         this.dataProposta = dP;
         this.oraProposta = oP;
         this.autore = a;
         this.utente = u;
         this.fraseCorrente = fc;
+        this.Numerazione = numerazione;
         a.getValutate().add(this);
         u.frasiProposte.add(this);
         fc.getProposte().add(this);
@@ -32,35 +35,35 @@ public class ModificaProposta extends Frase {
         this.stato = stato;
     }
 
-    public Date getDataProposta() {
+    public LocalDate getDataProposta() {
         return dataProposta;
     }
 
-    public void setDataProposta(Date dataProposta) {
+    public void setDataProposta(LocalDate dataProposta) {
         this.dataProposta = dataProposta;
     }
 
-    public Date getDataValutazione() {
+    public LocalDate getDataValutazione() {
         return dataValutazione;
     }
 
-    public void setDataValutazione(Date dataValutazione) {
+    public void setDataValutazione(LocalDate dataValutazione) {
         this.dataValutazione = dataValutazione;
     }
 
-    public Time getOraProposta() {
+    public LocalTime getOraProposta() {
         return oraProposta;
     }
 
-    public void setOraProposta(Time oraProposta) {
+    public void setOraProposta(LocalTime oraProposta) {
         this.oraProposta = oraProposta;
     }
 
-    public Time getOraValutazione() {
+    public LocalTime getOraValutazione() {
         return oraValutazione;
     }
 
-    public void setOraValutazione(Time oraValutazione) {
+    public void setOraValutazione(LocalTime oraValutazione) {
         this.oraValutazione = oraValutazione;
     }
 

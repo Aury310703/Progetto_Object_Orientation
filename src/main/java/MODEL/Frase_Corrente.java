@@ -1,15 +1,15 @@
 package MODEL;
 
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Frase_Corrente extends Frase {
-    private int Numerazione;
-    private Date dataInserimento;
+    private LocalDate dataInserimento;
     private Time oraInserimento;
 
-    public Frase_Corrente(String s, int n, Pagina p, Date dataInserimento, Time oraInserimento) {
+    public Frase_Corrente(String s, int n, Pagina p, LocalDate dataInserimento, Time oraInserimento) {
         super(s);
         this.Numerazione = n;
         this.pagina = p;
@@ -28,7 +28,7 @@ public class Frase_Corrente extends Frase {
         Numerazione = numerazione;
     }
 
-    public Date getDataInserimento() {
+    public LocalDate getDataInserimento() {
         return dataInserimento;
     }
 
@@ -36,7 +36,7 @@ public class Frase_Corrente extends Frase {
         return oraInserimento;
     }
 
-    public void setDataInserimento(Date dataInserimento) {
+    public void setDataInserimento(LocalDate dataInserimento) {
         this.dataInserimento = dataInserimento;
     }
 

@@ -1,9 +1,6 @@
 package controller;
 
-import MODEL.Autore;
-import MODEL.Frase;
-import MODEL.Pagina;
-import MODEL.Utente;
+import MODEL.*;
 import dao.WikiDAO;
 import implementazionePostgresDAO.WikiimplementazionePostgresDAO;
 
@@ -58,5 +55,17 @@ public class Controller {
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean inviaProposta(Pagina paginaSelezionata, Frase_Corrente fraseSelezionata, String fraseProposta, Utente utenteLoggato) {
+        boolean controllo = false;
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        try {
+            if(w.inviaProposta(paginaSelezionata, fraseSelezionata, fraseProposta, utenteLoggato));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        controllo = true;
+        return controllo;
     }
 }

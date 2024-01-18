@@ -27,7 +27,7 @@ public class Login {
     public Controller controller;
     String locale = "it_IT";
 
-    public Login(Controller controller, JFrame frameChiamante) {
+    public Login(Controller controller, JFrame frameChiamante, String controllo) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Login");
         frame.setContentPane(panel);
@@ -39,7 +39,7 @@ public class Login {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 frameChiamante.setVisible(true);
-               // frame.dispose();
+                // frame.dispose();
 
             }
         });
@@ -59,20 +59,76 @@ public class Login {
                 }
 
                 if (utenteLoggato != null) {
-                    HomeLoggato homeLoggato = new HomeLoggato(controller, frame, utenteLoggato);
-                    homeLoggato.frame.setVisible(true);
-                    frame.setVisible(false);
+                    if (controllo.equals("Home")) {
+                        HomeLoggato homeLoggato = new HomeLoggato(controller, frame, utenteLoggato);
+                        homeLoggato.frame.setVisible(true);
+                        frame.setVisible(false);
+                    }
                 }
             }
         });
-
         registratiButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Registrazione registazione = new Registrazione(controller, frame);
                 frame.setVisible(false);
                 registazione.frame.setVisible(true);
-                //frame.dispose();
+                //9frame.dispose();
+            }
+        });
+    }
+
+    public Login(Controller controller, JFrame frameChiamante, String controllo, String titolo) {
+        this.frameChiamante = frameChiamante;
+        this.frame = new JFrame("Login");
+        frame.setContentPane(panel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+
+        dietroButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                frameChiamante.setVisible(true);
+                // frame.dispose();
+
+            }
+        });
+
+        entraButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String login = nomeUtenteField.getText();
+                String password = passwordField.getText();
+                Utente utenteLoggato = controller.verificaLoggato(login, password);
+                if (utenteLoggato == null && (!login.isEmpty() || !password.isEmpty())) {
+                    ErroreLoginLabel.setText("nomeutente o password errati, riprovare");
+                } else if (login.isEmpty()) {
+                    ErroreLoginLabel.setText("inserire nomeutente");
+                } else if (password.isEmpty()) {
+                    ErroreLoginLabel.setText("inserire password");
+                }
+
+                if (utenteLoggato != null) {
+                    if (controllo.equals("listaTitoli")) {
+                        ListaTitoli listaTitoli = new ListaTitoli(controller, frame, titolo, utenteLoggato);
+                        frame.setVisible(false);
+                        listaTitoli.frame.setVisible(true);
+                    } else if (controllo.equals("Home")) {
+                        HomeLoggato homeLoggato = new HomeLoggato(controller, frame, utenteLoggato);
+                        homeLoggato.frame.setVisible(true);
+                        frame.setVisible(false);
+                    }
+                }
+            }
+        });
+        registratiButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Registrazione registazione = new Registrazione(controller, frame);
+                frame.setVisible(false);
+                registazione.frame.setVisible(true);
+                //9frame.dispose();
             }
         });
     }

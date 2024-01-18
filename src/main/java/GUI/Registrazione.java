@@ -60,7 +60,7 @@ public class Registrazione {
         // Aggiungi un listener per rimuovere il testo suggerito quando il campo ottiene il focus
         dataField.addFocusListener(new FocusAdapter() {
             public void focusGained(FocusEvent evt) {
-                if (dataField.getText().equals("AAAA-MM_GG")) {
+                if (dataField.getText().equals("AAAA-MM-GG")) {
                     dataField.setText("");
                     dataField.setForeground(Color.BLACK); // Cambia il colore del testo quando in modifica
                 }
@@ -86,6 +86,12 @@ public class Registrazione {
                 String password = passwordField.getText();
                 String email = emailField.getText();
                 String dataNascita = dataField.getText();
+
+
+                if (dataNascita == null) {
+                    Errori errori = new Errori("il formata della data inserita non è corretta \n 'AAAA-MM-GG'");
+                    errori.frame.setVisible(true);
+                }
 
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
                 Date dataN = null;

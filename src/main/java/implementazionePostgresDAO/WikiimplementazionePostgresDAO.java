@@ -5,11 +5,10 @@ import MODEL.*;
 import dao.WikiDAO;
 import database.ConnessioneDatabase;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -79,7 +78,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             Frase_Corrente frase = null;
             ModificaProposta fraseProposta = null;
             while (rs.next()) {
-                frase = new Frase_Corrente(rs.getString("stringainserita"), rs.getInt("numerazione"), paginaSelezionata, rs.getDate("datainserimento"), rs.getTime("orainserimento"));
+                frase = new Frase_Corrente(rs.getString("stringainserita"), rs.getInt("numerazione"), paginaSelezionata, rs.getDate("datainserimento").toLocalDate(), rs.getTime("orainserimento"));
 
                 String queryModifica = "SELECT * FROM modificaproposta WHERE idPagina = ? AND stringainserita = ? AND numerazione = ? AND stato = 1";
                 PreparedStatement preparedStatementModifica = connection.prepareStatement(queryModifica);
@@ -96,9 +95,9 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
                     while (rsUtente.next()) {
                         Utente utente = new Utente(rsUtente.getString("nome"), rsUtente.getString("cognome"), rsUtente.getString("login"), rsUtente.getString("password"), rsUtente.getString("email"), rsUtente.getDate("datanascita"));
 
-                        fraseProposta = new ModificaProposta(rsModifica.getDate("dataproposta"), rsModifica.getTime("oraproposta"), autore, utente, frase, rsModifica.getString("stringaProposta"));
-                        fraseProposta.setDataValutazione(rsModifica.getDate("dataValutazione"));
-                        fraseProposta.setOraValutazione(rsModifica.getTime("oravalutazione"));
+                        fraseProposta = new ModificaProposta(rsModifica.getDate("dataproposta").toLocalDate(), rsModifica.getTime("oraproposta").toLocalTime(), autore, utente, frase, rsModifica.getString("stringaProposta"), frase.getNumerazione());
+                        fraseProposta.setDataValutazione(rsModifica.getDate("dataValutazione").toLocalDate());
+                        fraseProposta.setOraValutazione(rsModifica.getTime("oravalutazione").toLocalTime());
                         //frase.addProposte(fraseProposta);
                     }
 
@@ -109,10 +108,10 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         int controllo = 0;
         Frase fr_salvata = null;
         for(Frase_Corrente f : paginaSelezionata.getFrasi()){
-            Date data_max = f.getDataInserimento();
+            LocalDate data_max = f.getDataInserimento();
             for(ModificaProposta fc : f.getProposte()){
                 controllo = 1;
-                Date dataModifica = fc.getDataValutazione();
+                LocalDate dataModifica = fc.getDataValutazione();
 
                 if (data_max.compareTo(dataModifica) > 0) {
                    fr_salvata = f;
@@ -167,4 +166,83 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             System.out.println("Nessuna riga inserita.");
         }
     }
+
+    public boolean inviaProposta(Pagina paginaSelezionata, Frase_Corrente fraseSelezionata, String fraseProposta, Utente utenteLoggato) throws SQLException {
+        boolean controllo = false;
+        String query = "SELECT idutente, login FROM utente WHERE login = ? LIMIT 1";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, paginaSelezionata.getAutore().getLogin());
+        ResultSet rs = preparedStatement.executeQuery();
+        rs.next();
+        int idAutore = rs.getInt("idutente");
+        System.out.println("idAutore = " + idAutore);
+
+        preparedStatement.setString(1, utenteLoggato.getLogin());
+        rs = preparedStatement.executeQuery();
+        rs.next();
+        int idUtente = rs.getInt("idUtente");
+        System.out.println("idUtente = " + idUtente);
+
+        query = "SELECT idPagina FROM pagina WHERE idAutore = ? AND titolo = ? AND dataOraCreazione = ?";
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, idAutore);
+        preparedStatement.setString(2, paginaSelezionata.getTitolo());
+        preparedStatement.setTimestamp(3, Timestamp.valueOf(paginaSelezionata.getDataCreazione()));
+        rs = preparedStatement.executeQuery();
+        rs.next();
+        int idPagina = rs.getInt("idPagina");
+
+        query = "INSERT INTO modificaProposta(stringaProposta, utenteP, autoreV, stringaInserita, numerazione, idPagina) VALUES (?,?,?,?,?,?)";
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, fraseProposta);
+        preparedStatement.setInt(2, idUtente);
+        preparedStatement.setInt(3, idAutore);
+        preparedStatement.setString(4, fraseSelezionata.getStringa_inserita());
+        preparedStatement.setInt(5, fraseSelezionata.getNumerazione());
+        preparedStatement.setInt(6, idPagina);
+
+        int rowsAffected = preparedStatement.executeUpdate();
+
+        if (rowsAffected > 0) {
+            System.out.println("Inserimento riuscito!");
+            controllo = true;
+        } else {
+            System.out.println("Nessuna riga inserita.");
+        }
+
+//        query = "SELECT idModifica FROM modificaProposta WHERE stringaProposta = ? AND utenteP = ? AND autoreV = ? AND stringaInserita = ? AND numerazione = ? AND idPagina = ? ORDER BY dataproposta DESC, oraproposta DESC LIMIT 1";
+//        preparedStatement = connection.prepareStatement(query);
+//        preparedStatement.setString(1, fraseProposta);
+//        preparedStatement.setInt(2, idUtente);
+//        preparedStatement.setInt(3, idAutore);
+//        preparedStatement.setString(4, fraseSelezionata.getStringa_inserita());
+//        System.out.println("------------------" + fraseSelezionata.getStringa_inserita());
+//        preparedStatement.setInt(5, fraseSelezionata.getNumerazione());
+//        preparedStatement.setInt(6, idPagina);
+//        rs = preparedStatement.executeQuery();
+//        rs.next();
+//        int idModifica = rs.getInt("idModifica");
+//        System.out.println("id modifica = " + idModifica);
+//
+//        query = "INSERT INTO notifica(idPagina, idUtente, idAutore, idModifica, titolo) VALUES (?,?,?,?,?)";
+//        preparedStatement = connection.prepareStatement(query);
+//        preparedStatement.setInt(1, idPagina);
+//        preparedStatement.setInt(2, idUtente);
+//        preparedStatement.setInt(3, idAutore);
+//        preparedStatement.setInt(4, idModifica);
+//        preparedStatement.setString(5, paginaSelezionata.getTitolo());
+//        rowsAffected = preparedStatement.executeUpdate();
+//
+//        if (rowsAffected > 0) {
+//            System.out.println("Inserimento riuscito!");
+//            controllo = true;
+//        } else {
+//            System.out.println("Nessuna riga inserita.");
+//        }
+
+        ModificaProposta modificaProposta = new ModificaProposta(LocalDate.now(), LocalTime.now(), paginaSelezionata.getAutore(), utenteLoggato, fraseSelezionata, fraseSelezionata.getStringa_inserita(), fraseSelezionata.getNumerazione());
+        fraseSelezionata.addProposte(modificaProposta);
+        return controllo;
+    }
+
 }

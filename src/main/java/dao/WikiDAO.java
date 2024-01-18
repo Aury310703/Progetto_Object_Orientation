@@ -1,6 +1,7 @@
 package dao;
 
 import MODEL.Frase;
+import MODEL.Frase_Corrente;
 import MODEL.Pagina;
 import MODEL.Utente;
 
@@ -16,6 +17,8 @@ public ArrayList<Frase> getTestoPagina(Pagina paginaSelezionata) throws SQLExcep
 public Utente verificaLoggato(String login, String password) throws SQLException;
 
 void registrazione(String nome, String cognome, String nomeUtente, String password, String email, Date dataNascita) throws SQLException;
+
+public boolean inviaProposta(Pagina paginaSelezionata, Frase_Corrente fraseSelezionata, String fraseProposta, Utente utenetLoggato) throws SQLException;
 }
 
 

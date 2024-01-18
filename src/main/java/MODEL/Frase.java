@@ -6,6 +6,7 @@ import java.util.Date;
 
 public class Frase {
     protected String stringa_inserita;
+    protected int Numerazione;
     public Frase(String s) {
         this.stringa_inserita = s;
 
