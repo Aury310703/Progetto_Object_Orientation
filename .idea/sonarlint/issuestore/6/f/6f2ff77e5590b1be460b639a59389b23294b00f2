@@ -71,6 +71,8 @@ java:S2696ó"6Make the enclosing method "static" or remove this set.(§¾ã8É®ó
 k	java:S100ÿ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§¨¡³8Í®óĞ1
 k	java:S100š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8Ø®óĞ1
 p	java:S100µ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8ä®óĞ1
+i
+java:S1128	"GRemove this unused import 'javax.swing.table.DefaultTableCellRenderer'.(ÈĞ“ìşÿÿÿÿ8ª®È‹Ò1
 T
 java:S1068"2Remove this unused "frameChiamante" private field.(°ˆ‚àıÿÿÿÿ8‰‹ÄìÑ1
 R

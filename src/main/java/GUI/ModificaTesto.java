@@ -46,6 +46,25 @@ public class ModificaTesto {
             listModel.addElement(f.getStringa_inserita());
         }
 
+        frasiList.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting()) {
+                    // Ottieni l'elemento selezionato
+                    Object selectedObject = frasiList.getSelectedValue();
+
+                    // Esegui un'azione in base all'elemento selezionato
+                    if (selectedObject != null) {
+                        int indiceElemento = frasiList.getSelectedIndex();
+                        String selectedValue = (String) selectedObject;
+                        PropostaModifica propostaModifica = new PropostaModifica(controller, frame, paginaSelezionata, paginaSelezionata.getFrasi().get(indiceElemento), utenteLoggato);
+                        frame.setVisible(false);
+                        propostaModifica.frame.setVisible(true);
+                    }
+                }
+            }
+        });
+
         paginaPrecedenteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

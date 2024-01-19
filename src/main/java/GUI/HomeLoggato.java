@@ -64,6 +64,17 @@ public class HomeLoggato {
         });
     }
 
+    public void clickOnCreaPaginaButton(Utente utenteLoggato) {
+        creaPaginaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CreaPagina creaPagina = new CreaPagina(controller, frame, utenteLoggato);
+                frame.setVisible(false);
+                creaPagina.frame.setVisible(true);
+            }
+        });
+    }
+
     public HomeLoggato(Controller controller, JFrame frameChiamante, Utente utenteLoggato) {
         this.frameChiamante = frameChiamante;
         this.controller = controller;
@@ -75,6 +86,7 @@ public class HomeLoggato {
         clickOnSearchButton(utenteLoggato);
         clickOnUsernameButton();
         clickOnLogoutButton();
+        clickOnCreaPaginaButton(utenteLoggato);
     }
 
     {
