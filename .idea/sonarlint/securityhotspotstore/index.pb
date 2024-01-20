@@ -31,3 +31,11 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+Q
+!src/main/java/GUI/CreaPagina.form,2\8\28aa69d7795a6ef0a9bd003c5fa638037f6b15ff
+Q
+!src/main/java/GUI/CreaPagina.java,6\5\65290d43217edcc65c1095fe533328c0a2c491e2
+R
+"src/main/java/GUI/HomeLoggato.form,8\7\87470c55319e0dd53e9eda90eb905afd4e48d256
+K
+src/main/java/GUI/Home.form,7\d\7dcdd7a9bdb225cf74b15d4425ef6e1139aaa09c

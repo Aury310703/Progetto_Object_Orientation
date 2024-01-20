@@ -71,7 +71,9 @@ public class PaginaTesto {
         Entrabutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Login login = new Login(controller, frame, "Paginatesto");
+                Login login = new Login(controller, frame, "paginaTesto", paginaSelezionata);
+                frame.setVisible(false);
+                login.frame.setVisible(true);
             }
         });
 
@@ -89,6 +91,7 @@ public class PaginaTesto {
         dataCreazioneLabel.setText(this.$$$getMessageFromBundle$$$(locale, "dataPublicazione") + ": " + paginaSelezionata.getDataCreazione().getYear());
 
         TitoloPaginaLabel.setText(paginaSelezionata.getTitolo());
+        Entrabutton.setText(utenteLoggato.getLogin());
 
         ArrayList<Frase> testoPagina = controller.getTestoPagina(paginaSelezionata);
         String testo = "";

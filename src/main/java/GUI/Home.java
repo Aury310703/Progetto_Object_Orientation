@@ -42,7 +42,8 @@ public class Home {
         LoginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Login login = new Login(controller, frame, "Home");
+                Pagina paginatmp = null;
+                Login login = new Login(controller, frame, "Home", paginatmp);
                 login.frame.setLocationRelativeTo(frame);
                 login.frame.setResizable(false);
                 login.frame.setSize(400, 200);

@@ -1,5 +1,6 @@
 package GUI;
 
+import MODEL.Pagina;
 import MODEL.Utente;
 import controller.Controller;
 
@@ -27,7 +28,7 @@ public class Login {
     public Controller controller;
     String locale = "it_IT";
 
-    public Login(Controller controller, JFrame frameChiamante, String controllo) {
+    public Login(Controller controller, JFrame frameChiamante, String controllo, Pagina paginaSelezionata) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Login");
         frame.setContentPane(panel);
@@ -63,6 +64,10 @@ public class Login {
                         HomeLoggato homeLoggato = new HomeLoggato(controller, frame, utenteLoggato);
                         homeLoggato.frame.setVisible(true);
                         frame.setVisible(false);
+                    } else if (controllo.equals("paginaTesto")) {
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, paginaSelezionata, utenteLoggato);
+                        frame.setVisible(false);
+                        paginaTesto.frame.setVisible(true);
                     }
                 }
             }
@@ -118,9 +123,6 @@ public class Login {
                         HomeLoggato homeLoggato = new HomeLoggato(controller, frame, utenteLoggato);
                         homeLoggato.frame.setVisible(true);
                         frame.setVisible(false);
-                    }else if (controllo.equals("paginaTesto")) {
-                        controller.
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, )
                     }
                 }
             }

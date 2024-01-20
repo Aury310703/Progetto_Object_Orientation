@@ -1,0 +1,60 @@
+
+h
+java:S1192"FDefine a constant instead of duplicating this literal "it_IT" 6 times.(È’¡°ûÿÿÿÿ8æº×»Ò1
+u	java:S127à"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8çº×»Ò1
+u	java:S127û"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8çº×»Ò1
+E
+java:S1604&"(Make this anonymous inner class a lambda(ä¼‘–8èº×»Ò1
+J
+java:S16040"(Make this anonymous inner class a lambda(•±òîûÿÿÿÿ8èº×»Ò1
+J
+java:S1604K"(Make this anonymous inner class a lambda(õ¬­üÿÿÿÿ8èº×»Ò1
+E
+java:S1604]"(Make this anonymous inner class a lambda(ä¼‘–8èº×»Ò1
+J
+java:S1604g"(Make this anonymous inner class a lambda(•±òîûÿÿÿÿ8ÙõÛ»Ò1
+K
+java:S1604‚"(Make this anonymous inner class a lambda(õ¬­üÿÿÿÿ8ÚõÛ»Ò1
+n
+java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8éº×»Ò1
+s
+java:S1104"VMake controller a static final constant or non-public and provide accessors if needed.(Ó‘çõ8éº×»Ò1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8ìº×»Ò1
+|	java:S116"[Rename this field "ErroreLoginLabel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù€—ºúÿÿÿÿ8Ó»×»Ò1
+‰
+java:S3008Å"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8Ó»×»Ò1
+€
+java:S1450"^Remove the "nomeUtenteLabel" field and declare it as a local variable in the relevant methods.(È¼×áûÿÿÿÿ8Ö»×»Ò1
+y
+java:S1450"\Remove the "passwordLabel" field and declare it as a local variable in the relevant methods.(‰É¨Š8Ö»×»Ò1
+‚
+java:S1149Ú"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8Ø»×»Ò1
+‚
+java:S1149õ"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8Ø»×»Ò1
+f
+java:S3252#"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8å»×»Ò1
+]	java:S125+"<This block of commented-out lines of code should be removed.(«Ô˜öşÿÿÿÿ8æ»×»Ò1
+Q
+java:S18744"/Remove this use of "getText"; it is deprecated.(ğÑøˆÿÿÿÿÿ8é»×»Ò1
+R
+java:S2209A"5Change this instance-reference to a static reference.(‘ïÁÔ8ì»×»Ò1
+X	java:S125Q"<This block of commented-out lines of code should be removed.(Ûµƒ8â»×»Ò1
+f
+java:S3252Z"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8¬÷Û»Ò1
+]	java:S125b"<This block of commented-out lines of code should be removed.(«Ô˜öşÿÿÿÿ8¯÷Û»Ò1
+Q
+java:S1874k"/Remove this use of "getText"; it is deprecated.(ğÑøˆÿÿÿÿÿ8µ÷Û»Ò1
+R
+java:S2209|"5Change this instance-reference to a static reference.(‘ïÁÔ8½÷Û»Ò1
+Y	java:S125ˆ"<This block of commented-out lines of code should be removed.(Ûµƒ8ï»×»Ò1
+|
+java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ï»×»Ò1
+p	java:S100›"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8ï»×»Ò1
+p	java:S100Ç"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8ı»×»Ò1
+T
+java:S2696Í"6Make the enclosing method "static" or remove this set.(§¾ã8ş»×»Ò1
+k	java:S100Ù"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§¨¡³8ş»×»Ò1
+k	java:S100ô"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8‚¼×»Ò1
+p	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8†¼×»Ò1
+T
+java:S1068"2Remove this unused "frameChiamante" private field.(°ˆ‚àıÿÿÿÿ8‡¼×»Ò1
