@@ -80,7 +80,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             while (rs.next()) {
                 frase = new Frase_Corrente(rs.getString("stringainserita"), rs.getInt("numerazione"), paginaSelezionata, rs.getDate("datainserimento").toLocalDate(), rs.getTime("orainserimento"));
 
-                String queryModifica = "SELECT * FROM modificaproposta WHERE idPagina = ? AND stringainserita = ? AND numerazione = ? AND stato = 1";
+                String queryModifica = "SELECT * FROM modificaproposta WHERE idPagina = ? AND stringainserita = ? AND numerazione = ?";
                 PreparedStatement preparedStatementModifica = connection.prepareStatement(queryModifica);
                 preparedStatementModifica.setInt(1, rs.getInt("idPagina"));
                 preparedStatementModifica.setString(2, rs.getString("stringainserita"));
@@ -94,10 +94,13 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
                     ResultSet rsUtente = preparedStatementUtente.executeQuery();
                     while (rsUtente.next()) {
                         Utente utente = new Utente(rsUtente.getString("nome"), rsUtente.getString("cognome"), rsUtente.getString("login"), rsUtente.getString("password"), rsUtente.getString("email"), rsUtente.getDate("datanascita"));
-
+                        int stato = rsModifica.getInt("stato");
                         fraseProposta = new ModificaProposta(rsModifica.getDate("dataproposta").toLocalDate(), rsModifica.getTime("oraproposta").toLocalTime(), autore, utente, frase, rsModifica.getString("stringaProposta"), frase.getNumerazione());
-                        fraseProposta.setDataValutazione(rsModifica.getDate("dataValutazione").toLocalDate());
-                        fraseProposta.setOraValutazione(rsModifica.getTime("oravalutazione").toLocalTime());
+                        if(stato ==  1) {
+                            fraseProposta.setDataValutazione(rsModifica.getDate("dataValutazione").toLocalDate());
+                            fraseProposta.setOraValutazione(rsModifica.getTime("oravalutazione").toLocalTime());
+                        }
+                        fraseProposta.setStato(stato);
                         //frase.addProposte(fraseProposta);
                     }
 
@@ -110,20 +113,19 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         for(Frase_Corrente f : paginaSelezionata.getFrasi()){
             LocalDate data_max = f.getDataInserimento();
             for(ModificaProposta fc : f.getProposte()){
-                controllo = 1;
-                LocalDate dataModifica = fc.getDataValutazione();
-
-                if (data_max.compareTo(dataModifica) > 0) {
-                   fr_salvata = f;
-                } else {
-                    fr_salvata = fc;
+                if(fc.getStato() == 1) {
+                    controllo = 1;
+                    LocalDate dataModifica = fc.getDataValutazione();
+                    if (data_max.compareTo(dataModifica) > 0) {
+                        fr_salvata = f;
+                    } else {
+                        fr_salvata = fc;
+                    }
                 }
             }
             if(controllo == 0){
-                System.out.println("ciao1");
                 frasiTesto.add(f.getNumerazione(), f);
             }else{
-                System.out.println("ciao2");
                 frasiTesto.add(f.getNumerazione(), fr_salvata);
             }
             controllo = 0;
@@ -210,38 +212,12 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             System.out.println("Nessuna riga inserita.");
         }
 
-//        query = "SELECT idModifica FROM modificaProposta WHERE stringaProposta = ? AND utenteP = ? AND autoreV = ? AND stringaInserita = ? AND numerazione = ? AND idPagina = ? ORDER BY dataproposta DESC, oraproposta DESC LIMIT 1";
-//        preparedStatement = connection.prepareStatement(query);
-//        preparedStatement.setString(1, fraseProposta);
-//        preparedStatement.setInt(2, idUtente);
-//        preparedStatement.setInt(3, idAutore);
-//        preparedStatement.setString(4, fraseSelezionata.getStringa_inserita());
-//        System.out.println("------------------" + fraseSelezionata.getStringa_inserita());
-//        preparedStatement.setInt(5, fraseSelezionata.getNumerazione());
-//        preparedStatement.setInt(6, idPagina);
-//        rs = preparedStatement.executeQuery();
-//        rs.next();
-//        int idModifica = rs.getInt("idModifica");
-//        System.out.println("id modifica = " + idModifica);
-//
-//        query = "INSERT INTO notifica(idPagina, idUtente, idAutore, idModifica, titolo) VALUES (?,?,?,?,?)";
-//        preparedStatement = connection.prepareStatement(query);
-//        preparedStatement.setInt(1, idPagina);
-//        preparedStatement.setInt(2, idUtente);
-//        preparedStatement.setInt(3, idAutore);
-//        preparedStatement.setInt(4, idModifica);
-//        preparedStatement.setString(5, paginaSelezionata.getTitolo());
-//        rowsAffected = preparedStatement.executeUpdate();
-//
-//        if (rowsAffected > 0) {
-//            System.out.println("Inserimento riuscito!");
-//            controllo = true;
-//        } else {
-//            System.out.println("Nessuna riga inserita.");
-//        }
-
-        ModificaProposta modificaProposta = new ModificaProposta(LocalDate.now(), LocalTime.now(), paginaSelezionata.getAutore(), utenteLoggato, fraseSelezionata, fraseSelezionata.getStringa_inserita(), fraseSelezionata.getNumerazione());
-        fraseSelezionata.addProposte(modificaProposta);
+        ModificaProposta modificaProposta = new ModificaProposta(LocalDate.now(), LocalTime.now(), paginaSelezionata.getAutore(), utenteLoggato, fraseSelezionata, fraseProposta, fraseSelezionata.getNumerazione());
+        if(idAutore == idUtente){
+            modificaProposta.setOraValutazione(LocalTime.now());
+            modificaProposta.setDataValutazione(LocalDate.now());
+            modificaProposta.setStato(1);
+        }
         return controllo;
     }
 

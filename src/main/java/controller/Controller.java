@@ -68,4 +68,32 @@ public class Controller {
         controllo = true;
         return controllo;
     }
+
+    public ArrayList<Frase> componiTesto(Pagina paginaSelezionata) {
+        ArrayList<Frase> frasiTesto= new ArrayList<>();
+        int controllo = 0;
+        Frase fr_salvata = null;
+        for(Frase_Corrente f : paginaSelezionata.getFrasi()){
+            LocalDate data_max = f.getDataInserimento();
+            for(ModificaProposta fc : f.getProposte()){
+                if(fc.getStato() == 1) {
+                    controllo = 1;
+                    LocalDate dataModifica = fc.getDataValutazione();
+
+                    if (data_max.compareTo(dataModifica) > 0) {
+                        fr_salvata = f;
+                    } else {
+                        fr_salvata = fc;
+                    }
+                }
+            }
+            if(controllo == 0){
+                frasiTesto.add(f.getNumerazione(), f);
+            }else{
+                frasiTesto.add(f.getNumerazione(), fr_salvata);
+            }
+            controllo = 0;
+        }
+        return frasiTesto;
+    }
 }

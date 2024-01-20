@@ -118,6 +118,9 @@ public class Login {
                         HomeLoggato homeLoggato = new HomeLoggato(controller, frame, utenteLoggato);
                         homeLoggato.frame.setVisible(true);
                         frame.setVisible(false);
+                    }else if (controllo.equals("paginaTesto")) {
+                        controller.
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, )
                     }
                 }
             }

@@ -68,6 +68,13 @@ public class PaginaTesto {
             }
         });
 
+        Entrabutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Login login = new Login(controller, frame, "Paginatesto");
+            }
+        });
+
     }
 
     public PaginaTesto(Controller controller, JFrame frameC, Pagina paginaSelezionata, Utente utenteLoggato) {
@@ -104,7 +111,7 @@ public class PaginaTesto {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                ModificaTesto modificaTesto = new ModificaTesto(controller, frame, paginaSelezionata, utenteLoggato);
+                ModificaTesto modificaTesto = new ModificaTesto(controller, frame, paginaSelezionata, utenteLoggato, testoPagina);
                 modificaTesto.frame.setVisible(true);
             }
         });

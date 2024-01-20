@@ -1,54 +1,58 @@
 
 h
-java:S1192 "FDefine a constant instead of duplicating this literal "it_IT" 4 times.(¯—Çòÿÿÿÿÿ8ÌÖìÑ1
+java:S1192 "FDefine a constant instead of duplicating this literal "it_IT" 4 times.(¯—Çòÿÿÿÿÿ8éŸ»¶Ò1
 i
-java:S1192“"FDefine a constant instead of duplicating this literal "Label" 3 times.(§ßÁ‡üÿÿÿÿ8ÏÖìÑ1
-u	java:S127Å"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8ĞÖìÑ1
+java:S1192š"FDefine a constant instead of duplicating this literal "Label" 3 times.(§ßÁ‡üÿÿÿÿ8éŸ»¶Ò1
+u	java:S127Ì"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8éŸ»¶Ò1
 D
-java:S16047"(Make this anonymous inner class a lambda(ê©k8ÑÖìÑ1
+java:S16047"(Make this anonymous inner class a lambda(ê©k8ëŸ»¶Ò1
 J
-java:S1604?"(Make this anonymous inner class a lambda(­àÕùÿÿÿÿ8ÑÖìÑ1
+java:S1604?"(Make this anonymous inner class a lambda(­àÕùÿÿÿÿ8ëŸ»¶Ò1
+E
+java:S1604G"(Make this anonymous inner class a lambda(ã»ñ«8ëŸ»¶Ò1
 D
-java:S1604^"(Make this anonymous inner class a lambda(ê©k8ÑÖìÑ1
+java:S1604e"(Make this anonymous inner class a lambda(ê©k8ëŸ»¶Ò1
 J
-java:S1604g"(Make this anonymous inner class a lambda(­àÕùÿÿÿÿ8Ä™æìÑ1
+java:S1604n"(Make this anonymous inner class a lambda(­àÕùÿÿÿÿ8ëŸ»¶Ò1
 >
-java:S16432"Use a StringBuilder instead.(‰·¼Ãøÿÿÿÿ8ÒÖìÑ1
+java:S16432"Use a StringBuilder instead.(‰·¼Ãøÿÿÿÿ8ìŸ»¶Ò1
 >
-java:S1643Y"Use a StringBuilder instead.(‰·¼Ãøÿÿÿÿ8ÒÖìÑ1
+java:S1643`"Use a StringBuilder instead.(‰·¼Ãøÿÿÿÿ8ìŸ»¶Ò1
 n
-java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8ÓÖìÑ1
+java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8ìŸ»¶Ò1
 s
-java:S1104"VMake controller a static final constant or non-public and provide accessors if needed.(Ó‘çõ8ÓÖìÑ1
+java:S1104"VMake controller a static final constant or non-public and provide accessors if needed.(Ó‘çõ8ìŸ»¶Ò1
 t
-java:S1104 "RMake locale a static final constant or non-public and provide accessors if needed.(¯—Çòÿÿÿÿÿ8ÔÖìÑ1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8ØÖìÑ1
-r	java:S116"VRename this field "Entrabutton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ‡â©8Ç‚ÖìÑ1
-|	java:S116"[Rename this field "PrecedenteButton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†„‡¿ÿÿÿÿÿ8Ç‚ÖìÑ1
-}	java:S116"\Rename this field "TitoloPaginaLabel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Áóûøÿÿÿÿ8È‚ÖìÑ1
-w	java:S116"VRename this field "TitoloPanel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Å»Ìıÿÿÿÿ8È‚ÖìÑ1
+java:S1104 "RMake locale a static final constant or non-public and provide accessors if needed.(¯—Çòÿÿÿÿÿ8ìŸ»¶Ò1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8ïŸ»¶Ò1
+r	java:S116"VRename this field "Entrabutton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ‡â©8Õ »¶Ò1
+|	java:S116"[Rename this field "PrecedenteButton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†„‡¿ÿÿÿÿÿ8Õ »¶Ò1
+}	java:S116"\Rename this field "TitoloPaginaLabel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Áóûøÿÿÿÿ8Õ »¶Ò1
+w	java:S116"VRename this field "TitoloPanel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Å»Ìıÿÿÿÿ8Ö »¶Ò1
 ‰
-java:S3008ª"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8È‚ÖìÑ1
-w
-java:S1450"ZRemove the "Entrabutton" field and declare it as a local variable in the relevant methods.(Ñ‡â©8Ê‚ÖìÑ1
+java:S3008±"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8Ö »¶Ò1
 |
-java:S1450"ZRemove the "TitoloPanel" field and declare it as a local variable in the relevant methods.(´Å»Ìıÿÿÿÿ8Ê‚ÖìÑ1
+java:S1450"ZRemove the "TitoloPanel" field and declare it as a local variable in the relevant methods.(´Å»Ìıÿÿÿÿ8Ù »¶Ò1
 
-java:S1450"bRemove the "barraSUperiorePanel" field and declare it as a local variable in the relevant methods.(ÒÒ§€8Ë‚ÖìÑ1
+java:S1450"bRemove the "barraSUperiorePanel" field and declare it as a local variable in the relevant methods.(ÒÒ§€8Ù »¶Ò1
 €
-java:S1450"^Remove the "infoAutorePanel" field and declare it as a local variable in the relevant methods.(Ö”Ôäùÿÿÿÿ8Ë‚ÖìÑ1
+java:S1450"^Remove the "infoAutorePanel" field and declare it as a local variable in the relevant methods.(Ö”Ôäùÿÿÿÿ8Ú »¶Ò1
 ‚
-java:S1149¿"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8Î‚ÖìÑ1
-X	java:S125"<This block of commented-out lines of code should be removed.(òÒÈå8Ò‚ÖìÑ1
+java:S1149Æ"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8İ »¶Ò1
+X	java:S125"<This block of commented-out lines of code should be removed.(òÒÈå8ß »¶Ò1
 f
-java:S3252'"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8Ö‚ÖìÑ1
+java:S3252'"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ã »¶Ò1
+[
+java:S1854J"9Remove this useless assignment to local variable "login".(ó®”ûûÿÿÿÿ8ğ »¶Ò1
+L
+java:S1481J"*Remove this unused "login" local variable.(ó®”ûûÿÿÿÿ8ò »¶Ò1
 f
-java:S3252N"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8Ü‚ÖìÑ1
+java:S3252U"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ô »¶Ò1
 {
-java:S1171s"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ä‚ÖìÑ1
-p	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8ä‚ÖìÑ1
-p	java:S100¬"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8ô‚ÖìÑ1
+java:S1171z"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ü »¶Ò1
+p	java:S100ˆ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8ü »¶Ò1
+p	java:S100³"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8’¡»¶Ò1
 T
-java:S2696²"6Make the enclosing method "static" or remove this set.(§¾ã8÷‚ÖìÑ1
-k	java:S100¾"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8ø‚ÖìÑ1
-p	java:S100Ù"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8ü‚ÖìÑ1
+java:S2696¹"6Make the enclosing method "static" or remove this set.(§¾ã8”¡»¶Ò1
+k	java:S100Å"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8•¡»¶Ò1
+p	java:S100à"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8˜¡»¶Ò1

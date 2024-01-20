@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 
 public class HomeLoggato {
 
-    public JFrame frame;
+    public static JFrame frame = new JFrame("WIKI");
     public JFrame frameChiamante;
     private JPanel panel;
     private JPanel panel1;

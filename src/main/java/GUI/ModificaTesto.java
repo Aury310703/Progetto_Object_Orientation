@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ModificaTesto {
@@ -31,7 +32,7 @@ public class ModificaTesto {
 
     public Controller controller;
 
-    public ModificaTesto(Controller controller, JFrame frameChiamante, Pagina paginaSelezionata, Utente utenteLoggato) {
+    public ModificaTesto(Controller controller, JFrame frameChiamante, Pagina paginaSelezionata, Utente utenteLoggato, ArrayList<Frase> testo) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Modifica");
         frame.setContentPane(panel);
@@ -42,7 +43,7 @@ public class ModificaTesto {
         frasiList.setModel(listModel);
 
 
-        for (Frase f : paginaSelezionata.getFrasi()) {
+        for (Frase f : testo) {
             listModel.addElement(f.getStringa_inserita());
         }
 
@@ -57,7 +58,7 @@ public class ModificaTesto {
                     if (selectedObject != null) {
                         int indiceElemento = frasiList.getSelectedIndex();
                         String selectedValue = (String) selectedObject;
-                        PropostaModifica propostaModifica = new PropostaModifica(controller, frame, paginaSelezionata, paginaSelezionata.getFrasi().get(indiceElemento), utenteLoggato);
+                        PropostaModifica propostaModifica = new PropostaModifica(controller, frame, paginaSelezionata, testo.get(indiceElemento), utenteLoggato);
                         frame.setVisible(false);
                         propostaModifica.frame.setVisible(true);
                     }
@@ -71,7 +72,7 @@ public class ModificaTesto {
                 frame.setVisible(false);
                 frameChiamante.setVisible(true);
                 frame.dispose();
-                ;
+
             }
         });
     }

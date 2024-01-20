@@ -1,14 +1,16 @@
 
-g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8•€ÄìÑ1
-g	java:S112#"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8–€ÄìÑ1
-g	java:S112."FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8–€ÄìÑ1
-g	java:S1128"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8–€ÄìÑ1
-g	java:S112B"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8—€ÄìÑ1
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ëŽÏ´Ò1
+g	java:S112#"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8îŽÏ´Ò1
+g	java:S112."FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8îŽÏ´Ò1
+g	java:S1128"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8îŽÏ´Ò1
+g	java:S112B"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8îŽÏ´Ò1
 Œ
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(„Ê18˜€ÄìÑ1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(„Ê18òŽÏ´Ò1
 
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¯Šñ§8˜€ÄìÑ1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¯Šñ§8òŽÏ´Ò1
+
+java:S1319H"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÿÄ”ÿ8óŽÏ´Ò1
+m	java:S117K"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8ôŽÏ´Ò1
+r	java:S117M"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ÕÙ©øÿÿÿÿ8ôŽÏ´Ò1
 >
-java:S1116@"Remove this empty statement.(“•²ˆøÿÿÿÿ8±€ÄìÑ1
-R
-java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ8Ë°Ì‹Ò1
+java:S1116@"Remove this empty statement.(“•²ˆøÿÿÿÿ8„’Ï´Ò1

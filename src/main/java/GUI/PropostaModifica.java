@@ -1,8 +1,6 @@
 package GUI;
 
-import MODEL.Frase_Corrente;
-import MODEL.Pagina;
-import MODEL.Utente;
+import MODEL.*;
 import controller.Controller;
 
 import javax.swing.*;
@@ -10,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PropostaModifica {
@@ -27,8 +26,8 @@ public class PropostaModifica {
     private JLabel fraseLabel;
     private JLabel propostaLabel;
 
-    public PropostaModifica(Controller controller, JFrame frameChiamante, Pagina paginaSelezionata, Frase_Corrente fraseSelezionata, Utente utenteLoggato) {
-        this.frameChiamante = frameChiamante;
+    public PropostaModifica(Controller controller, JFrame frameC, Pagina paginaSelezionata, Frase fraseSelezionata, Utente utenteLoggato) {
+        this.frameChiamante = frameC;
         this.frame = new JFrame("Modifica");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,7 +49,23 @@ public class PropostaModifica {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String fraseProposta = propostaField.getText();
-                Boolean controllo = controller.inviaProposta(paginaSelezionata, fraseSelezionata, fraseProposta, utenteLoggato);
+                if (fraseSelezionata instanceof Frase_Corrente) {
+                    Frase_Corrente fraseCorrente = (Frase_Corrente) fraseSelezionata;
+                    Boolean controllo = controller.inviaProposta(paginaSelezionata, fraseCorrente, fraseProposta, utenteLoggato);
+                } else {
+                    ModificaProposta modificaProposta = (ModificaProposta) fraseSelezionata;
+                    Boolean controllo = controller.inviaProposta(paginaSelezionata, modificaProposta.getFraseCorrente(), fraseProposta, utenteLoggato);
+                    //modificaProposta.getFraseCorrente().addProposte(modificaProposta);
+                }
+
+
+                ArrayList<Frase> testo = controller.componiTesto(paginaSelezionata);
+                PaginaTesto paginaTesto = new PaginaTesto(controller, HomeLoggato.frame, paginaSelezionata, utenteLoggato);
+                ModificaTesto modificaTesto = new ModificaTesto(controller, paginaTesto.frame, paginaSelezionata, utenteLoggato, testo);
+                Errori errori = new Errori("la proposta è stata inviata", modificaTesto.frame, frame);
+                errori.frame.setVisible(true);
+                frameChiamante.dispose();
+                frame.dispose();
             }
         });
     }
