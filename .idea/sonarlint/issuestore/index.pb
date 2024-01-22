@@ -39,3 +39,15 @@ R
 "src/main/java/GUI/HomeLoggato.form,8\7\87470c55319e0dd53e9eda90eb905afd4e48d256
 K
 src/main/java/GUI/Home.form,7\d\7dcdd7a9bdb225cf74b15d4425ef6e1139aaa09c
+R
+"src/main/java/GUI/ListaTitoli.form,0\4\042cfb462597e11ed7b6ea36889485ddd7c28e22
+R
+"src/main/java/GUI/PaginaTesto.form,4\b\4b5c70b668e0621a37f7e8bcc0efc1bdfdd8ec02
+O
+src/main/java/MODEL/Pagina.java,5\c\5c4ef6c5234932e38c01f0804bf05bfdb2632174
+O
+src/main/java/MODEL/Utente.java,3\b\3b07e6bbcf3da3f26471c7d6aa3734832a32ece5
+O
+src/main/java/MODEL/Autore.java,3\a\3aa8fcc81f42d10eb2ed9c73517e22a21c7670a6
+N
+src/main/java/dao/WikiDAO.java,0\9\09b8292c39963d9f06c8e13e4d0752821b4d1298

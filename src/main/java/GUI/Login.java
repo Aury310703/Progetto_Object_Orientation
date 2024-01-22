@@ -12,9 +12,15 @@ import java.lang.reflect.Method;
 import java.util.ResourceBundle;
 
 
+/**
+ * The type Login.
+ */
 public class Login {
 
     private final JFrame frameChiamante;
+    /**
+     * The Frame.
+     */
     public JFrame frame;
     private JPanel panel;
     private JTextField nomeUtenteField;
@@ -25,9 +31,23 @@ public class Login {
     private JButton dietroButton;
     private JButton registratiButton;
     private JLabel ErroreLoginLabel;
+    /**
+     * The Controller.
+     */
     public Controller controller;
+    /**
+     * The Locale.
+     */
     String locale = "it_IT";
 
+    /**
+     * Instantiates a new Login.
+     *
+     * @param controller        the controller
+     * @param frameChiamante    the frame chiamante
+     * @param controllo         the controllo
+     * @param paginaSelezionata the pagina selezionata
+     */
     public Login(Controller controller, JFrame frameChiamante, String controllo, Pagina paginaSelezionata) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Login");
@@ -83,6 +103,14 @@ public class Login {
         });
     }
 
+    /**
+     * Instantiates a new Login.
+     *
+     * @param controller     the controller
+     * @param frameChiamante the frame chiamante
+     * @param controllo      the controllo
+     * @param titolo         the titolo
+     */
     public Login(Controller controller, JFrame frameChiamante, String controllo, String titolo) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Login");
@@ -266,6 +294,9 @@ public class Login {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

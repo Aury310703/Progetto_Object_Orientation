@@ -5,7 +5,10 @@ import dao.WikiDAO;
 import implementazionePostgresDAO.WikiimplementazionePostgresDAO;
 
 import java.sql.SQLException;
+import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -96,4 +99,49 @@ public class Controller {
         }
         return frasiTesto;
     }
+
+    public void creazionePagina(String titolo, String testo, Autore autore) {
+        Pagina paginaCreata = new Pagina(titolo, LocalDateTime.now(), autore);
+
+        int length = testo.length();
+        int prec = 0;
+        int num = 0;
+        String sottoStringa;
+        for (int i = 0; i < length; i++) {
+            if (testo.charAt(i) == ',' || testo.charAt(i) == '.' || testo.charAt(i) == ';'|| testo.charAt(i) == '?' || testo.charAt(i) == '!') {
+                System.out.println("carattere == " + testo.charAt(i));
+                sottoStringa = testo.substring(prec, i);
+                int contaSpaziVuoti = 0;
+                while(sottoStringa.charAt(contaSpaziVuoti) == ' '){
+                    contaSpaziVuoti++;
+                }
+                sottoStringa = sottoStringa.substring(contaSpaziVuoti);
+                Frase_Corrente fraseCorrente = new Frase_Corrente(sottoStringa, num, paginaCreata, LocalDate.now(), Time.valueOf(LocalTime.now()));
+                num++;
+                prec = i+1;
+                System.out.println(sottoStringa);
+            }
+        }
+
+        if(testo.charAt(length-1) != '.'|| testo.charAt(length-1) == '?' || testo.charAt(length-1) == '!'){
+            System.out.println("carattere == " + testo.charAt(length-1));
+            sottoStringa = testo.substring(prec, length);
+            int contaSpaziVuoti = 0;
+            while(sottoStringa.charAt(contaSpaziVuoti) == ' '){
+                contaSpaziVuoti++;
+            }
+            sottoStringa = sottoStringa.substring(contaSpaziVuoti);
+            Frase_Corrente fraseCorrente = new Frase_Corrente(sottoStringa, num, paginaCreata, LocalDate.now(), Time.valueOf(LocalTime.now()));
+            System.out.println(sottoStringa);
+        }
+
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        try {
+            w.creazionePagina(paginaCreata);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 }

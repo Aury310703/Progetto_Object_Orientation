@@ -145,10 +145,8 @@ public class ListaTitoli {
                     if (selectedRow != -1) {
                         Object cellValue = TitoliTable.getValueAt(selectedRow, 0);
                         String titolo = cellValue.toString();
-                        System.out.println(titolo);
-                        System.out.println("aia" + pagine.get(selectedRow).getAutore().getNome());
 
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, pagine.get(selectedRow), utenteLoggato);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, pagine.get(selectedRow), utenteLoggato, titolo);
                         paginaTesto.frame.setLocationRelativeTo(frame);
                         //paginaTesto.frame.setResizable(false);
                         //paginaTesto.frame.setSize(400, 200);

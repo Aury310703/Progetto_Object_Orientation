@@ -19,7 +19,7 @@ public class Home {
     private JTextField CercaTestoField;
     private JButton CercaButton;
     private JPanel panel1;
-    static JFrame frame = new JFrame("Home");
+    static JFrame frame = new JFrame("WIKI");
     public JFrame frameChiamante;
     public Controller controller = new Controller();
     private String locale = "it_IT";

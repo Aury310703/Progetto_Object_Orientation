@@ -1,6 +1,6 @@
 package GUI;
 
-import MODEL.Utente;
+import MODEL.*;
 import controller.Controller;
 
 import javax.swing.*;
@@ -8,16 +8,22 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CreaPagina {
     private JPanel panel;
     private JPanel panel1;
     private JTextArea ScriviTesto;
-    private JButton Crea;
+    private JButton crea;
     private JButton paginaPrecedenteButton;
-    private JTextField TitoloField;
+    private JTextField titoloField;
     private JLabel labelTitolo;
+    private JPanel panel2;
 
     public JFrame frame;
     private JFrame frameChiamante;
@@ -36,6 +42,18 @@ public class CreaPagina {
                 frame.setVisible(false);
                 frameChiamante.setVisible(true);
                 frame.dispose();
+            }
+        });
+
+        crea.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String titolo = titoloField.getText();
+                Autore autore = (Autore) utenteLoggato;
+                String testo = ScriviTesto.getText();
+                controller.creazionePagina(titolo, testo, autore);
+                frame.setVisible(false);
+                frameChiamante.setVisible(false);
             }
         });
     }
@@ -66,14 +84,14 @@ public class CreaPagina {
         paginaPrecedenteButton = new JButton();
         this.$$$loadButtonText$$$(paginaPrecedenteButton, this.$$$getMessageFromBundle$$$("it_IT", "paginaPrecedente"));
         panel1.add(paginaPrecedenteButton, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        Crea = new JButton();
-        Crea.setText("Crea");
-        panel1.add(Crea, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JPanel panel2 = new JPanel();
+        crea = new JButton();
+        this.$$$loadButtonText$$$(crea, this.$$$getMessageFromBundle$$$("it_IT", "crea"));
+        panel1.add(crea, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panel2 = new JPanel();
         panel2.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(panel2, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        TitoloField = new JTextField();
-        panel2.add(TitoloField, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        titoloField = new JTextField();
+        panel2.add(titoloField, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         labelTitolo = new JLabel();
         labelTitolo.setForeground(new Color(-1767168));
         this.$$$loadLabelText$$$(labelTitolo, this.$$$getMessageFromBundle$$$("it_IT", "Titolo"));
@@ -157,4 +175,5 @@ public class CreaPagina {
     public JComponent $$$getRootComponent$$$() {
         return panel;
     }
+
 }

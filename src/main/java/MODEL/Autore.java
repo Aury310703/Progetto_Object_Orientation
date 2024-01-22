@@ -1,5 +1,6 @@
 package MODEL;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -9,11 +10,11 @@ public class Autore extends Utente {
         this.creazioni.add(pg);
     }
 
-//    public Autore(String nome, String cognome, String login, String password, String email, Date data, String titolo, ) {
-//        super(nome, cognome, login, password, email, data);
-//        Pagina pagina = new Pagina(titolo, )
-//        this.creazioni.add(pg);
-//    }
+    public Autore(String nome, String cognome, String login, String password, String email, Date data, String titolo, LocalDateTime dataOra) {
+        super(nome, cognome, login, password, email, data);
+        Pagina pagina = new Pagina(titolo, dataOra, this);
+        this.creazioni.add(pagina);
+    }
     private ArrayList<ModificaProposta> valutate = new ArrayList<>();
     private ArrayList<Pagina> creazioni = new ArrayList<>();
 

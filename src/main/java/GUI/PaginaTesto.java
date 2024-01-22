@@ -118,6 +118,48 @@ public class PaginaTesto {
                 modificaTesto.frame.setVisible(true);
             }
         });
+    }
+
+    public PaginaTesto(Controller controller, JFrame frameC, Pagina paginaSelezionata, Utente utenteLoggato, String titolo) {
+        panelTesto.setText("");
+        frameChiamante = frameC;
+        this.frame = new JFrame("Pagina");
+        frame.setContentPane(panel1);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+
+        nomeAutoreLabel.setText(paginaSelezionata.getAutore().getNome() + " " + paginaSelezionata.getAutore().getCognome());
+        dataCreazioneLabel.setText(this.$$$getMessageFromBundle$$$(locale, "dataPublicazione") + ": " + paginaSelezionata.getDataCreazione().getYear());
+
+        TitoloPaginaLabel.setText(paginaSelezionata.getTitolo());
+        Entrabutton.setText(utenteLoggato.getLogin());
+
+        ArrayList<Frase> testoPagina = controller.getTestoPagina(paginaSelezionata);
+        String testo = "";
+        for (Frase f : testoPagina) {
+            testo = testo + " " + f.getStringa_inserita();
+        }
+        panelTesto.setText(testo);
+        panelTesto.setEditable(false);
+
+        PrecedenteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                ListaTitoli listaTitoli = new ListaTitoli(controller, frame, titolo, utenteLoggato);
+                listaTitoli.frame.setVisible(true);
+                frame.dispose();
+            }
+        });
+
+        modificaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                ModificaTesto modificaTesto = new ModificaTesto(controller, frame, paginaSelezionata, utenteLoggato, testoPagina);
+                modificaTesto.frame.setVisible(true);
+            }
+        });
 
     }
 

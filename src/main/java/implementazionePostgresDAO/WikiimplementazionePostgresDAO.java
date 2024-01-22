@@ -141,8 +141,20 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         ResultSet rs = preparedStatement.executeQuery();
         Utente utenteLoggato = null;
         while(rs.next()){
-            if(rs != null)
+            if(rs.getString("ruolo").toLowerCase().equals("utente"))
                 utenteLoggato= new Utente(rs.getString("nome"), rs.getString("cognome"), login, password, rs.getString("email"), rs.getDate("dataNascita"));
+            else {
+                String queryAutore = "SELECT * FROM Pagina WHERE idAutore = ?";
+                PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
+                preparedStatementAutore.setInt(1, rs.getInt("idUtente"));
+                ResultSet rsAutore = preparedStatementAutore.executeQuery();
+                rsAutore.next();
+                utenteLoggato = new Autore(rs.getString("nome"), rs.getString("cognome"), login, password, rs.getString("email"), rs.getDate("dataNascita"), rsAutore.getString("titolo"), rsAutore.getTimestamp("dataOraCreazione").toLocalDateTime());
+
+                while (rsAutore.next()) {
+                        Pagina pagina = new Pagina(rsAutore.getString("titolo"), rsAutore.getTimestamp("dataOraCreazione").toLocalDateTime(), utenteLoggato);
+                }
+            }
         }
         return utenteLoggato;
     }
@@ -219,6 +231,57 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             modificaProposta.setStato(1);
         }
         return controllo;
+    }
+
+    public void creazionePagina(Pagina paginaCreata) throws SQLException{
+        String queryPagina = "INSERT INTO Pagina (titolo, dataOraCreazione, idAutore) VALUES (?,?,?)";
+        PreparedStatement preparedStatementPagina = null;
+        preparedStatementPagina = connection.prepareStatement(queryPagina);
+        preparedStatementPagina.setString(1,paginaCreata.getTitolo());
+        preparedStatementPagina.setTimestamp(2, Timestamp.valueOf(paginaCreata.getDataCreazione()));
+
+        String query = "SELECT idutente, login FROM utente WHERE login = ? LIMIT 1";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, paginaCreata.getAutore().getLogin());
+        ResultSet rs = preparedStatement.executeQuery();
+        rs.next();
+        int idAutore = rs.getInt("idutente");
+        preparedStatementPagina.setInt(3,idAutore);
+        int rowsAffected = preparedStatementPagina.executeUpdate();
+
+        if (rowsAffected > 0) {
+            System.out.println("Inserimento riuscito!");
+        } else {
+            System.out.println("Nessuna riga inserita.");
+        }
+
+        query = "SELECT idPagina FROM pagina WHERE idAutore = ? AND titolo = ? AND dataOraCreazione = ?";
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, idAutore);
+        preparedStatement.setString(2, paginaCreata.getTitolo());
+        preparedStatement.setTimestamp(3, Timestamp.valueOf(paginaCreata.getDataCreazione()));
+        rs = preparedStatement.executeQuery();
+        rs.next();
+        int idPagina = rs.getInt("idPagina");
+
+        for (Frase_Corrente fraseCorrente : paginaCreata.getFrasi()){
+            String queryFrase = "INSERT INTO fraseCorrente (stringaInserita, numerazione, datainserimento, orainserimento, idPagina) VALUES (?,?,?,?,?)";
+            PreparedStatement preparedStatementFrase = null;
+            preparedStatementFrase = connection.prepareStatement(queryFrase);
+            preparedStatementFrase.setString(1,fraseCorrente.getStringa_inserita());
+            preparedStatementFrase.setInt(2,fraseCorrente.getNumerazione());
+            preparedStatementFrase.setDate(3, java.sql.Date.valueOf(fraseCorrente.getDataInserimento()));
+            preparedStatementFrase.setTime(4,fraseCorrente.getOraInserimento());
+            preparedStatementFrase.setInt(5, idPagina);
+            int rowsAffectedFrase = preparedStatementFrase.executeUpdate();
+
+            if (rowsAffectedFrase > 0) {
+                System.out.println("Inserimento riuscito!");
+            } else {
+                System.out.println("Nessuna riga inserita.");
+            }
+
+        }
     }
 
 }
