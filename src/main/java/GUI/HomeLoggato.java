@@ -1,5 +1,6 @@
 package GUI;
 
+import MODEL.Autore;
 import MODEL.Utente;
 import controller.Controller;
 
@@ -22,18 +23,17 @@ public class HomeLoggato {
     private JButton nomeutenteButton;
     private JButton esciButton;
     private JButton creaPaginaButton;
+
     public Controller controller;
+    public Utente utenteLoggato = null;
 
     void clickOnUsernameButton() {
         nomeutenteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Login login = new Login(controller, frame);
-//                login.frame.setLocationRelativeTo(frame);
-//                login.frame.setResizable(false);
-//                login.frame.setSize(400, 200);
-//                login.frame.setVisible(true);
-//                frame.setVisible(false);
+                StoricoAutore storicoAutore = new StoricoAutore(controller, frameChiamante, utenteLoggato);
+                frame.setVisible(false);
+                storicoAutore.frame.setVisible(true);
             }
         });
     }
@@ -79,6 +79,7 @@ public class HomeLoggato {
         this.frameChiamante = frameChiamante;
         this.controller = controller;
         this.frame = new JFrame("HOME");
+        this.utenteLoggato = utenteLoggato;
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();

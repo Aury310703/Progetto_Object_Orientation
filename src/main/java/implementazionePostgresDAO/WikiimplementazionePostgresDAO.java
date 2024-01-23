@@ -144,6 +144,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             if(rs.getString("ruolo").toLowerCase().equals("utente"))
                 utenteLoggato= new Utente(rs.getString("nome"), rs.getString("cognome"), login, password, rs.getString("email"), rs.getDate("dataNascita"));
             else {
+                System.out.println("Il mio ruolo è" + rs.getString("ruolo"));
                 String queryAutore = "SELECT * FROM Pagina WHERE idAutore = ?";
                 PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
                 preparedStatementAutore.setInt(1, rs.getInt("idUtente"));

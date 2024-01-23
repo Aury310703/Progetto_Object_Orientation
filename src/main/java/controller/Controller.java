@@ -100,8 +100,16 @@ public class Controller {
         return frasiTesto;
     }
 
-    public void creazionePagina(String titolo, String testo, Autore autore) {
-        Pagina paginaCreata = new Pagina(titolo, LocalDateTime.now(), autore);
+    public Pagina creazionePagina(String titolo, String testo, Utente autore) {
+        Pagina paginaCreata = null;
+        if(autore instanceof Autore){
+            System.out.println("sono un autore");
+            paginaCreata = new Pagina(titolo, LocalDateTime.now(), autore);
+        }else{
+            System.out.println("sono un utente");
+            paginaCreata = new Pagina(titolo,LocalDateTime.now(),autore.getNome(),autore.getCognome(), autore.getLogin(), autore.getPassword(), autore.getEmail(), autore.getDataNascita());
+            autore = paginaCreata.getAutore();
+        }
 
         int length = testo.length();
         int prec = 0;
@@ -141,7 +149,8 @@ public class Controller {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
+        return paginaCreata;
     }
+
 
 }

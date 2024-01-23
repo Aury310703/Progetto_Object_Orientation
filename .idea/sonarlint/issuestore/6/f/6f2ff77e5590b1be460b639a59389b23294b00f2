@@ -1,79 +1,79 @@
 
 i
-java:S1192Ö"FDefine a constant instead of duplicating this literal "it_IT" 3 times.(åÔôãıÿÿÿÿ8ÿ«óĞ1
-u	java:S127„"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8€¬óĞ1
-u	java:S127Ÿ"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8¬óĞ1
+java:S1192Ö"FDefine a constant instead of duplicating this literal "it_IT" 3 times.(åÔôãıÿÿÿÿ8ÄœĞ»Ò1
+u	java:S127„"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8ÆœĞ»Ò1
+u	java:S127Ÿ"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8ÆœĞ»Ò1
 D
-java:S1604b"(Make this anonymous inner class a lambda(±Ûà/8®‰ÄìÑ1
+java:S1604b"(Make this anonymous inner class a lambda(±Ûà/8ÇœĞ»Ò1
 J
-java:S1604l"(Make this anonymous inner class a lambda(•±òîûÿÿÿÿ8®‰ÄìÑ1
+java:S1604l"(Make this anonymous inner class a lambda(•±òîûÿÿÿÿ8ÇœĞ»Ò1
 E
-java:S1604´"(Make this anonymous inner class a lambda(±Ûà/8¯‰ÄìÑ1
+java:S1604´"(Make this anonymous inner class a lambda(±Ûà/8ÇœĞ»Ò1
 n
-java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8¯‰ÄìÑ1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8‡¬óĞ1
-w	java:S116"VRename this field "TitoloPanel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Å»Ìıÿÿÿÿ8ªŠÄìÑ1
-x	java:S116"WRename this field "BottoniPanel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»…¨²úÿÿÿÿ8ªŠÄìÑ1
-w	java:S116"VRename this field "TitoloLabel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íÿ´Éşÿÿÿÿ8ªŠÄìÑ1
-w	java:S116"VRename this field "TitoliTable" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç‡•»úÿÿÿÿ8«ŠÄìÑ1
+java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8ÈœĞ»Ò1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8ÌœĞ»Ò1
+w	java:S116"VRename this field "TitoloPanel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Å»Ìıÿÿÿÿ8ºĞ»Ò1
+x	java:S116"WRename this field "BottoniPanel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»…¨²úÿÿÿÿ8ºĞ»Ò1
+w	java:S116"VRename this field "TitoloLabel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íÿ´Éşÿÿÿÿ8ºĞ»Ò1
+w	java:S116"VRename this field "TitoliTable" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç‡•»úÿÿÿÿ8ºĞ»Ò1
 ‰
-java:S3008é"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8Ö­óĞ1
+java:S3008é"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8ºĞ»Ò1
 }
-java:S1450"[Remove the "BottoniPanel" field and declare it as a local variable in the relevant methods.(»…¨²úÿÿÿÿ8¯ŠÄìÑ1
+java:S1450"[Remove the "BottoniPanel" field and declare it as a local variable in the relevant methods.(»…¨²úÿÿÿÿ8½Ğ»Ò1
 |
-java:S1450"ZRemove the "TitoloLabel" field and declare it as a local variable in the relevant methods.(íÿ´Éşÿÿÿÿ8°ŠÄìÑ1
+java:S1450"ZRemove the "TitoloLabel" field and declare it as a local variable in the relevant methods.(íÿ´Éşÿÿÿÿ8½Ğ»Ò1
 |
-java:S1450"ZRemove the "TitoloPanel" field and declare it as a local variable in the relevant methods.(´Å»Ìıÿÿÿÿ8±ŠÄìÑ1
+java:S1450"ZRemove the "TitoloPanel" field and declare it as a local variable in the relevant methods.(´Å»Ìıÿÿÿÿ8¿Ğ»Ò1
 u
-java:S1450"YRemove the "scrollpane" field and declare it as a local variable in the relevant methods.(Êó•;8±ŠÄìÑ1
+java:S1450"YRemove the "scrollpane" field and declare it as a local variable in the relevant methods.(Êó•;8¿Ğ»Ò1
 ‚
-java:S1149ş"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8ä­óĞ1
+java:S1149ş"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8ÁĞ»Ò1
 ‚
-java:S1149™"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8ä­óĞ1
+java:S1149™"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8ÁĞ»Ò1
 f
-java:S3252'"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ÄŠÄìÑ1
+java:S3252'"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ÅĞ»Ò1
 £
-java:S1186N"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(®î’×üÿÿÿÿ8ÉŠÄìÑ1
+java:S1186N"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(®î’×üÿÿÿÿ8ÈĞ»Ò1
 
-java:S1186S"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ãÆĞÂ8ÉŠÄìÑ1
+java:S1186S"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ãÆĞÂ8ÈĞ»Ò1
 £
-java:S1186X"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö„˜şúÿÿÿÿ8ËŠÄìÑ1
+java:S1186X"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö„˜şúÿÿÿÿ8ÉĞ»Ò1
 £
-java:S1186]"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•ßçùÿÿÿÿ8ËŠÄìÑ1
-L	java:S106@"+Replace this use of System.out by a logger.(´Ê¦±øÿÿÿÿ8ÎŠÄìÑ1
-F	java:S106A"+Replace this use of System.out by a logger.(Åô8ÏŠÄìÑ1
-X	java:S125E"<This block of commented-out lines of code should be removed.(¿îˆ³8ÑŠÄìÑ1
+java:S1186]"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•ßçùÿÿÿÿ8ÉĞ»Ò1
+L	java:S106@"+Replace this use of System.out by a logger.(´Ê¦±øÿÿÿÿ8ÌĞ»Ò1
+F	java:S106A"+Replace this use of System.out by a logger.(Åô8ÌĞ»Ò1
+X	java:S125E"<This block of commented-out lines of code should be removed.(¿îˆ³8ÎĞ»Ò1
 Z
-java:S1854f"8Remove this useless assignment to local variable "home".(â•õîúÿÿÿÿ8ÕŠÄìÑ1
+java:S1854f"8Remove this useless assignment to local variable "home".(â•õîúÿÿÿÿ8ÑĞ»Ò1
 K
-java:S1481f")Remove this unused "home" local variable.(â•õîúÿÿÿÿ8×ŠÄìÑ1
-]	java:S125h"<This block of commented-out lines of code should be removed.(«Ô˜öşÿÿÿÿ8”®óĞ1
+java:S1481f")Remove this unused "home" local variable.(â•õîúÿÿÿÿ8ÔĞ»Ò1
+]	java:S125h"<This block of commented-out lines of code should be removed.(«Ô˜öşÿÿÿÿ8ÔĞ»Ò1
 f
-java:S3252|"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ÛŠÄìÑ1
+java:S3252|"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ØĞ»Ò1
 ¤
-java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(®î’×üÿÿÿÿ8ßŠÄìÑ1
+java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(®î’×üÿÿÿÿ8ÛĞ»Ò1
 Ÿ
-java:S1186¥"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ãÆĞÂ8àŠÄìÑ1
+java:S1186¥"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ãÆĞÂ8ÛĞ»Ò1
 ¤
-java:S1186ª"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö„˜şúÿÿÿÿ8àŠÄìÑ1
+java:S1186ª"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö„˜şúÿÿÿÿ8ÛĞ»Ò1
 ¤
-java:S1186¯"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•ßçùÿÿÿÿ8àŠÄìÑ1
-Y	java:S125—"<This block of commented-out lines of code should be removed.(¿îˆ³8çŠÄìÑ1
+java:S1186¯"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•ßçùÿÿÿÿ8ÜĞ»Ò1
+Y	java:S125—"<This block of commented-out lines of code should be removed.(¿îˆ³8äĞ»Ò1
 S
-java:S2209¹"5Change this instance-reference to a static reference.(‘ïÁÔ8¦¦¦ƒÓ1
-^	java:S125º"<This block of commented-out lines of code should be removed.(«Ô˜öşÿÿÿÿ8ëŠÄìÑ1
+java:S2209¹"5Change this instance-reference to a static reference.(‘ïÁÔ8êĞ»Ò1
+^	java:S125º"<This block of commented-out lines of code should be removed.(«Ô˜öşÿÿÿÿ8ëĞ»Ò1
 |
-java:S1171Á"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8–®óĞ1
-p	java:S100Ï"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8—®óĞ1
-p	java:S100ë"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8Ä®óĞ1
+java:S1171Á"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ëĞ»Ò1
+p	java:S100Ï"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8ìĞ»Ò1
+p	java:S100ë"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8ıĞ»Ò1
 T
-java:S2696ñ"6Make the enclosing method "static" or remove this set.(§¾ã8É®óĞ1
-k	java:S100ı"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§¨¡³8Í®óĞ1
-k	java:S100˜"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8Ø®óĞ1
-p	java:S100³"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8ä®óĞ1
+java:S2696ñ"6Make the enclosing method "static" or remove this set.(§¾ã8€Ğ»Ò1
+k	java:S100ı"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§¨¡³8Ğ»Ò1
+k	java:S100˜"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8…Ğ»Ò1
+p	java:S100³"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8ˆĞ»Ò1
 i
-java:S1128	"GRemove this unused import 'javax.swing.table.DefaultTableCellRenderer'.(ÈĞ“ìşÿÿÿÿ8ì§¦ƒÓ1
+java:S1128	"GRemove this unused import 'javax.swing.table.DefaultTableCellRenderer'.(ÈĞ“ìşÿÿÿÿ8¶ƒ²Ó1
 T
-java:S1068"2Remove this unused "frameChiamante" private field.(°ˆ‚àıÿÿÿÿ8‰‹ÄìÑ1
+java:S1068"2Remove this unused "frameChiamante" private field.(°ˆ‚àıÿÿÿÿ8‰Ğ»Ò1
 R
-java:S1068 "5Remove this unused "paginaSelezionata" private field.(ˆ¼¢8‰‹ÄìÑ1
+java:S1068 "5Remove this unused "paginaSelezionata" private field.(ˆ¼¢8‰Ğ»Ò1

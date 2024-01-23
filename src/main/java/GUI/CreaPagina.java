@@ -49,11 +49,13 @@ public class CreaPagina {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String titolo = titoloField.getText();
-                Autore autore = (Autore) utenteLoggato;
                 String testo = ScriviTesto.getText();
-                controller.creazionePagina(titolo, testo, autore);
+                Pagina paginaCreata = controller.creazionePagina(titolo, testo, utenteLoggato);
                 frame.setVisible(false);
-                frameChiamante.setVisible(false);
+                //HomeLoggato homeLoggato = new HomeLoggato(controller, frame, paginaCreata.getAutore());
+                PaginaTesto paginaTesto = new PaginaTesto(controller, HomeLoggato.frame, paginaCreata, paginaCreata.getAutore());
+                paginaTesto.frame.setVisible(true);
+                frame.dispose();
             }
         });
     }
@@ -95,7 +97,7 @@ public class CreaPagina {
         labelTitolo = new JLabel();
         labelTitolo.setForeground(new Color(-1767168));
         this.$$$loadLabelText$$$(labelTitolo, this.$$$getMessageFromBundle$$$("it_IT", "Titolo"));
-        panel1.add(labelTitolo, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panel1.add(labelTitolo, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     private static Method $$$cachedGetBundleMethod$$$ = null;
