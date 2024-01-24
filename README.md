@@ -35,7 +35,6 @@ CREATE TABLE Visiona
     idPagina int,
     dataVisone DATE DEFAULT CURRENT_DATE,
     oraVisione TIME DEFAULT CURRENT_TIME,
-    CONSTRAINT pk_Visona PRIMARY KEY(idUtente, idPagina),
     CONSTRAINT Fk_Utente FOREIGN KEY(idUtente) REFERENCES UTENTE(idUtente),
     CONSTRAINT Fk_pagina FOREIGN KEY(idPagina) REFERENCES PAGINA(idpagina)
 )
