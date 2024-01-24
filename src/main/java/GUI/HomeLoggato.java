@@ -1,6 +1,5 @@
 package GUI;
 
-import MODEL.Autore;
 import MODEL.Utente;
 import controller.Controller;
 
@@ -31,9 +30,9 @@ public class HomeLoggato {
         nomeutenteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                StoricoAutore storicoAutore = new StoricoAutore(controller, frameChiamante, utenteLoggato);
+                StoricoUtente storicoUtente = new StoricoUtente(controller, frame, utenteLoggato);
                 frame.setVisible(false);
-                storicoAutore.frame.setVisible(true);
+                storicoUtente.frame.setVisible(true);
             }
         });
     }

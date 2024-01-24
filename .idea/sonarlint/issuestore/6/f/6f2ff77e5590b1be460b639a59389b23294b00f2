@@ -72,8 +72,8 @@ k	java:S100ı"NRename this method name to match the regular expression '^[a-z]
 k	java:S100˜"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8…Ğ»Ò1
 p	java:S100³"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8ˆĞ»Ò1
 i
-java:S1128	"GRemove this unused import 'javax.swing.table.DefaultTableCellRenderer'.(ÈĞ“ìşÿÿÿÿ8¶ƒ²Ó1
+java:S1128	"GRemove this unused import 'javax.swing.table.DefaultTableCellRenderer'.(ÈĞ“ìşÿÿÿÿ8½ìˆÙÓ1
 T
 java:S1068"2Remove this unused "frameChiamante" private field.(°ˆ‚àıÿÿÿÿ8‰Ğ»Ò1
 R
-java:S1068 "5Remove this unused "paginaSelezionata" private field.(ˆ¼¢8‰Ğ»Ò1
+java:S1068 "5Remove this unused "paginaSelezionata" private field.(ˆ¼¢8„ÿ‹ÙÓ1

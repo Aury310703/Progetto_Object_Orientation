@@ -153,4 +153,23 @@ public class Controller {
     }
 
 
+    public ArrayList<Pagina> storicoPagineVisualizzate(Utente utente) {
+        ArrayList<Pagina> pagineVisualizzate = new ArrayList<>();
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        try {
+            pagineVisualizzate = w.storicoPagineVisualizzate(utente);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return pagineVisualizzate;
+    }
+
+    public void addPaginaVisualizzata(Pagina paginaSelezionata, Utente utenteLoggato) {
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        try {
+            w.addPaginaVisualizzata(paginaSelezionata, utenteLoggato);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

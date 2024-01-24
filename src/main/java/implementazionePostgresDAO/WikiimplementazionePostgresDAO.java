@@ -6,9 +6,7 @@ import dao.WikiDAO;
 import database.ConnessioneDatabase;
 
 import java.sql.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.*;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -142,7 +140,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         Utente utenteLoggato = null;
         while(rs.next()){
             if(rs.getString("ruolo").toLowerCase().equals("utente"))
-                utenteLoggato= new Utente(rs.getString("nome"), rs.getString("cognome"), login, password, rs.getString("email"), rs.getDate("dataNascita"));
+                utenteLoggato= new Utente(rs.getString("nome"), rs.getString("cognome"), login.toLowerCase(), password, rs.getString("email"), rs.getDate("dataNascita"));
             else {
                 System.out.println("Il mio ruolo è" + rs.getString("ruolo"));
                 String queryAutore = "SELECT * FROM Pagina WHERE idAutore = ?";
@@ -283,6 +281,90 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             }
 
         }
+    }
+
+    public void addPaginaVisualizzata(Pagina paginaSelezionata, Utente utenteLoggato) throws SQLException{
+        String quesryPagina = "SELECT * FROM PAGINA WHERE titolo = ? AND dataOraCreazione = ? AND idAutore = ?";
+        PreparedStatement preparedStatementPagina = connection.prepareStatement(quesryPagina);
+        preparedStatementPagina.setString(1, paginaSelezionata.getTitolo());
+        preparedStatementPagina.setTimestamp(2, Timestamp.valueOf(paginaSelezionata.getDataCreazione()));
+
+        String queryAutore = "SELECT idutente FROM UTENTE WHERE login = ? LIMIT 1";
+        PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
+        preparedStatementAutore.setString(1, paginaSelezionata.getAutore().getLogin());
+        ResultSet rsAutore = preparedStatementAutore.executeQuery();
+        rsAutore.next();
+        int idAutore = rsAutore.getInt("idutente");
+
+        preparedStatementPagina.setInt(3, idAutore);
+        ResultSet rsPagina = preparedStatementPagina.executeQuery();
+        rsPagina.next();
+        int idPagina = rsPagina.getInt("idPagina");
+
+        String queryUtente = "SELECT idutente FROM UTENTE WHERE login = ? LIMIT 1";
+        PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
+        preparedStatementUtente.setString(1, utenteLoggato.getLogin());
+        ResultSet rsUtente = preparedStatementUtente.executeQuery();
+        rsUtente.next();
+        int idUtente = rsUtente.getInt("idutente");
+
+        String queryVisona = "INSERT INTO VISIONA(idPagina, idUtente) VALUES (?,?)";
+        PreparedStatement preparedStatementVisona = connection.prepareStatement(queryVisona);
+        preparedStatementVisona.setInt(1, idPagina);
+        preparedStatementVisona.setInt(2,idUtente);
+        Visiona visiona = new Visiona(java.sql.Date.valueOf(LocalDate.now()), Time.valueOf(LocalTime.now()), paginaSelezionata, utenteLoggato);
+
+        int rowsAffectedFrase = preparedStatementVisona.executeUpdate();
+
+        if (rowsAffectedFrase > 0) {
+            System.out.println("Inserimento riuscito!");
+        } else {
+            System.out.println("Nessuna riga inserita.");
+        }
+    }
+
+
+    public ArrayList<Pagina> storicoPagineVisualizzate(Utente utente) throws SQLException{
+        ArrayList<Pagina> pagineVisualizzate = new ArrayList<>();
+
+        try {
+            String queryUtente = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
+            PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
+            preparedStatementUtente.setString(1, utente.getLogin());
+            ResultSet rsUtente = preparedStatementUtente.executeQuery();
+            rsUtente.next();
+            int idUtente = rsUtente.getInt("idutente");
+            System.out.println("idAutore = " + idUtente);
+
+            String query = "SELECT * FROM visiona WHERE idUtente = ? ORDER BY dataVisone DESC, oraVisione DESC";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, idUtente);
+            ResultSet rs = preparedStatement.executeQuery();
+            if(rs.wasNull()){
+                System.out.println("no");
+            }
+            while (rs.next()) {
+                String quesryPagina = "SELECT * FROM PAGINA WHERE idPagina = ?";
+                PreparedStatement preparedStatementPagina = connection.prepareStatement(quesryPagina);
+                preparedStatementPagina.setInt(1, rs.getInt("idPagina"));
+                ResultSet rsPagina = preparedStatementPagina.executeQuery();
+                rsPagina.next();
+                String queryAutore = "SELECT * FROM utente WHERE idUtente = ? GROUP BY idUtente LIMIT 1";
+                PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
+                preparedStatementAutore.setInt(1, rsPagina.getInt("idAutore"));
+                ResultSet rsAutore = preparedStatementAutore.executeQuery();
+                rsAutore.next();
+
+                Pagina pagina = new Pagina(rsPagina.getString("titolo"), (rsPagina.getTimestamp("dataOraCreazione")).toLocalDateTime(), rsAutore.getString("nome"), rsAutore.getString("cognome"), rsAutore.getString("login"), rsAutore.getString("password"), rsAutore.getString("email"), rsAutore.getDate("dataNascita"));
+                pagineVisualizzate.add(pagina);
+
+            }
+        } catch (Exception e) {
+            System.out.println("Errore durante l'esecuzione della query: " + e.getMessage());
+            e.printStackTrace();
+        }
+        connection.close();
+        return pagineVisualizzate;
     }
 
 }

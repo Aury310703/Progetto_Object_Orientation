@@ -165,3 +165,11 @@ G.idea/sonarlint/issuestore/a/e/ae9ddf453f55affea2d6b9e3973cac1eb2efb4e1,6\2\62
 Q.idea/sonarlint/securityhotspotstore/e/e/ee3a719a11e88bad9e287697fe434de991a84c95,9\a\9af3214096d478594586d2ab48a083255c903f7a
 Å
 Q.idea/sonarlint/securityhotspotstore/e/0/e0539ca6b8d6846ef4767f97f349ad4825fc1364,4\c\4c3fb939db9d26941710199cefd7eb11c9e9c96f
+T
+$src/main/java/GUI/Registrazione.java,3\f\3fec6e1d5c80b151f72e3673a7756698bb0c50b0
+T
+$src/main/java/GUI/Registrazione.form,1\f\1f5bf736b8b061396b2e0079b2ecef34571072e6
+P
+ src/main/java/MODEL/Visiona.java,b\7\b702b053d5e58c426cddfcd0b01ffbfbb5bb288c
+w
+G.idea/sonarlint/issuestore/9/c/9ca83cf4a211c5bbde7bfdf35956e640d28fb40d,d\1\d1f19b6cec28eabdf03d05975e4c080f3801003f

@@ -1,33 +1,37 @@
 
-g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8‚›Ë®Ó1
-g	java:S112&"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8„›Ë®Ó1
-g	java:S1121"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8„›Ë®Ó1
-g	java:S112;"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8„›Ë®Ó1
-g	java:S112E"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8„›Ë®Ó1
-h	java:S112–"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8„›Ë®Ó1
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8èæÖÓ1
+g	java:S112&"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8êæÖÓ1
+g	java:S1121"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8êæÖÓ1
+g	java:S112;"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8êæÖÓ1
+g	java:S112E"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8êæÖÓ1
+h	java:S112–"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ëæÖÓ1
+h	java:S112¢"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ëæÖÓ1
+h	java:S112¬"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ŸÂ××Ó1
 Œ
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(„Ê18…›Ë®Ó1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(„Ê18îæÖÓ1
 
-java:S1319 "pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¯Šñ§8…›Ë®Ó1
+java:S1319 "pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¯Šñ§8îæÖÓ1
 
-java:S1319K"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÿÄ”ÿ8…›Ë®Ó1
-m	java:S117N"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8…›Ë®Ó1
-r	java:S117P"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ÕÙ©øÿÿÿÿ8…›Ë®Ó1
+java:S1319K"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÿÄ”ÿ8îæÖÓ1
+
+java:S1319œ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(²ƒ…Õ8îæÖÓ1
+m	java:S117N"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8ïæÖÓ1
+r	java:S117P"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ÕÙ©øÿÿÿÿ8ïæÖÓ1
 >
-java:S1116C"Remove this empty statement.(“•²ˆøÿÿÿÿ8ÖœË®Ó1
+java:S1116C"Remove this empty statement.(“•²ˆøÿÿÿÿ8²‘æÖÓ1
 \
-java:S1854o":Remove this useless assignment to local variable "autore".(Ößãøÿÿÿÿ8¿ªæ¯Ó1
+java:S1854o":Remove this useless assignment to local variable "autore".(Ößãøÿÿÿÿ8¶‘æÖÓ1
 ^
-java:S1854"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8ÚœË®Ó1
+java:S1854"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8¶‘æÖÓ1
 _
-java:S1854"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8ÚœË®Ó1
-G	java:S106j"+Replace this use of System.out by a logger.(ƒ’¦İ8ßœË®Ó1
-G	java:S106m"+Replace this use of System.out by a logger.(ÅåÚÛ8àœË®Ó1
-G	java:S106x"+Replace this use of System.out by a logger.(İó·‹8âœË®Ó1
+java:S1854"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8¶‘æÖÓ1
+G	java:S106j"+Replace this use of System.out by a logger.(ƒ’¦İ8¶‘æÖÓ1
+G	java:S106m"+Replace this use of System.out by a logger.(ÅåÚÛ8¸‘æÖÓ1
+G	java:S106x"+Replace this use of System.out by a logger.(İó·‹8¹‘æÖÓ1
 O
-java:S1481"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8àœË®Ó1
-M	java:S106‚"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8ãœË®Ó1
-H	java:S106‡"+Replace this use of System.out by a logger.(©ÿıø8ıÆĞ¯Ó1
+java:S1481"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8º‘æÖÓ1
+M	java:S106‚"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8»‘æÖÓ1
+H	java:S106‡"+Replace this use of System.out by a logger.(©ÿıø8»‘æÖÓ1
 P
-java:S1481"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8ãœË®Ó1
-M	java:S106"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8şÆĞ¯Ó1
+java:S1481"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8¼‘æÖÓ1
+M	java:S106"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8¼‘æÖÓ1

@@ -42,6 +42,9 @@ public class Registrazione {
     private JPanel dataNascitaPanel;
     private JButton paginaPrecedenteButton;
     private JButton registratiButton;
+    private JComboBox giornoComboBox;
+    private JComboBox meseComboBox;
+    private JComboBox annoComboBox;
     private JFormattedTextField dataField;
 
     public Registrazione(Controller controller, JFrame frameChiamante) {
@@ -51,21 +54,37 @@ public class Registrazione {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
-        dataField.setForeground(Color.GRAY);
-        dataField.setText("AAAA-MM-GG");
+//        dataField.setForeground(Color.GRAY);
+//        dataField.setText("AAAA-MM-GG");
+//
+//        // Colore del cursore quando il campo è vuoto
+//        dataField.setCaretColor(Color.GRAY);
+//
+//        // Aggiungi un listener per rimuovere il testo suggerito quando il campo ottiene il focus
+//        dataField.addFocusListener(new FocusAdapter() {
+//            public void focusGained(FocusEvent evt) {
+//                if (dataField.getText().equals("AAAA-MM-GG")) {
+//                    dataField.setText("");
+//                    dataField.setForeground(Color.BLACK); // Cambia il colore del testo quando in modifica
+//                }
+//            }
+//        });
 
-        // Colore del cursore quando il campo è vuoto
-        dataField.setCaretColor(Color.GRAY);
+        for (int i = 1; i <= 31; i++) {
+            giornoComboBox.addItem(String.valueOf(i));
+        }
 
-        // Aggiungi un listener per rimuovere il testo suggerito quando il campo ottiene il focus
-        dataField.addFocusListener(new FocusAdapter() {
-            public void focusGained(FocusEvent evt) {
-                if (dataField.getText().equals("AAAA-MM-GG")) {
-                    dataField.setText("");
-                    dataField.setForeground(Color.BLACK); // Cambia il colore del testo quando in modifica
-                }
-            }
-        });
+        String[] mesi = {"Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
+                "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
+
+        for (int i = 0; i < 12; i++) {
+            meseComboBox.addItem(mesi[i]);
+        }
+
+
+        for (int i = 1914; i <= 2023; i++) {
+            annoComboBox.addItem(String.valueOf(i));
+        }
 
 
         paginaPrecedenteButton.addActionListener(new ActionListener() {
@@ -85,31 +104,29 @@ public class Registrazione {
                 String nomeUtente = nomeUtenteField.getText();
                 String password = passwordField.getText();
                 String email = emailField.getText();
-                String dataNascita = dataField.getText();
 
+                String giorno = (String) giornoComboBox.getSelectedItem();
+                String mese = (String) String.valueOf(meseComboBox.getSelectedIndex());
+                String anno = (String) annoComboBox.getSelectedItem();
 
-                if (dataNascita == null) {
-                    Errori errori = new Errori("il formata della data inserita non è corretta \n 'AAAA-MM-GG'");
-                    errori.frame.setVisible(true);
-                }
-
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-                Date dataN = null;
+                String dataStringa = anno + "-" + mese + "-" + giorno; // Sostituisci questa stringa con la tua data nel formato corretto
+                SimpleDateFormat formatoData = new SimpleDateFormat("yyyy-mm-dd");
+                Date dataNascita = null;
                 try {
-                    // Parsa la stringa della data usando il formato predefinito
-                    dataN = dateFormat.parse(dataNascita);
-
-                    // Stampa la data ottenuta
-                    System.out.println("Data ottenuta: " + dataN);
+                    dataNascita = formatoData.parse(dataStringa);
+                    System.out.println("Data ottenuta: " + dataNascita);
                 } catch (ParseException pe) {
-                    pe.printStackTrace();
+                    System.out.println("Errore durante la conversione della stringa in data: " + pe.getMessage());
                 }
-                controller.registrazioneUtente(nome, cognome, nomeUtente, password, email, dataN);
+
+                controller.registrazioneUtente(nome, cognome, nomeUtente, password, email, dataNascita);
                 RegistrazioneBuonFine registrazioneBuonFine = new RegistrazioneBuonFine(frame, frameChiamante, controller);
                 registrazioneBuonFine.frame.setVisible(true);
             }
         });
     }
+
+
 
     /*public static boolean isValidEmail(String email) {
         // Definisci il pattern per un indirizzo email
@@ -153,14 +170,17 @@ public class Registrazione {
         this.$$$loadButtonText$$$(registratiButton, this.$$$getMessageFromBundle$$$("it_IT", "Registrati"));
         panelIntestazione.add(registratiButton, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         dataNascitaPanel = new JPanel();
-        dataNascitaPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
+        dataNascitaPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 4, new Insets(0, 0, 0, 0), -1, -1));
         panel.add(dataNascitaPanel, new com.intellij.uiDesigner.core.GridConstraints(7, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
         this.$$$loadLabelText$$$(label1, this.$$$getMessageFromBundle$$$("it_IT", "data nascita"));
         dataNascitaPanel.add(label1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        dataField = new JFormattedTextField();
-        dataField.setText("");
-        dataNascitaPanel.add(dataField, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        giornoComboBox = new JComboBox();
+        dataNascitaPanel.add(giornoComboBox, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        meseComboBox = new JComboBox();
+        dataNascitaPanel.add(meseComboBox, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        annoComboBox = new JComboBox();
+        dataNascitaPanel.add(annoComboBox, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         emailPanel = new JPanel();
         emailPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
         panel.add(emailPanel, new com.intellij.uiDesigner.core.GridConstraints(6, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));

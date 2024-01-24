@@ -21,6 +21,10 @@ void registrazione(String nome, String cognome, String nomeUtente, String passwo
 public boolean inviaProposta(Pagina paginaSelezionata, Frase_Corrente fraseSelezionata, String fraseProposta, Utente utenetLoggato) throws SQLException;
 
 public void creazionePagina(Pagina paginaCreata) throws SQLException;
+
+public ArrayList<Pagina> storicoPagineVisualizzate(Utente utente) throws SQLException;
+
+public void addPaginaVisualizzata(Pagina paginaSelezionata, Utente utenteLoggato) throws SQLException;
 }
 
 

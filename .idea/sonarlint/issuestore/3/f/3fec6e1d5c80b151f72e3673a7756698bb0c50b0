@@ -1,67 +1,88 @@
 
-d
-java:S1192–"FDefine a constant instead of duplicating this literal "it_IT" 9 times.(¾ŸÓç8Ş²İÅÑ1
-u	java:S127÷"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8ß²İÅÑ1
-u	java:S127’"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8ß²İÅÑ1
-D
-java:S1604G"(Make this anonymous inner class a lambda(±Ûà/8òûÃìÑ1
-J
-java:S1604P"(Make this anonymous inner class a lambda(õ¬­üÿÿÿÿ8ôûÃìÑ1
-n
-java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8á²İÅÑ1
-{
-java:S1104"YMake frameChimante a static final constant or non-public and provide accessors if needed.(³ ï—ÿÿÿÿÿ8á²İÅÑ1
-s
-java:S1104"VMake controller a static final constant or non-public and provide accessors if needed.(Ó‘çõ8á²İÅÑ1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8å²İÅÑ1
-‰
-java:S3008Ü"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8Ì³İÅÑ1
-}
-java:S1450"[Remove the "cognomeLabel" field and declare it as a local variable in the relevant methods.(•ìÁ‚ùÿÿÿÿ8Ï³İÅÑ1
-}
-java:S1450 "[Remove the "cognomePanel" field and declare it as a local variable in the relevant methods.(»Ê›™üÿÿÿÿ8Ï³İÅÑ1
-
-java:S1450*"_Remove the "dataNascitaPanel" field and declare it as a local variable in the relevant methods.(÷üêÊúÿÿÿÿ8Ğ³İÅÑ1
-{
-java:S1450("YRemove the "emailLabel" field and declare it as a local variable in the relevant methods.(Ÿô¶»øÿÿÿÿ8Ğ³İÅÑ1
-v
-java:S1450'"YRemove the "emailPanel" field and declare it as a local variable in the relevant methods.(¶®ì„8Ğ³İÅÑ1
-}
-java:S1450"`Remove the "intestazionePanel" field and declare it as a local variable in the relevant methods.(ÌÓ³ê8Ñ³İÅÑ1
-z
-java:S1450"XRemove the "nomeLabel" field and declare it as a local variable in the relevant methods.(ÀÛê¿üÿÿÿÿ8Ñ³İÅÑ1
-z
-java:S1450"XRemove the "nomePanel" field and declare it as a local variable in the relevant methods.(ğå¸ ıÿÿÿÿ8Ñ³İÅÑ1
-€
-java:S1450#"^Remove the "nomeUtenteLabel" field and declare it as a local variable in the relevant methods.(È¼×áûÿÿÿÿ8Ó³İÅÑ1
-z
-java:S1450!"^Remove the "nomeUtentePanel" field and declare it as a local variable in the relevant methods.(Âüà[8Ó³İÅÑ1
-‚
-java:S1450"`Remove the "panelIntestazione" field and declare it as a local variable in the relevant methods.(Œ¥˜§úÿÿÿÿ8Ô³İÅÑ1
-y
-java:S1450%"\Remove the "passwordLabel" field and declare it as a local variable in the relevant methods.(‰É¨Š8Ô³İÅÑ1
-y
-java:S1450$"\Remove the "passwordPanel" field and declare it as a local variable in the relevant methods.(¬§¶‰8Õ³İÅÑ1
-|
-java:S1450"ZRemove the "titoloLavel" field and declare it as a local variable in the relevant methods.(°ÿÿÿÿÿ8Õ³İÅÑ1
-‚
-java:S1149ñ"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8×³İÅÑ1
-‚
-java:S1149Œ"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8×³İÅÑ1
-f
-java:S32523"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8Û³İÅÑ1
-\
-java:S1161>":Add the "@Override" annotation above this method signature(Šÿó‹øÿÿÿÿ8Ü³İÅÑ1
 Q
-java:S1874V"/Remove this use of "getText"; it is deprecated.(ğÑøˆÿÿÿÿÿ8ÿÃìÑ1
-G	java:S106g"+Replace this use of System.out by a logger.(¾áÖ¸8ä³İÅÑ1
+java:S3740-"/Provide the parametrized type for this generic.(¿â¤Öÿÿÿÿÿ8ÆúµÖÓ1
+L
+java:S3740."/Provide the parametrized type for this generic.(Ò»øƒ8ÇúµÖÓ1
+Q
+java:S3740/"/Provide the parametrized type for this generic.(Ó•Š‘ûÿÿÿÿ8ÇúµÖÓ1
+M
+java:S3740²"/Provide the parametrized type for this generic.(ãæË8ÇúµÖÓ1
+L
+java:S3740´"/Provide the parametrized type for this generic.(Û¿îf8ÇúµÖÓ1
+R
+java:S3740¶"/Provide the parametrized type for this generic.(Üîåˆøÿÿÿÿ8ÇúµÖÓ1
+d
+java:S1192§"FDefine a constant instead of duplicating this literal "it_IT" 9 times.(¾ŸÓç8ÉúµÖÓ1
+u	java:S127‹"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8ÊúµÖÓ1
+u	java:S127¦"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8ÊúµÖÓ1
+D
+java:S1604Z"(Make this anonymous inner class a lambda(±Ûà/8ËúµÖÓ1
+J
+java:S1604c"(Make this anonymous inner class a lambda(õ¬­üÿÿÿÿ8ËúµÖÓ1
+n
+java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8ÍúµÖÓ1
+{
+java:S1104"YMake frameChimante a static final constant or non-public and provide accessors if needed.(³ ï—ÿÿÿÿÿ8ÍúµÖÓ1
+s
+java:S1104"VMake controller a static final constant or non-public and provide accessors if needed.(Ó‘çõ8ÍúµÖÓ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8ÓúµÖÓ1
+‰
+java:S3008ğ"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8¡üµÖÓ1
+}
+java:S1450"[Remove the "cognomeLabel" field and declare it as a local variable in the relevant methods.(•ìÁ‚ùÿÿÿÿ8¥üµÖÓ1
+}
+java:S1450 "[Remove the "cognomePanel" field and declare it as a local variable in the relevant methods.(»Ê›™üÿÿÿÿ8¨üµÖÓ1
+
+java:S1450*"_Remove the "dataNascitaPanel" field and declare it as a local variable in the relevant methods.(÷üêÊúÿÿÿÿ8ªüµÖÓ1
+{
+java:S1450("YRemove the "emailLabel" field and declare it as a local variable in the relevant methods.(Ÿô¶»øÿÿÿÿ8«üµÖÓ1
+v
+java:S1450'"YRemove the "emailPanel" field and declare it as a local variable in the relevant methods.(¶®ì„8¬üµÖÓ1
+}
+java:S1450"`Remove the "intestazionePanel" field and declare it as a local variable in the relevant methods.(ÌÓ³ê8®üµÖÓ1
+z
+java:S1450"XRemove the "nomeLabel" field and declare it as a local variable in the relevant methods.(ÀÛê¿üÿÿÿÿ8¯üµÖÓ1
+z
+java:S1450"XRemove the "nomePanel" field and declare it as a local variable in the relevant methods.(ğå¸ ıÿÿÿÿ8±üµÖÓ1
+€
+java:S1450#"^Remove the "nomeUtenteLabel" field and declare it as a local variable in the relevant methods.(È¼×áûÿÿÿÿ8±üµÖÓ1
+z
+java:S1450!"^Remove the "nomeUtentePanel" field and declare it as a local variable in the relevant methods.(Âüà[8²üµÖÓ1
+‚
+java:S1450"`Remove the "panelIntestazione" field and declare it as a local variable in the relevant methods.(Œ¥˜§úÿÿÿÿ8²üµÖÓ1
+y
+java:S1450%"\Remove the "passwordLabel" field and declare it as a local variable in the relevant methods.(‰É¨Š8³üµÖÓ1
+y
+java:S1450$"\Remove the "passwordPanel" field and declare it as a local variable in the relevant methods.(¬§¶‰8´üµÖÓ1
 |
-java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8å³İÅÑ1
-X	java:S125r"<This block of commented-out lines of code should be removed.(º»€É8å³İÅÑ1
-p	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8å³İÅÑ1
-p	java:S100Ş"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8û³İÅÑ1
+java:S1450"ZRemove the "titoloLavel" field and declare it as a local variable in the relevant methods.(°ÿÿÿÿÿ8´üµÖÓ1
+‚
+java:S1149…"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8¶üµÖÓ1
+‚
+java:S1149 "_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8¶üµÖÓ1
+f
+java:S32526"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ºüµÖÓ1
+X	java:S1259"<This block of commented-out lines of code should be removed.(ÖµÅ³8¾üµÖÓ1
+Q
+java:S1874i"/Remove this use of "getText"; it is deprecated.(ğÑøˆÿÿÿÿÿ8ÅüµÖÓ1
+K
+java:S1905m")Remove this unnecessary cast to "String".(±„–»ıÿÿÿÿ8ÆüµÖÓ1
+G	java:S106u"+Replace this use of System.out by a logger.(ñ…›¼8ÌüµÖÓ1
+L	java:S106w"+Replace this use of System.out by a logger.(‹şàúÿÿÿÿ8ÍüµÖÓ1
+|
+java:S1171’"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ÏüµÖÓ1
+Y	java:S125ƒ"<This block of commented-out lines of code should be removed.(º»€É8ĞüµÖÓ1
+p	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8ĞüµÖÓ1
+p	java:S100ò"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8ñüµÖÓ1
 T
-java:S2696ä"6Make the enclosing method "static" or remove this set.(§¾ã8ü³İÅÑ1
-k	java:S100ğ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§¨¡³8ı³İÅÑ1
-k	java:S100‹"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8€´İÅÑ1
-p	java:S100¦"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8‚´İÅÑ1
+java:S2696ø"6Make the enclosing method "static" or remove this set.(§¾ã8óüµÖÓ1
+k	java:S100„"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§¨¡³8õüµÖÓ1
+k	java:S100Ÿ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8úüµÖÓ1
+p	java:S100º"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8ıµÖÓ1
+U
+java:S1128	"8Remove this unused import 'java.awt.event.FocusAdapter'.(œØ£8ıµÖÓ1
+X
+java:S1128
+"6Remove this unused import 'java.awt.event.FocusEvent'.(“÷ÎËúÿÿÿÿ8ıµÖÓ1
+J
+java:S10680"-Remove this unused "dataField" private field.(¿®üğ8‚ıµÖÓ1
