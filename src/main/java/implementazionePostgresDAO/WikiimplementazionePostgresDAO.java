@@ -376,4 +376,34 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         connection.close();
         return pagineVisualizzate;
     }
+
+    @Override
+    public ArrayList<Pagina> getModificate(Utente utenteloggato) throws SQLException {
+        ArrayList<Pagina> modifiche = new ArrayList<>();
+        try{
+            String query = "SELECT * FROM Pagina WHERE idPagina IN (SELECT idPagina FROM ModificaProposta WHERE utentep = ?) GROUP BY idPagina";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            String queryUtente = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
+            PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
+            preparedStatementUtente.setString(1, utenteloggato.getLogin());
+            ResultSet rsUtente = preparedStatementUtente.executeQuery();
+            rsUtente.next();
+            int idUtente = rsUtente.getInt("idutente");
+            preparedStatement.setInt(1,idUtente);
+            ResultSet rsPagina = preparedStatement.executeQuery();
+            while (rsPagina.next()){
+                String queryAutore = "SELECT * FROM utente WHERE idUtente = ? GROUP BY idUtente LIMIT 1";
+                PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
+                preparedStatementAutore.setInt(1, rsPagina.getInt("idAutore"));;
+                ResultSet rsAutore = preparedStatementAutore.executeQuery();
+                rsAutore.next();
+                Pagina pagina = new Pagina(rsPagina.getString("titolo"), (rsPagina.getTimestamp("dataOraCreazione")).toLocalDateTime(), rsAutore.getString("nome"), rsAutore.getString("cognome"), rsAutore.getString("login"), rsAutore.getString("password"), rsAutore.getString("email"), rsAutore.getDate("dataNascita"));
+                modifiche.add(pagina);
+            }
+        }catch (Exception e){
+            System.out.println("Errore durante l'esecuzione della query: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return modifiche;
+    }
 }

@@ -47,7 +47,7 @@ public class StoricoUtente {
 
         ArrayList<Pagina> pagineVisualizzate = controller.storicoPagineVisualizzate(utente);
 
-       // utente.setPagineVisualizzate(controller.storicoPagineVisualizzate(utente));
+        // utente.setPagineVisualizzate(controller.storicoPagineVisualizzate(utente));
 
         DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Pagine Visualizzate"}) {
             @Override
@@ -102,6 +102,60 @@ public class StoricoUtente {
             }
         }));
 
+        DefaultTableModel modelDestra = new DefaultTableModel(new Object[][]{}, new String[]{"Modifiche Proposte"}) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        tableModProposte.setModel(modelDestra);
+        tableModProposte.setRowHeight(50);
+        ArrayList<Pagina> pagineModificate = controller.getModificate(utente);
+        for (Pagina i : pagineModificate) {
+            modelDestra.addRow(new Object[]{i.getTitolo()});
+        }
+        tableModProposte.addMouseListener((new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int selectedRow = tableModProposte.getSelectedRow();
+                    if (selectedRow != -1) {
+                        Object cellValue = tableModProposte.getValueAt(selectedRow, 0);
+                        String titolo = cellValue.toString();
+                        System.out.println(titolo);
+
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, pagineVisualizzate.get(selectedRow));
+                        DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame, pagineModificate.get(selectedRow), utente);
+                        dettagliModifiche.frame.setLocationRelativeTo(frame);
+                        //paginaTesto.frame.setResizable(false);
+                        //paginaTesto.frame.setSize(400, 200);
+                        dettagliModifiche.frame.setVisible(true);
+                        frame.setVisible(false);
+                    }
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        }));
+
         paginaPrecedenteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -109,6 +163,8 @@ public class StoricoUtente {
                 frameChiamante.setVisible(true);
             }
         });
+
+
     }
 
     {
@@ -247,4 +303,5 @@ public class StoricoUtente {
     public JComponent $$$getRootComponent$$$() {
         return panel;
     }
+
 }

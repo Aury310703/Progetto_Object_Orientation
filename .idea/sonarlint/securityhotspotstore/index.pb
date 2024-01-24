@@ -173,3 +173,7 @@ P
  src/main/java/MODEL/Visiona.java,b\7\b702b053d5e58c426cddfcd0b01ffbfbb5bb288c
 w
 G.idea/sonarlint/issuestore/9/c/9ca83cf4a211c5bbde7bfdf35956e640d28fb40d,d\1\d1f19b6cec28eabdf03d05975e4c080f3801003f
+X
+(src/main/java/GUI/DettagliModifiche.java,2\a\2a756e5bd22ce5877c55d675f88854d5034a8728
+X
+(src/main/java/GUI/DettagliModifiche.form,8\2\82bd2071bd34a72cfea43e6b98bd07adbaf25b35

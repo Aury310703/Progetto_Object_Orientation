@@ -5,3 +5,5 @@ java:S1319"pThe return type of this method should be an interface such as "Lis
 java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(£û¥ı8ÛˆÄìÑ1
 
 java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¶äĞ²8şôæÖÓ1
+
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ùÉ›ş8šÂ âÓ1

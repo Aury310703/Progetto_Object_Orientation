@@ -25,6 +25,7 @@ public void creazionePagina(Pagina paginaCreata) throws SQLException;
 public ArrayList<Pagina> storicoPagineVisualizzate(Utente utente) throws SQLException;
 
 public void addPaginaVisualizzata(Pagina paginaSelezionata, Utente utenteLoggato) throws SQLException;
+public ArrayList<Pagina> getModificate(Utente utenteloggato) throws SQLException;
 }
 
 

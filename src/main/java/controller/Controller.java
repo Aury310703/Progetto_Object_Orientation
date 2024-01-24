@@ -172,4 +172,20 @@ public class Controller {
             throw new RuntimeException(e);
         }
     }
+
+    public ArrayList<Pagina> getModificate(Utente utenteloggato) {
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        ArrayList <Pagina> modifiche = new ArrayList<>();
+        try {
+            modifiche = w.getModificate(utenteloggato);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return modifiche;
+    }
+
+    public ArrayList<ModificaProposta> getProposte(Pagina paginaSelezionata, Utente utenteloggato) {
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+
+    }
 }
