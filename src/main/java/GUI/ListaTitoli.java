@@ -144,7 +144,7 @@ public class ListaTitoli {
                     int selectedRow = TitoliTable.getSelectedRow();
                     if (selectedRow != -1) {
                         Object cellValue = TitoliTable.getValueAt(selectedRow, 0);
-                        String titolo = cellValue.toString();
+                        String titoloSelezionato = cellValue.toString();
 
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame, pagine.get(selectedRow), utenteLoggato, titolo);
                         paginaTesto.frame.setLocationRelativeTo(frame);

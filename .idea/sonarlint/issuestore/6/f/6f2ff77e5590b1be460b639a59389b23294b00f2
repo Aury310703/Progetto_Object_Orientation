@@ -58,6 +58,10 @@ java:S1186¥"€Add a nested comment explaining why this method is empty, throw 
 java:S1186ª"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö„˜şúÿÿÿÿ8ÛĞ»Ò1
 ¤
 java:S1186¯"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•ßçùÿÿÿÿ8ÜĞ»Ò1
+h
+java:S1854“"ERemove this useless assignment to local variable "titoloSelezionato".(ĞÌ¹úÿÿÿÿ8¾”œÚÓ1
+Y
+java:S1481“"6Remove this unused "titoloSelezionato" local variable.(ĞÌ¹úÿÿÿÿ8¾”œÚÓ1
 Y	java:S125—"<This block of commented-out lines of code should be removed.(¿îˆ³8äĞ»Ò1
 S
 java:S2209¹"5Change this instance-reference to a static reference.(‘ïÁÔ8êĞ»Ò1

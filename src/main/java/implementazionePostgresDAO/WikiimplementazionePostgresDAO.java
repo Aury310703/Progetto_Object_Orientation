@@ -66,11 +66,21 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         rs.next();
         int idAutore = rs.getInt("idutente");
 
+        String quesryPagina = "SELECT idPagina FROM PAGINA WHERE idAutore = ? AND dataOraCreazione = ? AND titolo = ?";
+        PreparedStatement preparedStatementPagina = connection.prepareStatement(quesryPagina);
+        preparedStatementPagina.setInt(1, idAutore);
+        preparedStatementPagina.setTimestamp(2, Timestamp.valueOf(paginaSelezionata.getDataCreazione()));
+        preparedStatementPagina.setString(3, paginaSelezionata.getTitolo());
+        ResultSet rsPagina = preparedStatementPagina.executeQuery();
+        rsPagina.next();
+        int idPagina = rsPagina.getInt("idPagina");
+
         if(paginaSelezionata.getFrasi().isEmpty()) {
-            query = "SELECT * FROM frasecorrente F JOIN pagina P ON F.idPagina = P.idPagina WHERE idAutore = ? AND P.titolo = ? ORDER BY f.numerazione";
+            query = "SELECT * FROM frasecorrente F JOIN pagina P ON F.idPagina = P.idPagina WHERE idAutore = ? AND P.titolo = ? AND F.idPagina = ? ORDER BY f.numerazione";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, idAutore);
             preparedStatement.setString(2, paginaSelezionata.getTitolo());
+            preparedStatement.setInt(3, idPagina);
             rs = preparedStatement.executeQuery();
 
             Frase_Corrente frase = null;
@@ -366,5 +376,4 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         connection.close();
         return pagineVisualizzate;
     }
-
 }

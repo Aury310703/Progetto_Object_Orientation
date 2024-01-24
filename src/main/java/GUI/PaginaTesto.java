@@ -156,6 +156,7 @@ public class PaginaTesto {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 ListaTitoli listaTitoli = new ListaTitoli(controller, frame, titolo, utenteLoggato);
+                System.out.println("titolo = " + titolo);
                 listaTitoli.frame.setVisible(true);
                 frame.dispose();
             }
