@@ -80,14 +80,12 @@ CREATE TABLE ModificaProposta
 ```SQL
 CREATE TABLE NOTIFICA 
 (
-    idPagina pk_utente NOT NULL,
-    idUtente pk_utente NOT NULL,
+    idAutore pk_utente NOT NULL,
+	idModifica pk_utente NOT NULL,
     data DATE,
     ora TIME,
-    idAutore pk_utente NOT NULL,
     titolo varchar(80),
-    FOREIGN KEY(idPagina) REFERENCES pagina(idPagina),
-    FOREIGN KEY(idUtente) REFERENCES utente(idUtente),
+    FOREIGN KEY(idModifica) REFERENCES modificaproposta(idModifica),
     FOREIGN KEY(idAutore) REFERENCES utente(idUtente)
 )
 ```
@@ -123,7 +121,7 @@ BEGIN
             IF new.utentep != (SELECT idautore FROM Pagina WHERE idPagina = new.idPagina) THEN
                 -- Inserisci un nuovo record nella tabella NOTIFICA
                 INSERT INTO NOTIFICA
-                    VALUES (new.IdPagina, new.utentep, NOW(), NOW(), new.autorev, v_titolo, new.idModifica);
+                    VALUES (new.autorev, new.idModifica, NOW(), NOW(), v_titolo);
                 RAISE NOTICE 'è stata proposta una modifica alla pagina ';
                 RETURN new;
             ELSE
