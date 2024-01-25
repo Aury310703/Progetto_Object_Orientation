@@ -17,6 +17,8 @@ public ArrayList<Pagina> storicoPagineVisualizzate(Utente utente) throws SQLExce
 public void addPaginaVisualizzata(Pagina paginaSelezionata, Utente utenteLoggato) throws SQLException;
 public ArrayList<Pagina> getModificate(Utente utenteloggato) throws SQLException;
 public ArrayList<ModificaProposta> getProposte(Pagina paginaSelezionata, Utente utenteLoggato) throws SQLException;
+public ArrayList<Pagina> storicoPagineCreate(Autore autoreLoggato) throws SQLException;
+public boolean controllaNotifiche(Autore utenteLoggato) throws SQLException;
 }
 
 

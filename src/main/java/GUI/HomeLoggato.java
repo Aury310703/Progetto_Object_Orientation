@@ -1,5 +1,6 @@
 package GUI;
 
+import MODEL.Autore;
 import MODEL.Utente;
 import controller.Controller;
 
@@ -30,9 +31,17 @@ public class HomeLoggato {
         nomeutenteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                StoricoUtente storicoUtente = new StoricoUtente(controller, frame, utenteLoggato);
-                frame.setVisible(false);
-                storicoUtente.frame.setVisible(true);
+
+                if (utenteLoggato instanceof Autore) {
+                    Autore autoreLoggato = (Autore) utenteLoggato;
+                    StoricoAutore storicoAutore = new StoricoAutore(controller, frame, autoreLoggato);
+                    frame.setVisible(false);
+                    storicoAutore.frame.setVisible(true);
+                } else {
+                    StoricoUtente storicoUtente = new StoricoUtente(controller, frame, utenteLoggato);
+                    frame.setVisible(false);
+                    storicoUtente.frame.setVisible(true);
+                }
             }
         });
     }
@@ -82,6 +91,7 @@ public class HomeLoggato {
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+
         nomeutenteButton.setText(utenteLoggato.getLogin());
         clickOnSearchButton(utenteLoggato);
         clickOnUsernameButton();

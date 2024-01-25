@@ -34,7 +34,7 @@ public class Errori {
 
     public Errori(String TestoDaVisualizzare, JFrame frameModificaTesto, JFrame frameChiamante) {
         this.frameChiamante = frameChiamante;
-        this.frame = new JFrame("Errori");
+        this.frame = new JFrame("WIKI");
         frame.setContentPane(Panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
@@ -47,6 +47,26 @@ public class Errori {
                 frame.setVisible(false);
                 frameChiamante.setVisible(false);
                 frameModificaTesto.setVisible(true);
+            }
+
+        });
+
+    }
+
+    public Errori(String TestoDaVisualizzare, JFrame frameSuccessivo) {
+        this.frameChiamante = frameChiamante;
+        this.frame = new JFrame("WIKI");
+        frame.setContentPane(Panel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        testoLabel.setText(TestoDaVisualizzare);
+
+        TornaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                frame.setVisible(false);
+                frameSuccessivo.setVisible(false);
             }
 
         });

@@ -177,3 +177,17 @@ X
 (src/main/java/GUI/DettagliModifiche.java,2\a\2a756e5bd22ce5877c55d675f88854d5034a8728
 X
 (src/main/java/GUI/DettagliModifiche.form,8\2\82bd2071bd34a72cfea43e6b98bd07adbaf25b35
+\
+,src/main/java/GUI/RegistrazioneBuonFine.java,4\e\4e2f35999a8d2d8ab18f2530aea7427e8615f90d
+T
+$src/main/java/GUI/storicoAutore.java,6\9\6949491402902ef63b139e7beb949e6ff11816af
+T
+$src/main/java/GUI/storicoAutore.form,4\8\483278d7f70075606ad5d1e6d2a828e05f0abed4
+P
+ src/main/java/GUI/Notifiche.java,5\8\586cd765ea41858e02042b8af3a63d2257b65c20
+P
+ src/main/java/GUI/Notifiche.form,7\2\72be3eb9e487f59f4b50f88c052a464d511fd4a2
+L
+src/main/java/GUI/Login.form,0\2\02109b8a5187c8648f06d4aba1ff20ff84cd97f4
+Q
+!src/main/java/MODEL/Notifica.java,c\3\c38972407b731479f9334e3a2e3f770a4b510c31

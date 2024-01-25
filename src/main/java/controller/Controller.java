@@ -194,4 +194,26 @@ public class Controller {
         }
         return modifiche;
     }
+
+    public ArrayList<Pagina> storicoPagineCreate(Autore autoreLoggato) {
+        ArrayList<Pagina> pagineCreate = new ArrayList<>();
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        try {
+            pagineCreate = w.storicoPagineCreate(autoreLoggato);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return pagineCreate;
+    }
+
+    public boolean controllaNotifiche(Autore utenteLoggato){
+        boolean notifiche = false;
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        try {
+            notifiche = w.controllaNotifiche(utenteLoggato);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return notifiche;
+    }
 }

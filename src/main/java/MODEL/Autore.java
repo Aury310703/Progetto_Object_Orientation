@@ -43,7 +43,7 @@ public class Autore extends Utente {
     }
     private ArrayList<ModificaProposta> valutate = new ArrayList<>();
     private ArrayList<Pagina> creazioni = new ArrayList<>();
-
+    private ArrayList<Notifica> notificheRicevute = new ArrayList<>();
     /**
      * restituisce un ArrayList ModificaProposta che contiene tutte le proposte di modifica valutate dall'autore, che sono state fatte sui testi da lui creati .
      *
@@ -114,5 +114,17 @@ public class Autore extends Utente {
      */
     public void rempveCreazioni(Pagina pagina){
         creazioni.remove(pagina);
+    }
+    public ArrayList<Notifica> getNotificheRicevute() {
+        return notificheRicevute;
+    }
+    public void setNotificheRicevute(ArrayList<Notifica> notificheRicevute) {
+        this.notificheRicevute = notificheRicevute;
+    }
+    public void addNotificheRicevute(Notifica n){
+        notificheRicevute.add(n);
+    }
+    public void removeNotificheRicevute(Notifica n){
+        notificheRicevute.remove(n);
     }
 }

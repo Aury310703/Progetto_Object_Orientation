@@ -1,5 +1,6 @@
 package GUI;
 
+import MODEL.Autore;
 import MODEL.Pagina;
 import MODEL.Utente;
 import controller.Controller;
@@ -55,6 +56,7 @@ public class Login {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
+
         dietroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -80,6 +82,14 @@ public class Login {
                 }
 
                 if (utenteLoggato != null) {
+//                    if (utenteLoggato instanceof Autore) {
+//                        Autore autoreLoggato = (Autore) utenteLoggato;
+//                        boolean notifiche = controller.controllaNotifiche(autoreLoggato);
+//                        if (notifiche) {
+//                            Errori errori = new Errori("hai delle notifiche");
+//                            errori.frame.setVisible(true);
+//                        }
+//                    }
                     if (controllo.equals("Home")) {
                         HomeLoggato homeLoggato = new HomeLoggato(controller, frame, utenteLoggato);
                         homeLoggato.frame.setVisible(true);
@@ -143,6 +153,15 @@ public class Login {
                 }
 
                 if (utenteLoggato != null) {
+                    if (utenteLoggato instanceof Autore) {
+                        Autore autoreLoggato = (Autore) utenteLoggato;
+                        boolean notifiche = controller.controllaNotifiche(autoreLoggato);
+                        if (notifiche) {
+                            Errori errori = new Errori("hai delle notifiche");
+                            errori.frame.setVisible(true);
+                        }
+                    }
+
                     if (controllo.equals("listaTitoli")) {
                         ListaTitoli listaTitoli = new ListaTitoli(controller, frame, titolo, utenteLoggato);
                         frame.setVisible(false);
@@ -294,9 +313,6 @@ public class Login {
     }
 
     /**
-     * $$$ get root component $$$ j component.
-     *
-     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

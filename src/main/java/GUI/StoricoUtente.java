@@ -20,9 +20,6 @@ public class StoricoUtente {
     private JPanel panelSu;
     private JButton paginaPrecedenteButton;
     private JLabel titoloLabel;
-    private JLabel nomeLabel;
-    private JLabel cognomeUtenteLabel;
-    private JLabel nomeUtenteLabel;
     private JTable tablePagineVisualizzate;
     private JTable tableModProposte;
     private JScrollPane Scrolliniziale;
@@ -31,8 +28,16 @@ public class StoricoUtente {
     private JPanel PanelDestra;
     private JScrollPane ScrollSinistra;
     private JScrollPane ScrollDestra;
-    private JPanel PanelDatiPersonali;
+    private JPanel infoPanel;
+    private JPanel nomePanel;
+    private JLabel nomeLabel;
+    private JLabel nomeLabel2;
+    private JPanel cognomePanel;
     private JLabel cognomeLabel;
+    private JLabel cognomeLabel2;
+    private JPanel nomeUtentepanel;
+    private JLabel nomeUtenteLabel;
+    private JLabel nomeUtenteLabel2;
     private JLabel nLabel;
     private JLabel nuLabel;
 
@@ -43,16 +48,16 @@ public class StoricoUtente {
     public StoricoUtente(Controller controller, JFrame frameChiamante, Utente utente) {
         this.controller = controller;
         this.frameChiamante = frameChiamante;
-        this.frame = new JFrame("Titoli");
+        this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
         ArrayList<Pagina> pagineVisualizzate = controller.storicoPagineVisualizzate(utente);
 
-        nLabel.setText(utente.getNome());
-        cognomeLabel.setText(utente.getCognome());
-        nuLabel.setText(utente.getLogin());
+        nomeLabel2.setText(utente.getNome());
+        cognomeLabel2.setText(utente.getCognome());
+        nomeUtenteLabel2.setText(utente.getLogin());
 
 
         // utente.setPagineVisualizzate(controller.storicoPagineVisualizzate(utente));
@@ -199,7 +204,7 @@ public class StoricoUtente {
         this.$$$loadButtonText$$$(paginaPrecedenteButton, this.$$$getMessageFromBundle$$$("it_IT", "paginaPrecedente"));
         panelSu.add(paginaPrecedenteButton, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         titoloLabel = new JLabel();
-        titoloLabel.setText("Label");
+        this.$$$loadLabelText$$$(titoloLabel, this.$$$getMessageFromBundle$$$("it_IT", "Storico"));
         panelSu.add(titoloLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         Scrolliniziale = new JScrollPane();
         panel.add(Scrolliniziale, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
@@ -220,27 +225,36 @@ public class StoricoUtente {
         PanelDestra.add(ScrollDestra, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         tableModProposte = new JTable();
         ScrollDestra.setViewportView(tableModProposte);
-        PanelDatiPersonali = new JPanel();
-        PanelDatiPersonali.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 6, new Insets(0, 0, 0, 0), -1, -1));
-        panel.add(PanelDatiPersonali, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        infoPanel = new JPanel();
+        infoPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 3, new Insets(0, 0, 0, 0), -1, -1));
+        panel.add(infoPanel, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        nomePanel = new JPanel();
+        nomePanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+        infoPanel.add(nomePanel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         nomeLabel = new JLabel();
         this.$$$loadLabelText$$$(nomeLabel, this.$$$getMessageFromBundle$$$("it_IT", "nome"));
-        PanelDatiPersonali.add(nomeLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        cognomeUtenteLabel = new JLabel();
-        this.$$$loadLabelText$$$(cognomeUtenteLabel, this.$$$getMessageFromBundle$$$("it_IT", "cognome"));
-        PanelDatiPersonali.add(cognomeUtenteLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        nomePanel.add(nomeLabel);
+        nomeLabel2 = new JLabel();
+        nomeLabel2.setText("Label");
+        nomePanel.add(nomeLabel2);
+        cognomePanel = new JPanel();
+        cognomePanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+        infoPanel.add(cognomePanel, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        cognomeLabel = new JLabel();
+        this.$$$loadLabelText$$$(cognomeLabel, this.$$$getMessageFromBundle$$$("it_IT", "cognome"));
+        cognomePanel.add(cognomeLabel);
+        cognomeLabel2 = new JLabel();
+        cognomeLabel2.setText("Label");
+        cognomePanel.add(cognomeLabel2);
+        nomeUtentepanel = new JPanel();
+        nomeUtentepanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+        infoPanel.add(nomeUtentepanel, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         nomeUtenteLabel = new JLabel();
         this.$$$loadLabelText$$$(nomeUtenteLabel, this.$$$getMessageFromBundle$$$("it_IT", "Username"));
-        PanelDatiPersonali.add(nomeUtenteLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 4, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        nLabel = new JLabel();
-        nLabel.setText("Label");
-        PanelDatiPersonali.add(nLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        cognomeLabel = new JLabel();
-        cognomeLabel.setText("Label");
-        PanelDatiPersonali.add(cognomeLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        nuLabel = new JLabel();
-        nuLabel.setText("Label");
-        PanelDatiPersonali.add(nuLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 5, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        nomeUtentepanel.add(nomeUtenteLabel);
+        nomeUtenteLabel2 = new JLabel();
+        nomeUtenteLabel2.setText("Label");
+        nomeUtentepanel.add(nomeUtenteLabel2);
     }
 
     private static Method $$$cachedGetBundleMethod$$$ = null;

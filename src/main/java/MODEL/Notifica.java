@@ -9,11 +9,12 @@ public class Notifica {
     private LocalDate dataInvio;
     private LocalTime oraInvio;
     private String messaggio;
-
     private ModificaProposta modifica;
+    private Autore autore;
 
-    public Notifica(ModificaProposta modificaProposta){
+    public Notifica(Autore autore, ModificaProposta modificaProposta){
         this.modifica = modificaProposta;
+        this.autore = autore;
     }
 
     public LocalDate getDataInvio() {
@@ -41,4 +42,12 @@ public class Notifica {
     }
     public ModificaProposta getModifica() {return modifica;}
     public void setModifica(ModificaProposta modifica) {this.modifica = modifica;}
+
+    public Autore getAutore() {
+        return autore;
+    }
+
+    public void setAutore(Autore autore) {
+        this.autore = autore;
+    }
 }
