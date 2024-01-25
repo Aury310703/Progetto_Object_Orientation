@@ -8,15 +8,18 @@ import controller.Controller;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class DettagliModifiche {
     private JPanel panel;
     private JPanel panel1;
     private JScrollPane scrollPanel;
     private JTable tableDettagli;
+    private JButton paginaPrecedenteButton;
 
     public JFrame frame;
 
@@ -38,10 +41,30 @@ public class DettagliModifiche {
         };
         tableDettagli.setModel(model);
         tableDettagli.setRowHeight(50);
-        /*for (Pagina i : pagineVisualizzate) {
-            model.addRow(new Object[]{i.getTitolo()});
-        }*/
-        ArrayList<ModificaProposta> proposte = controller.getProposte(paginaSelezionata,utenteloggato);
+
+        ArrayList<ModificaProposta> proposte = controller.getProposte(paginaSelezionata, utenteloggato);
+
+        String stato = null;
+        for (ModificaProposta m : proposte) {
+            if (m.getStato() == -1) {
+                stato = "rifiutata";
+            } else if (m.getStato() == 0) {
+                stato = "in attesa";
+            } else {
+                stato = "accettata";
+            }
+            model.addRow(new Object[]{m.getFraseCorrente().getStringa_inserita(), m.getStringa_inserita(), stato});
+        }
+
+        paginaPrecedenteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                frameChiamante.setVisible(true);
+                frame.dispose();
+            }
+        });
+
     }
 
     {
@@ -64,11 +87,58 @@ public class DettagliModifiche {
         panel1 = new JPanel();
         panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel.add(panel1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        paginaPrecedenteButton = new JButton();
+        this.$$$loadButtonText$$$(paginaPrecedenteButton, this.$$$getMessageFromBundle$$$("it_IT", "paginaPrecedente"));
+        panel1.add(paginaPrecedenteButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         scrollPanel = new JScrollPane();
         panel.add(scrollPanel, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         tableDettagli = new JTable();
         tableDettagli.setAutoResizeMode(2);
         scrollPanel.setViewportView(tableDettagli);
+    }
+
+    private static Method $$$cachedGetBundleMethod$$$ = null;
+
+    private String $$$getMessageFromBundle$$$(String path, String key) {
+        ResourceBundle bundle;
+        try {
+            Class<?> thisClass = this.getClass();
+            if ($$$cachedGetBundleMethod$$$ == null) {
+                Class<?> dynamicBundleClass = thisClass.getClassLoader().loadClass("com.intellij.DynamicBundle");
+                $$$cachedGetBundleMethod$$$ = dynamicBundleClass.getMethod("getBundle", String.class, Class.class);
+            }
+            bundle = (ResourceBundle) $$$cachedGetBundleMethod$$$.invoke(null, path, thisClass);
+        } catch (Exception e) {
+            bundle = ResourceBundle.getBundle(path);
+        }
+        return bundle.getString(key);
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    private void $$$loadButtonText$$$(AbstractButton component, String text) {
+        StringBuffer result = new StringBuffer();
+        boolean haveMnemonic = false;
+        char mnemonic = '\0';
+        int mnemonicIndex = -1;
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == '&') {
+                i++;
+                if (i == text.length()) break;
+                if (!haveMnemonic && text.charAt(i) != '&') {
+                    haveMnemonic = true;
+                    mnemonic = text.charAt(i);
+                    mnemonicIndex = result.length();
+                }
+            }
+            result.append(text.charAt(i));
+        }
+        component.setText(result.toString());
+        if (haveMnemonic) {
+            component.setMnemonic(mnemonic);
+            component.setDisplayedMnemonicIndex(mnemonicIndex);
+        }
     }
 
     /**
@@ -77,4 +147,5 @@ public class DettagliModifiche {
     public JComponent $$$getRootComponent$$$() {
         return panel;
     }
+
 }

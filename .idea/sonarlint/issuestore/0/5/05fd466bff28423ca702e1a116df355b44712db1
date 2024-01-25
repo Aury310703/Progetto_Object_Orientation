@@ -1,48 +1,43 @@
 
-g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ûœâÓ1
-g	java:S112&"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8üœâÓ1
-g	java:S1121"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8üœâÓ1
-g	java:S112;"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8üœâÓ1
-g	java:S112E"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8üœâÓ1
-h	java:S112–"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8üœâÓ1
-h	java:S112¢"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8üœâÓ1
-h	java:S112¬"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8üœâÓ1
-h	java:S112¶"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8„¡âÓ1
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8œ§¹şÓ1
+g	java:S112&"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§¹şÓ1
+g	java:S1121"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§¹şÓ1
+g	java:S112;"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§¹şÓ1
+g	java:S112E"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§¹şÓ1
+h	java:S112–"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§¹şÓ1
+h	java:S112¢"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§¹şÓ1
+h	java:S112¬"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§¹şÓ1
+h	java:S112¶"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§¹şÓ1
+h	java:S112Á"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8 ñ¼ÿÓ1
 Œ
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(„Ê18üœâÓ1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(„Ê18Ÿ§¹şÓ1
 
-java:S1319 "pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¯Šñ§8ıœâÓ1
+java:S1319 "pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¯Šñ§8 §¹şÓ1
 
-java:S1319K"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÿÄ”ÿ8ıœâÓ1
+java:S1319K"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÿÄ”ÿ8 §¹şÓ1
 
-java:S1319œ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(²ƒ…Õ8ıœâÓ1
+java:S1319œ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(²ƒ…Õ8 §¹şÓ1
 
-java:S1319°"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(İœè»8ıœâÓ1
-
-java:S1319»"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÔëÓ‹8”ñöäÓ1
-m	java:S117N"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8ıœâÓ1
-r	java:S117P"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ÕÙ©øÿÿÿÿ8ıœâÓ1
+java:S1319°"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(İœè»8 §¹şÓ1
+“
+java:S1319»"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(˜şÌªşÿÿÿÿ8 §¹şÓ1
+m	java:S117N"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8 §¹şÓ1
+r	java:S117P"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ÕÙ©øÿÿÿÿ8 §¹şÓ1
 >
-java:S1116C"Remove this empty statement.(“•²ˆøÿÿÿÿ8ŞâÓ1
+java:S1116C"Remove this empty statement.(“•²ˆøÿÿÿÿ8¤©¹şÓ1
 \
-java:S1854o":Remove this useless assignment to local variable "autore".(Ößãøÿÿÿÿ8àâÓ1
+java:S1854o":Remove this useless assignment to local variable "autore".(Ößãøÿÿÿÿ8¦©¹şÓ1
 ^
-java:S1854"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8áâÓ1
+java:S1854"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8§©¹şÓ1
 _
-java:S1854"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8áâÓ1
-G	java:S106j"+Replace this use of System.out by a logger.(ƒ’¦İ8áâÓ1
-G	java:S106m"+Replace this use of System.out by a logger.(ÅåÚÛ8ãâÓ1
-G	java:S106x"+Replace this use of System.out by a logger.(İó·‹8äâÓ1
+java:S1854"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8§©¹şÓ1
+G	java:S106j"+Replace this use of System.out by a logger.(ƒ’¦İ8§©¹şÓ1
+G	java:S106m"+Replace this use of System.out by a logger.(ÅåÚÛ8©©¹şÓ1
+G	java:S106x"+Replace this use of System.out by a logger.(İó·‹8«©¹şÓ1
 O
-java:S1481"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8åâÓ1
-M	java:S106‚"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8åâÓ1
-H	java:S106‡"+Replace this use of System.out by a logger.(©ÿıø8åâÓ1
+java:S1481"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8­©¹şÓ1
+M	java:S106‚"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8­©¹şÓ1
+H	java:S106‡"+Replace this use of System.out by a logger.(©ÿıø8®©¹şÓ1
 P
-java:S1481"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8æâÓ1
-M	java:S106"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8æâÓ1
-S
-java:S1854¼"5Remove this useless assignment to local variable "w".(°òúõ8å¼÷äÓ1
-i
-java:S1172»"KRemove these unused method parameters "paginaSelezionata", "utenteloggato".(ÔëÓ‹8°‰öäÓ1
-D
-java:S1481¼"&Remove this unused "w" local variable.(°òúõ8æ¼÷äÓ1
+java:S1481"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8°©¹şÓ1
+M	java:S106"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8°©¹şÓ1

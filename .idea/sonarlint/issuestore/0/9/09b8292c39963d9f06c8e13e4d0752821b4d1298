@@ -1,9 +1,12 @@
 
 ’
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¥ó ´ûÿÿÿÿ8ÚˆÄìÑ1
+java:S1319
+"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¥ó ´ûÿÿÿÿ8ÚˆÄìÑ1
 
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(£û¥ı8ÛˆÄìÑ1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(£û¥ı8ÛˆÄìÑ1
 
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¶äĞ²8şôæÖÓ1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¶äĞ²8şôæÖÓ1
 
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ùÉ›ş8šÂ âÓ1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ùÉ›ş8¹õ¹şÓ1
+Œ
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÑÆ¯p8ü†»şÓ1

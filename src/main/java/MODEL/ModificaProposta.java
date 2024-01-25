@@ -11,17 +11,31 @@ public class ModificaProposta extends Frase {
     private LocalTime oraProposta;
     private LocalDate dataValutazione;
     private LocalTime oraValutazione;
-    public ModificaProposta(LocalDate dP, LocalTime oP, Autore a, Utente u, Frase_Corrente fc, String s, int numerazione){
-        super(s);
-        this.dataProposta = dP;
-        this.oraProposta = oP;
-        this.autore = a;
-        this.utente = u;
-        this.fraseCorrente = fc;
+    public ModificaProposta(LocalDate dataProposta, LocalTime oraProposta, Autore autore, Utente utente, Frase_Corrente fraseCorrente, String stringaProposta, int numerazione){
+        super(stringaProposta);
+        this.dataProposta = dataProposta;
+        this.oraProposta = oraProposta;
+        this.autore = autore;
+        this.utente = utente;
+        this.fraseCorrente = fraseCorrente;
         this.Numerazione = numerazione;
-        a.getValutate().add(this);
-        u.frasiProposte.add(this);
-        fc.getProposte().add(this);
+        autore.getValutate().add(this);
+        utente.frasiProposte.add(this);
+        fraseCorrente.getProposte().add(this);
+    }
+
+    public ModificaProposta(LocalDate dataProposta, LocalTime oraProposta, Autore autore, Utente utente, Frase_Corrente fraseCorrente, String stringaProposta, int numerazione, int stato){
+        super(stringaProposta);
+        this.dataProposta = dataProposta;
+        this.oraProposta = oraProposta;
+        this.autore = autore;
+        this.utente = utente;
+        this.fraseCorrente = fraseCorrente;
+        this.Numerazione = numerazione;
+        this.stato = stato;
+        autore.getValutate().add(this);
+        utente.frasiProposte.add(this);
+        fraseCorrente.getProposte().add(this);
     }
     private Autore autore;
     private Utente utente;

@@ -174,8 +174,8 @@ public class Controller {
     }
 
     public ArrayList<Pagina> getModificate(Utente utenteloggato) {
-        WikiDAO w = new WikiimplementazionePostgresDAO();
         ArrayList <Pagina> modifiche = new ArrayList<>();
+        WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
             modifiche = w.getModificate(utenteloggato);
         } catch (SQLException e) {
@@ -184,8 +184,14 @@ public class Controller {
         return modifiche;
     }
 
-    public ArrayList<ModificaProposta> getProposte(Pagina paginaSelezionata, Utente utenteloggato) {
+    public ArrayList<ModificaProposta> getProposte(Pagina paginaSelezionata, Utente utenteLoggato) {
+        ArrayList<ModificaProposta> modifiche = new ArrayList<>();
         WikiDAO w = new WikiimplementazionePostgresDAO();
-
+        try {
+            modifiche = w.getProposte(paginaSelezionata, utenteLoggato);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return modifiche;
     }
 }
