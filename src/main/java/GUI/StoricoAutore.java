@@ -214,16 +214,25 @@ public class StoricoAutore {
             }
         }));
 
-        notificheButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Notifiche notifiche = new Notifiche(controller, frame, autoreLoggato.getNotificheRicevute());
-                frame.setVisible(false);
-                notifiche.frame.setVisible(true);
-            }
-        });
+        if (!autoreLoggato.getNotificheRicevute().isEmpty()) {
+            notificheButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Notifiche notifiche = new Notifiche(controller, frame, autoreLoggato.getNotificheRicevute());
+                    frame.setVisible(false);
+                    notifiche.frame.setVisible(true);
+                }
+            });
+        } else {
+            notificheButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Errori erorri = new Errori("Non ci sono notifiche");
+                    erorri.frame.setVisible(true);
+                }
+            });
+        }
     }
-
 
 
     private void createUIComponents() {
@@ -342,4 +351,5 @@ public class StoricoAutore {
     public JComponent $$$getRootComponent$$$() {
         return panel;
     }
+
 }

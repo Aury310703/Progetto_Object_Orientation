@@ -46,37 +46,36 @@ public class Notifiche {
                 boolean controllo = controller.aggiornaStato(notificheRicevute, -1);
                 if (controllo) {
                     notificheRicevute.get(0).getAutore().getNotificheRicevute().remove(0);
-                    Notifiche notifiche = new Notifiche(controller, frameChiamante, notificheRicevute);
-                    frame.setVisible(false);
-                    notifiche.frame.setVisible(true);
-                    frame.dispose();
-                }
-            }
-        });
-
-        if (!notificheRicevute.isEmpty()) {
-            accettaButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    boolean controllo = controller.aggiornaStato(notificheRicevute, 1);
-                    if (controllo) {
-                        notificheRicevute.get(0).getAutore().getNotificheRicevute().remove(0);
+                    if (!notificheRicevute.isEmpty()) {
                         Notifiche notifiche = new Notifiche(controller, frameChiamante, notificheRicevute);
                         frame.setVisible(false);
                         notifiche.frame.setVisible(true);
                         frame.dispose();
+                    } else {
+                        frame.setVisible(false);
+                        frameChiamante.setVisible(true);
                     }
                 }
-            });
-        } else {
-            accettaButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    frame.setVisible(false);
-                    frameChiamante.setVisible(true);
+            }
+        });
+        accettaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                boolean controllo = controller.aggiornaStato(notificheRicevute, 1);
+                if (controllo) {
+                    notificheRicevute.get(0).getAutore().getNotificheRicevute().remove(0);
+                    if (!notificheRicevute.isEmpty()) {
+                        Notifiche notifiche = new Notifiche(controller, frameChiamante, notificheRicevute);
+                        frame.setVisible(false);
+                        notifiche.frame.setVisible(true);
+                        frame.dispose();
+                    } else {
+                        frame.setVisible(false);
+                        frameChiamante.setVisible(true);
+                    }
                 }
-            });
-        }
+            }
+        });
 
     }
 
@@ -212,4 +211,5 @@ public class Notifiche {
     public JComponent $$$getRootComponent$$$() {
         return panel;
     }
+
 }
