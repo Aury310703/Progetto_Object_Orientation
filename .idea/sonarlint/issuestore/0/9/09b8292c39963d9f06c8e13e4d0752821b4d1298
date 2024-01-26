@@ -1,15 +1,17 @@
 
 ’
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¥ó ´ûÿÿÿÿ8¬¡—¨Ô1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¥ó ´ûÿÿÿÿ8ş˜¶Ô1
 
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(£û¥ı8¬¡—¨Ô1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(£û¥ı8ş˜¶Ô1
 
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¶äĞ²8¬¡—¨Ô1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¶äĞ²8ş˜¶Ô1
 
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ùÉ›ş8¬¡—¨Ô1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ùÉ›ş8ş˜¶Ô1
 Œ
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÑÆ¯p8­¡—¨Ô1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÑÆ¯p8ş˜¶Ô1
 ’
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ì¬Åıÿÿÿÿ8­¡—¨Ô1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ì¬Åıÿÿÿÿ8ş˜¶Ô1
 †
-java:S1319"iThe type of "notifiche" should be an interface such as "List" rather than the implementation "ArrayList".(Œ€òÅ8­¡—¨Ô1
+java:S1319"iThe type of "notifiche" should be an interface such as "List" rather than the implementation "ArrayList".(Œ€òÅ8ş˜¶Ô1
+L
+java:S1128"*Remove this unused import 'GUI.Notifiche'.(şæèşÿÿÿÿ8‡ş˜¶Ô1

@@ -150,7 +150,8 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         return frasiTesto;
     }
 
-    public Utente verificaLoggato(String login, String password) throws SQLException {
+    public boolean verificaLoggato(String nome, String cognome, String login, String password, String email, Date datNascita, String ruolo) throws SQLException {
+        boolean controllo = false
         String query = "SELECT * FROM Utente WHERE LOWER(login) = ? AND password = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, login.toLowerCase());
@@ -158,24 +159,15 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         ResultSet rs = preparedStatement.executeQuery();
         Utente utenteLoggato = null;
         while(rs.next()){
-            if(rs.getString("ruolo").toLowerCase().equals("utente"))
-                utenteLoggato= new Utente(rs.getString("nome"), rs.getString("cognome"), login.toLowerCase(), password, rs.getString("email"), rs.getDate("dataNascita"));
-            else {
-                System.out.println("Il mio ruolo è" + rs.getString("ruolo"));
-                String queryAutore = "SELECT * FROM Pagina WHERE idAutore = ?";
-                PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
-                preparedStatementAutore.setInt(1, rs.getInt("idUtente"));
-                ResultSet rsAutore = preparedStatementAutore.executeQuery();
-                rsAutore.next();
-                utenteLoggato = new Autore(rs.getString("nome"), rs.getString("cognome"), login, password, rs.getString("email"), rs.getDate("dataNascita"), rsAutore.getString("titolo"), rsAutore.getTimestamp("dataOraCreazione").toLocalDateTime());
-
-                while (rsAutore.next()) {
-                        Pagina pagina = new Pagina(rsAutore.getString("titolo"), rsAutore.getTimestamp("dataOraCreazione").toLocalDateTime(), utenteLoggato);
-                }
-            }
+            controllo = true;
+            nome = rs.getString("nome");
+            cognome = rs.getString("cognome");
+            email = rs.getString("email");
+            datNascita = rs.getDate("dataNascita");
+            ruolo = rs.getString("ruolo");
         }
         connection.close();
-        return utenteLoggato;
+        return controllo;
     }
 
     @Override

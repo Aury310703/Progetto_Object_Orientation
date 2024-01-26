@@ -1,52 +1,60 @@
 
-g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8”å–¨Ô1
-g	java:S112'"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8•å–¨Ô1
-g	java:S1122"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8•å–¨Ô1
-g	java:S112<"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8•å–¨Ô1
-g	java:S112F"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8•å–¨Ô1
-h	java:S112—"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8–å–¨Ô1
-h	java:S112£"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8–å–¨Ô1
-h	java:S112­"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8–å–¨Ô1
-h	java:S112·"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8–å–¨Ô1
-h	java:S112Â"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8–å–¨Ô1
-h	java:S112Í"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8–å–¨Ô1
-h	java:S112Ø"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8–å–¨Ô1
-h	java:S112ã"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8–å–¨Ô1
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8õÄÊ¶Ô1
+g	java:S112."FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8öÄÊ¶Ô1
+g	java:S112L"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8öÄÊ¶Ô1
+g	java:S112V"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8öÄÊ¶Ô1
+g	java:S112`"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8öÄÊ¶Ô1
+h	java:S112±"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8öÄÊ¶Ô1
+h	java:S112½"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8öÄÊ¶Ô1
+h	java:S112Ç"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8÷ÄÊ¶Ô1
+h	java:S112Ñ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8÷ÄÊ¶Ô1
+h	java:S112Ü"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8÷ÄÊ¶Ô1
+h	java:S112ç"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8÷ÄÊ¶Ô1
+h	java:S112ò"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8÷ÄÊ¶Ô1
+h	java:S112ı"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8÷ÄÊ¶Ô1
 Œ
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(„Ê18˜å–¨Ô1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(„Ê18øÄÊ¶Ô1
 
-java:S1319!"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¯Šñ§8˜å–¨Ô1
+java:S1319("pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¯Šñ§8øÄÊ¶Ô1
 
-java:S1319L"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÿÄ”ÿ8˜å–¨Ô1
+java:S1319f"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÿÄ”ÿ8ùÄÊ¶Ô1
 
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(²ƒ…Õ8˜å–¨Ô1
+java:S1319·"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(²ƒ…Õ8ùÄÊ¶Ô1
 
-java:S1319±"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(İœè»8™å–¨Ô1
+java:S1319Ë"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(İœè»8ùÄÊ¶Ô1
 “
-java:S1319¼"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(˜şÌªşÿÿÿÿ8™å–¨Ô1
+java:S1319Ö"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(˜şÌªşÿÿÿÿ8ùÄÊ¶Ô1
 “
-java:S1319Ç"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬ÁŸ£üÿÿÿÿ8™å–¨Ô1
+java:S1319á"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬ÁŸ£üÿÿÿÿ8ùÄÊ¶Ô1
 ‡
-java:S1319İ"iThe type of "notifiche" should be an interface such as "List" rather than the implementation "ArrayList".(öƒªº8™å–¨Ô1
-m	java:S117O"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8™å–¨Ô1
-r	java:S117Q"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ÕÙ©øÿÿÿÿ8™å–¨Ô1
+java:S1319÷"iThe type of "notifiche" should be an interface such as "List" rather than the implementation "ArrayList".(öƒªº8ùÄÊ¶Ô1
+m	java:S117i"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8ùÄÊ¶Ô1
+r	java:S117k"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ÕÙ©øÿÿÿÿ8ùÄÊ¶Ô1
+
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(§ ÿ8ÔÆÊ¶Ô1
+y
+java:S1450"\Remove the "autoreloggato" field and declare it as a local variable in the relevant methods.(Ãïìœ8ÕÆÊ¶Ô1
+W
+java:S1854G":Remove this useless assignment to local variable "pagina".(Òç©˜8ÜÆÊ¶Ô1
+H
+java:S1481G"+Remove this unused "pagina" local variable.(Òç©˜8ŞÆÊ¶Ô1
 >
-java:S1116D"Remove this empty statement.(“•²ˆøÿÿÿÿ8êè–¨Ô1
-\
-java:S1854p":Remove this useless assignment to local variable "autore".(Ößãøÿÿÿÿ8îè–¨Ô1
+java:S1116^"Remove this empty statement.(“•²ˆøÿÿÿÿ8àÆÊ¶Ô1
+]
+java:S1854Š":Remove this useless assignment to local variable "autore".(Ößãøÿÿÿÿ8ãÆÊ¶Ô1
 _
-java:S1854€"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8îè–¨Ô1
+java:S1854š"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8ãÆÊ¶Ô1
 _
-java:S1854"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8îè–¨Ô1
-G	java:S106k"+Replace this use of System.out by a logger.(ƒ’¦İ8ïè–¨Ô1
-G	java:S106n"+Replace this use of System.out by a logger.(ÅåÚÛ8ğè–¨Ô1
-G	java:S106y"+Replace this use of System.out by a logger.(İó·‹8óè–¨Ô1
+java:S1854©"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8ãÆÊ¶Ô1
+H	java:S106…"+Replace this use of System.out by a logger.(ƒ’¦İ8äÆÊ¶Ô1
+H	java:S106ˆ"+Replace this use of System.out by a logger.(ÅåÚÛ8äÆÊ¶Ô1
+H	java:S106“"+Replace this use of System.out by a logger.(İó·‹8æÆÊ¶Ô1
 P
-java:S1481€"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8ôè–¨Ô1
-M	java:S106ƒ"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8õè–¨Ô1
-H	java:S106ˆ"+Replace this use of System.out by a logger.(©ÿıø8õè–¨Ô1
+java:S1481š"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8çÆÊ¶Ô1
+M	java:S106"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8çÆÊ¶Ô1
+H	java:S106¢"+Replace this use of System.out by a logger.(©ÿıø8èÆÊ¶Ô1
 P
-java:S1481"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8÷è–¨Ô1
-M	java:S106"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8÷è–¨Ô1
-L
-java:S1128"*Remove this unused import 'GUI.Notifiche'.(şæèşÿÿÿÿ8©°×«Ô1
+java:S1481©"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8éÆÊ¶Ô1
+M	java:S106ª"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8éÆÊ¶Ô1
+S
+java:S1068"1Remove this unused "utenteloggato" private field.(«íáıÿÿÿÿ8íÆÊ¶Ô1

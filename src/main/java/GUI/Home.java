@@ -1,7 +1,5 @@
 package GUI;
 
-import MODEL.Pagina;
-import MODEL.Utente;
 import controller.Controller;
 
 import javax.swing.*;
@@ -42,8 +40,7 @@ public class Home {
         LoginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Pagina paginatmp = null;
-                Login login = new Login(controller, frame, "Home", paginatmp);
+                Login login = new Login(controller, frame, "Home");
                 login.frame.setLocationRelativeTo(frame);
                 login.frame.setResizable(false);
                 login.frame.setSize(400, 200);

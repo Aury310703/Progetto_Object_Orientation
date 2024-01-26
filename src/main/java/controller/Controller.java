@@ -15,6 +15,13 @@ import java.util.Date;
 
 public class Controller {
 
+    private Utente utenteloggato;
+    private Autore autoreloggato;
+
+    public Controller(){
+
+    }
+
     public ArrayList<Pagina> ricercaTitoli(String titoloInserito){
         ArrayList<Pagina> pagineTrovate = new ArrayList<>();
         WikiDAO w = new WikiimplementazionePostgresDAO();
@@ -41,21 +48,40 @@ public class Controller {
         return testoPagina;
     }
 
-    public Utente verificaLoggato(String login, String password) {
+    public void creaUtente(String nome, String cognome, String login, String password, String email, Date datNascita){
+        utenteloggato = new Utente(nome,cognome,login,password,email,datNascita);
+    }
+
+    public void verificaLoggato(String login, String password) {
+        String ruolo = null;
         WikiDAO w = new WikiimplementazionePostgresDAO();
-        Utente utenteLoggato = null;
+        String nome = null;
+        String cognome = null;
+        String email = null;
+        Date dataNascita = null;
         try {
-            utenteLoggato = w.verificaLoggato(login, password);
+            if(w.verificaLoggato(nome,cognome,login, password,email,dataNascita,ruolo)){
+                if(ruolo.equals("utente")){
+                    utenteloggato = new Utente(nome,cognome,login, password,email,dataNascita);
+                }else{
+                    ArrayList <String> titoli = new ArrayList<>();
+                    ArrayList <LocalDateTime> dataOraCreazione = new ArrayList<>();
+                    autoreloggato = new Autore(nome,cognome,login, password,email,dataNascita,titoli.get(0),dataOraCreazione.get(0));
+                    for(int i = 0; i < titoli.size(); i++){
+                        Pagina pagina = new Pagina(titoli.get(i), dataOraCreazione.get(i), autoreloggato);
+                    }
+                }
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return utenteLoggato;
     }
 
     public void registrazioneUtente(String nome, String cognome, String nomeUtente, String password, String email, Date dataNascita) {
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
             w.registrazione(nome,cognome,nomeUtente,password,email,dataNascita);
+            utenteloggato = new Utente(nome,cognome,nomeUtente,password,email,dataNascita);
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
