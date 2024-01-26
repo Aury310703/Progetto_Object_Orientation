@@ -1,5 +1,6 @@
 package controller;
 
+import GUI.Login;
 import GUI.Notifiche;
 import MODEL.*;
 import dao.WikiDAO;
@@ -18,6 +19,9 @@ public class Controller {
     private Utente utenteloggato;
     private Autore autoreloggato;
     private ArrayList<Pagina> pagineTrovate;
+    private Controller controller;
+
+    private Pagina paginaSelezionata;
 
     public Controller(){
 
@@ -46,30 +50,43 @@ public class Controller {
         return i.getTitolo();
     }
 
-    public ArrayList<Frase> getTestoPagina(Pagina paginaSelezionata) {
-        ArrayList<Frase> testoPagina;
+
+    public ArrayList<String> getTestoPagina() {
+        ArrayList<String> testoPagina = new ArrayList<>();
         WikiDAO w = new WikiimplementazionePostgresDAO();
+        ArrayList<String> frasiInserite = new ArrayList<>();
+        ArrayList<LocalDate> dateInserimento = new ArrayList<>();
+        ArrayList<Time> oreInserimento = new ArrayList<>();
+        ArrayList<Integer> stati = new ArrayList<>();
         try {
-            testoPagina = w.getTestoPagina(paginaSelezionata);
+            w.getFrasiCorrenti(paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), frasiInserite, dateInserimento, oreInserimento, stati);
+            int numerazione = 0;
+            for(String frase : frasiInserite){
+                Frase_Corrente fraseCorrente = new Frase_Corrente(frase, numerazione, paginaSelezionata, dateInserimento.get(numerazione), oreInserimento.get(numerazione));
+                numerazione++;
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+
         return testoPagina;
     }
 
-    public void creaUtente(String nome, String cognome, String login, String password, String email, Date datNascita){
-        utenteloggato = new Utente(nome,cognome,login,password,email,datNascita);
+    public Utente creaUtente(String nome, String cognome, String login, String password, String email, Date datNascita){
+        Utente utente = new Utente(nome,cognome,login,password,email,datNascita);
+        return utente;
     }
 
 
     public int verificaLoggato(String login, String password) {
         int controllo = 0;
         WikiDAO w = new WikiimplementazionePostgresDAO();
-        String nome = null;
-        String cognome = null;
-        String email = null;
-        Date dataNascita = null;
-        String ruolo = null;
+        String nome = w.getNomeUtente(login, password);
+        String cognome = w.getCognomeUtente(login, password);
+        String email = w.getEmailUtente(login, password);
+        Date dataNascita = w.getDataNascitaUtente(login, password);
+        String ruolo = w.getRuolotente(login, password);
         try {
             if(w.verificaLoggato(nome, cognome, login, password, email, dataNascita, ruolo)){
                 if(ruolo.equals("utente")){
@@ -79,7 +96,7 @@ public class Controller {
                     controllo = 2;
                     ArrayList <String> titoli = new ArrayList<>();
                     ArrayList <LocalDateTime> dataOraCreazione = new ArrayList<>();
-                    autoreloggato = new Autore(nome, cognome,login, password, email, dataNascita,titoli.get(0),dataOraCreazione.get(0));
+                    autoreloggato = new Autore(nome, cognome,login, password, email, dataNascita,titoli.get(0), dataOraCreazione.get(0));
                     for(int i = 0; i < titoli.size(); i++){
                         Pagina pagina = new Pagina(titoli.get(i), dataOraCreazione.get(i), autoreloggato);
                     }
@@ -193,6 +210,10 @@ public class Controller {
         return paginaCreata;
     }
 
+    public void addPaginaSelezionata(int numeroPaginaSelezionata){
+        paginaSelezionata = pagineTrovate.get(numeroPaginaSelezionata);
+    }
+
 
     public ArrayList<Pagina> storicoPagineVisualizzate(Utente utente) {
         ArrayList<Pagina> pagineVisualizzate = new ArrayList<>();
@@ -205,10 +226,13 @@ public class Controller {
         return pagineVisualizzate;
     }
 
-    public void addPaginaVisualizzata(Pagina paginaSelezionata, Utente utenteLoggato) {
+    public void addPaginaVisualizzata(String titolo, int numeroPagina) {
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
-            w.addPaginaVisualizzata(paginaSelezionata, utenteLoggato);
+            if(utenteloggato != null){
+                utenteloggato.addPagineVisualizzate(new Visiona(java.sql.Date.valueOf(LocalDate.now())), Time.valueOf(LocalTime.now()), paginaSelezionata);
+            }
+            w.addPaginaVisualizzata(, utenteLoggato);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -251,7 +275,7 @@ public class Controller {
         boolean notifiche = false;
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
-            notifiche = w.controllaNotifiche(autoreloggato.getLogin());
+            notifiche = w.controllaNotifiche();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -267,5 +291,45 @@ public class Controller {
             throw new RuntimeException(e);
         }
         return controllo;
+    }
+
+    public ArrayList<String> getTitoliCercati(String titoloInserito){
+        ArrayList<String> titoliCercati = new ArrayList<>();
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        ArrayList<String> titoli = new ArrayList<>();
+        ArrayList<LocalDateTime> dateOreCreazioni = new ArrayList<>();
+        ArrayList<String> nomi = new ArrayList<>();
+        ArrayList<String> cognomi = new ArrayList<>();
+        ArrayList<String> login = new ArrayList<>();
+        ArrayList<String> password = new ArrayList<>();
+        ArrayList<String> email = new ArrayList<>();
+        ArrayList<Date> date = new ArrayList<>();
+        try {
+            w.ricercaTitoli(titoloInserito, titoli, dateOreCreazioni, nomi, cognomi, login, password, email, date);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        for (int i = 0; i < titoli.size(); i++){
+            Pagina pagina = new Pagina(titoli.get(i), dateOreCreazioni.get(i), nomi.get(i), cognomi.get(i), login.get(i), password.get(i), email.get(i), date.get(i));
+            titoliCercati.add(pagina.getTitolo());
+            pagineTrovate.add(pagina);
+        }
+        return titoliCercati;
+    }
+
+    public String getNomeAutore() {
+        return paginaSelezionata.getAutore().getNome();
+    }
+
+    public String getCognomeAutore() {
+        return paginaSelezionata.getAutore().getCognome();
+    }
+
+    public String getTitoloPaginaSelezionata() {
+        return paginaSelezionata.getTitolo();
+    }
+
+    public LocalDateTime getDataOraCreazionepaginaSelezionata() {
+        return paginaSelezionata.getDataCreazione();
     }
 }

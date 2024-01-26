@@ -1,8 +1,5 @@
 package GUI;
 
-import MODEL.Frase;
-import MODEL.Pagina;
-import MODEL.Utente;
 import controller.Controller;
 
 import javax.swing.*;
@@ -43,15 +40,15 @@ public class PaginaTesto {
         Versionebutton.setVisible(false);
 
 
-        nomeAutoreLabel.setText(paginaSelezionata.getAutore().getNome() + " " + paginaSelezionata.getAutore().getCognome());
-        dataCreazioneLabel.setText(this.$$$getMessageFromBundle$$$(locale, "dataPublicazione") + ": " + paginaSelezionata.getDataCreazione().getYear());
+        nomeAutoreLabel.setText(controller.getNomeAutore() + " " + controller.getCognomeAutore());
+        dataCreazioneLabel.setText(this.$$$getMessageFromBundle$$$(locale, "dataPublicazione") + ": " + controller.getDataOraCreazionepaginaSelezionata().getYear());
 
-        TitoloPaginaLabel.setText(paginaSelezionata.getTitolo());
+        TitoloPaginaLabel.setText(controller.getTitoloPaginaSelezionata());
 
-        ArrayList<Frase> testoPagina = controller.getTestoPagina(paginaSelezionata);
+        ArrayList<String> testoPagina = controller.getTestoPagina();
         String testo = "";
-        for (Frase f : testoPagina) {
-            testo = testo + " " + f.getStringa_inserita();
+        for (String f : testoPagina) {
+            testo = testo + " " + f;
         }
         panelTesto.setText(testo);
         panelTesto.setEditable(false);
@@ -83,7 +80,7 @@ public class PaginaTesto {
 
     }
 
-    public PaginaTesto(Controller controller, JFrame frameC, Pagina paginaSelezionata, Utente utenteLoggato) {
+    public PaginaTesto(Controller controller, JFrame frameC, String titolo, int numeroPagina) {
         panelTesto.setText("");
         frameChiamante = frameC;
         this.frame = new JFrame("Pagina");
@@ -95,7 +92,7 @@ public class PaginaTesto {
 //            Versionebutton.setVisible(false);
 //        }
 
-        controller.addPaginaVisualizzata(paginaSelezionata, utenteLoggato);
+        controller.addPaginaVisualizzata(titolo, numeroPagina);
 
         nomeAutoreLabel.setText(paginaSelezionata.getAutore().getNome() + " " + paginaSelezionata.getAutore().getCognome());
         dataCreazioneLabel.setText(this.$$$getMessageFromBundle$$$(locale, "dataPublicazione") + ": " + paginaSelezionata.getDataCreazione().getYear());

@@ -42,10 +42,12 @@ public class ListaTitoli {
                 return false;
             }
         };
+
+        ArrayList<String> titoli = controller.getTitoliCercati(titolo);
         TitoliTable.setModel(model);
         TitoliTable.setRowHeight(50);
-        for (Pagina i : pagine) {
-            model.addRow(new Object[]{i.getTitolo()});
+        for (String t : titoli) {
+            model.addRow(new Object[]{t});
 
         }
         TitoliTable.addMouseListener((new MouseListener() {
@@ -57,9 +59,10 @@ public class ListaTitoli {
                         Object cellValue = TitoliTable.getValueAt(selectedRow, 0);
                         String titolo = cellValue.toString();
                         System.out.println(titolo);
-                        System.out.println("aia" + pagine.get(selectedRow).getAutore().getNome());
+                        System.out.println(controller.getNomeAutore());
 
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, pagine.get(selectedRow));
+                        controller.addPaginaSelezionata(selectedRow);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
                         paginaTesto.frame.setLocationRelativeTo(frame);
                         //paginaTesto.frame.setResizable(false);
                         //paginaTesto.frame.setSize(400, 200);
