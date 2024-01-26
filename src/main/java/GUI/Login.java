@@ -44,7 +44,6 @@ public class Login {
      * @param controller        the controller
      * @param frameChiamante    the frame chiamante
      * @param controllo         the controllo
-     * @param paginaSelezionata the pagina selezionata
      */
     public Login(Controller controller, JFrame frameChiamante, String controllo) {
         this.frameChiamante = frameChiamante;
@@ -69,19 +68,15 @@ public class Login {
             public void actionPerformed(ActionEvent e) {
                 String login = nomeUtenteField.getText();
                 String password = passwordField.getText();
-               controller.verificaLoggato(login, password);
-                if (utenteLoggato == null && (!login.isEmpty() || !password.isEmpty())) {
+                int verificato = controller.verificaLoggato(login, password);
+                if (verificato != 0 && (!login.isEmpty() || !password.isEmpty())) {
                     ErroreLoginLabel.setText("nomeutente o password errati, riprovare");
-                } else if (login.isEmpty()) {
-                    ErroreLoginLabel.setText("inserire nomeutente");
-                } else if (password.isEmpty()) {
-                    ErroreLoginLabel.setText("inserire password");
                 }
 
-                if (utenteLoggato != null) {
-                    if (utenteLoggato instanceof Autore) {
-                        Autore autoreLoggato = (Autore) utenteLoggato;
-                        boolean notifiche = controller.controllaNotifiche(autoreLoggato);
+
+                if (verificato != 0) {
+                    if (verificato == 2) {
+                        boolean notifiche = controller.controllaNotifiche();
                         if (notifiche) {
                             Errori errori = new Errori("hai delle notifiche");
                             errori.frame.setVisible(true);
@@ -168,64 +163,6 @@ public class Login {
                         homeLoggato.frame.setVisible(true);
                         frame.setVisible(false);
                     }
-                }
-            }
-        });
-        registratiButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Registrazione registazione = new Registrazione(controller, frame);
-                frame.setVisible(false);
-                registazione.frame.setVisible(true);
-                //9frame.dispose();
-            }
-        });
-    }
-
-    public Login(Controller controller, JFrame frameChiamante, String controllo) {
-        this.frameChiamante = frameChiamante;
-        this.frame = new JFrame("Login");
-        frame.setContentPane(panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-
-
-        dietroButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                frameChiamante.setVisible(true);
-                // frame.dispose();
-
-            }
-        });
-
-        entraButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String login = nomeUtenteField.getText();
-                String password = passwordField.getText();
-                Utente utenteLoggato = controller.verificaLoggato(login, password);
-                if (utenteLoggato == null && (!login.isEmpty() || !password.isEmpty())) {
-                    ErroreLoginLabel.setText("nomeutente o password errati, riprovare");
-                } else if (login.isEmpty()) {
-                    ErroreLoginLabel.setText("inserire nomeutente");
-                } else if (password.isEmpty()) {
-                    ErroreLoginLabel.setText("inserire password");
-                }
-
-                if (utenteLoggato != null) {
-                    if (utenteLoggato instanceof Autore) {
-                        Autore autoreLoggato = (Autore) utenteLoggato;
-                        boolean notifiche = controller.controllaNotifiche(autoreLoggato);
-                        if (notifiche) {
-                            Errori errori = new Errori("hai delle notifiche");
-                            errori.frame.setVisible(true);
-                        }
-                    }
-                    HomeLoggato homeLoggato = new HomeLoggato(controller, frame, utenteLoggato);
-                    homeLoggato.frame.setVisible(true);
-                    frame.setVisible(false);
                 }
             }
         });

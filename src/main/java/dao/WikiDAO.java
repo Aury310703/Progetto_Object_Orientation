@@ -4,11 +4,12 @@ import GUI.Notifiche;
 import MODEL.*;
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
 public interface WikiDAO {
-public ArrayList<Pagina> ricercaTitoli(String titoloInserito) throws SQLException;
+    public void ricercaTitoli(String titoloInserito, ArrayList<String> titoli, ArrayList<LocalDateTime> dateOreCreazioni, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> login, ArrayList<String> password, ArrayList<String> email, ArrayList<Date> date) throws SQLException;
 public ArrayList<Frase> getTestoPagina(Pagina paginaSelezionata) throws SQLException;
     public boolean verificaLoggato(String nome, String cognome, String login, String password, String email, Date datNascita, String ruolo)throws SQLException;
     void registrazione(String nome, String cognome, String nomeUtente, String password, String email, Date dataNascita) throws SQLException;

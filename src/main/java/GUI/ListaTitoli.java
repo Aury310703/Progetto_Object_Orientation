@@ -1,7 +1,5 @@
 package GUI;
 
-import MODEL.Pagina;
-import MODEL.Utente;
 import controller.Controller;
 
 import javax.swing.*;
@@ -29,9 +27,6 @@ public class ListaTitoli {
     private JTable TitoliTable;
     private JScrollPane scrollpane;
 
-    private Pagina paginaSelezionata;
-    ArrayList<Pagina>  pagine = new ArrayList<>();
-
     public ListaTitoli(Controller controller, JFrame frameC, String titolo) {
         frameChiamante = frameC;
         this.frame = new JFrame("Titoli");
@@ -39,7 +34,7 @@ public class ListaTitoli {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
-        pagine = controller.ricercaTitoli(titolo);
+        controller.ricercaTitoli(titolo);
 
         DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Pagine Trovate"}) {
             @Override

@@ -1,88 +1,60 @@
 
 h
-java:S1192'"FDefine a constant instead of duplicating this literal "it_IT" 6 times.(È’¡°ûÿÿÿÿ8¶úž´Ô1
-c
-java:S11923"FDefine a constant instead of duplicating this literal "Login" 3 times.(ß­©–8·úž´Ô1
-v
-java:S1192V"TDefine a constant instead of duplicating this literal "hai delle notifiche" 3 times.(ÑþŠØúÿÿÿÿ8»úž´Ô1
-t
-java:S1192N"RDefine a constant instead of duplicating this literal "inserire password" 3 times.(«Ùøÿÿÿÿ8¼úž´Ô1
-…
-java:S1192J"hDefine a constant instead of duplicating this literal "nomeutente o password errati, riprovare" 3 times.(é¸±¾8¼úž´Ô1
-q
-java:S1192L"TDefine a constant instead of duplicating this literal "inserire nomeutente" 3 times.(†ŒÖÄ8¼úž´Ô1
-u	java:S127Æ"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8Áúž´Ô1
-u	java:S127á"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8Áúž´Ô1
+java:S1192'"FDefine a constant instead of duplicating this literal "it_IT" 6 times.(È’¡°ûÿÿÿÿ8ßœ˜·Ô1
+u	java:S127‡"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8àœ˜·Ô1
+u	java:S127¢"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8áœ˜·Ô1
 E
-java:S16049"(Make this anonymous inner class a lambda(ä¼‘–8Äúž´Ô1
+java:S16048"(Make this anonymous inner class a lambda(ä¼‘–8áœ˜·Ô1
 J
-java:S1604C"(Make this anonymous inner class a lambda(•±òîûÿÿÿÿ8Äúž´Ô1
+java:S1604B"(Make this anonymous inner class a lambda(•±òîûÿÿÿÿ8âœ˜·Ô1
 J
-java:S1604f"(Make this anonymous inner class a lambda(õ¬­üÿÿÿÿ8Äúž´Ô1
-F
-java:S1604€"(Make this anonymous inner class a lambda(ä¼‘–8Äúž´Ô1
+java:S1604a"(Make this anonymous inner class a lambda(õ¬­üÿÿÿÿ8âœ˜·Ô1
+E
+java:S1604{"(Make this anonymous inner class a lambda(ä¼‘–8âœ˜·Ô1
 K
-java:S1604Š"(Make this anonymous inner class a lambda(•±òîûÿÿÿÿ8Äúž´Ô1
+java:S1604…"(Make this anonymous inner class a lambda(•±òîûÿÿÿÿ8âœ˜·Ô1
 K
-java:S1604®"(Make this anonymous inner class a lambda(õ¬­üÿÿÿÿ8Äúž´Ô1
-F
-java:S1604Á"(Make this anonymous inner class a lambda(ä¼‘–8Åúž´Ô1
-K
-java:S1604Ë"(Make this anonymous inner class a lambda(•±òîûÿÿÿÿ8Åúž´Ô1
-K
-java:S1604è"(Make this anonymous inner class a lambda(õ¬­üÿÿÿÿ8Åúž´Ô1
+java:S1604©"(Make this anonymous inner class a lambda(õ¬­üÿÿÿÿ8âœ˜·Ô1
 n
-java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8Çúž´Ô1
+java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8ãœ˜·Ô1
 s
-java:S1104#"VMake controller a static final constant or non-public and provide accessors if needed.(Ó‘çõ8Çúž´Ô1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÝØ˜Žúÿÿÿÿ8Íúž´Ô1
-|	java:S116"[Rename this field "ErroreLoginLabel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù€—ºúÿÿÿÿ8Øûž´Ô1
+java:S1104#"VMake controller a static final constant or non-public and provide accessors if needed.(Ó‘çõ8ãœ˜·Ô1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÝØ˜Žúÿÿÿÿ8çœ˜·Ô1
+|	java:S116"[Rename this field "ErroreLoginLabel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù€—ºúÿÿÿÿ8º˜·Ô1
 ‰
-java:S3008«"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8Øûž´Ô1
+java:S3008ì"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8º˜·Ô1
 €
-java:S1450"^Remove the "nomeUtenteLabel" field and declare it as a local variable in the relevant methods.(È¼×áûÿÿÿÿ8Üûž´Ô1
+java:S1450"^Remove the "nomeUtenteLabel" field and declare it as a local variable in the relevant methods.(È¼×áûÿÿÿÿ8¼˜·Ô1
 y
-java:S1450"\Remove the "passwordLabel" field and declare it as a local variable in the relevant methods.(‰É¨Š8Ýûž´Ô1
+java:S1450"\Remove the "passwordLabel" field and declare it as a local variable in the relevant methods.(‰É¨Š8¼˜·Ô1
 ‚
-java:S1149À"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜Ýâœÿÿÿÿÿ8àûž´Ô1
+java:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜Ýâœÿÿÿÿÿ8½˜·Ô1
 ‚
-java:S1149Û"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜Ýâœÿÿÿÿÿ8àûž´Ô1
+java:S1149œ"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜Ýâœÿÿÿÿÿ8½˜·Ô1
 o
-java:S37761"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ö€äŸ8ãûž´Ô1
+java:S37760"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Ö€äŸ8¿˜·Ô1
 f
-java:S32525"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8çûž´Ô1
-]	java:S125>"<This block of commented-out lines of code should be removed.(«Ô˜öþÿÿÿÿ8ëûž´Ô1
+java:S32524"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8Á˜·Ô1
+]	java:S125="<This block of commented-out lines of code should be removed.(«Ô˜öþÿÿÿÿ8Â˜·Ô1
 Q
-java:S1874G"/Remove this use of "getText"; it is deprecated.(ðÑøˆÿÿÿÿÿ8ïûž´Ô1
-R
-java:S2209\"5Change this instance-reference to a static reference.(‘ïÁÔ8ôûž´Ô1
-X	java:S125l"<This block of commented-out lines of code should be removed.(Ûµƒž8øûž´Ô1
+java:S1874F"/Remove this use of "getText"; it is deprecated.(ðÑøˆÿÿÿÿÿ8Ä˜·Ô1
+X	java:S125g"<This block of commented-out lines of code should be removed.(Ûµƒž8Ê˜·Ô1
 o
-java:S3776y"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(¬«–æ8ùûž´Ô1
+java:S3776t"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(¬«–æ8Ê˜·Ô1
 f
-java:S3252}"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ûûž´Ô1
-^	java:S125…"<This block of commented-out lines of code should be removed.(«Ô˜öþÿÿÿÿ8ýûž´Ô1
+java:S3252x"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8Ë˜·Ô1
+^	java:S125€"<This block of commented-out lines of code should be removed.(«Ô˜öþÿÿÿÿ8Ì˜·Ô1
 R
-java:S1874Ž"/Remove this use of "getText"; it is deprecated.(ðÑøˆÿÿÿÿÿ8üž´Ô1
-S
-java:S2209¨"5Change this instance-reference to a static reference.(‘ïÁÔ8ˆüž´Ô1
-Y	java:S125´"<This block of commented-out lines of code should be removed.(Ûµƒž8‹üž´Ô1
-g
-java:S3252½"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8Œüž´Ô1
-^	java:S125Æ"<This block of commented-out lines of code should be removed.(«Ô˜öþÿÿÿÿ8üž´Ô1
-R
-java:S1874Ï"/Remove this use of "getText"; it is deprecated.(ðÑøˆÿÿÿÿÿ8’üž´Ô1
-S
-java:S2209ã"5Change this instance-reference to a static reference.(‘ïÁÔ8•üž´Ô1
-Y	java:S125î"<This block of commented-out lines of code should be removed.(Ûµƒž8˜üž´Ô1
+java:S1874‰"/Remove this use of "getText"; it is deprecated.(ðÑøˆÿÿÿÿÿ8Î˜·Ô1
+Y	java:S125¯"<This block of commented-out lines of code should be removed.(Ûµƒž8Ñ˜·Ô1
 |
-java:S1171ó"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8˜üž´Ô1
-p	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8˜üž´Ô1
-p	java:S100­"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8³üž´Ô1
+java:S1171´"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8Ñ˜·Ô1
+p	java:S100Â"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8Ñ˜·Ô1
+p	java:S100î"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8à˜·Ô1
 T
-java:S2696³"6Make the enclosing method "static" or remove this set.(§¾ã8¶üž´Ô1
-k	java:S100¿"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§¨¡³8·üž´Ô1
-k	java:S100Ú"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8¼üž´Ô1
-p	java:S100õ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8Áüž´Ô1
+java:S2696ô"6Make the enclosing method "static" or remove this set.(§¾ã8á˜·Ô1
+k	java:S100€"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§¨¡³8â˜·Ô1
+k	java:S100›"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8ä˜·Ô1
+p	java:S100¶"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8æ˜·Ô1
 T
-java:S1068"2Remove this unused "frameChiamante" private field.(°ˆ‚àýÿÿÿÿ8Ãüž´Ô1
+java:S1068"2Remove this unused "frameChiamante" private field.(°ˆ‚àýÿÿÿÿ8ç˜·Ô1

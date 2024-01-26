@@ -17,20 +17,29 @@ public class Controller {
 
     private Utente utenteloggato;
     private Autore autoreloggato;
+    private ArrayList<Pagina> pagineTrovate;
 
     public Controller(){
 
     }
 
-    public ArrayList<Pagina> ricercaTitoli(String titoloInserito){
-        ArrayList<Pagina> pagineTrovate = new ArrayList<>();
-        WikiDAO w = new WikiimplementazionePostgresDAO();
+    public void ricercaTitoli(String titoloInserito){
+        ArrayList<String> titoli = new ArrayList<>();
+        ArrayList<LocalDateTime> dateOreCreazioni = new ArrayList<>();
+        ArrayList<String> nomi = new ArrayList<>();
+        ArrayList<String> cognom = new ArrayList<>();
+        ArrayList<String> login = new ArrayList<>();
+        ArrayList<String> password = new ArrayList<>();
+        ArrayList<String> email = new ArrayList<>();
+        ArrayList<Date> date = new ArrayList<>();
+
+            WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
-           pagineTrovate = w.ricercaTitoli(titoloInserito);
+           w.ricercaTitoli(titoloInserito, titoli, dateOreCreazioni, nomi, cognom, login, password, email, date);
+            ArrayList<Autore> autori = new ArrayList<>();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return pagineTrovate;
     }
 
     public String getPaginaTitolo(Pagina i) {
@@ -52,21 +61,25 @@ public class Controller {
         utenteloggato = new Utente(nome,cognome,login,password,email,datNascita);
     }
 
-    public void verificaLoggato(String login, String password) {
-        String ruolo = null;
+
+    public int verificaLoggato(String login, String password) {
+        int controllo = 0;
         WikiDAO w = new WikiimplementazionePostgresDAO();
         String nome = null;
         String cognome = null;
         String email = null;
         Date dataNascita = null;
+        String ruolo = null;
         try {
-            if(w.verificaLoggato(nome,cognome,login, password,email,dataNascita,ruolo)){
+            if(w.verificaLoggato(nome, cognome, login, password, email, dataNascita, ruolo)){
                 if(ruolo.equals("utente")){
-                    utenteloggato = new Utente(nome,cognome,login, password,email,dataNascita);
+                    controllo = 1;
+                    utenteloggato = new Utente(nome, cognome, login, password, email, dataNascita);
                 }else{
+                    controllo = 2;
                     ArrayList <String> titoli = new ArrayList<>();
                     ArrayList <LocalDateTime> dataOraCreazione = new ArrayList<>();
-                    autoreloggato = new Autore(nome,cognome,login, password,email,dataNascita,titoli.get(0),dataOraCreazione.get(0));
+                    autoreloggato = new Autore(nome, cognome,login, password, email, dataNascita,titoli.get(0),dataOraCreazione.get(0));
                     for(int i = 0; i < titoli.size(); i++){
                         Pagina pagina = new Pagina(titoli.get(i), dataOraCreazione.get(i), autoreloggato);
                     }
@@ -75,6 +88,7 @@ public class Controller {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return controllo;
     }
 
     public void registrazioneUtente(String nome, String cognome, String nomeUtente, String password, String email, Date dataNascita) {
@@ -233,11 +247,11 @@ public class Controller {
         return pagineCreate;
     }
 
-    public boolean controllaNotifiche(Autore utenteLoggato){
+    public boolean controllaNotifiche(){
         boolean notifiche = false;
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
-            notifiche = w.controllaNotifiche(utenteLoggato);
+            notifiche = w.controllaNotifiche(autoreloggato.getLogin());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

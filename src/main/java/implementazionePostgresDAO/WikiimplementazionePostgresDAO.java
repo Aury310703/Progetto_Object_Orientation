@@ -1,8 +1,5 @@
 package implementazionePostgresDAO;
 
-
-import GUI.Notifiche;
-import MODEL.*;
 import dao.WikiDAO;
 import database.ConnessioneDatabase;
 
@@ -24,10 +21,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
     }
 
     @Override
-    public ArrayList<Pagina> ricercaTitoli(String titoloInserito) throws SQLException {
-
-        ArrayList<Pagina> PagineTrovate = new ArrayList<>();
-
+    public void ricercaTitoli(String titoloInserito, ArrayList<String> titoli, ArrayList<LocalDateTime> dateOreCreazioni, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> login, ArrayList<String> password, ArrayList<String> email, ArrayList<Date> date) throws SQLException{
         try {
             String query = "SELECT * FROM pagina WHERE LOWER(titolo) LIKE ?"; //LOWER TRASFORMA TITOLO IN MINUSCOLO
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -45,16 +39,20 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
                 preparedStatement2.setInt(1, idAutore);
                 ResultSet rs1 = preparedStatement2.executeQuery();
                 rs1.next();
-                Pagina pagina = new Pagina(titolo, dataOra, rs1.getString("nome"), rs1.getString("cognome"),rs1.getString("login"), rs1.getString("password"), rs1.getString("email"), rs1.getDate("dataNascita"));
-                PagineTrovate.add(pagina);
-                System.out.println(pagina.getTitolo());
+                titoli.add(titolo);
+                dateOreCreazioni.add(dataOra);
+                nomi.add(rs1.getString("nome"));
+                cognomi.add(rs1.getString("cognome"));
+                login.add(rs1.getString("login"));
+                password.add(rs1.getString("password"));
+                email.add(rs1.getString("email"));
+                date.add(rs1.getDate("dataNascita"));
             }
         } catch (Exception e) {
             System.out.println("Errore durante l'esecuzione della query: " + e.getMessage());
             e.printStackTrace();
         }
         connection.close();
-        return PagineTrovate;
     }
 
     @Override
@@ -151,7 +149,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
     }
 
     public boolean verificaLoggato(String nome, String cognome, String login, String password, String email, Date datNascita, String ruolo) throws SQLException {
-        boolean controllo = false
+        boolean controllo = false;
         String query = "SELECT * FROM Utente WHERE LOWER(login) = ? AND password = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, login.toLowerCase());
@@ -568,14 +566,14 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
 //        return notificheRicevute;
 //    }
 
-    public boolean controllaNotifiche(Autore autoreLoggato) throws SQLException{
+    public boolean controllaNotifiche(String login) throws SQLException{
         boolean notificheRicevute = false;
         String queryNotifiche = "SELECT * FROM modificaProposta M NATURAL JOIN notifica N WHERE M.autorev = ?  AND M.stato = 0 ORDER BY N.data ASC, N.ora ASC";
         PreparedStatement preparedStatementNotifiche = connection.prepareStatement(queryNotifiche);
 
         String queryAutore = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
         PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
-        preparedStatementAutore.setString(1,autoreLoggato.getLogin());
+        preparedStatementAutore.setString(1,login);
         ResultSet rsAutore = preparedStatementAutore.executeQuery();
         rsAutore.next();
         int idAutore = rsAutore.getInt("idutente");
