@@ -82,14 +82,14 @@ public class Login {
                 }
 
                 if (utenteLoggato != null) {
-//                    if (utenteLoggato instanceof Autore) {
-//                        Autore autoreLoggato = (Autore) utenteLoggato;
-//                        boolean notifiche = controller.controllaNotifiche(autoreLoggato);
-//                        if (notifiche) {
-//                            Errori errori = new Errori("hai delle notifiche");
-//                            errori.frame.setVisible(true);
-//                        }
-//                    }
+                    if (utenteLoggato instanceof Autore) {
+                        Autore autoreLoggato = (Autore) utenteLoggato;
+                        boolean notifiche = controller.controllaNotifiche(autoreLoggato);
+                        if (notifiche) {
+                            Errori errori = new Errori("hai delle notifiche");
+                            errori.frame.setVisible(true);
+                        }
+                    }
                     if (controllo.equals("Home")) {
                         HomeLoggato homeLoggato = new HomeLoggato(controller, frame, utenteLoggato);
                         homeLoggato.frame.setVisible(true);

@@ -1,5 +1,6 @@
 package controller;
 
+import GUI.Notifiche;
 import MODEL.*;
 import dao.WikiDAO;
 import implementazionePostgresDAO.WikiimplementazionePostgresDAO;
@@ -215,5 +216,16 @@ public class Controller {
             throw new RuntimeException(e);
         }
         return notifiche;
+    }
+
+    public boolean aggiornaStato(ArrayList<Notifica> notifiche, int cambiaStato) {
+        boolean controllo = false;
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        try {
+            controllo = w.aggiornaStato(notifiche, cambiaStato);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return controllo;
     }
 }

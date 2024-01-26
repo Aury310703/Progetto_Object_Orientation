@@ -213,6 +213,15 @@ public class StoricoAutore {
 
             }
         }));
+
+        notificheButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Notifiche notifiche = new Notifiche(controller, frame, autoreLoggato.getNotificheRicevute());
+                frame.setVisible(false);
+                notifiche.frame.setVisible(true);
+            }
+        });
     }
 
 

@@ -1,5 +1,6 @@
 package dao;
 
+import GUI.Notifiche;
 import MODEL.*;
 
 import java.sql.SQLException;
@@ -19,6 +20,7 @@ public ArrayList<Pagina> getModificate(Utente utenteloggato) throws SQLException
 public ArrayList<ModificaProposta> getProposte(Pagina paginaSelezionata, Utente utenteLoggato) throws SQLException;
 public ArrayList<Pagina> storicoPagineCreate(Autore autoreLoggato) throws SQLException;
 public boolean controllaNotifiche(Autore utenteLoggato) throws SQLException;
+public boolean aggiornaStato(ArrayList<Notifica> notifiche, int cambiaStato) throws SQLException;
 }
 
 

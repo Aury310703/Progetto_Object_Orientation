@@ -31,22 +31,29 @@ java:S1450"\Remove the "passwordLabel" field and declare it as a local variabl
 java:S1149‰"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8¾Ù‹Ô1
 ‚
 java:S1149¤"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8¾Ù‹Ô1
+t
+java:S37764"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(…î¾Èüÿÿÿÿ8ÈçÙ‹Ô1
 f
 java:S32528"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8‘¾Ù‹Ô1
 ]	java:S125A"<This block of commented-out lines of code should be removed.(«Ô˜öşÿÿÿÿ8’¾Ù‹Ô1
 Q
 java:S1874J"/Remove this use of "getText"; it is deprecated.(ğÑøˆÿÿÿÿÿ8”¾Ù‹Ô1
-W	java:S125U"<This block of commented-out lines of code should be removed.(æÚÓP8¡êØŒÔ1
+j
+java:S6201U"MReplace this instanceof check and cast with 'instanceof Autore autoreLoggato'(¼ƒ¦Ã8É•ÆÔ1
+R
+java:S2209_"5Change this instance-reference to a static reference.(‘ïÁÔ8âúË“Ô1
 X	java:S125o"<This block of commented-out lines of code should be removed.(Ûµƒ8›¾Ù‹Ô1
 o
-java:S3776|"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(¬«–æ8ÈçÙ‹Ô1
+java:S3776|"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(¬«–æ8ûñÌ“Ô1
 g
 java:S3252€"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8œ¾Ù‹Ô1
 ^	java:S125ˆ"<This block of commented-out lines of code should be removed.(«Ô˜öşÿÿÿÿ8¾Ù‹Ô1
 R
 java:S1874‘"/Remove this use of "getText"; it is deprecated.(ğÑøˆÿÿÿÿÿ8¾Ù‹Ô1
 k
-java:S6201œ"MReplace this instanceof check and cast with 'instanceof Autore autoreLoggato'(¼ƒ¦Ã8É•ÆÔ1
+java:S6201œ"MReplace this instanceof check and cast with 'instanceof Autore autoreLoggato'(¼ƒ¦Ã8ÿñÌ“Ô1
+S
+java:S2209«"5Change this instance-reference to a static reference.(‘ïÁÔ8óúË“Ô1
 Y	java:S125·"<This block of commented-out lines of code should be removed.(Ûµƒ8£¾Ù‹Ô1
 |
 java:S1171¼"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8£¾Ù‹Ô1

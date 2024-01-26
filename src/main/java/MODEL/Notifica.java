@@ -1,20 +1,22 @@
 package MODEL;
 
-import javax.xml.crypto.Data;
-import java.sql.Time;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Notifica {
     private LocalDate dataInvio;
-    private LocalTime oraInvio;
+    private Timestamp oraInvio;
     private String messaggio;
     private ModificaProposta modifica;
     private Autore autore;
+    private String titolo;
 
-    public Notifica(Autore autore, ModificaProposta modificaProposta){
+    public Notifica(Autore autore, ModificaProposta modificaProposta, String titolo){
         this.modifica = modificaProposta;
         this.autore = autore;
+        this.titolo = titolo;
+        autore.addNotificheRicevute(this);
     }
 
     public LocalDate getDataInvio() {
@@ -33,21 +35,25 @@ public class Notifica {
         this.messaggio = messaggio;
     }
 
-    public LocalTime getOraInvio() {
+    public Timestamp getOraInvio() {
         return oraInvio;
     }
 
-    public void setOraInvio(LocalTime oraInvio) {
+    public void setOraInvio(Timestamp oraInvio) {
         this.oraInvio = oraInvio;
     }
     public ModificaProposta getModifica() {return modifica;}
     public void setModifica(ModificaProposta modifica) {this.modifica = modifica;}
-
     public Autore getAutore() {
         return autore;
     }
-
     public void setAutore(Autore autore) {
         this.autore = autore;
+    }
+    public String getTitolo() {
+        return titolo;
+    }
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
     }
 }

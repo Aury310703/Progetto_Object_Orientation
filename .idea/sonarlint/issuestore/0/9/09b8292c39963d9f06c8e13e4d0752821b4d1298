@@ -1,14 +1,17 @@
 
 ’
-java:S1319
-"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¥ó ´ûÿÿÿÿ8ÚˆÄìÑ1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¥ó ´ûÿÿÿÿ8ÛˆÄìÑ1
 
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(£û¥ı8ÛˆÄìÑ1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(£û¥ı8­°Ï”Ô1
 
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¶äĞ²8şôæÖÓ1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¶äĞ²8şôæÖÓ1
 
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ùÉ›ş8¹õ¹şÓ1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ùÉ›ş8ü†»şÓ1
 Œ
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÑÆ¯p8ü†»şÓ1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÑÆ¯p8×œ•ŠÔ1
 ’
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ì¬Åıÿÿÿÿ8×œ•ŠÔ1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ì¬Åıÿÿÿÿ8­°Ï”Ô1
+†
+java:S1319"iThe type of "notifiche" should be an interface such as "List" rather than the implementation "ArrayList".(Œ€òÅ8èèÏ”Ô1
+L
+java:S1128"*Remove this unused import 'GUI.Notifiche'.(şæèşÿÿÿÿ8ËÇ°•Ô1
