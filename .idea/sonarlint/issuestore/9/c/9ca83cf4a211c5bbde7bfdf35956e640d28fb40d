@@ -1,12 +1,12 @@
 
-s
-java:S1192,"QDefine a constant instead of duplicating this literal "dataPublicazione" 3 times.(´‡¨Æÿÿÿÿÿ8š¯‰¿Ô1
-h
-java:S1192"FDefine a constant instead of duplicating this literal "it_IT" 5 times.(¯—Çòÿÿÿÿÿ8š¯‰¿Ô1
 i
 java:S1192Õ"FDefine a constant instead of duplicating this literal "Label" 3 times.(§ßÁ‡üÿÿÿÿ8š¯‰¿Ô1
+s
+java:S1192,"QDefine a constant instead of duplicating this literal "dataPublicazione" 3 times.(´‡¨Æÿÿÿÿÿ8š¯‰¿Ô1
 i
 java:S1192#"GDefine a constant instead of duplicating this literal "Pagina" 3 times.(Ã‡±Ìùÿÿÿÿ8š¯‰¿Ô1
+h
+java:S1192"FDefine a constant instead of duplicating this literal "it_IT" 5 times.(¯—Çòÿÿÿÿÿ8š¯‰¿Ô1
 u	java:S127Š"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8š¯‰¿Ô1
 D
 java:S16048"(Make this anonymous inner class a lambda(êŽ©k8›¯‰¿Ô1
@@ -51,6 +51,8 @@ java:S1450"^Remove the "infoAutorePanel" field and declare it as a local varia
 ‚
 java:S1149„"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜Ýâœÿÿÿÿÿ8½¯‰¿Ô1
 X	java:S125"<This block of commented-out lines of code should be removed.(òÒÈå8½¯‰¿Ô1
+a
+java:S1172 "?Remove these unused method parameters "titolo", "numeroPagina".(ÊÈþÏúÿÿÿÿ8›âüÂÔ1
 f
 java:S3252%"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8¾¯‰¿Ô1
 f

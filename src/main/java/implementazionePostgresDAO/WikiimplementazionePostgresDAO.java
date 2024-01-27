@@ -166,64 +166,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
                 dateInserimento.add(rs.getDate("dataInserimento").toLocalDate());
                 oreInserimento.add(rs.getTime("orainserimento"));
             }
-//                frase = new Frase_Corrente(rs.getString("stringainserita"), rs.getInt("numerazione"), paginaSelezionata, rs.getDate("datainserimento").toLocalDate(), rs.getTime("orainserimento"));
-//
-//                String queryModifica = "SELECT * FROM modificaproposta WHERE idPagina = ? AND stringainserita = ? AND numerazione = ? ORDER BY datavalutazione ASC, oravalutazione ASC";
-//                PreparedStatement preparedStatementModifica = connection.prepareStatement(queryModifica);
-//                preparedStatementModifica.setInt(1, rs.getInt("idPagina"));
-//                preparedStatementModifica.setString(2, rs.getString("stringainserita"));
-//                preparedStatementModifica.setInt(3, rs.getInt("numerazione"));
-//                ResultSet rsModifica = preparedStatementModifica.executeQuery();
-//                while (rsModifica.next()) {
-//                    int idUtente = rsModifica.getInt("utentep");
-//                    String queryUtente = "SELECT * FROM Utente WHERE idutente = ?";
-//                    PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
-//                    preparedStatementUtente.setInt(1, idUtente);
-//                    ResultSet rsUtente = preparedStatementUtente.executeQuery();
-//                    while (rsUtente.next()) {
-//                        Utente utente = new Utente(rsUtente.getString("nome"), rsUtente.getString("cognome"), rsUtente.getString("login"), rsUtente.getString("password"), rsUtente.getString("email"), rsUtente.getDate("datanascita"));
-//                        int stato = rsModifica.getInt("stato");
-//                        fraseProposta = new ModificaProposta(rsModifica.getDate("dataproposta").toLocalDate(), rsModifica.getTime("oraproposta").toLocalTime(), autore, utente, frase, rsModifica.getString("stringaProposta"), frase.getNumerazione());
-//                        if(stato ==  1) {
-//                            fraseProposta.setDataValutazione(rsModifica.getDate("dataValutazione").toLocalDate());
-//                            fraseProposta.setOraValutazione(rsModifica.getTime("oravalutazione").toLocalTime());
-//                        }
-//                        fraseProposta.setStato(stato);
-//                        //frase.addProposte(fraseProposta);
-//                    }
-//
-//                }
-//            }
-//        }
-//        ArrayList<Frase> frasiTesto= new ArrayList<>();
-//        int controllo = 0;
-//        Frase fr_salvata = null;
-//        for(Frase_Corrente f : paginaSelezionata.getFrasi()){
-//            System.out.println("-------------------");
-//            System.out.println((f.getStringa_inserita()));
-//            LocalDate data_max = f.getDataInserimento();
-//            for(ModificaProposta fc : f.getProposte()){
-//                System.out.println("++++++++++++++++");
-//                System.out.println(fc.getStringa_inserita());
-//                if(fc.getStato() == 1) {
-//                    controllo = 1;
-//                    LocalDate dataModifica = fc.getDataValutazione();
-//                    if (data_max.compareTo(dataModifica) > 0) {
-//                        fr_salvata = f;
-//                    } else {
-//                        fr_salvata = fc;
-//                    }
-//                }
-//            }
-//            System.out.println("++++++++++++++++");
-//            if(controllo == 0){
-//                frasiTesto.add(f.getNumerazione(), f);
-//                System.out.println("frase scelta:" + f.getStringa_inserita());
-//            }else{
-//                frasiTesto.add(f.getNumerazione(), fr_salvata);
-//                System.out.println("frase scelta:" + fr_salvata.getStringa_inserita());
-//            }
-//            controllo = 0;
         }
         connection.close();
     }
@@ -641,56 +583,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         connection.close();
         return PagineCreate;
     }
-
-//    public boolean controllaNotifiche(Autore autoreLoggato) throws SQLException{
-//        boolean notificheRicevute = false;
-//        String queryNotifiche = "SELECT * FROM modificaProposta M NATURAL JOIN notifica N WHERE M.autorev = ? ORDER BY N.data ASC, N.ora ASC";
-//        PreparedStatement preparedStatementNotifiche = connection.prepareStatement(queryNotifiche);
-//
-//        String queryAutore = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
-//        PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
-//        preparedStatementAutore.setString(1,autoreLoggato.getLogin());
-//        ResultSet rsAutore = preparedStatementAutore.executeQuery();
-//        rsAutore.next();
-//        int idAutore = rsAutore.getInt("idutente");
-//
-//        preparedStatementNotifiche.setInt(1, idAutore);
-//        ResultSet rsNotifiche = preparedStatementNotifiche.executeQuery();
-//        while(rsNotifiche.next()){
-//            String queryUtente = "SELECT * FROM utente WHERE idUtente = ? LIMIT 1";
-//            PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
-//            preparedStatementUtente.setInt(1,rsNotifiche.getInt("utentep"));
-//            ResultSet rsUtente = preparedStatementUtente.executeQuery();
-//            rsUtente.next();
-//
-//            String queryFraseCorrente = "SELECT stringaInserita, numerazione, dataInserimento, oraInserimento FROM FraseCorrente WHERE idPagina = ? AND stringaInserita = ? AND numerazione = ?";
-//            PreparedStatement preparedStatementFraseCorrente = connection.prepareStatement(queryFraseCorrente);
-//            preparedStatementFraseCorrente.setInt(1, rsNotifiche.getInt("idPagina"));
-//            preparedStatementFraseCorrente.setString(2, rsNotifiche.getString("stringaInserita"));
-//            preparedStatementFraseCorrente.setInt(3, rsNotifiche.getInt("numerazione"));
-//            ResultSet rsFraseCorrente = preparedStatementFraseCorrente.executeQuery();
-//            rsFraseCorrente.next();
-//
-//            String queryPagina = "SELECT * FROM pagina WHERE idPagina = ?";
-//            PreparedStatement preparedStatementPagina = connection.prepareStatement(queryPagina);
-//            preparedStatementPagina.setInt(1, rsNotifiche.getInt("idPagina"));
-//            ResultSet rsPagina = preparedStatementPagina.executeQuery();
-//            rsPagina.next();
-//
-//            Pagina pagina = new Pagina(rsPagina.getString("titolo"), rsPagina.getTimestamp("dataOraCreazione").toLocalDateTime(), autoreLoggato);
-//            Frase_Corrente fraseCorrente = new Frase_Corrente(rsFraseCorrente.getString("stringainserita"), rsFraseCorrente.getInt("numerazione"), pagina, rsFraseCorrente.getDate("datainserimento").toLocalDate(), rsFraseCorrente.getTime("orainserimento"));
-//            Utente utente = new Utente(rsUtente.getString("nome"), rsUtente.getString("cognome"), rsUtente.getString("login"), rsUtente.getString("password"), rsUtente.getString("email"), rsUtente.getDate("datanascita"));
-//            ModificaProposta modificaProposta = new ModificaProposta(rsNotifiche.getDate("dataProposta").toLocalDate(), rsNotifiche.getTime("oraproposta").toLocalTime(), autoreLoggato, utente, fraseCorrente, rsNotifiche.getString("stringaProposta"), rsNotifiche.getInt("numerazione"));
-//            Notifica notifica =  new Notifica(autoreLoggato, modificaProposta, rsPagina.getString("titolo"));
-//            notifica.setDataInvio(rsNotifiche.getDate("data").toLocalDate());
-//            notifica.setOraInvio(rsNotifiche.getTimestamp("ora"));
-//            System.out.println("---------------" + notifica.getModifica().getOraProposta());
-//        }
-//
-//        if(!(autoreLoggato.getNotificheRicevute().isEmpty()))
-//            notificheRicevute = true;
-//        return notificheRicevute;
-//    }
 
     public boolean controllaNotifiche(String login) throws SQLException{
         boolean notificheRicevute = false;

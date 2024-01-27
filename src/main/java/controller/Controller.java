@@ -20,7 +20,6 @@ public class Controller {
     private Autore autoreloggato;
     private ArrayList<Pagina> pagineTrovate;
     private Controller controller;
-
     private Pagina paginaSelezionata;
 
     public Controller(){
@@ -40,7 +39,11 @@ public class Controller {
             WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
            w.ricercaTitoli(titoloInserito, titoli, dateOreCreazioni, nomi, cognom, login, password, email, date);
-            ArrayList<Autore> autori = new ArrayList<>();
+            for(int i = 0; i < titoli.size(); i++){
+                Pagina pagina = new Pagina(titoli.get(i), dateOreCreazioni.get(i), nomi.get(i), cognom.get(i), login.get(i), password.get(i), email.get(i), date.get(i));
+                pagineTrovate.add(pagina);
+            }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -282,7 +285,7 @@ public class Controller {
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
             if(utenteloggato != null){
-                utenteloggato.addPagineVisualizzate(new Visiona(java.sql.Date.valueOf(LocalDate.now())), Time.valueOf(LocalTime.now()), paginaSelezionata);
+                Visiona paginaVisionata = new Visiona()
             }
             w.addPaginaVisualizzata(, utenteLoggato);
         } catch (SQLException e) {
