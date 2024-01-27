@@ -1,158 +1,160 @@
 
-g	java:S112""FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8èı‘ÂÔ1
-g	java:S1122"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8éı‘ÂÔ1
-g	java:S112B"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8éı‘ÂÔ1
-g	java:S112R"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8éı‘ÂÔ1
-g	java:S112b"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8éı‘ÂÔ1
+g	java:S112%"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¿—ŞÔÔ1
+g	java:S1125"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8À—ŞÔÔ1
+g	java:S112E"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8À—ŞÔÔ1
+g	java:S112U"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8À—ŞÔÔ1
+g	java:S112e"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8À—ŞÔÔ1
 n
-java:S1192¥"PDefine a constant instead of duplicating this literal "stringaInserita" 3 times.(­ü ò8ëı‘ÂÔ1
+java:S1192¨"PDefine a constant instead of duplicating this literal "stringaInserita" 3 times.(­ü ò8Ã—ŞÔÔ1
 k
-java:S1192‰"MDefine a constant instead of duplicating this literal "dataProposta" 4 times.(±’ŸÅ8ëı‘ÂÔ1
-f
-java:S1192"IDefine a constant instead of duplicating this literal "password" 5 times.(¡Ë–Ñ8ëı‘ÂÔ1
-’
-java:S1192œ"tDefine a constant instead of duplicating this literal "SELECT idutente FROM utente WHERE login = ? LIMIT 1" 7 times.(®¼‡»8ëı‘ÂÔ1
-™
-java:S1192Œ"{Define a constant instead of duplicating this literal "SELECT idutente, login FROM utente WHERE login = ? LIMIT 1" 4 times.(Ÿù‚¨8ëı‘ÂÔ1
-t
-java:S1192"WDefine a constant instead of duplicating this literal "Nessuna riga inserita." 5 times.(˜¸®;8ëı‘ÂÔ1
-k
-java:S1192t"IDefine a constant instead of duplicating this literal "idAutore" 3 times.(×á®àüÿÿÿÿ8ëı‘ÂÔ1
-i
-java:S1192r"GDefine a constant instead of duplicating this literal "titolo" 6 times.(Â×÷öıÿÿÿÿ8ëı‘ÂÔ1
-j
-java:S1192"LDefine a constant instead of duplicating this literal "dataNascita" 4 times.(ÔË†ä8ëı‘ÂÔ1
-e
-java:S11920"HDefine a constant instead of duplicating this literal "cognome" 7 times.(–öö•8ìı‘ÂÔ1
-o
-java:S1192Š"LDefine a constant instead of duplicating this literal "oraProposta" 3 times.(½«Öäûÿÿÿÿ8ìı‘ÂÔ1
-m
-java:S1192s"QDefine a constant instead of duplicating this literal "dataOraCreazione" 5 times.(çæ x8ìı‘ÂÔ1
-c
-java:S1192~"FDefine a constant instead of duplicating this literal "login" 5 times.(ÜµîÍ8ìı‘ÂÔ1
-p
-java:S1192Â"MDefine a constant instead of duplicating this literal "numerazione" 11 times.(…¬ÉÎÿÿÿÿÿ8ìı‘ÂÔ1
-ˆ
-java:S1192„"jDefine a constant instead of duplicating this literal "Errore durante l'esecuzione della query: " 4 times.(ü¸œã8ìı‘ÂÔ1
-m
-java:S1192š"JDefine a constant instead of duplicating this literal "idPagina" 11 times.(üûõ©ûÿÿÿÿ8ìı‘ÂÔ1
+java:S1192Œ"MDefine a constant instead of duplicating this literal "dataProposta" 4 times.(±’ŸÅ8Ã—ŞÔÔ1
 g
-java:S1192‘"JDefine a constant instead of duplicating this literal "idutente" 13 times.(ÿ°ÔN8ìı‘ÂÔ1
-n
-java:S1192Á"PDefine a constant instead of duplicating this literal "stringainserita" 3 times.(Úó‰í8ìı‘ÂÔ1
-m
-java:S1192×"ODefine a constant instead of duplicating this literal "oraValutazione" 4 times.(Œï×8ìı‘ÂÔ1
-h
-java:S1192@"FDefine a constant instead of duplicating this literal "email" 7 times.(¥çÃÁúÿÿÿÿ8ìı‘ÂÔ1
-r
-java:S1192§"ODefine a constant instead of duplicating this literal "orainserimento" 3 times.(úÕÖÍøÿÿÿÿ8ìı‘ÂÔ1
- 
-java:S1192u"‚Define a constant instead of duplicating this literal "SELECT * FROM utente WHERE idUtente = ? GROUP BY idUtente LIMIT 1" 3 times.(„¨§ó8ìı‘ÂÔ1
+java:S1192‚"IDefine a constant instead of duplicating this literal "password" 5 times.(¡Ë–Ñ8Ã—ŞÔÔ1
+’
+java:S1192Ÿ"tDefine a constant instead of duplicating this literal "SELECT idutente FROM utente WHERE login = ? LIMIT 1" 7 times.(®¼‡»8Ã—ŞÔÔ1
+™
+java:S1192"{Define a constant instead of duplicating this literal "SELECT idutente, login FROM utente WHERE login = ? LIMIT 1" 4 times.(Ÿù‚¨8Ã—ŞÔÔ1
 t
-java:S1192ÿ"VDefine a constant instead of duplicating this literal "Inserimento riuscito!" 5 times.(¿›†ª8ìı‘ÂÔ1
+java:S1192„"WDefine a constant instead of duplicating this literal "Nessuna riga inserita." 5 times.(˜¸®;8Ã—ŞÔÔ1
+k
+java:S1192w"IDefine a constant instead of duplicating this literal "idAutore" 3 times.(×á®àüÿÿÿÿ8Ã—ŞÔÔ1
+i
+java:S1192u"GDefine a constant instead of duplicating this literal "titolo" 6 times.(Â×÷öıÿÿÿÿ8Ã—ŞÔÔ1
+j
+java:S1192„"LDefine a constant instead of duplicating this literal "dataNascita" 4 times.(ÔË†ä8Ã—ŞÔÔ1
+e
+java:S11923"HDefine a constant instead of duplicating this literal "cognome" 7 times.(–öö•8Ã—ŞÔÔ1
+o
+java:S1192"LDefine a constant instead of duplicating this literal "oraProposta" 3 times.(½«Öäûÿÿÿÿ8Ã—ŞÔÔ1
+m
+java:S1192v"QDefine a constant instead of duplicating this literal "dataOraCreazione" 5 times.(çæ x8Ã—ŞÔÔ1
+d
+java:S1192"FDefine a constant instead of duplicating this literal "login" 5 times.(ÜµîÍ8Ã—ŞÔÔ1
+p
+java:S1192Å"MDefine a constant instead of duplicating this literal "numerazione" 11 times.(…¬ÉÎÿÿÿÿÿ8Ã—ŞÔÔ1
+ˆ
+java:S1192‡"jDefine a constant instead of duplicating this literal "Errore durante l'esecuzione della query: " 4 times.(ü¸œã8Ã—ŞÔÔ1
+m
+java:S1192"JDefine a constant instead of duplicating this literal "idPagina" 11 times.(üûõ©ûÿÿÿÿ8Ä—ŞÔÔ1
+g
+java:S1192”"JDefine a constant instead of duplicating this literal "idutente" 13 times.(ÿ°ÔN8Ä—ŞÔÔ1
 n
-java:S1192P"LDefine a constant instead of duplicating this literal "datanascita" 3 times.(û±Â§ùÿÿÿÿ8ìı‘ÂÔ1
-m	java:S117­"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( Ç³8îı‘ÂÔ1
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ü²ñ™8ñı‘ÂÔ1
+java:S1192Ä"PDefine a constant instead of duplicating this literal "stringainserita" 3 times.(Úó‰í8Ä—ŞÔÔ1
+m
+java:S1192Ú"ODefine a constant instead of duplicating this literal "oraValutazione" 4 times.(Œï×8Ä—ŞÔÔ1
+h
+java:S1192C"FDefine a constant instead of duplicating this literal "email" 7 times.(¥çÃÁúÿÿÿÿ8Ä—ŞÔÔ1
+r
+java:S1192ª"ODefine a constant instead of duplicating this literal "orainserimento" 3 times.(úÕÖÍøÿÿÿÿ8Ä—ŞÔÔ1
+ 
+java:S1192x"‚Define a constant instead of duplicating this literal "SELECT * FROM utente WHERE idUtente = ? GROUP BY idUtente LIMIT 1" 3 times.(„¨§ó8Ä—ŞÔÔ1
+t
+java:S1192‚"VDefine a constant instead of duplicating this literal "Inserimento riuscito!" 5 times.(¿›†ª8Ä—ŞÔÔ1
+n
+java:S1192S"LDefine a constant instead of duplicating this literal "datanascita" 3 times.(û±Â§ùÿÿÿÿ8Ä—ŞÔÔ1
+m	java:S117°"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( Ç³8Æ—ŞÔÔ1
+s
+java:S1104"VMake controller a static final constant or non-public and provide accessors if needed.(Ó‘çõ8Ç—ŞÔÔ1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ü²ñ™8Ê—ŞÔÔ1
 _
-java:S1226å"AIntroduce a new variable instead of reusing the parameter "nome".(¯â™Ü8ôı‘ÂÔ1
+java:S1226è"AIntroduce a new variable instead of reusing the parameter "nome".(¯â™Ü8Ï—ŞÔÔ1
 b
-java:S1226æ"DIntroduce a new variable instead of reusing the parameter "cognome".(–öö•8ôı‘ÂÔ1
+java:S1226é"DIntroduce a new variable instead of reusing the parameter "cognome".(–öö•8Ï—ŞÔÔ1
 e
-java:S1226ç"BIntroduce a new variable instead of reusing the parameter "email".(¥çÃÁúÿÿÿÿ8ôı‘ÂÔ1
+java:S1226ê"BIntroduce a new variable instead of reusing the parameter "email".(¥çÃÁúÿÿÿÿ8Ï—ŞÔÔ1
 e
-java:S1226è"GIntroduce a new variable instead of reusing the parameter "datNascita".(ªˆšÕ8ôı‘ÂÔ1
+java:S1226ë"GIntroduce a new variable instead of reusing the parameter "datNascita".(ªˆšÕ8Ï—ŞÔÔ1
 _
-java:S1226é"BIntroduce a new variable instead of reusing the parameter "ruolo".(—,8ôı‘ÂÔ1
-k
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8³€’ÂÔ1
-m
-java:S2095È"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Õ†‘¶8ìÓ’ÂÔ1
-k
-java:S2095,"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8³€’ÂÔ1
-m
-java:S2095”"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¸ì”8³€’ÂÔ1
-m
-java:S2095¶"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¸ì”8ìÓ’ÂÔ1
-m
-java:S2095¿"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ã²Ë8ìÓ’ÂÔ1
-k
-java:S2095L"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8³€’ÂÔ1
+java:S1226ì"BIntroduce a new variable instead of reusing the parameter "ruolo".(—,8Ï—ŞÔÔ1
 l
-java:S2095ó"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8³€’ÂÔ1
+java:S2095¡"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8ÎŸŞÔÔ1
+m
+java:S2095¹"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¸ì”8ÎŸŞÔÔ1
 k
-java:S2095<"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8³€’ÂÔ1
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8ÎŸŞÔÔ1
+k
+java:S2095/"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8ÎŸŞÔÔ1
+k
+java:S2095_"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8ÎŸŞÔÔ1
+q
+java:S2095y"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ÌÂæúÿÿÿÿ8ÎŸŞÔÔ1
 r
-java:S2095ß"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8ìÓ’ÂÔ1
-q
-java:S2095v"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(”ÌÂæúÿÿÿÿ8³€’ÂÔ1
-q
-java:S2095k"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8÷•ÉÂÔ1
+java:S2095â"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8ÎŸŞÔÔ1
+m
+java:S2095Â"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¯ã²Ë8ÎŸŞÔÔ1
+m
+java:S2095—"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¸ì”8ÎŸŞÔÔ1
 l
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8³€’ÂÔ1
-r
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8³€’ÂÔ1
+java:S2095ö"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8ÎŸŞÔÔ1
 k
-java:S2095\"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8³€’ÂÔ1
+java:S2095O"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8ÎŸŞÔÔ1
 r
-java:S2095¯"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8³€’ÂÔ1
+java:S2095²"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8ÎŸŞÔÔ1
+r
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8ÎŸŞÔÔ1
+k
+java:S2095?"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(’Şµ/8ÎŸŞÔÔ1
+m
+java:S2095Ë"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Õ†‘¶8ÎŸŞÔÔ1
+q
+java:S2095n"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â…ÍÆÿÿÿÿÿ8ÎŸŞÔÔ1
 T
-java:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8·€’ÂÔ1
-F	java:S106o"+Replace this use of System.out by a logger.(À®ù8¼€’ÂÔ1
-H	java:S106„"+Replace this use of System.out by a logger.(ü¸œã8½€’ÂÔ1
+java:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8ÕŸŞÔÔ1
+F	java:S106r"+Replace this use of System.out by a logger.(À®ù8İŸŞÔÔ1
+H	java:S106‡"+Replace this use of System.out by a logger.(ü¸œã8ŞŸŞÔÔ1
 _
-java:S1854¼"<Remove this useless assignment to local variable "idPagina".(üûõ©ûÿÿÿÿ8À€’ÂÔ1
+java:S1854¿"<Remove this useless assignment to local variable "idPagina".(üûõ©ûÿÿÿÿ8áŸŞÔÔ1
 P
-java:S1481¼"-Remove this unused "idPagina" local variable.(üûõ©ûÿÿÿÿ8Á€’ÂÔ1
+java:S1481¿"-Remove this unused "idPagina" local variable.(üûõ©ûÿÿÿÿ8äŸŞÔÔ1
 V
-java:S1854é"9Remove this useless assignment to local variable "ruolo".(—,8Ã€’ÂÔ1
+java:S1854ì"9Remove this useless assignment to local variable "ruolo".(—,8èŸŞÔÔ1
 \
-java:S1854è">Remove this useless assignment to local variable "datNascita".(ªˆšÕ8Ã€’ÂÔ1
+java:S1854ë">Remove this useless assignment to local variable "datNascita".(ªˆšÕ8èŸŞÔÔ1
 \
-java:S1854ç"9Remove this useless assignment to local variable "email".(¥çÃÁúÿÿÿÿ8Ä€’ÂÔ1
+java:S1854ê"9Remove this useless assignment to local variable "email".(¥çÃÁúÿÿÿÿ8èŸŞÔÔ1
 Y
-java:S1854æ";Remove this useless assignment to local variable "cognome".(–öö•8Ä€’ÂÔ1
+java:S1854é";Remove this useless assignment to local variable "cognome".(–öö•8èŸŞÔÔ1
 V
-java:S1854å"8Remove this useless assignment to local variable "nome".(¯â™Ü8Ä€’ÂÔ1
-H	java:S106ÿ"+Replace this use of System.out by a logger.(¿›†ª8Å€’ÂÔ1
-G	java:S106"+Replace this use of System.out by a logger.(˜¸®;8Å€’ÂÔ1
-M	java:S106"+Replace this use of System.out by a logger.(ÆÕ°¿şÿÿÿÿ8Æ€’ÂÔ1
-M	java:S106”"+Replace this use of System.out by a logger.(ú¸‹üúÿÿÿÿ8Ç€’ÂÔ1
-H	java:S106«"+Replace this use of System.out by a logger.(¿›†ª8È€’ÂÔ1
-G	java:S106®"+Replace this use of System.out by a logger.(˜¸®;8È€’ÂÔ1
-H	java:S106Ì"+Replace this use of System.out by a logger.(¿›†ª8Ê€’ÂÔ1
-G	java:S106Î"+Replace this use of System.out by a logger.(˜¸®;8Ê€’ÂÔ1
-H	java:S106æ"+Replace this use of System.out by a logger.(¿›†ª8Ë€’ÂÔ1
-G	java:S106è"+Replace this use of System.out by a logger.(˜¸®;8Ë€’ÂÔ1
+java:S1854è"8Remove this useless assignment to local variable "nome".(¯â™Ü8éŸŞÔÔ1
+H	java:S106‚"+Replace this use of System.out by a logger.(¿›†ª8ëŸŞÔÔ1
+G	java:S106„"+Replace this use of System.out by a logger.(˜¸®;8ëŸŞÔÔ1
+M	java:S106‘"+Replace this use of System.out by a logger.(ÆÕ°¿şÿÿÿÿ8ìŸŞÔÔ1
+M	java:S106—"+Replace this use of System.out by a logger.(ú¸‹üúÿÿÿÿ8íŸŞÔÔ1
+H	java:S106®"+Replace this use of System.out by a logger.(¿›†ª8îŸŞÔÔ1
+G	java:S106±"+Replace this use of System.out by a logger.(˜¸®;8ïŸŞÔÔ1
+H	java:S106Ï"+Replace this use of System.out by a logger.(¿›†ª8óŸŞÔÔ1
+G	java:S106Ñ"+Replace this use of System.out by a logger.(˜¸®;8óŸŞÔÔ1
+H	java:S106é"+Replace this use of System.out by a logger.(¿›†ª8öŸŞÔÔ1
+G	java:S106ë"+Replace this use of System.out by a logger.(˜¸®;8öŸŞÔÔ1
 ^
-java:S1854‹";Remove this useless assignment to local variable "visiona".(ôÇ’ƒüÿÿÿÿ8Ë€’ÂÔ1
+java:S1854";Remove this useless assignment to local variable "visiona".(ôÇ’ƒüÿÿÿÿ8öŸŞÔÔ1
 O
-java:S1481‹",Remove this unused "visiona" local variable.(ôÇ’ƒüÿÿÿÿ8Í€’ÂÔ1
-H	java:S106"+Replace this use of System.out by a logger.(¿›†ª8Í€’ÂÔ1
-G	java:S106’"+Replace this use of System.out by a logger.(˜¸®;8Í€’ÂÔ1
-M	java:S106¢"+Replace this use of System.out by a logger.(¡ŠŒõûÿÿÿÿ8Ï€’ÂÔ1
-G	java:S106©"+Replace this use of System.out by a logger.(À®ù8Ï€’ÂÔ1
-H	java:S106¼"+Replace this use of System.out by a logger.(ü¸œã8Ğ€’ÂÔ1
+java:S1481",Remove this unused "visiona" local variable.(ôÇ’ƒüÿÿÿÿ8úŸŞÔÔ1
+H	java:S106“"+Replace this use of System.out by a logger.(¿›†ª8úŸŞÔÔ1
+G	java:S106•"+Replace this use of System.out by a logger.(˜¸®;8ûŸŞÔÔ1
+M	java:S106¥"+Replace this use of System.out by a logger.(¡ŠŒõûÿÿÿÿ8ıŸŞÔÔ1
+G	java:S106¬"+Replace this use of System.out by a logger.(À®ù8ıŸŞÔÔ1
+H	java:S106¿"+Replace this use of System.out by a logger.(ü¸œã8€ ŞÔÔ1
 ?
-java:S1116Ô"Remove this empty statement.(äÒãõşÿÿÿÿ8Ò€’ÂÔ1
-H	java:S106Û"+Replace this use of System.out by a logger.(ü¸œã8Ò€’ÂÔ1
-G	java:S106"+Replace this use of System.out by a logger.(“è¢O8Õ€’ÂÔ1
-H	java:S106"+Replace this use of System.out by a logger.(äìÁ8Õ€’ÂÔ1
-M	java:S106‘"+Replace this use of System.out by a logger.(ˆí›Íıÿÿÿÿ8Ö€’ÂÔ1
-H	java:S106“"+Replace this use of System.out by a logger.(§‹Ë8Ö€’ÂÔ1
-M	java:S106œ"+Replace this use of System.out by a logger.(©¢Çùÿÿÿÿ8Ö€’ÂÔ1
-M	java:S106Á"+Replace this use of System.out by a logger.(Ô£Ïïıÿÿÿÿ8Ù€’ÂÔ1
-H	java:S106Ä"+Replace this use of System.out by a logger.(ü¸œã8Ù€’ÂÔ1
-G	java:S106ø"+Replace this use of System.out by a logger.(“è¢O8Ü€’ÂÔ1
-H	java:S106ù"+Replace this use of System.out by a logger.(äìÁ8Ü€’ÂÔ1
-M	java:S106û"+Replace this use of System.out by a logger.(ˆí›Íıÿÿÿÿ8Ü€’ÂÔ1
-H	java:S106ı"+Replace this use of System.out by a logger.(§‹Ë8Ü€’ÂÔ1
-M	java:S106†"+Replace this use of System.out by a logger.(©¢Çùÿÿÿÿ8İ€’ÂÔ1
-H	java:S106"+Replace this use of System.out by a logger.(øØ²±8Ş€’ÂÔ1
-M	java:S106§"+Replace this use of System.out by a logger.(ÆÕ°¿şÿÿÿÿ8ß€’ÂÔ1
-H	java:S106¨"+Replace this use of System.out by a logger.(Ì“¢Ú8ß€’ÂÔ1
-H	java:S106©"+Replace this use of System.out by a logger.(šØúÉ8ß€’ÂÔ1
-M	java:S106¹"+Replace this use of System.out by a logger.(øŞ€©ùÿÿÿÿ8à€’ÂÔ1
-Y	java:S125º"<This block of commented-out lines of code should be removed.(òşÚğ8à€’ÂÔ1
-M	java:S106½"+Replace this use of System.out by a logger.(Ï©–£ıÿÿÿÿ8à€’ÂÔ1
-M	java:S106À"+Replace this use of System.out by a logger.(ıÆÒùøÿÿÿÿ8à€’ÂÔ1
+java:S1116×"Remove this empty statement.(äÒãõşÿÿÿÿ8ƒ ŞÔÔ1
+H	java:S106Ş"+Replace this use of System.out by a logger.(ü¸œã8„ ŞÔÔ1
+G	java:S106‘"+Replace this use of System.out by a logger.(“è¢O8‰ ŞÔÔ1
+H	java:S106’"+Replace this use of System.out by a logger.(äìÁ8‰ ŞÔÔ1
+M	java:S106”"+Replace this use of System.out by a logger.(ˆí›Íıÿÿÿÿ8Š ŞÔÔ1
+H	java:S106–"+Replace this use of System.out by a logger.(§‹Ë8Š ŞÔÔ1
+M	java:S106Ÿ"+Replace this use of System.out by a logger.(©¢Çùÿÿÿÿ8‹ ŞÔÔ1
+M	java:S106Ä"+Replace this use of System.out by a logger.(Ô£Ïïıÿÿÿÿ8 ŞÔÔ1
+H	java:S106Ç"+Replace this use of System.out by a logger.(ü¸œã8 ŞÔÔ1
+G	java:S106û"+Replace this use of System.out by a logger.(“è¢O8’ ŞÔÔ1
+H	java:S106ü"+Replace this use of System.out by a logger.(äìÁ8’ ŞÔÔ1
+M	java:S106ş"+Replace this use of System.out by a logger.(ˆí›Íıÿÿÿÿ8“ ŞÔÔ1
+H	java:S106€"+Replace this use of System.out by a logger.(§‹Ë8“ ŞÔÔ1
+M	java:S106‰"+Replace this use of System.out by a logger.(©¢Çùÿÿÿÿ8” ŞÔÔ1
+H	java:S106’"+Replace this use of System.out by a logger.(øØ²±8• ŞÔÔ1
+M	java:S106ª"+Replace this use of System.out by a logger.(ÆÕ°¿şÿÿÿÿ8– ŞÔÔ1
+H	java:S106«"+Replace this use of System.out by a logger.(Ì“¢Ú8– ŞÔÔ1
+H	java:S106¬"+Replace this use of System.out by a logger.(šØúÉ8– ŞÔÔ1
+M	java:S106¼"+Replace this use of System.out by a logger.(øŞ€©ùÿÿÿÿ8™ ŞÔÔ1
+Y	java:S125½"<This block of commented-out lines of code should be removed.(òşÚğ8™ ŞÔÔ1
+M	java:S106À"+Replace this use of System.out by a logger.(Ï©–£ıÿÿÿÿ8™ ŞÔÔ1
+M	java:S106Ã"+Replace this use of System.out by a logger.(ıÆÒùøÿÿÿÿ8™ ŞÔÔ1

@@ -1,5 +1,7 @@
 package implementazionePostgresDAO;
 
+import MODEL.Autore;
+import controller.Controller;
 import dao.WikiDAO;
 import database.ConnessioneDatabase;
 
@@ -10,6 +12,7 @@ import java.util.Date;
 
 public class WikiimplementazionePostgresDAO implements WikiDAO {
     private Connection connection;
+    public Controller controller;
 
     public WikiimplementazionePostgresDAO() {
         try {
