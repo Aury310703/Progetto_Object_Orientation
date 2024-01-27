@@ -57,19 +57,71 @@ public class Controller {
         ArrayList<String> frasiInserite = new ArrayList<>();
         ArrayList<LocalDate> dateInserimento = new ArrayList<>();
         ArrayList<Time> oreInserimento = new ArrayList<>();
-        ArrayList<Integer> stati = new ArrayList<>();
         try {
-            w.getFrasiCorrenti(paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), frasiInserite, dateInserimento, oreInserimento, stati);
+            w.getFrasiCorrenti(paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), frasiInserite, dateInserimento, oreInserimento);
             int numerazione = 0;
             for(String frase : frasiInserite){
                 Frase_Corrente fraseCorrente = new Frase_Corrente(frase, numerazione, paginaSelezionata, dateInserimento.get(numerazione), oreInserimento.get(numerazione));
+
+                ArrayList<String> frasiProposte = new ArrayList<>();
+                ArrayList<LocalDate> dateProposte = new ArrayList<>();
+                ArrayList<LocalTime> oreProposte = new ArrayList<>();
+                ArrayList<LocalDate> datevalutazione = new ArrayList<>();
+                ArrayList<Time> orevalutazione = new ArrayList<>();
+                ArrayList<Integer> stati = new ArrayList<>();
+                ArrayList<String> nomi = new ArrayList<>();
+                ArrayList<String> cognomi = new ArrayList<>();
+                ArrayList<String> logins = new ArrayList<>();
+                ArrayList<String> password = new ArrayList<>();
+                ArrayList<String> email = new ArrayList<>();
+                ArrayList<Date> date = new ArrayList<>();
+
+                try {
+                    w.getModificheModificate(paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), frasiProposte, dateProposte, oreProposte, datevalutazione, orevalutazione, stati, nomi, cognomi, logins, password, email, date);
+                    for(int i = 0; i < frasiProposte.size(); i++){
+                        Utente utente = new Utente(nomi.get(i), cognomi.get(i), logins.get(i), password.get(i), email.get(i), date.get(i));
+                        ModificaProposta modificaProposta = new ModificaProposta(dateProposte.get(i), oreProposte.get(i), paginaSelezionata.getAutore(), utente, fraseCorrente, frasiProposte.get(i), numerazione, stati.get(i));
+                    }
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 numerazione++;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
+        ArrayList<String> frasiTesto= new ArrayList<>();
+        int controllo = 0;
+        Frase fr_salvata = null;
+        for(Frase_Corrente f : paginaSelezionata.getFrasi()){
+            System.out.println("-------------------");
+            System.out.println((f.getStringa_inserita()));
+            LocalDate data_max = f.getDataInserimento();
+            for(ModificaProposta fc : f.getProposte()){
+                System.out.println("++++++++++++++++");
+                System.out.println(fc.getStringa_inserita());
+                if(fc.getStato() == 1) {
+                    controllo = 1;
+                    LocalDate dataModifica = fc.getDataValutazione();
+                    if (data_max.isAfter(dataModifica)) {
+                        fr_salvata = f;
+                    } else {
+                        fr_salvata = fc;
+                    }
+                }
+            }
+            System.out.println("++++++++++++++++");
+            if(controllo == 0){
+                frasiTesto.add(f.getStringa_inserita());
+                System.out.println("frase scelta:" + f.getStringa_inserita());
+            }else{
+                frasiTesto.add(f.getStringa_inserita());
+                System.out.println("frase scelta:" + fr_salvata.getStringa_inserita());
+            }
+            controllo = 0;
 
+        }
         return testoPagina;
     }
 

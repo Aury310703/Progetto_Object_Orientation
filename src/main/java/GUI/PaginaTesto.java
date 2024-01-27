@@ -29,7 +29,7 @@ public class PaginaTesto {
     //private JLabel testoLabel;
     public String locale = "it_IT";
 
-    public PaginaTesto(Controller controller, JFrame frameC, Pagina paginaSelezionata) {
+    public PaginaTesto(Controller controller, JFrame frameC, String titolo, int numeroPagina) {
         panelTesto.setText("");
         frameChiamante = frameC;
         this.frame = new JFrame("Pagina");
