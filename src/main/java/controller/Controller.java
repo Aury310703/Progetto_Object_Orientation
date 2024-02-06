@@ -1,7 +1,5 @@
 package controller;
 
-import GUI.Login;
-import GUI.Notifiche;
 import MODEL.*;
 import dao.WikiDAO;
 import implementazionePostgresDAO.WikiimplementazionePostgresDAO;
@@ -16,7 +14,7 @@ import java.util.Date;
 
 public class Controller {
 
-    private Utente utenteloggato;
+    private Utente utenteLoggato;
     private Autore autoreloggato;
     private ArrayList<Pagina> pagineTrovate;
     private Controller controller;
@@ -101,13 +99,15 @@ public class Controller {
             System.out.println("-------------------");
             System.out.println((f.getStringa_inserita()));
             LocalDate data_max = f.getDataInserimento();
+            LocalTime oraMax = f.getOraInserimento().toLocalTime();
             for(ModificaProposta fc : f.getProposte()){
                 System.out.println("++++++++++++++++");
                 System.out.println(fc.getStringa_inserita());
                 if(fc.getStato() == 1) {
                     controllo = 1;
                     LocalDate dataModifica = fc.getDataValutazione();
-                    if (data_max.isAfter(dataModifica)) {
+                    LocalTime oraModifica = fc.getOraValutazione();
+                    if (data_max.isAfter(dataModifica) && oraMax.isAfter((oraModifica))) {
                         fr_salvata = f;
                     } else {
                         fr_salvata = fc;
@@ -133,6 +133,12 @@ public class Controller {
         return utente;
     }
 
+    public boolean loggato(){
+        if(utenteLoggato != null || autoreloggato != null)
+            return true;
+        return false;
+    }
+
 
     public int verificaLoggato(String login, String password) {
         int controllo = 0;
@@ -146,7 +152,7 @@ public class Controller {
             if(w.verificaLoggato(nome, cognome, login, password, email, dataNascita, ruolo)){
                 if(ruolo.equals("utente")){
                     controllo = 1;
-                    utenteloggato = new Utente(nome, cognome, login, password, email, dataNascita);
+                    utenteLoggato = new Utente(nome, cognome, login, password, email, dataNascita);
                 }else{
                     controllo = 2;
                     ArrayList <String> titoli = new ArrayList<>();
@@ -167,17 +173,45 @@ public class Controller {
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
             w.registrazione(nome,cognome,nomeUtente,password,email,dataNascita);
-            utenteloggato = new Utente(nome,cognome,nomeUtente,password,email,dataNascita);
+            utenteLoggato = new Utente(nome,cognome,nomeUtente,password,email,dataNascita);
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
     }
 
-    public boolean inviaProposta(Pagina paginaSelezionata, Frase_Corrente fraseSelezionata, String fraseProposta, Utente utenteLoggato) {
+    public ArrayList<String> getFrasiTestoSelezionato(){
+        ArrayList<String> frasiTesto = new ArrayList<>();
+        for(Frase_Corrente f : paginaSelezionata.getFrasi()){
+            LocalDate dataMax = f.getDataInserimento();
+            LocalTime oraMax = f.getOraInserimento().toLocalTime();
+            String frase = f.getStringa_inserita();
+            for(ModificaProposta mp : f.getProposte()){
+                if (mp.getStato() == 1){
+                    if(mp.getDataValutazione().isAfter(dataMax) && mp.getOraValutazione().isAfter(oraMax)){
+                       frase = mp.getStringa_inserita();
+                       dataMax = mp.getDataValutazione();
+                       oraMax = mp.getOraValutazione();
+                    }
+                }
+            }
+            frasiTesto.add(frase);
+        }
+        return frasiTesto;
+    }
+
+    public boolean inviaProposta(String fraseSelezionata, String fraseProposta, int numerazione) {
         boolean controllo = false;
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
-            if(w.inviaProposta(paginaSelezionata, fraseSelezionata, fraseProposta, utenteLoggato));
+            ModificaProposta modifica = null;
+            if(utenteLoggato.getLogin() != null) {
+                w.inviaProposta(numerazione, fraseSelezionata, fraseProposta, utenteLoggato.getLogin(), paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione());
+                modifica = new ModificaProposta(LocalDate.now(), LocalTime.now(), paginaSelezionata.getAutore(), utenteLoggato, paginaSelezionata.getFrasi().get(numerazione), fraseProposta, numerazione);
+            }else {
+                w.inviaProposta(numerazione, fraseSelezionata, fraseProposta, autoreloggato.getLogin(), paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione());
+                modifica = new ModificaProposta(LocalDate.now(), LocalTime.now(), paginaSelezionata.getAutore(), autoreloggato, paginaSelezionata.getFrasi().get(numerazione), fraseProposta, numerazione);
+            }
+            paginaSelezionata.getFrasi().get(numerazione).addProposte(modifica);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -185,21 +219,24 @@ public class Controller {
         return controllo;
     }
 
-    public ArrayList<Frase> componiTesto(Pagina paginaSelezionata) {
+    public ArrayList<String> componiTesto() {
         ArrayList<Frase> frasiTesto= new ArrayList<>();
         int controllo = 0;
         Frase fr_salvata = null;
         for(Frase_Corrente f : paginaSelezionata.getFrasi()){
             LocalDate data_max = f.getDataInserimento();
+            LocalTime oraMax = f.getOraInserimento().toLocalTime();
             for(ModificaProposta fc : f.getProposte()){
                 if(fc.getStato() == 1) {
                     controllo = 1;
                     LocalDate dataModifica = fc.getDataValutazione();
 
-                    if (data_max.compareTo(dataModifica) > 0) {
+                    if (data_max.isAfter(fc.getDataValutazione()) && oraMax.isAfter(fc.getOraValutazione())) {
                         fr_salvata = f;
                     } else {
                         fr_salvata = fc;
+                        data_max = fc.getDataValutazione();
+                        oraMax = fc.getOraValutazione();
                     }
                 }
             }
@@ -210,18 +247,24 @@ public class Controller {
             }
             controllo = 0;
         }
-        return frasiTesto;
+        ArrayList<String> frasi= new ArrayList<>();
+        for(Frase f : frasiTesto){
+            frasi.add(f.getStringa_inserita());
+        }
+        return frasi;
     }
 
-    public Pagina creazionePagina(String titolo, String testo, Utente autore) {
+    public void creazionePagina(String titolo, String testo) {
         Pagina paginaCreata = null;
-        if(autore instanceof Autore){
+        if(autoreloggato != null){
             System.out.println("sono un autore");
-            paginaCreata = new Pagina(titolo, LocalDateTime.now(), autore);
+            paginaCreata = new Pagina(titolo, LocalDateTime.now(), autoreloggato);
         }else{
             System.out.println("sono un utente");
-            paginaCreata = new Pagina(titolo,LocalDateTime.now(),autore.getNome(),autore.getCognome(), autore.getLogin(), autore.getPassword(), autore.getEmail(), autore.getDataNascita());
-            autore = paginaCreata.getAutore();
+            paginaCreata = new Pagina(titolo,LocalDateTime.now(), utenteLoggato.getNome(), utenteLoggato.getCognome(), utenteLoggato.getLogin(), utenteLoggato.getPassword(), utenteLoggato.getEmail(), utenteLoggato.getDataNascita());
+            autoreloggato = paginaCreata.getAutore();
+            utenteLoggato = null;
+            paginaSelezionata = paginaCreata;
         }
 
         int length = testo.length();
@@ -284,7 +327,7 @@ public class Controller {
     public void addPaginaVisualizzata(String titolo, int numeroPagina) {
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
-            if(utenteloggato != null){
+            if(utenteLoggato != null){
                 Visiona paginaVisionata = new Visiona()
             }
             w.addPaginaVisualizzata(, utenteLoggato);
@@ -380,11 +423,22 @@ public class Controller {
         return paginaSelezionata.getAutore().getCognome();
     }
 
+    public String getLoginAutorePaginaSelezionata(){
+        return paginaSelezionata.getAutore().getLogin();
+    }
+
     public String getTitoloPaginaSelezionata() {
         return paginaSelezionata.getTitolo();
     }
 
     public LocalDateTime getDataOraCreazionepaginaSelezionata() {
         return paginaSelezionata.getDataCreazione();
+    }
+
+    public String getLoginLoggato() {
+        if(utenteLoggato != null){
+            return utenteLoggato.getLogin();
+        }else
+            return autoreloggato.getLogin();
     }
 }

@@ -1,7 +1,5 @@
 package GUI;
 
-import MODEL.Autore;
-import MODEL.Utente;
 import controller.Controller;
 
 import javax.swing.*;
@@ -25,7 +23,6 @@ public class HomeLoggato {
     private JButton creaPaginaButton;
 
     public Controller controller;
-    public Utente utenteLoggato = null;
 
     void clickOnUsernameButton() {
         nomeutenteButton.addActionListener(new ActionListener() {
@@ -72,18 +69,18 @@ public class HomeLoggato {
         });
     }
 
-    public void clickOnCreaPaginaButton(Utente utenteLoggato) {
+    public void clickOnCreaPaginaButton() {
         creaPaginaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CreaPagina creaPagina = new CreaPagina(controller, frame, utenteLoggato);
+                CreaPagina creaPagina = new CreaPagina(controller, frame);
                 frame.setVisible(false);
                 creaPagina.frame.setVisible(true);
             }
         });
     }
 
-    public HomeLoggato(Controller controller, JFrame frameChiamante, Utente utenteLoggato) {
+    public HomeLoggato(Controller controller, JFrame frameChiamante) {
         this.frameChiamante = frameChiamante;
         this.controller = controller;
         this.frame = new JFrame("HOME");
@@ -96,7 +93,7 @@ public class HomeLoggato {
         clickOnSearchButton(utenteLoggato);
         clickOnUsernameButton();
         clickOnLogoutButton();
-        clickOnCreaPaginaButton(utenteLoggato);
+        clickOnCreaPaginaButton();
     }
 
     {

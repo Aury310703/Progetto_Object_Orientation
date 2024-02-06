@@ -1,6 +1,5 @@
 package GUI;
 
-import MODEL.*;
 import controller.Controller;
 
 import javax.swing.*;
@@ -29,7 +28,7 @@ public class CreaPagina {
     private JFrame frameChiamante;
     private Controller controller;
 
-    public CreaPagina(Controller controller, JFrame frameChiamante, Utente utenteLoggato) {
+    public CreaPagina(Controller controller, JFrame frameChiamante) {
         this.frameChiamante = frameChiamante;
         this.controller = controller;
         this.frame = new JFrame("CREAZIONE PAGINA");
@@ -50,10 +49,10 @@ public class CreaPagina {
             public void actionPerformed(ActionEvent e) {
                 String titolo = titoloField.getText();
                 String testo = ScriviTesto.getText();
-                Pagina paginaCreata = controller.creazionePagina(titolo, testo, utenteLoggato);
+                controller.creazionePagina(titolo, testo);
                 frame.setVisible(false);
                 //HomeLoggato homeLoggato = new HomeLoggato(controller, frame, paginaCreata.getAutore());
-                PaginaTesto paginaTesto = new PaginaTesto(controller, HomeLoggato.frame, paginaCreata, paginaCreata.getAutore());
+                PaginaTesto paginaTesto = new PaginaTesto(controller, HomeLoggato.frame);
                 paginaTesto.frame.setVisible(true);
                 frame.dispose();
             }

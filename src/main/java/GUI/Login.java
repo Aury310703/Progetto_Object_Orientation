@@ -83,11 +83,11 @@ public class Login {
                         }
                     }
                     if (controllo.equals("Home")) {
-                        HomeLoggato homeLoggato = new HomeLoggato(controller, frame, utenteLoggato);
+                        HomeLoggato homeLoggato = new HomeLoggato(controller, frame);
                         homeLoggato.frame.setVisible(true);
                         frame.setVisible(false);
                     } else if (controllo.equals("paginaTesto")) {
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, paginaSelezionata, utenteLoggato);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
                         frame.setVisible(false);
                         paginaTesto.frame.setVisible(true);
                     }

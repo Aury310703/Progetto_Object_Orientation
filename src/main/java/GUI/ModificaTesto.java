@@ -1,9 +1,5 @@
 package GUI;
 
-import MODEL.Frase;
-import MODEL.Frase_Corrente;
-import MODEL.Pagina;
-import MODEL.Utente;
 import controller.Controller;
 
 import javax.swing.*;
@@ -32,7 +28,7 @@ public class ModificaTesto {
 
     public Controller controller;
 
-    public ModificaTesto(Controller controller, JFrame frameChiamante, Pagina paginaSelezionata, Utente utenteLoggato, ArrayList<Frase> testo) {
+    public ModificaTesto(Controller controller, JFrame frameChiamante) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Modifica");
         frame.setContentPane(panel);
@@ -42,9 +38,9 @@ public class ModificaTesto {
         DefaultListModel<String> listModel = new DefaultListModel<>();
         frasiList.setModel(listModel);
 
-
-        for (Frase f : testo) {
-            listModel.addElement(f.getStringa_inserita());
+        ArrayList<String> frasiTesto = controller.getFrasiTestoSelezionato();
+        for (String f : frasiTesto) {
+            listModel.addElement(f);
         }
 
         frasiList.addListSelectionListener(new ListSelectionListener() {
@@ -58,7 +54,7 @@ public class ModificaTesto {
                     if (selectedObject != null) {
                         int indiceElemento = frasiList.getSelectedIndex();
                         String selectedValue = (String) selectedObject;
-                        PropostaModifica propostaModifica = new PropostaModifica(controller, frame, paginaSelezionata, testo.get(indiceElemento), utenteLoggato);
+                        PropostaModifica propostaModifica = new PropostaModifica(controller, frame, frasiTesto.get(indiceElemento), indiceElemento);
                         frame.setVisible(false);
                         propostaModifica.frame.setVisible(true);
                     }

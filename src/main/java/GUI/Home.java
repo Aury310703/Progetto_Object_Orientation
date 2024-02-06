@@ -69,7 +69,6 @@ public class Home {
     public Home() {
         LoginButton.setText(this.$$$getMessageFromBundle$$$(locale, "LOGIN"));
         CercaButton.setText(this.$$$getMessageFromBundle$$$(locale, "cerca"));
-
         clickOnLoginButton();
         clickOnSearchButton();
     }

@@ -191,3 +191,5 @@ L
 src/main/java/GUI/Login.form,0\2\02109b8a5187c8648f06d4aba1ff20ff84cd97f4
 Q
 !src/main/java/MODEL/Notifica.java,c\3\c38972407b731479f9334e3a2e3f770a4b510c31
+T
+$src/main/java/GUI/ModificaTesto.form,8\9\8975de26fa8ef1275d8ab058d1be9f39086602e3

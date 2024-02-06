@@ -262,17 +262,17 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         connection.close();
     }
 
-    public boolean inviaProposta(Pagina paginaSelezionata, Frase_Corrente fraseSelezionata, String fraseProposta, Utente utenteLoggato) throws SQLException {
+    public boolean inviaProposta(int numerazione, String fraseSelezionata, String fraseProposta, String loginUtente, String loginAutore, String titolo, LocalDateTime dataOraCreazione) throws SQLException {
         boolean controllo = false;
-        String query = "SELECT idutente, login FROM utente WHERE login = ? LIMIT 1";
+        String query = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
-        preparedStatement.setString(1, paginaSelezionata.getAutore().getLogin());
+        preparedStatement.setString(1, loginAutore);
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
         int idAutore = rs.getInt("idutente");
         System.out.println("idAutore = " + idAutore);
 
-        preparedStatement.setString(1, utenteLoggato.getLogin());
+        preparedStatement.setString(1, loginUtente);
         rs = preparedStatement.executeQuery();
         rs.next();
         int idUtente = rs.getInt("idUtente");
@@ -281,8 +281,8 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         query = "SELECT idPagina FROM pagina WHERE idAutore = ? AND titolo = ? AND dataOraCreazione = ?";
         preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, idAutore);
-        preparedStatement.setString(2, paginaSelezionata.getTitolo());
-        preparedStatement.setTimestamp(3, Timestamp.valueOf(paginaSelezionata.getDataCreazione()));
+        preparedStatement.setString(2, titolo);
+        preparedStatement.setTimestamp(3, Timestamp.valueOf(dataOraCreazione));
         rs = preparedStatement.executeQuery();
         rs.next();
         int idPagina = rs.getInt("idPagina");
@@ -292,8 +292,8 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         preparedStatement.setString(1, fraseProposta);
         preparedStatement.setInt(2, idUtente);
         preparedStatement.setInt(3, idAutore);
-        preparedStatement.setString(4, fraseSelezionata.getStringa_inserita());
-        preparedStatement.setInt(5, fraseSelezionata.getNumerazione());
+        preparedStatement.setString(4, fraseSelezionata);
+        preparedStatement.setInt(5, numerazione);
         preparedStatement.setInt(6, idPagina);
 
         int rowsAffected = preparedStatement.executeUpdate();
@@ -303,13 +303,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             controllo = true;
         } else {
             System.out.println("Nessuna riga inserita.");
-        }
-
-        ModificaProposta modificaProposta = new ModificaProposta(LocalDate.now(), LocalTime.now(), paginaSelezionata.getAutore(), utenteLoggato, fraseSelezionata, fraseProposta, fraseSelezionata.getNumerazione());
-        if(idAutore == idUtente){
-            modificaProposta.setOraValutazione(LocalTime.now());
-            modificaProposta.setDataValutazione(LocalDate.now());
-            modificaProposta.setStato(1);
         }
         connection.close();
         return controllo;

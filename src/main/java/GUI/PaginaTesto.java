@@ -29,7 +29,7 @@ public class PaginaTesto {
     //private JLabel testoLabel;
     public String locale = "it_IT";
 
-    public PaginaTesto(Controller controller, JFrame frameC, String titolo, int numeroPagina) {
+    public PaginaTesto(Controller controller, JFrame frameC) {
         panelTesto.setText("");
         frameChiamante = frameC;
         this.frame = new JFrame("Pagina");
@@ -37,15 +37,16 @@ public class PaginaTesto {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
-        Versionebutton.setVisible(false);
-
+        if(!controller.getLoginLoggato().equals(controller.getLoginAutorePaginaSelezionata())) {
+            Versionebutton.setVisible(false);
+        }
 
         nomeAutoreLabel.setText(controller.getNomeAutore() + " " + controller.getCognomeAutore());
         dataCreazioneLabel.setText(this.$$$getMessageFromBundle$$$(locale, "dataPublicazione") + ": " + controller.getDataOraCreazionepaginaSelezionata().getYear());
 
         TitoloPaginaLabel.setText(controller.getTitoloPaginaSelezionata());
 
-        ArrayList<String> testoPagina = controller.getTestoPagina();
+        ArrayList<String> testoPagina = controller.componiTesto();
         String testo = "";
         for (String f : testoPagina) {
             testo = testo + " " + f;
@@ -61,22 +62,40 @@ public class PaginaTesto {
                 frame.dispose();
             }
         });
-        modificaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Errori errori = new Errori("Loggarsi prima di modificare");
-                errori.frame.setVisible(true);
-            }
-        });
 
-        Entrabutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Login login = new Login(controller, frame, "paginaTesto", paginaSelezionata);
-                frame.setVisible(false);
-                login.frame.setVisible(true);
-            }
-        });
+        if(controller.loggato()){
+            modificaButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    frame.setVisible(false);
+                    ModificaTesto modificaTesto = new ModificaTesto(controller, frame); // da modificare il costruttore
+                    modificaTesto.frame.setVisible(true);
+                }
+            });
+        }else{
+            modificaButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Errori errori = new Errori("Loggarsi prima di modificare");
+                    errori.frame.setVisible(true);
+                }
+            });
+        }
+
+        if(controller.loggato()){
+            controller.addPaginaVisualizzata(titolo, numeroPagina);
+            Entrabutton.setText(controller.getLoginLoggato());
+        }else{
+            Entrabutton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Login login = new Login(controller, frame, "paginaTesto");
+                    frame.setVisible(false);
+                    login.frame.setVisible(true);
+                }
+            });
+        }
+
 
     }
 
@@ -92,7 +111,7 @@ public class PaginaTesto {
 //            Versionebutton.setVisible(false);
 //        }
 
-        controller.addPaginaVisualizzata(titolo, numeroPagina);
+
 
         nomeAutoreLabel.setText(paginaSelezionata.getAutore().getNome() + " " + paginaSelezionata.getAutore().getCognome());
         dataCreazioneLabel.setText(this.$$$getMessageFromBundle$$$(locale, "dataPublicazione") + ": " + paginaSelezionata.getDataCreazione().getYear());
@@ -163,15 +182,6 @@ public class PaginaTesto {
                 System.out.println("titolo = " + titolo);
                 listaTitoli.frame.setVisible(true);
                 frame.dispose();
-            }
-        });
-
-        modificaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                ModificaTesto modificaTesto = new ModificaTesto(controller, frame, paginaSelezionata, utenteLoggato, testoPagina);
-                modificaTesto.frame.setVisible(true);
             }
         });
 
