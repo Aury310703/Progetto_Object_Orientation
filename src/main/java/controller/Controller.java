@@ -317,14 +317,34 @@ public class Controller {
 
 
     public ArrayList<String> storicoPagineVisualizzate() {
-        ArrayList<String> pagineVisualizzate = new ArrayList<>();
+        ArrayList<String> titoli = new ArrayList<>();
+        ArrayList<LocalDateTime> dateOreCreazioni = new ArrayList<>();
+        ArrayList<String> nomi = new ArrayList<>();
+        ArrayList<String> cognomi = new ArrayList<>();
+        ArrayList<String> nomiUtente = new ArrayList<>();
+        ArrayList<String> password = new ArrayList<>();
+        ArrayList<String> email = new ArrayList<>();
+        ArrayList<Date> dataNascita = new ArrayList<>();
+        ArrayList<LocalDate> dateVisioni = new ArrayList<>();
+        ArrayList<LocalTime> oreVisioni = new ArrayList<>();
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
-            pagineVisualizzate = w.storicoPagineVisualizzate();
+            if(utenteLoggato != null)
+                w.storicoPagineVisualizzate(utenteLoggato.getLogin(), titoli, dateOreCreazioni, nomi, cognomi, nomiUtente, password, email, dataNascita, dateVisioni, oreVisioni);
+            else
+                w.storicoPagineVisualizzate(autoreloggato.getLogin(), titoli, dateOreCreazioni, nomi, cognomi, nomiUtente, password, email, dataNascita, dateVisioni, oreVisioni);
+            for(int i = 0; i < titoli.size(); i++){
+                Pagina pagina = new Pagina(titoli.get(i), dateOreCreazioni.get(i), nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
+                if(utenteLoggato != null) {
+                    Visiona visiona = new Visiona(dateVisioni.get(i), oreVisioni.get(i), pagina, utenteLoggato);
+                }else {
+                    Visiona visiona = new Visiona(dateVisioni.get(i), oreVisioni.get(i), pagina, autoreloggato);
+                }
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return pagineVisualizzate;
+        return titoli;
     }
 
     public void addPaginaVisualizzata() {

@@ -400,7 +400,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
     }
 
 
-    public ArrayList<String> storicoPagineVisualizzate(String loginUtente, ArrayList<String> titoli, ArrayList<LocalDateTime> dateOreCreazioni, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> nomiUtente, ArrayList<String> password, ArrayList<String> email, ArrayList<Date> dataNascita) throws SQLException{
+    public void storicoPagineVisualizzate(String loginUtente, ArrayList<String> titoli, ArrayList<LocalDateTime> dateOreCreazioni, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> nomiUtente, ArrayList<String> password, ArrayList<String> email, ArrayList<Date> dataNascita, ArrayList<LocalDate> dateVisioni, ArrayList<LocalTime> oreVisioni) throws SQLException{
         ArrayList<String> pagineVisualizzate = new ArrayList<>();
 
         try {
@@ -438,17 +438,12 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
                 password.add(rsAutore.getString("password"));
                 dataNascita.add(rsAutore.getDate("dataNascita"));
 
-
-                Pagina pagina = new Pagina(rsPagina.getString("titolo"), (rsPagina.getTimestamp("dataOraCreazione")).toLocalDateTime(), rsAutore.getString("nome"), rsAutore.getString("cognome"), rsAutore.getString("login"), rsAutore.getString("password"), rsAutore.getString("email"), rsAutore.getDate("dataNascita"));
-                pagineVisualizzate.add(pagina);
-
             }
         } catch (Exception e) {
             System.out.println("Errore durante l'esecuzione della query: " + e.getMessage());
             e.printStackTrace();
         }
         connection.close();
-        return pagineVisualizzate;
     }
 
     @Override
