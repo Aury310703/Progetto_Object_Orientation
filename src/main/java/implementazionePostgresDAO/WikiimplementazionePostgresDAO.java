@@ -359,15 +359,15 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         connection.close();
     }
 
-    public void addPaginaVisualizzata(Pagina paginaSelezionata, Utente utenteLoggato) throws SQLException{
+    public void addPaginaVisualizzata(String titolo, LocalDateTime DataOraCreazione, String loginAutorePagina, String loginUtenteViusalizzatore) throws SQLException{
         String quesryPagina = "SELECT * FROM PAGINA WHERE titolo = ? AND dataOraCreazione = ? AND idAutore = ?";
         PreparedStatement preparedStatementPagina = connection.prepareStatement(quesryPagina);
-        preparedStatementPagina.setString(1, paginaSelezionata.getTitolo());
-        preparedStatementPagina.setTimestamp(2, Timestamp.valueOf(paginaSelezionata.getDataCreazione()));
+        preparedStatementPagina.setString(1, titolo);
+        preparedStatementPagina.setTimestamp(2, Timestamp.valueOf(DataOraCreazione));
 
         String queryAutore = "SELECT idutente FROM UTENTE WHERE login = ? LIMIT 1";
         PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
-        preparedStatementAutore.setString(1, paginaSelezionata.getAutore().getLogin());
+        preparedStatementAutore.setString(1,loginAutorePagina);
         ResultSet rsAutore = preparedStatementAutore.executeQuery();
         rsAutore.next();
         int idAutore = rsAutore.getInt("idutente");
@@ -379,7 +379,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
 
         String queryUtente = "SELECT idutente FROM UTENTE WHERE login = ? LIMIT 1";
         PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
-        preparedStatementUtente.setString(1, utenteLoggato.getLogin());
+        preparedStatementUtente.setString(1, loginUtenteViusalizzatore));
         ResultSet rsUtente = preparedStatementUtente.executeQuery();
         rsUtente.next();
         int idUtente = rsUtente.getInt("idutente");
@@ -388,7 +388,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         PreparedStatement preparedStatementVisona = connection.prepareStatement(queryVisona);
         preparedStatementVisona.setInt(1, idPagina);
         preparedStatementVisona.setInt(2,idUtente);
-        Visiona visiona = new Visiona(java.sql.Date.valueOf(LocalDate.now()), Time.valueOf(LocalTime.now()), paginaSelezionata, utenteLoggato);
 
         int rowsAffectedFrase = preparedStatementVisona.executeUpdate();
 
@@ -401,13 +400,13 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
     }
 
 
-    public ArrayList<Pagina> storicoPagineVisualizzate(Utente utente) throws SQLException{
-        ArrayList<Pagina> pagineVisualizzate = new ArrayList<>();
+    public ArrayList<String> storicoPagineVisualizzate(String loginUtente, ArrayList<String> titoli, ArrayList<LocalDateTime> dateOreCreazioni, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> nomiUtente, ArrayList<String> password, ArrayList<String> email, ArrayList<Date> dataNascita) throws SQLException{
+        ArrayList<String> pagineVisualizzate = new ArrayList<>();
 
         try {
             String queryUtente = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
             PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
-            preparedStatementUtente.setString(1, utente.getLogin());
+            preparedStatementUtente.setString(1, loginUtente);
             ResultSet rsUtente = preparedStatementUtente.executeQuery();
             rsUtente.next();
             int idUtente = rsUtente.getInt("idutente");
@@ -431,6 +430,14 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
                 preparedStatementAutore.setInt(1, rsPagina.getInt("idAutore"));
                 ResultSet rsAutore = preparedStatementAutore.executeQuery();
                 rsAutore.next();
+                titoli.add(rsPagina.getString("titolo"));
+                dateOreCreazioni.add(rsPagina.getTimestamp("dataOraCreazione").toLocalDateTime());
+                nomi.add(rsAutore.getString("nome"));
+                cognomi.add(rsAutore.getString("cognome"));
+                nomiUtente.add(rsAutore.getString("login"));
+                password.add(rsAutore.getString("password"));
+                dataNascita.add(rsAutore.getDate("dataNascita"));
+
 
                 Pagina pagina = new Pagina(rsPagina.getString("titolo"), (rsPagina.getTimestamp("dataOraCreazione")).toLocalDateTime(), rsAutore.getString("nome"), rsAutore.getString("cognome"), rsAutore.getString("login"), rsAutore.getString("password"), rsAutore.getString("email"), rsAutore.getDate("dataNascita"));
                 pagineVisualizzate.add(pagina);

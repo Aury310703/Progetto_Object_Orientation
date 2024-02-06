@@ -2,14 +2,16 @@ package MODEL;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Visiona {
-    private Date dataVisione;
-    private Time oraVisione;
+    private LocalDate dataVisione;
+    private LocalTime oraVisione;
     private Pagina pagina;
     private Utente utente;
 
-    public Visiona(Date dataVisione, Time oraVisione, Pagina pagina, Utente utente){
+    public Visiona(LocalDate dataVisione, LocalTime oraVisione, Pagina pagina, Utente utente){
         this.utente = utente;
         this.pagina = pagina;
         this.dataVisione = dataVisione;
@@ -18,16 +20,16 @@ public class Visiona {
         pagina.addViaualizzatori(this);
     }
 
-    public Date getDataVisione() {
+    public LocalDate getDataVisione() {
         return dataVisione;
     }
-    public void setDataVisione(Date dataVisione) {
+    public void setDataVisione(LocalDate dataVisione) {
         this.dataVisione = dataVisione;
     }
-    public Time getOraVisione() {
+    public LocalTime getOraVisione() {
         return oraVisione;
     }
-    public void setOraVisione(Time oraVisione) {
+    public void setOraVisione(LocalTime oraVisione) {
         this.oraVisione = oraVisione;
     }
     public void setUtente(Utente utente) {

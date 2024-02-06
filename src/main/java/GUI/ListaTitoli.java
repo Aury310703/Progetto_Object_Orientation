@@ -34,8 +34,6 @@ public class ListaTitoli {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
-        controller.ricercaTitoli(titolo);
-
         DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Pagine Trovate"}) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -103,87 +101,20 @@ public class ListaTitoli {
             }
         });
 
-        entraButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Login login = new Login(controller, frame, "listaTitoli", titolo);
-                frame.setVisible(false);
-                login.frame.setVisible(true);
+        if(controller.loggato()){
+            entraButton.setText(controller.getLoginLoggato());
+        }else{
+            entraButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Login login = new Login(controller, frame, "listaTitoli");
+                    frame.setVisible(false);
+                    login.frame.setVisible(true);
 
-            }
-        });
-
-    }
-
-    public ListaTitoli(Controller controller, JFrame frameC, String titolo, Utente utenteLoggato) {
-        frameChiamante = frameC;
-        this.frame = new JFrame("Titoli");
-        frame.setContentPane(panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        entraButton.setText(utenteLoggato.getLogin());
-        pagine = controller.ricercaTitoli(titolo);
-        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Pagine Trovate"}) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
-        TitoliTable.setModel(model);
-        TitoliTable.setRowHeight(50);
-        for (Pagina i : pagine) {
-            model.addRow(new Object[]{i.getTitolo()});
-
-        }
-        TitoliTable.addMouseListener((new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 2) {
-                    int selectedRow = TitoliTable.getSelectedRow();
-                    if (selectedRow != -1) {
-                        Object cellValue = TitoliTable.getValueAt(selectedRow, 0);
-                        String titoloSelezionato = cellValue.toString();
-
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, pagine.get(selectedRow), utenteLoggato, titolo);
-                        paginaTesto.frame.setLocationRelativeTo(frame);
-                        //paginaTesto.frame.setResizable(false);
-                        //paginaTesto.frame.setSize(400, 200);
-                        paginaTesto.frame.setVisible(true);
-                        frame.setVisible(false);
-                    }
                 }
-            }
+            });
+        }
 
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        }));
-
-        paginaPrecedenteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                HomeLoggato homeLoggato = new HomeLoggato(controller, frame, utenteLoggato);
-                homeLoggato.frame.setVisible(true);
-                //frame.dispose();
-            }
-        });
 
     }
 

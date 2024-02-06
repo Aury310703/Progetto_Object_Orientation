@@ -83,7 +83,7 @@ public class PaginaTesto {
         }
 
         if(controller.loggato()){
-            controller.addPaginaVisualizzata(titolo, numeroPagina);
+            controller.addPaginaVisualizzata();
             Entrabutton.setText(controller.getLoginLoggato());
         }else{
             Entrabutton.addActionListener(new ActionListener() {
@@ -96,94 +96,6 @@ public class PaginaTesto {
             });
         }
 
-
-    }
-
-    public PaginaTesto(Controller controller, JFrame frameC, String titolo, int numeroPagina) {
-        panelTesto.setText("");
-        frameChiamante = frameC;
-        this.frame = new JFrame("Pagina");
-        frame.setContentPane(panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-
-//        if (!(utenteLoggato.equals(paginaSelezionata.getAutore()))) {
-//            Versionebutton.setVisible(false);
-//        }
-
-
-
-        nomeAutoreLabel.setText(paginaSelezionata.getAutore().getNome() + " " + paginaSelezionata.getAutore().getCognome());
-        dataCreazioneLabel.setText(this.$$$getMessageFromBundle$$$(locale, "dataPublicazione") + ": " + paginaSelezionata.getDataCreazione().getYear());
-
-        TitoloPaginaLabel.setText(paginaSelezionata.getTitolo());
-        Entrabutton.setText(utenteLoggato.getLogin());
-
-        ArrayList<Frase> testoPagina = controller.getTestoPagina(paginaSelezionata);
-        String testo = "";
-        for (Frase f : testoPagina) {
-            testo = testo + " " + f.getStringa_inserita();
-        }
-        panelTesto.setText(testo);
-        panelTesto.setEditable(false);
-
-        PrecedenteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                frameChiamante.setVisible(true);
-                frame.dispose();
-            }
-        });
-
-        modificaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                ModificaTesto modificaTesto = new ModificaTesto(controller, frame, paginaSelezionata, utenteLoggato, testoPagina);
-                modificaTesto.frame.setVisible(true);
-            }
-        });
-    }
-
-    public PaginaTesto(Controller controller, JFrame frameC, Pagina paginaSelezionata, Utente utenteLoggato, String titolo) {
-        panelTesto.setText("");
-        frameChiamante = frameC;
-        this.frame = new JFrame("Pagina");
-        frame.setContentPane(panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-
-//        if (!utenteLoggato.equals(paginaSelezionata.getAutore())) {
-//            Versionebutton.setVisible(false);
-//        }
-
-        controller.addPaginaVisualizzata(paginaSelezionata, utenteLoggato);
-
-        nomeAutoreLabel.setText(paginaSelezionata.getAutore().getNome() + " " + paginaSelezionata.getAutore().getCognome());
-        dataCreazioneLabel.setText(this.$$$getMessageFromBundle$$$(locale, "dataPublicazione") + ": " + paginaSelezionata.getDataCreazione().getYear());
-
-        TitoloPaginaLabel.setText(paginaSelezionata.getTitolo());
-        Entrabutton.setText(utenteLoggato.getLogin());
-
-        ArrayList<Frase> testoPagina = controller.getTestoPagina(paginaSelezionata);
-        String testo = "";
-        for (Frase f : testoPagina) {
-            testo = testo + " " + f.getStringa_inserita();
-        }
-        panelTesto.setText(testo);
-        panelTesto.setEditable(false);
-
-        PrecedenteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                ListaTitoli listaTitoli = new ListaTitoli(controller, frame, titolo, utenteLoggato);
-                System.out.println("titolo = " + titolo);
-                listaTitoli.frame.setVisible(true);
-                frame.dispose();
-            }
-        });
 
     }
 

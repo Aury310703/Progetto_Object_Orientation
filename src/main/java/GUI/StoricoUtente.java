@@ -1,7 +1,6 @@
 package GUI;
 
-import MODEL.Pagina;
-import MODEL.Utente;
+
 import controller.Controller;
 
 import javax.swing.*;
@@ -45,7 +44,7 @@ public class StoricoUtente {
     private JFrame frameChiamante;
     private Controller controller;
 
-    public StoricoUtente(Controller controller, JFrame frameChiamante, Utente utente) {
+    public StoricoUtente(Controller controller, JFrame frameChiamante) {
         this.controller = controller;
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
@@ -53,11 +52,11 @@ public class StoricoUtente {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
-        ArrayList<Pagina> pagineVisualizzate = controller.storicoPagineVisualizzate(utente);
+        ArrayList<String> pagineVisualizzate = controller.storicoPagineVisualizzate();
 
-        nomeLabel2.setText(utente.getNome());
-        cognomeLabel2.setText(utente.getCognome());
-        nomeUtenteLabel2.setText(utente.getLogin());
+        nomeLabel2.setText(controller.getNomeUtenteLoggato());
+        cognomeLabel2.setText(controller.getCognomeUtenteLoggato());
+        nomeUtenteLabel2.setText(controller.getLoginLoggato());
 
 
         // utente.setPagineVisualizzate(controller.storicoPagineVisualizzate(utente));
@@ -70,8 +69,8 @@ public class StoricoUtente {
         };
         tablePagineVisualizzate.setModel(model);
         tablePagineVisualizzate.setRowHeight(50);
-        for (Pagina i : pagineVisualizzate) {
-            model.addRow(new Object[]{i.getTitolo()});
+        for (String pagina : pagineVisualizzate) {
+            model.addRow(new Object[]{pagina});
 
         }
         tablePagineVisualizzate.addMouseListener((new MouseListener() {

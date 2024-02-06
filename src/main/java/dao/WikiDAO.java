@@ -19,8 +19,8 @@ public boolean verificaLoggato(String nome, String cognome, String login, String
 public void registrazione(String nome, String cognome, String nomeUtente, String password, String email, Date dataNascita) throws SQLException;
 public boolean inviaProposta(int numerazione, String fraseSelezionata, String fraseProposta, String loginUtente, String loginAutore, String titolo, LocalDateTime dataOraCreazione) throws SQLException;
 public void creazionePagina(Pagina paginaCreata) throws SQLException;
-public ArrayList<Pagina> storicoPagineVisualizzate(Utente utente) throws SQLException;
-public void addPaginaVisualizzata(Pagina paginaSelezionata, Utente utenteLoggato) throws SQLException;
+public ArrayList<String> storicoPagineVisualizzate() throws SQLException;
+public void addPaginaVisualizzata(String titolo,LocalDateTime DataOraCreazione,String loginAutorePagina, String loginUtenteVisualizzatore) throws SQLException;
 public ArrayList<Pagina> getModificate(Utente utenteloggato) throws SQLException;
 public ArrayList<ModificaProposta> getProposte(Pagina paginaSelezionata, Utente utenteLoggato) throws SQLException;
 public ArrayList<Pagina> storicoPagineCreate(Autore autoreLoggato) throws SQLException;

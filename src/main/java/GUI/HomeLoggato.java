@@ -28,27 +28,25 @@ public class HomeLoggato {
         nomeutenteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                if (utenteLoggato instanceof Autore) {
-                    Autore autoreLoggato = (Autore) utenteLoggato;
-                    StoricoAutore storicoAutore = new StoricoAutore(controller, frame, autoreLoggato);
-                    frame.setVisible(false);
-                    storicoAutore.frame.setVisible(true);
-                } else {
-                    StoricoUtente storicoUtente = new StoricoUtente(controller, frame, utenteLoggato);
+                if(controller.verificaRuoloUtente() == 1){
+                    StoricoUtente storicoUtente = new StoricoUtente(controller, frame);
                     frame.setVisible(false);
                     storicoUtente.frame.setVisible(true);
+                }else{
+                    StoricoAutore storicoAutore = new StoricoAutore(controller, frame);
+                    frame.setVisible(false);
+                    storicoAutore.frame.setVisible(true);
                 }
             }
         });
     }
 
-    public void clickOnSearchButton(Utente utenteLoggato) {
+    public void clickOnSearchButton() {
         cercaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String titolo = cercaTestoText.getText();
-                ListaTitoli listaTitoli = new ListaTitoli(controller, frame, titolo, utenteLoggato);
+                ListaTitoli listaTitoli = new ListaTitoli(controller, frame, titolo);
                 //listaTitoli.frame.setResizable(false);
                 listaTitoli.frame.setLocationRelativeTo(frame);
                 listaTitoli.frame.setSize(500, 500);
@@ -84,13 +82,12 @@ public class HomeLoggato {
         this.frameChiamante = frameChiamante;
         this.controller = controller;
         this.frame = new JFrame("HOME");
-        this.utenteLoggato = utenteLoggato;
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
-        nomeutenteButton.setText(utenteLoggato.getLogin());
-        clickOnSearchButton(utenteLoggato);
+        nomeutenteButton.setText(controller.getLoginLoggato());
+        clickOnSearchButton();
         clickOnUsernameButton();
         clickOnLogoutButton();
         clickOnCreaPaginaButton();
