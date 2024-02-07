@@ -365,11 +365,56 @@ public class Controller {
         }
     }
 
-    public ArrayList<Pagina> getModificate(Utente utenteloggato) {
-        ArrayList <Pagina> modifiche = new ArrayList<>();
+    public ArrayList<String> getModificate() {
+        ArrayList <String> modifiche = new ArrayList<>();
+        ArrayList<String> nomi = new ArrayList<>();
+        ArrayList<String> cognomi = new ArrayList<>();
+        ArrayList<String> nomiUtente = new ArrayList<>();
+        ArrayList<String> password = new ArrayList<>();
+        ArrayList<String> email = new ArrayList<>();
+        ArrayList<Date> dataNascita = new ArrayList<>();
+        ArrayList<LocalDate> dataProposta = new ArrayList<>();
+        ArrayList<LocalTime> oraProposta = new ArrayList<>();
+        ArrayList<String> stringaInserita = new ArrayList<>();
+        ArrayList<Integer> numerazione = new ArrayList<>();
+        ArrayList<String> titolo = new ArrayList<>();
+        ArrayList<LocalDateTime> dataOraCreazione = new ArrayList<>();
+        ArrayList<String> stringaProposta = new ArrayList<>();
+        ArrayList<Integer> stato = new ArrayList<>();
+        ArrayList<LocalDate> dataValutazione = new ArrayList<>();
+        ArrayList<LocalTime> oraValutazione = new ArrayList<>();
+        ArrayList<LocalDate>  dataInserimento = new ArrayList<>();
+        ArrayList<Time> oraInseriento = new ArrayList<>();
+
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
-            modifiche = w.getModificate(utenteloggato);
+            if(utenteLoggato != null) {
+                w.getModificate(utenteLoggato.getLogin(), titolo, dataOraCreazione, nomi, cognomi, nomiUtente, password, email, dataNascita, dataProposta, oraProposta, stringaInserita, numerazione, stato, stringaProposta, dataValutazione, oraValutazione, dataInserimento, oraInseriento);
+                for(int i = 0; i < nomi.size(); i++) {
+                    Pagina pagina = new Pagina(titolo.get(i), dataOraCreazione.get(i), nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
+                    Frase_Corrente fraseCorrente = new Frase_Corrente(stringaInserita.get(i), numerazione.get(i), pagina, dataInserimento.get(i), oraInseriento.get(i));
+                    ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i),oraProposta.get(i), pagina.getAutore(), utenteLoggato, fraseCorrente, stringaProposta.get(i), numerazione.get(i), stato.get(i));
+                }
+            }else{
+                for(int i = 0; i < nomi.size(); i++) {
+                    w.getModificate(autoreloggato.getLogin(), titolo, dataOraCreazione, nomi, cognomi, nomiUtente, password, email, dataNascita, dataProposta, oraProposta, stringaInserita, numerazione, stato, stringaProposta, dataValutazione, oraValutazione, dataInserimento, oraInseriento);
+                    Pagina pagina = new Pagina(titolo.get(i), dataOraCreazione.get(i), nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
+                    Frase_Corrente fraseCorrente = new Frase_Corrente(stringaInserita.get(i), numerazione.get(i), pagina, dataInserimento.get(i), oraInseriento.get(i));
+                    ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), pagina.getAutore(), autoreloggato, fraseCorrente, stringaProposta.get(i), numerazione.get(i), stato.get(i));
+                }
+            }
+            int controllo;
+            for (int i = 0; i < titolo.size(); i++){
+                controllo = 0;
+                for(int j = 0; j < modifiche.size(); j++){
+                    if(titolo.get(i).equals(modifiche.get(j))){
+                        controllo = 1;
+                    }
+                }
+                if(controllo == 0){
+                    modifiche.add(titolo.get(i));
+                }
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -469,5 +514,13 @@ public class Controller {
             return utenteLoggato.getLogin();
         }else
             return autoreloggato.getLogin();
+    }
+
+    public void setPaginaVisualizzata(int paginaVisualizzata){
+        if(utenteLoggato != null){
+            paginaSelezionata = utenteLoggato.getPagineVisualizzate().get(paginaVisualizzata).getPagina();
+        }else{
+            paginaSelezionata = autoreloggato.getPagineVisualizzate().get(paginaVisualizzata).getPagina();
+        }
     }
 }

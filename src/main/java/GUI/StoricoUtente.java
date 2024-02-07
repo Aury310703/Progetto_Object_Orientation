@@ -82,8 +82,9 @@ public class StoricoUtente {
                         Object cellValue = tablePagineVisualizzate.getValueAt(selectedRow, 0);
                         String titolo = cellValue.toString();
                         System.out.println(titolo);
+                        controller.setPaginaVisualizzata(selectedRow);
 
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, pagineVisualizzate.get(selectedRow));
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
                         paginaTesto.frame.setLocationRelativeTo(frame);
                         //paginaTesto.frame.setResizable(false);
                         //paginaTesto.frame.setSize(400, 200);
@@ -122,9 +123,9 @@ public class StoricoUtente {
         };
         tableModProposte.setModel(modelDestra);
         tableModProposte.setRowHeight(50);
-        ArrayList<Pagina> pagineModificate = controller.getModificate(utente);
-        for (Pagina i : pagineModificate) {
-            modelDestra.addRow(new Object[]{i.getTitolo()});
+        ArrayList<String> pagineModificate = controller.getModificate();
+        for (String pagine : pagineModificate) {
+            modelDestra.addRow(new Object[]{pagine});
         }
         tableModProposte.addMouseListener((new MouseListener() {
             @Override

@@ -21,7 +21,7 @@ public boolean inviaProposta(int numerazione, String fraseSelezionata, String fr
 public void creazionePagina(Pagina paginaCreata) throws SQLException;
 public void storicoPagineVisualizzate(String loginUtente, ArrayList<String> titoli, ArrayList<LocalDateTime> dateOreCreazioni, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> nomiUtente, ArrayList<String> password, ArrayList<String> email, ArrayList<Date> dataNascita, ArrayList<LocalDate> dateVisioni, ArrayList<LocalTime> oreVisioni) throws SQLException;
 public void addPaginaVisualizzata(String titolo,LocalDateTime DataOraCreazione,String loginAutorePagina, String loginUtenteVisualizzatore) throws SQLException;
-public ArrayList<Pagina> getModificate(Utente utenteloggato) throws SQLException;
+public ArrayList void getModificate(String login, ArrayList<String> titolo,ArrayList<LocalDateTime> dataOraCreazione, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> nomiUtente, ArrayList<String> password, ArrayList<String> email,  ArrayList<Date> dataNascita, ArrayList<LocalDate> dataProposta, ArrayList<LocalTime> oraProposta , ArrayList<String> stringaInserita, ArrayList<Integer> numerazione, ArrayList<Integer> stato, ArrayList<String> stringaProposta, ArrayList<LocalDate> dataValutazione, ArrayList<LocalTime> oraValutazione, ArrayList<LocalDate>  dataInserimento, ArrayList<Time> oraInseriento) throws SQLException;
 public ArrayList<ModificaProposta> getProposte(Pagina paginaSelezionata, Utente utenteLoggato) throws SQLException;
 public ArrayList<Pagina> storicoPagineCreate(Autore autoreLoggato) throws SQLException;
 public boolean controllaNotifiche(Autore utenteLoggato) throws SQLException;
