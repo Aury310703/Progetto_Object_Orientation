@@ -35,9 +35,9 @@ public class Notifiche {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
-        titoloLabel.setText(notificheRicevute.get(0).getTitolo());
-        fraseDaModificareLAbel.setText(notificheRicevute.get(0).getModifica().getFraseCorrente().getStringa_inserita());
-        FrasePropostaLabel.setText(notificheRicevute.get(0).getModifica().getStringa_inserita());
+        titoloLabel.setText(controller.getTitoloNotifica());
+        fraseDaModificareLAbel.setText(controller.getStringaSelezionata());
+        FrasePropostaLabel.setText(controller.getFraseproposta());
 
         rifiutaButton.addActionListener(new ActionListener() {
             @Override

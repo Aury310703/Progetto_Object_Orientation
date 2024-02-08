@@ -461,7 +461,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             while (rsPagina.next()){
                 String queryAutore = "SELECT * FROM utente WHERE idUtente = ? GROUP BY idUtente LIMIT 1";
                 PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
-                preparedStatementAutore.setInt(1, rsPagina.getInt("idAutore"));;
+                preparedStatementAutore.setInt(1, rsPagina.getInt("idAutore"));
                 ResultSet rsAutore = preparedStatementAutore.executeQuery();
                 rsAutore.next();
                 titolo.add(rsPagina.getString("titolo"));
@@ -614,9 +614,58 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         return notificheRicevute;
     }
 
+    public void getModifichePagina(String login, String titolo, LocalDateTime dataOraCreazione, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> nomiUtente, ArrayList<String> password, ArrayList<String> email,  ArrayList<Date> dataNascita, ArrayList<LocalDate> dataProposta, ArrayList<LocalTime> oraProposta , ArrayList<String> stringaInserita, ArrayList<Integer> numerazione, ArrayList<Integer> stato, ArrayList<String> stringaProposta, ArrayList<LocalDate> dataValutazione, ArrayList<LocalTime> oraValutazione, ArrayList<LocalDate>  dataInserimento, ArrayList<Time> oraInseriento) throws SQLException {
+        try{
+            String query = "SELECT * FROM (Pagina p JOIN ModificaProposta m ON p.idPagina = m.idPagina) JOIN utente u ON m.autoreV = u.idUtente WHERE u.login = ? AND p.titolo = ? AND dataOraCreazione = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, login);
+            preparedStatement.setString(2, titolo);
+            preparedStatement.setTimestamp(3, Timestamp.valueOf(dataOraCreazione));
+            ResultSet rsPagina = preparedStatement.executeQuery();
+            while (rsPagina.next()){
+                String queryAutore = "SELECT * FROM utente WHERE idUtente = ? GROUP BY idUtente LIMIT 1";
+                PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
+                preparedStatementAutore.setInt(1, rsPagina.getInt("utentep"));
+                ResultSet rsAutore = preparedStatementAutore.executeQuery();
+                rsAutore.next();
+                nomi.add(rsAutore.getString("nome"));
+                cognomi.add(rsAutore.getString("cognome"));
+                nomiUtente.add(rsAutore.getString("login"));
+                password.add(rsAutore.getString("password"));
+                email.add(rsAutore.getString("email"));
+                dataNascita.add(rsAutore.getDate("dataNascita"));
+                stringaProposta.add(rsPagina.getString("m.stringaProposta"));
+                dataProposta.add(rsPagina.getDate("m.dataProposta").toLocalDate());
+                oraProposta.add(rsPagina.getTime("m.oraProposta").toLocalTime());
+                dataValutazione.add(rsPagina.getDate("m.dataValutazione").toLocalDate());
+                oraValutazione.add(rsPagina.getTime("m.oraValutazione").toLocalTime());
+                String queryFraseCorrente = "SELECT * FROM Frasecorrente WHERE idPagina = ? AND stringaInserita = ? AND numerazione = ?";
+                PreparedStatement preparedStatementFraseCorrente = connection.prepareStatement(queryFraseCorrente);
+                preparedStatementFraseCorrente.setInt(1, rsPagina.getInt("p.idPagina"));
+                preparedStatementFraseCorrente.setString(2, rsPagina.getString("m.stringaInserita"));
+                preparedStatementFraseCorrente.setInt(3, rsPagina.getInt("n.numerazione"));
+                ResultSet rsFraseCorrente = preparedStatementFraseCorrente.executeQuery();
+                rsFraseCorrente.next();
+                String queryModifica = "SELECT * FROM ModificaProposta WHERE idPagina = ? AND stringaInserita = ? AND numerazione = ? AND dataValutazione <= ? AND oraValutazione < ?";
+                PreparedStatement preparedStatementModifica = connection.prepareStatement(queryModifica);
+                preparedStatementModifica.setInt(1, rsPagina.getInt("p.idPagina"));
+                preparedStatementModifica.setString(2, rsPagina.getString("m.stringaInserita"));
+                preparedStatementModifica.setInt(3, rs);
+                ResultSet rsModifica = preparedStatementModifica.executeQuery();
+                stringaInserita.add(rsFraseCorrente.getString("stringaInserita"));
+                numerazione.add(rsFraseCorrente.getInt("numerazione"));
+                stato.add(rsFraseCorrente.getInt("stato"));
+            }
+        }catch (Exception e){
+            System.out.println("Errore durante l'esecuzione della query: " + e.getMessage());
+            e.printStackTrace();
+        }
+        connection.close();
+    }
+
     public void getNotifiche(ArrayList<String> fraseSelezionata, ArrayList<Integer> stati, ArrayList<String> frasiProposte, String login) throws SQLException{
         boolean notificheRicevute = false;
-        String queryNotifiche = "SELECT * FROM modificaProposta M WHERE M.autorev = ?  AND M.stato = 0 ORDER BY N.data ASC, N.ora ASC";
+        String queryNotifiche = "SELECT * FROM modificaProposta M WHERE M.autorev = ? AND M.stato = 0 ORDER BY N.data ASC, N.ora ASC";
         PreparedStatement preparedStatementNotifiche = connection.prepareStatement(queryNotifiche);
 
         String queryAutore = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
@@ -634,11 +683,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             preparedStatementUtente.setInt(1,rsNotifiche.getInt("utentep"));
             ResultSet rsUtente = preparedStatementUtente.executeQuery();
             rsUtente.next();
-
-            String queryModifiche = "SELECT * FROM modificaProposta WHERE idModifica = ?";
-            PreparedStatement preparedStatementModiche = connection.prepareStatement(queryModifiche);
-            preparedStatementModiche.setInt(1, rsNotifiche.getInt("idModifica"));
-            ResultSet rsModifiche = preparedStatementModiche.executeQuery();
 
             String queryPagina = "SELECT * FROM pagina WHERE idPagina = ?";
             PreparedStatement preparedStatementPagina = connection.prepareStatement(queryPagina);

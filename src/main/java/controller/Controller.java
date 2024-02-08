@@ -20,6 +20,7 @@ public class Controller {
     private Controller controller;
     private Pagina paginaSelezionata;
 
+    private ArrayList <ModificaProposta> modificheRicevute;
     public Controller(){
 
     }
@@ -535,10 +536,89 @@ public class Controller {
     }
 
     public void getNotifche() {
-        ArrayList<String> fraseSelezionata = new ArrayList<>();
-        ArrayList<Integer> stati = new ArrayList<>();
-        ArrayList<String> frasiProposte = new ArrayList<>();
+        ArrayList<String> nomi = new ArrayList<>();
+        ArrayList<String> cognomi = new ArrayList<>();
+        ArrayList<String> nomiUtente = new ArrayList<>();
+        ArrayList<String> password = new ArrayList<>();
+        ArrayList<String> email = new ArrayList<>();
+        ArrayList<Date> dataNascita = new ArrayList<>();
+        ArrayList<LocalDate> dataProposta = new ArrayList<>();
+        ArrayList<LocalTime> oraProposta = new ArrayList<>();
+        ArrayList<String> stringaInserita = new ArrayList<>();
+        ArrayList<Integer> numerazione = new ArrayList<>();
+        ArrayList<String> titolo = new ArrayList<>();
+        ArrayList<LocalDateTime> dataOraCreazione = new ArrayList<>();
+        ArrayList<String> stringaProposta = new ArrayList<>();
+        ArrayList<Integer> stato = new ArrayList<>();
+        ArrayList<LocalDate> dataValutazione = new ArrayList<>();
+        ArrayList<LocalTime> oraValutazione = new ArrayList<>();
+        ArrayList<LocalDate>  dataInserimento = new ArrayList<>();
+        ArrayList<Time> oraInseriento = new ArrayList<>();
         WikiDAO w = new WikiimplementazionePostgresDAO();
-        w.getNotifiche(fraseSelezionata,stati,frasiProposte);
+        if(utenteLoggato != null) {
+            try {
+                w.getModifichePagina(utenteLoggato.getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), nomi, cognomi, nomiUtente, password, email, dataNascita, dataProposta, oraProposta, stringaInserita, numerazione, stato, stringaProposta, dataValutazione, oraValutazione, dataInserimento, oraInseriento);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            for (int i = 0; i < nomi.size(); i++) {
+                paginaSelezionata.setFrasi(null);
+                Utente utente = new Utente(nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
+                Frase_Corrente fraseCorrente = new Frase_Corrente(stringaInserita.get(i), numerazione.get(i), paginaSelezionata, dataInserimento.get(i), oraInseriento.get(i));
+                ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), paginaSelezionata.getAutore(), utente, fraseCorrente, stringaProposta.get(i), numerazione.get(i), stato.get(i));
+                Notifica notifica = new Notifica(paginaSelezionata.getAutore(), modificaProposta, paginaSelezionata.getTitolo());
+            }
+        }
+    }
+
+    public void getModificheP() {
+        ArrayList<String> nomi = new ArrayList<>();
+        ArrayList<String> cognomi = new ArrayList<>();
+        ArrayList<String> nomiUtente = new ArrayList<>();
+        ArrayList<String> password = new ArrayList<>();
+        ArrayList<String> email = new ArrayList<>();
+        ArrayList<Date> dataNascita = new ArrayList<>();
+        ArrayList<LocalDate> dataProposta = new ArrayList<>();
+        ArrayList<LocalTime> oraProposta = new ArrayList<>();
+        ArrayList<String> stringaInserita = new ArrayList<>();
+        ArrayList<Integer> numerazione = new ArrayList<>();
+        ArrayList<String> titolo = new ArrayList<>();
+        ArrayList<LocalDateTime> dataOraCreazione = new ArrayList<>();
+        ArrayList<String> stringaProposta = new ArrayList<>();
+        ArrayList<Integer> stato = new ArrayList<>();
+        ArrayList<LocalDate> dataValutazione = new ArrayList<>();
+        ArrayList<LocalTime> oraValutazione = new ArrayList<>();
+        ArrayList<LocalDate>  dataInserimento = new ArrayList<>();
+        ArrayList<Time> oraInseriento = new ArrayList<>();
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        if(utenteLoggato != null) {
+            try {
+                w.getModifichePagina(utenteLoggato.getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), nomi, cognomi, nomiUtente, password, email, dataNascita, dataProposta, oraProposta, stringaInserita, numerazione, stato, stringaProposta, dataValutazione, oraValutazione, dataInserimento, oraInseriento);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            for (int i = 0; i < nomi.size(); i++) {
+                paginaSelezionata.setFrasi(null);
+                Utente utente = new Utente(nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
+                Frase_Corrente fraseCorrente = new Frase_Corrente(stringaInserita.get(i), numerazione.get(i), paginaSelezionata, dataInserimento.get(i), oraInseriento.get(i));
+                ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), paginaSelezionata.getAutore(), utente, fraseCorrente, stringaProposta.get(i), numerazione.get(i), stato.get(i));
+                Notifica notifica = new Notifica(paginaSelezionata.getAutore(), modificaProposta, paginaSelezionata.getTitolo());
+            }
+        }
+    }
+
+    public String getTitoloNotifica() {
+        return autoreloggato.getNotificheRicevute().get(0).getTitolo();
+    }
+
+    public String getStringaSelezionata() {
+        paginaSelezionata = autoreloggato.getNotificheRicevute().get(0).getModifica().getPagina();
+        int i = 0;
+        while(!paginaSelezionata.getFrasi().get){
+            paginaSelezionata.getFrasi().get(i).setProposte(null);
+            i++;
+        }
+
+
     }
 }

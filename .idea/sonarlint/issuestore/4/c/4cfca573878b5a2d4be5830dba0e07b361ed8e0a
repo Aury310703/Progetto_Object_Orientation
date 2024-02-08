@@ -38,8 +38,6 @@ java:S32524"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_
 ]	java:S125="<This block of commented-out lines of code should be removed.(«Ô˜öþÿÿÿÿ8¿ÞÓø×1
 Q
 java:S1874F"/Remove this use of "getText"; it is deprecated.(ðÑøˆÿÿÿÿÿ8ÁÞÓø×1
-R
-java:S2209W"5Change this instance-reference to a static reference.(‘ïÁÔ8ÃÞÓø×1
 X	java:S125g"<This block of commented-out lines of code should be removed.(Ûµƒž8˜üž´Ô1
 o
 java:S3776t"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(¬«–æ8ÈÞÓø×1
@@ -48,8 +46,6 @@ java:S3252x"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_
 ^	java:S125€"<This block of commented-out lines of code should be removed.(«Ô˜öþÿÿÿÿ8ËÞÓø×1
 R
 java:S1874‰"/Remove this use of "getText"; it is deprecated.(ðÑøˆÿÿÿÿÿ8ÍÞÓø×1
-S
-java:S2209£"5Change this instance-reference to a static reference.(‘ïÁÔ8ÐÞÓø×1
 Y	java:S125¯"<This block of commented-out lines of code should be removed.(Ûµƒž8ÓÞÓø×1
 |
 java:S1171´"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8˜üž´Ô1
