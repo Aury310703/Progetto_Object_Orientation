@@ -28,11 +28,11 @@ public class HomeLoggato {
         nomeutenteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(controller.verificaRuoloUtente() == 1){
+                if (controller.verificaRuoloUtente() == 1) {
                     StoricoUtente storicoUtente = new StoricoUtente(controller, frame);
                     frame.setVisible(false);
                     storicoUtente.frame.setVisible(true);
-                }else{
+                } else {
                     StoricoAutore storicoAutore = new StoricoAutore(controller, frame);
                     frame.setVisible(false);
                     storicoAutore.frame.setVisible(true);

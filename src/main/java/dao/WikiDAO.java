@@ -18,13 +18,13 @@ public void getModificheModificate(String login, String titolo, LocalDateTime da
 public boolean verificaLoggato(String nome, String cognome, String login, String password, String email, Date datNascita, String ruolo)throws SQLException;
 public void registrazione(String nome, String cognome, String nomeUtente, String password, String email, Date dataNascita) throws SQLException;
 public boolean inviaProposta(int numerazione, String fraseSelezionata, String fraseProposta, String loginUtente, String loginAutore, String titolo, LocalDateTime dataOraCreazione) throws SQLException;
-public void creazionePagina(Pagina paginaCreata) throws SQLException;
+public void creazionePagina(String titolo, ArrayList <String> frasi, String login) throws SQLException;
 public void storicoPagineVisualizzate(String loginUtente, ArrayList<String> titoli, ArrayList<LocalDateTime> dateOreCreazioni, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> nomiUtente, ArrayList<String> password, ArrayList<String> email, ArrayList<Date> dataNascita, ArrayList<LocalDate> dateVisioni, ArrayList<LocalTime> oreVisioni) throws SQLException;
 public void addPaginaVisualizzata(String titolo,LocalDateTime DataOraCreazione,String loginAutorePagina, String loginUtenteVisualizzatore) throws SQLException;
-public ArrayList void getModificate(String login, ArrayList<String> titolo,ArrayList<LocalDateTime> dataOraCreazione, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> nomiUtente, ArrayList<String> password, ArrayList<String> email,  ArrayList<Date> dataNascita, ArrayList<LocalDate> dataProposta, ArrayList<LocalTime> oraProposta , ArrayList<String> stringaInserita, ArrayList<Integer> numerazione, ArrayList<Integer> stato, ArrayList<String> stringaProposta, ArrayList<LocalDate> dataValutazione, ArrayList<LocalTime> oraValutazione, ArrayList<LocalDate>  dataInserimento, ArrayList<Time> oraInseriento) throws SQLException;
+public void getModificate(String login, ArrayList<String> titolo,ArrayList<LocalDateTime> dataOraCreazione, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> nomiUtente, ArrayList<String> password, ArrayList<String> email,  ArrayList<Date> dataNascita, ArrayList<LocalDate> dataProposta, ArrayList<LocalTime> oraProposta , ArrayList<String> stringaInserita, ArrayList<Integer> numerazione, ArrayList<Integer> stato, ArrayList<String> stringaProposta, ArrayList<LocalDate> dataValutazione, ArrayList<LocalTime> oraValutazione, ArrayList<LocalDate>  dataInserimento, ArrayList<Time> oraInseriento) throws SQLException;
 public ArrayList<ModificaProposta> getProposte(Pagina paginaSelezionata, Utente utenteLoggato) throws SQLException;
-public ArrayList<Pagina> storicoPagineCreate(Autore autoreLoggato) throws SQLException;
-public boolean controllaNotifiche(Autore utenteLoggato) throws SQLException;
+public void storicoPagineCreate(String login, ArrayList<String> titoli, ArrayList<LocalDateTime> dataOraCreazione) throws SQLException;
+public boolean controllaNotifiche(String login) throws SQLException;
 public boolean aggiornaStato(ArrayList<Notifica> notifiche, int cambiaStato) throws SQLException;
 public String getNomeUtente(String login, String password);
 
@@ -36,6 +36,7 @@ public String getCognomeUtente(String login, String password);
 
     String getRuolotente(String login, String password);
 
+    void getNotifiche(ArrayList<String> fraseSelezionata, ArrayList<Integer> stati, ArrayList<String> frasiProposte);
 }
 
 

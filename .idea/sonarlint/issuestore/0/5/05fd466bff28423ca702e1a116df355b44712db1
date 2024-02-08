@@ -1,110 +1,114 @@
 
-g	java:S112Z"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8·óûœØ1
-g	java:S112_"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8·óûœØ1
-h	java:S112ª"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8·óûœØ1
-h	java:S112µ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8·óûœØ1
-h	java:S112Û"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8·óûœØ1
-h	java:S112µ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¸óûœØ1
-h	java:S112Ù"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¸óûœØ1
-h	java:S112ì"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¸óûœØ1
-h	java:S112£"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¸óûœØ1
-h	java:S112®"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¸óûœØ1
-h	java:S112¹"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¸óûœØ1
-h	java:S112Ä"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¸óûœØ1
-h	java:S112Ï"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¸óûœØ1
-h	java:S112â"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¸óûœØ1
+g	java:S112Z"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ı¸ÂÄØ1
+g	java:S112_"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ı¸ÂÄØ1
+h	java:S112ª"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ı¸ÂÄØ1
+h	java:S112µ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ı¸ÂÄØ1
+h	java:S112Û"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ı¸ÂÄØ1
+h	java:S112¼"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ı¸ÂÄØ1
+h	java:S112ß"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ı¸ÂÄØ1
+h	java:S112ò"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ı¸ÂÄØ1
+h	java:S112©"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ı¸ÂÄØ1
+h	java:S112´"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ı¸ÂÄØ1
+h	java:S112À"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ş¸ÂÄØ1
+h	java:S112Ê"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ş¸ÂÄØ1
+h	java:S112Õ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ş¸ÂÄØ1
+h	java:S112è"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ş¸ÂÄØ1
 R
-java:S1066Á"/Merge this if statement with the enclosing one.(æİæÀúÿÿÿÿ8¼óûœØ1
+java:S1066Á"/Merge this if statement with the enclosing one.(æİæÀúÿÿÿÿ8ÿ¸ÂÄØ1
 
-java:S1319:"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ò…ğú8¼óûœØ1
+java:S1319:"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ò…ğú8€¹ÂÄØ1
 “
-java:S1319¹"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(íà¿Æúÿÿÿÿ8¼óûœØ1
+java:S1319¹"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(íà¿Æúÿÿÿÿ8€¹ÂÄØ1
 
-java:S1319á"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(„Èª8¼óûœØ1
+java:S1319á"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(„Èª8€¹ÂÄØ1
 
-java:S1319¿"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Şñ†8¼óûœØ1
+java:S1319Å"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Şñ†8€¹ÂÄØ1
 
-java:S1319ğ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(«ª‚Ô8¼óûœØ1
+java:S1319ö"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(«ª‚Ô8€¹ÂÄØ1
 “
-java:S1319¨"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(˜şÌªşÿÿÿÿ8¼óûœØ1
-“
-java:S1319³"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬ÁŸ£üÿÿÿÿ8¼óûœØ1
+java:S1319®"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(˜şÌªşÿÿÿÿ8€¹ÂÄØ1
 ‡
-java:S1319É"iThe type of "notifiche" should be an interface such as "List" rather than the implementation "ArrayList".(öƒªº8¼óûœØ1
+java:S1319Ï"iThe type of "notifiche" should be an interface such as "List" rather than the implementation "ArrayList".(öƒªº8€¹ÂÄØ1
 “
-java:S1319Ô"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ôĞğ©şÿÿÿÿ8½óûœØ1
+java:S1319Ú"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ôĞğ©şÿÿÿÿ8€¹ÂÄØ1
+
+java:S1319•"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ˆ–™û8€¹ÂÄØ1
 W
-java:S1141S"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8½óûœØ1
-m	java:S117d"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8½óûœØ1
-r	java:S117h"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ÕÙ©øÿÿÿÿ8½óûœØ1
-n	java:S117ä"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8½óûœØ1
-s	java:S117æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ÕÙ©øÿÿÿÿ8½óûœØ1
+java:S1141S"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8€¹ÂÄØ1
+m	java:S117d"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8¹ÂÄØ1
+r	java:S117h"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ÕÙ©øÿÿÿÿ8¹ÂÄØ1
+n	java:S117ä"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8¹ÂÄØ1
+s	java:S117æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ÕÙ©øÿÿÿÿ8¹ÂÄØ1
 
-java:S1488‡"^Immediately return this expression instead of assigning it to the temporary variable "utente".(É’£œùÿÿÿÿ8¾óûœØ1
+java:S1488‡"^Immediately return this expression instead of assigning it to the temporary variable "utente".(É’£œùÿÿÿÿ8¹ÂÄØ1
 ;
-java:S1700"Rename field "controller"(š·Âëüÿÿÿÿ8ÁóûœØ1
+java:S1700"Rename field "controller"(š·Âëüÿÿÿÿ8ƒ¹ÂÄØ1
+Ÿ
+java:S1186•"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ˆ–™û8‹¹ÂÄØ1
 
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(§ ÿ8ÄöûœØ1
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(§ ÿ8‹¹ÂÄØ1
 o
-java:S3776:"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ò…ğú8ÉöûœØ1
+java:S3776:"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ò…ğú8¹ÂÄØ1
 f
-java:S1854W"DRemove this useless assignment to local variable "modificaProposta".(ŸË´³ùÿÿÿÿ8ÊöûœØ1
+java:S1854W"DRemove this useless assignment to local variable "modificaProposta".(ŸË´³ùÿÿÿÿ8¹ÂÄØ1
 W
-java:S1481W"5Remove this unused "modificaProposta" local variable.(ŸË´³ùÿÿÿÿ8–ŞüœØ1
-L	java:S106f"+Replace this use of System.out by a logger.(ÕÇÕûÿÿÿÿ8ĞöûœØ1
-L	java:S106g"+Replace this use of System.out by a logger.(ûˆ®Õúÿÿÿÿ8ĞöûœØ1
-G	java:S106k"+Replace this use of System.out by a logger.(½Ø×Ñ8ÑöûœØ1
-G	java:S106l"+Replace this use of System.out by a logger.(Ú¢™ë8ÑöûœØ1
-G	java:S106x"+Replace this use of System.out by a logger.(½Ø×Ñ8ÑöûœØ1
-G	java:S106{"+Replace this use of System.out by a logger.(ÿ…°É8ÒöûœØ1
-G	java:S106~"+Replace this use of System.out by a logger.(Ï×©8ÒöûœØ1
+java:S1481W"5Remove this unused "modificaProposta" local variable.(ŸË´³ùÿÿÿÿ8•¹ÂÄØ1
+L	java:S106f"+Replace this use of System.out by a logger.(ÕÇÕûÿÿÿÿ8•¹ÂÄØ1
+L	java:S106g"+Replace this use of System.out by a logger.(ûˆ®Õúÿÿÿÿ8•¹ÂÄØ1
+G	java:S106k"+Replace this use of System.out by a logger.(½Ø×Ñ8•¹ÂÄØ1
+G	java:S106l"+Replace this use of System.out by a logger.(Ú¢™ë8•¹ÂÄØ1
+G	java:S106x"+Replace this use of System.out by a logger.(½Ø×Ñ8–¹ÂÄØ1
+G	java:S106{"+Replace this use of System.out by a logger.(ÿ…°É8—¹ÂÄØ1
+G	java:S106~"+Replace this use of System.out by a logger.(Ï×©8—¹ÂÄØ1
 d
-java:S1126Œ"AReplace this if-then-else statement by a single return statement.(©úÛãûÿÿÿÿ8ÓöûœØ1
+java:S1126Œ"AReplace this if-then-else statement by a single return statement.(©úÛãûÿÿÿÿ8—¹ÂÄØ1
 X
-java:S1854¥":Remove this useless assignment to local variable "pagina".(Òç©˜8ÓöûœØ1
+java:S1854¥":Remove this useless assignment to local variable "pagina".(Òç©˜8˜¹ÂÄØ1
 I
-java:S1481¥"+Remove this unused "pagina" local variable.(Òç©˜8ÕöûœØ1
+java:S1481¥"+Remove this unused "pagina" local variable.(Òç©˜8™¹ÂÄØ1
 p
-java:S3776á"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(„Èª8ÚöûœØ1
+java:S3776á"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(„Èª8œ¹ÂÄØ1
 c
-java:S1854ë"@Remove this useless assignment to local variable "dataModifica".(şã—Çûÿÿÿÿ8ÚöûœØ1
+java:S1854ë"@Remove this useless assignment to local variable "dataModifica".(şã—Çûÿÿÿÿ8œ¹ÂÄØ1
 T
-java:S1481ë"1Remove this unused "dataModifica" local variable.(şã—Çûÿÿÿÿ8ÛöûœØ1
+java:S1481ë"1Remove this unused "dataModifica" local variable.(şã—Çûÿÿÿÿ8œ¹ÂÄØ1
+p
+java:S3776„"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÿÀ¨¼8¹ÂÄØ1
 _
-java:S1854"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8ÜöûœØ1
+java:S1854Ÿ"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8¹ÂÄØ1
 _
-java:S1854­"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8ÜöûœØ1
-H	java:S106‡"+Replace this use of System.out by a logger.(ƒ’¦İ8İöûœØ1
-H	java:S106Š"+Replace this use of System.out by a logger.(ÅåÚÛ8İöûœØ1
-H	java:S106—"+Replace this use of System.out by a logger.(İó·‹8ßöûœØ1
+java:S1854¯"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8¹ÂÄØ1
+H	java:S106ˆ"+Replace this use of System.out by a logger.(ƒ’¦İ8¹ÂÄØ1
+H	java:S106‹"+Replace this use of System.out by a logger.(ÅåÚÛ8Ÿ¹ÂÄØ1
+H	java:S106˜"+Replace this use of System.out by a logger.(İó·‹8 ¹ÂÄØ1
 P
-java:S1481"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8àöûœØ1
-M	java:S106¡"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8àöûœØ1
-H	java:S106¦"+Replace this use of System.out by a logger.(©ÿıø8àöûœØ1
+java:S1481Ÿ"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8¡¹ÂÄØ1
+M	java:S106£"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8¡¹ÂÄØ1
+H	java:S106¨"+Replace this use of System.out by a logger.(©ÿıø8¡¹ÂÄØ1
 P
-java:S1481­"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8áöûœØ1
-M	java:S106®"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8áöûœØ1
+java:S1481¯"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8¢¹ÂÄØ1
+M	java:S106±"+Replace this use of System.out by a logger.(ôÎ•¹şÿÿÿÿ8¢¹ÂÄØ1
 ^
-java:S1854Ó";Remove this useless assignment to local variable "visiona".(ÚäÀ§ıÿÿÿÿ8ãöûœØ1
+java:S1854Ù";Remove this useless assignment to local variable "visiona".(ÚäÀ§ıÿÿÿÿ8¤¹ÂÄØ1
 ^
-java:S1854Õ";Remove this useless assignment to local variable "visiona".(í–Ä‡ùÿÿÿÿ8ãöûœØ1
+java:S1854Û";Remove this useless assignment to local variable "visiona".(í–Ä‡ùÿÿÿÿ8¤¹ÂÄØ1
 O
-java:S1481Ó",Remove this unused "visiona" local variable.(ÚäÀ§ıÿÿÿÿ8çöûœØ1
+java:S1481Ù",Remove this unused "visiona" local variable.(ÚäÀ§ıÿÿÿÿ8¥¹ÂÄØ1
 O
-java:S1481Õ",Remove this unused "visiona" local variable.(í–Ä‡ùÿÿÿÿ8çöûœØ1
+java:S1481Û",Remove this unused "visiona" local variable.(í–Ä‡ùÿÿÿÿ8¦¹ÂÄØ1
 f
-java:S1854ä"CRemove this useless assignment to local variable "paginaVisionata".(ªê¤çùÿÿÿÿ8èöûœØ1
+java:S1854ê"CRemove this useless assignment to local variable "paginaVisionata".(ªê¤çùÿÿÿÿ8¦¹ÂÄØ1
 f
-java:S1854ç"CRemove this useless assignment to local variable "paginaVisionata".(‡Î“ùúÿÿÿÿ8èöûœØ1
+java:S1854í"CRemove this useless assignment to local variable "paginaVisionata".(‡Î“ùúÿÿÿÿ8¦¹ÂÄØ1
 R
-java:S1481â"4Remove this unused "paginaVisionata" local variable.(°—¡ô8éöûœØ1
+java:S1481è"4Remove this unused "paginaVisionata" local variable.(°—¡ô8¦¹ÂÄØ1
 g
-java:S1854Œ"DRemove this useless assignment to local variable "modificaProposta".(‘ Û›şÿÿÿÿ8²ŞüœØ1
+java:S1854’"DRemove this useless assignment to local variable "modificaProposta".(‘ Û›şÿÿÿÿ8¨¹ÂÄØ1
 g
-java:S1854“"DRemove this useless assignment to local variable "modificaProposta".(ı”§Öùÿÿÿÿ8²ŞüœØ1
+java:S1854™"DRemove this useless assignment to local variable "modificaProposta".(ı”§Öùÿÿÿÿ8¨¹ÂÄØ1
 X
-java:S1481Œ"5Remove this unused "modificaProposta" local variable.(‘ Û›şÿÿÿÿ8·ŞüœØ1
+java:S1481’"5Remove this unused "modificaProposta" local variable.(‘ Û›şÿÿÿÿ8ª¹ÂÄØ1
 X
-java:S1481“"5Remove this unused "modificaProposta" local variable.(ı”§Öùÿÿÿÿ8»ŞüœØ1
+java:S1481™"5Remove this unused "modificaProposta" local variable.(ı”§Öùÿÿÿÿ8«¹ÂÄØ1
 P
-java:S1068".Remove this unused "controller" private field.(š·Âëüÿÿÿÿ8øöûœØ1
+java:S1068".Remove this unused "controller" private field.(š·Âëüÿÿÿÿ8²¹ÂÄØ1

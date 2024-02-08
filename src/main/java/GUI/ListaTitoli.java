@@ -101,9 +101,9 @@ public class ListaTitoli {
             }
         });
 
-        if(controller.loggato()){
+        if (controller.loggato()) {
             entraButton.setText(controller.getLoginLoggato());
-        }else{
+        } else {
             entraButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {

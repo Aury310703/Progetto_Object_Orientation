@@ -1,6 +1,5 @@
 package GUI;
 
-import MODEL.Notifica;
 import controller.Controller;
 
 import javax.swing.*;
@@ -29,7 +28,7 @@ public class Notifiche {
     private JFrame frameChiamante;
     public Controller controller;
 
-    public Notifiche(Controller controller, JFrame frameChiamante, ArrayList<Notifica> notificheRicevute) {
+    public Notifiche(Controller controller, JFrame frameChiamante) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Modifica");
         frame.setContentPane(panel);

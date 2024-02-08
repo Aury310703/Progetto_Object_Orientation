@@ -37,7 +37,7 @@ public class PaginaTesto {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
-        if(!controller.getLoginLoggato().equals(controller.getLoginAutorePaginaSelezionata())) {
+        if (!controller.getLoginLoggato().equals(controller.getLoginAutorePaginaSelezionata())) {
             Versionebutton.setVisible(false);
         }
 
@@ -63,7 +63,7 @@ public class PaginaTesto {
             }
         });
 
-        if(controller.loggato()){
+        if (controller.loggato()) {
             modificaButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -72,7 +72,7 @@ public class PaginaTesto {
                     modificaTesto.frame.setVisible(true);
                 }
             });
-        }else{
+        } else {
             modificaButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -82,10 +82,10 @@ public class PaginaTesto {
             });
         }
 
-        if(controller.loggato()){
+        if (controller.loggato()) {
             controller.addPaginaVisualizzata();
             Entrabutton.setText(controller.getLoginLoggato());
-        }else{
+        } else {
             Entrabutton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {

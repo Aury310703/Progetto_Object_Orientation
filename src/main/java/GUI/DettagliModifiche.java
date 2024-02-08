@@ -1,8 +1,5 @@
 package GUI;
 
-import MODEL.ModificaProposta;
-import MODEL.Pagina;
-import MODEL.Utente;
 import controller.Controller;
 
 import javax.swing.*;
@@ -22,12 +19,11 @@ public class DettagliModifiche {
     private JButton paginaPrecedenteButton;
 
     public JFrame frame;
-
     private JFrame frameChiamante;
 
     public Controller controller;
 
-    public DettagliModifiche(Controller controller, JFrame frameChiamante, Pagina paginaSelezionata, Utente utenteloggato) {
+    public DettagliModifiche(Controller controller, JFrame frameChiamante, int modificaSelezionata) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);
@@ -42,7 +38,10 @@ public class DettagliModifiche {
         tableDettagli.setModel(model);
         tableDettagli.setRowHeight(50);
 
-        ArrayList<ModificaProposta> proposte = controller.getProposte(paginaSelezionata, utenteloggato);
+        controller.getTestoPagina();
+
+        ArrayList<String> frasiSelezionate = controller.getFraseSelezionata();
+        //ArrayList<int>
 
         String stato = null;
         for (ModificaProposta m : proposte) {

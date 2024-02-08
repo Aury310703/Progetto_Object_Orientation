@@ -258,6 +258,7 @@ public class Controller {
     }
 
     public void creazionePagina(String titolo, String testo) {
+        ArrayList<String> frasi = new ArrayList<>();
         Pagina paginaCreata = null;
         if(autoreloggato != null){
             System.out.println("sono un autore");
@@ -284,6 +285,7 @@ public class Controller {
                 }
                 sottoStringa = sottoStringa.substring(contaSpaziVuoti);
                 Frase_Corrente fraseCorrente = new Frase_Corrente(sottoStringa, num, paginaCreata, LocalDate.now(), Time.valueOf(LocalTime.now()));
+                frasi.add(sottoStringa);
                 num++;
                 prec = i+1;
                 System.out.println(sottoStringa);
@@ -299,16 +301,20 @@ public class Controller {
             }
             sottoStringa = sottoStringa.substring(contaSpaziVuoti);
             Frase_Corrente fraseCorrente = new Frase_Corrente(sottoStringa, num, paginaCreata, LocalDate.now(), Time.valueOf(LocalTime.now()));
+            frasi.add(sottoStringa);
             System.out.println(sottoStringa);
         }
 
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
-            w.creazionePagina(paginaCreata);
+            if(utenteLoggato != null){
+                w.creazionePagina(titolo, frasi, utenteLoggato.getLogin());
+            }else{
+                w.creazionePagina(titolo, frasi, autoreloggato.getLogin());
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return paginaCreata;
     }
 
     public void addPaginaSelezionata(int numeroPaginaSelezionata){
@@ -432,22 +438,22 @@ public class Controller {
         return modifiche;
     }
 
-    public ArrayList<Pagina> storicoPagineCreate(Autore autoreLoggato) {
-        ArrayList<Pagina> pagineCreate = new ArrayList<>();
+    public void storicoPagineCreate() {
         WikiDAO w = new WikiimplementazionePostgresDAO();
+        ArrayList<String> titoli = new ArrayList<>();
+        ArrayList<LocalDateTime> dataOraCreazione = new ArrayList<>();
         try {
-            pagineCreate = w.storicoPagineCreate(autoreLoggato);
+            w.storicoPagineCreate(autoreloggato.getLogin(), titoli, dataOraCreazione);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return pagineCreate;
     }
 
     public boolean controllaNotifiche(){
         boolean notifiche = false;
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
-            notifiche = w.controllaNotifiche();
+            notifiche = w.controllaNotifiche(autoreloggato.getLogin());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -522,5 +528,17 @@ public class Controller {
         }else{
             paginaSelezionata = autoreloggato.getPagineVisualizzate().get(paginaVisualizzata).getPagina();
         }
+    }
+
+    public ArrayList<String> getFraseSelezionata() {
+
+    }
+
+    public void getNotifche() {
+        ArrayList<String> fraseSelezionata = new ArrayList<>();
+        ArrayList<Integer> stati = new ArrayList<>();
+        ArrayList<String> frasiProposte = new ArrayList<>();
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        w.getNotifiche(fraseSelezionata,stati,frasiProposte);
     }
 }

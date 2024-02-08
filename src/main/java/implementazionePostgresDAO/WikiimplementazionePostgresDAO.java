@@ -308,20 +308,19 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         return controllo;
     }
 
-    public void creazionePagina(Pagina paginaCreata) throws SQLException{
-        String queryPagina = "INSERT INTO Pagina (titolo, dataOraCreazione, idAutore) VALUES (?,?,?)";
+    public void creazionePagina(String titolo, ArrayList<String> frasi, String login) throws SQLException{
+        String queryPagina = "INSERT INTO Pagina (titolo, idAutore) VALUES (?,?)";
         PreparedStatement preparedStatementPagina = null;
         preparedStatementPagina = connection.prepareStatement(queryPagina);
-        preparedStatementPagina.setString(1,paginaCreata.getTitolo());
-        preparedStatementPagina.setTimestamp(2, Timestamp.valueOf(paginaCreata.getDataCreazione()));
+        preparedStatementPagina.setString(1, titolo);
 
         String query = "SELECT idutente, login FROM utente WHERE login = ? LIMIT 1";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
-        preparedStatement.setString(1, paginaCreata.getAutore().getLogin());
+        preparedStatement.setString(1, login);
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
         int idAutore = rs.getInt("idutente");
-        preparedStatementPagina.setInt(3,idAutore);
+        preparedStatementPagina.setInt(2,idAutore);
         int rowsAffected = preparedStatementPagina.executeUpdate();
 
         if (rowsAffected > 0) {
@@ -330,24 +329,22 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             System.out.println("Nessuna riga inserita.");
         }
 
-        query = "SELECT idPagina FROM pagina WHERE idAutore = ? AND titolo = ? AND dataOraCreazione = ?";
+        query = "SELECT idPagina FROM pagina WHERE idAutore = ? AND titolo = ? ORDER BY DESC LIMIT 1";
         preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, idAutore);
-        preparedStatement.setString(2, paginaCreata.getTitolo());
-        preparedStatement.setTimestamp(3, Timestamp.valueOf(paginaCreata.getDataCreazione()));
+        preparedStatement.setString(2, titolo);
         rs = preparedStatement.executeQuery();
         rs.next();
         int idPagina = rs.getInt("idPagina");
 
-        for (Frase_Corrente fraseCorrente : paginaCreata.getFrasi()){
-            String queryFrase = "INSERT INTO fraseCorrente (stringaInserita, numerazione, datainserimento, orainserimento, idPagina) VALUES (?,?,?,?,?)";
+        int num = 0;
+        for (String f : frasi){
+            String queryFrase = "INSERT INTO fraseCorrente (stringaInserita, numerazione, idPagina) VALUES (?,?,?)";
             PreparedStatement preparedStatementFrase = null;
             preparedStatementFrase = connection.prepareStatement(queryFrase);
-            preparedStatementFrase.setString(1,fraseCorrente.getStringa_inserita());
-            preparedStatementFrase.setInt(2,fraseCorrente.getNumerazione());
-            preparedStatementFrase.setDate(3, java.sql.Date.valueOf(fraseCorrente.getDataInserimento()));
-            preparedStatementFrase.setTime(4,fraseCorrente.getOraInserimento());
-            preparedStatementFrase.setInt(5, idPagina);
+            preparedStatementFrase.setString(1, f);
+            preparedStatementFrase.setInt(2, num);
+            preparedStatementFrase.setInt(3, idPagina);
             int rowsAffectedFrase = preparedStatementFrase.executeUpdate();
 
             if (rowsAffectedFrase > 0) {
@@ -355,6 +352,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             } else {
                 System.out.println("Nessuna riga inserita.");
             }
+            num++;
         }
         connection.close();
     }
@@ -379,7 +377,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
 
         String queryUtente = "SELECT idutente FROM UTENTE WHERE login = ? LIMIT 1";
         PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
-        preparedStatementUtente.setString(1, loginUtenteViusalizzatore));
+        preparedStatementUtente.setString(1, loginUtenteViusalizzatore);
         ResultSet rsUtente = preparedStatementUtente.executeQuery();
         rsUtente.next();
         int idUtente = rsUtente.getInt("idutente");
@@ -570,14 +568,12 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         return modifiche;
     }
 
-    public ArrayList<Pagina> storicoPagineCreate(Autore autoreLoggato) throws SQLException{
-
-        ArrayList<Pagina> PagineCreate = new ArrayList<>();
+    public void storicoPagineCreate(String login, ArrayList<String> titoli, ArrayList<LocalDateTime> dataOraCreazione) throws SQLException{
 
         try {
             String queryUtente = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
             PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
-            preparedStatementUtente.setString(1,autoreLoggato.getLogin());
+            preparedStatementUtente.setString(1, login);
             ResultSet rsUtente = preparedStatementUtente.executeQuery();
             rsUtente.next();
             int idAutore = rsUtente.getInt("idutente");
@@ -588,23 +584,39 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             ResultSet rsPagina = preparedStatementPagina.executeQuery();
 
             while (rsPagina.next()) {
-                String titolo = rsPagina.getString("titolo");
-                LocalDateTime dataOra = rsPagina.getTimestamp("dataOraCreazione").toLocalDateTime();
-                Pagina pagina = new Pagina(titolo, dataOra, autoreLoggato);
-                PagineCreate.add(pagina);
-                System.out.println(pagina.getTitolo());
+                titoli.add(rsPagina.getString("titolo"));
+                dataOraCreazione.add(rsPagina.getTimestamp("dataOraCreazione").toLocalDateTime());
             }
         } catch (Exception e) {
             System.out.println("Errore durante l'esecuzione della query: " + e.getMessage());
             e.printStackTrace();
         }
         connection.close();
-        return PagineCreate;
     }
 
     public boolean controllaNotifiche(String login) throws SQLException{
         boolean notificheRicevute = false;
-        String queryNotifiche = "SELECT * FROM modificaProposta M NATURAL JOIN notifica N WHERE M.autorev = ?  AND M.stato = 0 ORDER BY N.data ASC, N.ora ASC";
+        String queryNotifiche = "SELECT * FROM modificaProposta M WHERE M.autorev = ?  AND M.stato = 0 LIMIT 1";
+        PreparedStatement preparedStatementNotifiche = connection.prepareStatement(queryNotifiche);
+
+        String queryAutore = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
+        PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
+        preparedStatementAutore.setString(1,login);
+        ResultSet rsAutore = preparedStatementAutore.executeQuery();
+        rsAutore.next();
+        int idAutore = rsAutore.getInt("idutente");
+
+        preparedStatementNotifiche.setInt(1, idAutore);
+        ResultSet rsNotifiche = preparedStatementNotifiche.executeQuery();
+        while (rsNotifiche.next()){
+            notificheRicevute = true;
+        }
+        return notificheRicevute;
+    }
+
+    public void getNotifiche(ArrayList<String> fraseSelezionata, ArrayList<Integer> stati, ArrayList<String> frasiProposte, String login) throws SQLException{
+        boolean notificheRicevute = false;
+        String queryNotifiche = "SELECT * FROM modificaProposta M WHERE M.autorev = ?  AND M.stato = 0 ORDER BY N.data ASC, N.ora ASC";
         PreparedStatement preparedStatementNotifiche = connection.prepareStatement(queryNotifiche);
 
         String queryAutore = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
