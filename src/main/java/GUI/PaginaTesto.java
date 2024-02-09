@@ -37,8 +37,10 @@ public class PaginaTesto {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
-        if (!controller.getLoginLoggato().equals(controller.getLoginAutorePaginaSelezionata())) {
-            Versionebutton.setVisible(false);
+        if (controller.loggato()) {
+            if (!controller.getLoginLoggato().equals(controller.getLoginAutorePaginaSelezionata())) {
+                Versionebutton.setVisible(false);
+            }
         }
 
         nomeAutoreLabel.setText(controller.getNomeAutore() + " " + controller.getCognomeAutore());
@@ -46,7 +48,7 @@ public class PaginaTesto {
 
         TitoloPaginaLabel.setText(controller.getTitoloPaginaSelezionata());
 
-        ArrayList<String> testoPagina = controller.componiTesto();
+        ArrayList<String> testoPagina = controller.getTestoPagina();
         String testo = "";
         for (String f : testoPagina) {
             testo = testo + " " + f;

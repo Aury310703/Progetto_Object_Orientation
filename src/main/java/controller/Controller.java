@@ -14,13 +14,12 @@ import java.util.Date;
 
 public class Controller {
 
-    private Utente utenteLoggato;
-    private Autore autoreloggato;
-    private ArrayList<Pagina> pagineTrovate;
-    private Controller controller;
-    private Pagina paginaSelezionata;
-
-    private ArrayList <ModificaProposta> modificheRicevute;
+    private Utente utenteLoggato = null;
+    private Autore autoreloggato = null;
+    private ArrayList<Pagina> pagineTrovate = new ArrayList<>();
+    private Controller controller ;
+    private Pagina paginaSelezionata = null;
+    private ArrayList <ModificaProposta> modificheRicevute = new ArrayList<>();
     public Controller(){
 
     }
@@ -72,7 +71,7 @@ public class Controller {
                 ArrayList<LocalDate> dateProposte = new ArrayList<>();
                 ArrayList<LocalTime> oreProposte = new ArrayList<>();
                 ArrayList<LocalDate> datevalutazione = new ArrayList<>();
-                ArrayList<Time> orevalutazione = new ArrayList<>();
+                ArrayList<LocalTime> orevalutazione = new ArrayList<>();
                 ArrayList<Integer> stati = new ArrayList<>();
                 ArrayList<String> nomi = new ArrayList<>();
                 ArrayList<String> cognomi = new ArrayList<>();
@@ -80,12 +79,15 @@ public class Controller {
                 ArrayList<String> password = new ArrayList<>();
                 ArrayList<String> email = new ArrayList<>();
                 ArrayList<Date> date = new ArrayList<>();
+                WikiDAO w2 = new WikiimplementazionePostgresDAO();
 
                 try {
-                    w.getModificheModificate(paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), frasiProposte, dateProposte, oreProposte, datevalutazione, orevalutazione, stati, nomi, cognomi, logins, password, email, date);
+                    w2.getModificheModificate(paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), fraseCorrente.getStringa_inserita(), fraseCorrente.getNumerazione() ,frasiProposte, dateProposte, oreProposte, datevalutazione, orevalutazione, stati, nomi, cognomi, logins, password, email, date);
                     for(int i = 0; i < frasiProposte.size(); i++){
                         Utente utente = new Utente(nomi.get(i), cognomi.get(i), logins.get(i), password.get(i), email.get(i), date.get(i));
                         ModificaProposta modificaProposta = new ModificaProposta(dateProposte.get(i), oreProposte.get(i), paginaSelezionata.getAutore(), utente, fraseCorrente, frasiProposte.get(i), numerazione, stati.get(i));
+                        modificaProposta.setDataValutazione(datevalutazione.get(i));
+                        modificaProposta.setOraValutazione(orevalutazione.get(i));
                     }
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
@@ -123,13 +125,13 @@ public class Controller {
                 frasiTesto.add(f.getStringa_inserita());
                 System.out.println("frase scelta:" + f.getStringa_inserita());
             }else{
-                frasiTesto.add(f.getStringa_inserita());
+                frasiTesto.add(fr_salvata.getStringa_inserita());
                 System.out.println("frase scelta:" + fr_salvata.getStringa_inserita());
             }
             controllo = 0;
 
         }
-        return testoPagina;
+        return frasiTesto;
     }
 
     public Utente creaUtente(String nome, String cognome, String login, String password, String email, Date datNascita){
@@ -428,17 +430,6 @@ public class Controller {
         return modifiche;
     }
 
-    public ArrayList<ModificaProposta> getProposte(Pagina paginaSelezionata, Utente utenteLoggato) {
-        ArrayList<ModificaProposta> modifiche = new ArrayList<>();
-        WikiDAO w = new WikiimplementazionePostgresDAO();
-        try {
-            modifiche = w.getProposte(paginaSelezionata, utenteLoggato);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return modifiche;
-    }
-
     public ArrayList<String> storicoPagineCreate() {
         WikiDAO w = new WikiimplementazionePostgresDAO();
         ArrayList<String> titoli = new ArrayList<>();
@@ -532,8 +523,9 @@ public class Controller {
     public String getLoginLoggato() {
         if(utenteLoggato != null){
             return utenteLoggato.getLogin();
-        }else
+        }else {
             return autoreloggato.getLogin();
+        }
     }
 
     public void setPaginaVisualizzata(int paginaVisualizzata){
@@ -658,7 +650,11 @@ public class Controller {
             ArrayList<Integer> stato = new ArrayList<>();
             ArrayList<LocalDate> dataValutazione = new ArrayList<>();
             ArrayList<LocalTime> oraValutazione = new ArrayList<>();
-            w.getModificheFrase(pagina.getTitolo(), pagina.getDataCreazione(), stringaInserita.get(i), i, pagina, dataInserimento.get(i), oraInseriento.get(i), nomi, cognomi, nomiUtente, password, email, dataNascita, dataProposta, oraProposta, stringaInserita, i, stato, stringaProposta, dataValutazione, oraValutazione, dataInserimento, oraInseriento);
+            try {
+                w.getModificheFrase(pagina.getTitolo(), pagina.getDataCreazione(), stringaInserita.get(i), i, nomi, cognomi, nomiUtente, password, email, dataNascita, dataProposta, oraProposta, stato, stringaProposta, dataValutazione, oraValutazione);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             for(int j = 0; j < nomi.size(); j++){
                 Utente utente = new Utente(nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
                 ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), pagina.getAutore(), utente, pagina.getFrasi().get(i), stringaProposta.get(i), i, stato.get(i));
@@ -708,6 +704,7 @@ public class Controller {
 
             }
         }
+        return frasiSelezionate;
     }
 
     public ArrayList<String> getFrasiproposte() {
@@ -735,5 +732,6 @@ public class Controller {
                 stati.add(f.getStato());
             }
         }
+        return stati;
     }
 }

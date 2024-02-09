@@ -57,7 +57,6 @@ public class ListaTitoli {
                         Object cellValue = TitoliTable.getValueAt(selectedRow, 0);
                         String titolo = cellValue.toString();
                         System.out.println(titolo);
-                        System.out.println(controller.getNomeAutore());
 
                         controller.addPaginaSelezionata(selectedRow);
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame);

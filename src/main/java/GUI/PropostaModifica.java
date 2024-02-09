@@ -53,7 +53,7 @@ public class PropostaModifica {
 
                 ArrayList<String> testo = controller.componiTesto();
                 PaginaTesto paginaTesto = new PaginaTesto(controller, HomeLoggato.frame);
-                ModificaTesto modificaTesto = new ModificaTesto(controller, paginaTesto.frame, testo);
+                ModificaTesto modificaTesto = new ModificaTesto(controller, paginaTesto.frame);
                 Errori errori = new Errori("la proposta è stata inviata", modificaTesto.frame, frame);
                 errori.frame.setVisible(true);
                 frameChiamante.dispose();

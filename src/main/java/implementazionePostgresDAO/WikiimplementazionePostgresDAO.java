@@ -1,6 +1,7 @@
 package implementazionePostgresDAO;
 
 import MODEL.Autore;
+import MODEL.Pagina;
 import controller.Controller;
 import dao.WikiDAO;
 import database.ConnessioneDatabase;
@@ -165,7 +166,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                frasiInserite.add(rs.getString(rs.getString("stringaInserita")));
+                frasiInserite.add(rs.getString("stringaInserita"));
                 dateInserimento.add(rs.getDate("dataInserimento").toLocalDate());
                 oreInserimento.add(rs.getTime("orainserimento"));
             }
@@ -173,7 +174,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         connection.close();
     }
 
-    public void getModificheModificate(String login, String titolo, LocalDateTime dataOraCreazione, ArrayList<String> frasiProposte, ArrayList<LocalDate> dateProposte, ArrayList<LocalTime> oreProposte, ArrayList<LocalDate> datevalutazione, ArrayList<LocalTime> orevalutazione, ArrayList<Integer> stati, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> logins, ArrayList<String> password, ArrayList<String> email, ArrayList<Date> date) throws SQLException {
+    public void getModificheModificate(String login, String titolo, LocalDateTime dataOraCreazione, String stringaInserita, int numerazione, ArrayList<String> frasiProposte, ArrayList<LocalDate> dateProposte, ArrayList<LocalTime> oreProposte, ArrayList<LocalDate> datevalutazione, ArrayList<LocalTime> orevalutazione, ArrayList<Integer> stati, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> logins, ArrayList<String> password, ArrayList<String> email, ArrayList<Date> date) throws SQLException {
         String query = "SELECT idutente, login FROM utente WHERE login = ? LIMIT 1";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, login);
@@ -187,14 +188,12 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         preparedStatementPagina.setTimestamp(2, Timestamp.valueOf(dataOraCreazione));
         preparedStatementPagina.setString(3, titolo);
         ResultSet rsPagina = preparedStatementPagina.executeQuery();
-        rsPagina.next();
-        int idPagina = rsPagina.getInt("idPagina");
-        while (rs.next()) {
+        while (rsPagina.next()) {
             String queryModifica = "SELECT * FROM modificaproposta WHERE idPagina = ? AND stringainserita = ? AND numerazione = ? ORDER BY datavalutazione ASC, oravalutazione ASC";
             PreparedStatement preparedStatementModifica = connection.prepareStatement(queryModifica);
-            preparedStatementModifica.setInt(1, rs.getInt("idPagina"));
-            preparedStatementModifica.setString(2, rs.getString("stringainserita"));
-            preparedStatementModifica.setInt(3, rs.getInt("numerazione"));
+            preparedStatementModifica.setInt(1, rsPagina.getInt("idPagina"));
+            preparedStatementModifica.setString(2, stringaInserita);
+            preparedStatementModifica.setInt(3, numerazione);
             ResultSet rsModifica = preparedStatementModifica.executeQuery();
 
             while (rsModifica.next()) {
@@ -215,7 +214,11 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
                     oreProposte.add(rsModifica.getTime("oraproposta").toLocalTime());
                     frasiProposte.add(rsModifica.getString("stringaProposta"));
                     datevalutazione.add(rsModifica.getDate("dataValutazione").toLocalDate());
+                    if(rsModifica.getDate("dataValutazione") == null){
+                        System.out.println("ciaaoooooooooooooooooooooooooooooooooooooo");
+                    }
                     orevalutazione.add(rsModifica.getTime("oraValutazione").toLocalTime());
+                    System.out.println(rsModifica.getDate("datavalutazione"));
             }
         }
     }
@@ -307,6 +310,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         connection.close();
         return controllo;
     }
+
 
     public void creazionePagina(String titolo, ArrayList<String> frasi, String login) throws SQLException{
         String queryPagina = "INSERT INTO Pagina (titolo, idAutore) VALUES (?,?)";
@@ -495,79 +499,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         connection.close();
     }
 
-    public ArrayList<ModificaProposta> getProposte(Pagina paginaSelezionata, Utente utenteLoggato) throws SQLException{
-        ArrayList<ModificaProposta> modifiche = new ArrayList<>();
-
-        String queryAutore = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
-        PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
-        preparedStatementAutore.setString(1, paginaSelezionata.getAutore().getLogin());
-        ResultSet rsAutore = preparedStatementAutore.executeQuery();
-        rsAutore.next();
-        int idAutore = rsAutore.getInt("idutente");
-
-        String queryPagina = "SELECT idPagina FROM pagina WHERE titolo = ? AND dataOraCreazione = ? AND idAutore = ?";
-        PreparedStatement preparedStatementPagina = connection.prepareStatement(queryPagina);
-        preparedStatementPagina.setString(1, paginaSelezionata.getTitolo());
-        preparedStatementPagina.setTimestamp(2, Timestamp.valueOf(paginaSelezionata.getDataCreazione()));
-        preparedStatementPagina.setInt(3, idAutore);
-        ResultSet rsPagina = preparedStatementPagina.executeQuery();
-        rsPagina.next();
-        int idPagina = rsPagina.getInt("idPagina");
-
-        String queryUtente = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
-        PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
-        preparedStatementUtente.setString(1,utenteLoggato.getLogin());
-        ResultSet rsUtente = preparedStatementUtente.executeQuery();
-        rsUtente.next();
-        int idUtente = rsUtente.getInt("idutente");
-
-        String queryModifiche = "SELECT * FROM modificaProposta WHERE autorev = ? AND utentep = ? AND idPagina = ? ORDER BY DataProposta DESC, oraProposta DESC";
-        PreparedStatement preparedStatementModiche = connection.prepareStatement(queryModifiche);
-        preparedStatementModiche.setInt(1, idAutore);
-        preparedStatementModiche.setInt(2, idUtente);
-        preparedStatementModiche.setInt(3, idPagina);
-        ResultSet rsModifiche = preparedStatementModiche.executeQuery();
-
-        while(rsModifiche.next()){
-            String queryFraseCorrente = "SELECT * FROM modificaProposta WHERE autorev = ? AND idPagina = ? AND numerazione = ? AND datavalutazione <= ? AND oravalutazione < ? AND stato = 1 ORDER BY datavalutazione DESC, oravalutazione DESC LIMIT 1";
-            PreparedStatement preparedStatementFraseCorrente = connection.prepareStatement(queryFraseCorrente);
-            preparedStatementFraseCorrente.setInt(1, idAutore);
-            preparedStatementFraseCorrente.setInt(2, idPagina);
-            preparedStatementFraseCorrente.setInt(3, rsModifiche.getInt("numerazione"));
-            preparedStatementFraseCorrente.setDate(4, rsModifiche.getDate("dataProposta"));
-            preparedStatementFraseCorrente.setTime(5, rsModifiche.getTime("oraProposta"));
-            ResultSet rsFraseCorrente = preparedStatementFraseCorrente.executeQuery();
-            Frase_Corrente fraseCorrente = null;
-            if(rsFraseCorrente.next()){
-                System.out.println("entra");
-                System.out.println("yeee");
-                fraseCorrente = new Frase_Corrente(rsFraseCorrente.getString("stringaproposta"), rsFraseCorrente.getInt("numerazione"), paginaSelezionata, rsFraseCorrente.getDate("datavalutazione").toLocalDate(), rsFraseCorrente.getTime("oraValutazione"));
-                System.out.println("-----------" + fraseCorrente.getStringa_inserita());
-            }else {
-                System.out.println("non entra");
-                queryFraseCorrente = "SELECT stringaInserita, numerazione, dataInserimento, oraInserimento FROM FraseCorrente WHERE idPagina = ? AND stringaInserita = ? AND numerazione = ?";
-                preparedStatementFraseCorrente = connection.prepareStatement(queryFraseCorrente);
-                preparedStatementFraseCorrente.setInt(1, idPagina);
-                preparedStatementFraseCorrente.setString(2, rsModifiche.getString("stringaInserita"));
-                preparedStatementFraseCorrente.setInt(3, rsModifiche.getInt("numerazione"));
-                rsFraseCorrente = preparedStatementFraseCorrente.executeQuery();
-                rsFraseCorrente.next();
-                fraseCorrente = new Frase_Corrente(rsFraseCorrente.getString("stringainserita"), rsFraseCorrente.getInt("numerazione"), paginaSelezionata, rsFraseCorrente.getDate("datainserimento").toLocalDate(), rsFraseCorrente.getTime("orainserimento"));
-                System.out.println("++++++++++++" + fraseCorrente.getStringa_inserita());
-
-            }
-
-            ModificaProposta modificaProposta = new ModificaProposta(rsModifiche.getDate("dataProposta").toLocalDate(), rsModifiche.getTime("oraProposta").toLocalTime(), paginaSelezionata.getAutore(), utenteLoggato, fraseCorrente, rsModifiche.getString("StringaProposta"), rsModifiche.getInt("numerazione"), rsModifiche.getInt("stato"));
-            if(modificaProposta.getStato() != 0) {
-                modificaProposta.setDataValutazione(rsModifiche.getDate("dataValutazione").toLocalDate());
-                modificaProposta.setOraProposta(rsModifiche.getTime("oraValutazione").toLocalTime());
-            }
-            modifiche.add(modificaProposta);
-        }
-        connection.close();
-        return modifiche;
-    }
-
     public void storicoPagineCreate(String login, ArrayList<String> titoli, ArrayList<LocalDateTime> dataOraCreazione) throws SQLException{
 
         try {
@@ -711,80 +642,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         }
         connection.close();
 }
-
-
-    public void getNotifiche(ArrayList<String> fraseSelezionata, ArrayList<Integer> stati, ArrayList<String> frasiProposte, String login) throws SQLException{
-        boolean notificheRicevute = false;
-        String queryNotifiche = "SELECT * FROM modificaProposta M WHERE M.autorev = ? AND M.stato = 0 ORDER BY N.data ASC, N.ora ASC";
-        PreparedStatement preparedStatementNotifiche = connection.prepareStatement(queryNotifiche);
-
-        String queryAutore = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
-        PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
-        preparedStatementAutore.setString(1,login);
-        ResultSet rsAutore = preparedStatementAutore.executeQuery();
-        rsAutore.next();
-        int idAutore = rsAutore.getInt("idutente");
-
-        preparedStatementNotifiche.setInt(1, idAutore);
-        ResultSet rsNotifiche = preparedStatementNotifiche.executeQuery();
-        while(rsNotifiche.next()){
-            String queryUtente = "SELECT * FROM utente WHERE idUtente = ? LIMIT 1";
-            PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
-            preparedStatementUtente.setInt(1,rsNotifiche.getInt("utentep"));
-            ResultSet rsUtente = preparedStatementUtente.executeQuery();
-            rsUtente.next();
-
-            String queryPagina = "SELECT * FROM pagina WHERE idPagina = ?";
-            PreparedStatement preparedStatementPagina = connection.prepareStatement(queryPagina);
-            preparedStatementPagina.setInt(1, rsNotifiche.getInt("idPagina"));
-            ResultSet rsPagina = preparedStatementPagina.executeQuery();
-            rsPagina.next();
-
-            Pagina pagina = new Pagina(rsPagina.getString("titolo"), rsPagina.getTimestamp("dataOraCreazione").toLocalDateTime(), autoreLoggato);
-
-            while(rsModifiche.next()) {
-                String queryFraseCorrente = "SELECT * FROM modificaProposta WHERE autorev = ? AND idPagina = ? AND numerazione = ? AND datavalutazione <= ? AND oravalutazione < ? AND stato = 1 ORDER BY datavalutazione DESC, oravalutazione DESC LIMIT 1";
-                PreparedStatement preparedStatementFraseCorrente = connection.prepareStatement(queryFraseCorrente);
-                preparedStatementFraseCorrente.setInt(1, idAutore);
-                preparedStatementFraseCorrente.setInt(2, rsNotifiche.getInt("idPagina"));
-                preparedStatementFraseCorrente.setInt(3, rsModifiche.getInt("numerazione"));
-                preparedStatementFraseCorrente.setDate(4, rsModifiche.getDate("dataProposta"));
-                preparedStatementFraseCorrente.setTime(5, rsModifiche.getTime("oraProposta"));
-                ResultSet rsFraseCorrente = preparedStatementFraseCorrente.executeQuery();
-                Frase_Corrente fraseCorrente = null;
-                if (rsFraseCorrente.next()) {
-                    System.out.println("entra");
-                    System.out.println("yeee");
-                    fraseCorrente = new Frase_Corrente(rsFraseCorrente.getString("stringaproposta"), rsFraseCorrente.getInt("numerazione"), pagina, rsFraseCorrente.getDate("datavalutazione").toLocalDate(), rsFraseCorrente.getTime("oraValutazione"));
-                    System.out.println("-----------" + fraseCorrente.getStringa_inserita());
-                } else {
-                    System.out.println("non entra");
-                    queryFraseCorrente = "SELECT stringaInserita, numerazione, dataInserimento, oraInserimento FROM FraseCorrente WHERE idPagina = ? AND stringaInserita = ? AND numerazione = ?";
-                    preparedStatementFraseCorrente = connection.prepareStatement(queryFraseCorrente);
-                    preparedStatementFraseCorrente.setInt(1, rsNotifiche.getInt("idPagina"));
-                    preparedStatementFraseCorrente.setString(2, rsModifiche.getString("stringaInserita"));
-                    preparedStatementFraseCorrente.setInt(3, rsModifiche.getInt("numerazione"));
-                    rsFraseCorrente = preparedStatementFraseCorrente.executeQuery();
-                    rsFraseCorrente.next();
-                    fraseCorrente = new Frase_Corrente(rsFraseCorrente.getString("stringainserita"), rsFraseCorrente.getInt("numerazione"), pagina, rsFraseCorrente.getDate("datainserimento").toLocalDate(), rsFraseCorrente.getTime("orainserimento"));
-                    System.out.println("++++++++++++" + fraseCorrente.getStringa_inserita());
-
-                }
-
-                Utente utente = new Utente(rsUtente.getString("nome"), rsUtente.getString("cognome"), rsUtente.getString("login"), rsUtente.getString("password"), rsUtente.getString("email"), rsUtente.getDate("datanascita"));
-                ModificaProposta modificaProposta = new ModificaProposta(rsNotifiche.getDate("dataProposta").toLocalDate(), rsNotifiche.getTime("oraproposta").toLocalTime(), autoreLoggato, utente, fraseCorrente, rsNotifiche.getString("stringaProposta"), rsNotifiche.getInt("numerazione"));
-                Notifica notifica = new Notifica(autoreLoggato, modificaProposta, rsPagina.getString("titolo"));
-                notifica.setDataInvio(rsNotifiche.getDate("data").toLocalDate());
-                notifica.setOraInvio(rsNotifiche.getTimestamp("ora"));
-                System.out.println("---------------" + notifica.getModifica().getOraProposta());
-            }
-        }
-
-        if(!(autoreLoggato.getNotificheRicevute().isEmpty()))
-            notificheRicevute = true;
-        return notificheRicevute;
-    }
-
     public boolean aggiornaStato(String loginAutore, String loginUtente, String stringaInserita, String stringaproposta, LocalDate dataProposta, LocalTime oraProposta, int cambiaStato) throws SQLException{
         boolean controllo = false;
 
@@ -878,6 +735,37 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         }else{
             return rsModifica.getString("stringaProposta");
         }
+    }
+
+    @Override
+    public void getModificheFrase(String titolo, LocalDateTime dataOraCreazione, String stringaInserita, int numerazione, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> nomiUtente, ArrayList<String> password, ArrayList<String> email, ArrayList<Date> dataNascita, ArrayList<LocalDate> dataProposta, ArrayList<LocalTime> oraProposta, ArrayList<Integer> stato, ArrayList<String> stringaProposta, ArrayList<LocalDate> dataValutazione, ArrayList<LocalTime> oraValutazione) throws SQLException {
+        String query = "SELECT * FROM Pagina p JOIN ModificaProposta m ON p.idPagina = m.idPagina WHERE p.titolo = ? AND m.dataOraCreazione = ? AND m.stringaInserita = ? AND m.numerazione = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, titolo);
+        preparedStatement.setTimestamp(2, Timestamp.valueOf(dataOraCreazione));
+        preparedStatement.setString(3, stringaInserita);
+        preparedStatement.setInt(4, numerazione);
+        ResultSet rsPagina = preparedStatement.executeQuery();
+        while (rsPagina.next()){
+            String queryAutore = "SELECT * FROM utente WHERE idUtente = ? GROUP BY idUtente LIMIT 1";
+            PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
+            preparedStatementAutore.setInt(1, rsPagina.getInt("m.utenteP"));
+            ResultSet rsAutore = preparedStatementAutore.executeQuery();
+            rsAutore.next();
+            nomi.add(rsAutore.getString("nome"));
+            cognomi.add(rsAutore.getString("cognome"));
+            nomiUtente.add(rsAutore.getString("login"));
+            password.add(rsAutore.getString("password"));
+            email.add(rsAutore.getString("email"));
+            dataNascita.add(rsAutore.getDate("dataNascita"));
+            stringaProposta.add(rsPagina.getString("m.stringaProposta"));
+            dataProposta.add(rsPagina.getDate("m.dataProposta").toLocalDate());
+            oraProposta.add(rsPagina.getTime("m.oraProposta").toLocalTime());
+            dataValutazione.add(rsPagina.getDate("m.dataValutazione").toLocalDate());
+            oraValutazione.add(rsPagina.getTime("m.oraValutazione").toLocalTime());
+            stato.add(rsPagina.getInt("m.stato"));
+        }
+        connection.close();
     }
 
 }

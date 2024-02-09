@@ -1,217 +1,213 @@
 
 ˆ
-java:S1319"fThe type of "titoli" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8¡ÄüëØ1
+java:S1319"fThe type of "titoli" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8ë±ÓöØ1
 ’
-java:S1319"pThe type of "dateOreCreazioni" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8¡ÄüëØ1
+java:S1319"pThe type of "dateOreCreazioni" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8ì±ÓöØ1
 †
-java:S1319"dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8¡ÄüëØ1
+java:S1319"dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8ì±ÓöØ1
 ‰
-java:S1319"gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8¡ÄüëØ1
+java:S1319"gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8ì±ÓöØ1
 ‡
-java:S1319"eThe type of "login" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8¡ÄüëØ1
+java:S1319"eThe type of "login" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8ì±ÓöØ1
 Š
-java:S1319"hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8¡ÄüëØ1
+java:S1319"hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8ì±ÓöØ1
 ‡
-java:S1319"eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8£ÄüëØ1
+java:S1319"eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8ì±ÓöØ1
 †
-java:S1319"dThe type of "date" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8£ÄüëØ1
+java:S1319"dThe type of "date" should be an interface such as "List" rather than the implementation "ArrayList".(±øëøÿÿÿÿ8ì±ÓöØ1
 Š
-java:S1319"mThe type of "frasiInserite" should be an interface such as "List" rather than the implementation "ArrayList".(ôä´8£ÄüëØ1
+java:S1319"mThe type of "frasiInserite" should be an interface such as "List" rather than the implementation "ArrayList".(ôä´8ì±ÓöØ1
 Œ
-java:S1319"oThe type of "dateInserimento" should be an interface such as "List" rather than the implementation "ArrayList".(ôä´8£ÄüëØ1
+java:S1319"oThe type of "dateInserimento" should be an interface such as "List" rather than the implementation "ArrayList".(ôä´8ì±ÓöØ1
 ‹
-java:S1319"nThe type of "oreInserimento" should be an interface such as "List" rather than the implementation "ArrayList".(ôä´8£ÄüëØ1
-
-java:S1319"mThe type of "frasiProposte" should be an interface such as "List" rather than the implementation "ArrayList".(ÒÛüˆşÿÿÿÿ8£ÄüëØ1
-
-java:S1319"lThe type of "dateProposte" should be an interface such as "List" rather than the implementation "ArrayList".(ÒÛüˆşÿÿÿÿ8£ÄüëØ1
-
-java:S1319"kThe type of "oreProposte" should be an interface such as "List" rather than the implementation "ArrayList".(ÒÛüˆşÿÿÿÿ8£ÄüëØ1
-‘
-java:S1319"oThe type of "datevalutazione" should be an interface such as "List" rather than the implementation "ArrayList".(ÒÛüˆşÿÿÿÿ8£ÄüëØ1
-
-java:S1319"nThe type of "orevalutazione" should be an interface such as "List" rather than the implementation "ArrayList".(ÒÛüˆşÿÿÿÿ8£ÄüëØ1
-‡
-java:S1319"eThe type of "stati" should be an interface such as "List" rather than the implementation "ArrayList".(ÒÛüˆşÿÿÿÿ8£ÄüëØ1
-†
-java:S1319"dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(ÒÛüˆşÿÿÿÿ8¤ÄüëØ1
-‰
-java:S1319"gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(ÒÛüˆşÿÿÿÿ8¤ÄüëØ1
-ˆ
-java:S1319"fThe type of "logins" should be an interface such as "List" rather than the implementation "ArrayList".(ÒÛüˆşÿÿÿÿ8¦ÄüëØ1
+java:S1319"nThe type of "oreInserimento" should be an interface such as "List" rather than the implementation "ArrayList".(ôä´8ì±ÓöØ1
 Š
-java:S1319"hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(ÒÛüˆşÿÿÿÿ8§ÄüëØ1
-‡
-java:S1319"eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(ÒÛüˆşÿÿÿÿ8¨ÄüëØ1
-†
-java:S1319"dThe type of "date" should be an interface such as "List" rather than the implementation "ArrayList".(ÒÛüˆşÿÿÿÿ8©ÄüëØ1
-‡
-java:S1319"eThe type of "frasi" should be an interface such as "List" rather than the implementation "ArrayList".(Ğ˜Õøûÿÿÿÿ8«ÄüëØ1
-ƒ
-java:S1319"fThe type of "titoli" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8¬ÄüëØ1
-
-java:S1319"pThe type of "dateOreCreazioni" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8­ÄüëØ1
-
-java:S1319"dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8®ÄüëØ1
-„
-java:S1319"gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8®ÄüëØ1
-‡
-java:S1319"jThe type of "nomiUtente" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8®ÄüëØ1
-…
-java:S1319"hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8®ÄüëØ1
-‚
-java:S1319"eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8®ÄüëØ1
-ˆ
-java:S1319"kThe type of "dataNascita" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8®ÄüëØ1
-ˆ
-java:S1319"kThe type of "dateVisioni" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8®ÄüëØ1
-‡
-java:S1319"jThe type of "oreVisioni" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8®ÄüëØ1
-ƒ
-java:S1319""fThe type of "titolo" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8®ÄüëØ1
-
-java:S1319""pThe type of "dataOraCreazione" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8®ÄüëØ1
-
-java:S1319""dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8®ÄüëØ1
-„
-java:S1319""gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8¯ÄüëØ1
-‡
-java:S1319""jThe type of "nomiUtente" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8¯ÄüëØ1
-…
-java:S1319""hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8¯ÄüëØ1
-‚
-java:S1319""eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8¯ÄüëØ1
-ˆ
-java:S1319""kThe type of "dataNascita" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8¯ÄüëØ1
+java:S1319"mThe type of "frasiProposte" should be an interface such as "List" rather than the implementation "ArrayList".(åÅÌÍ8ì±ÓöØ1
 ‰
-java:S1319""lThe type of "dataProposta" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8¯ÄüëØ1
+java:S1319"lThe type of "dateProposte" should be an interface such as "List" rather than the implementation "ArrayList".(åÅÌÍ8ì±ÓöØ1
 ˆ
-java:S1319""kThe type of "oraProposta" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8¯ÄüëØ1
+java:S1319"kThe type of "oreProposte" should be an interface such as "List" rather than the implementation "ArrayList".(åÅÌÍ8í±ÓöØ1
 Œ
-java:S1319""oThe type of "stringaInserita" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8¯ÄüëØ1
-ˆ
-java:S1319""kThe type of "numerazione" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8¯ÄüëØ1
-‚
-java:S1319""eThe type of "stato" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8¯ÄüëØ1
-Œ
-java:S1319""oThe type of "stringaProposta" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8¯ÄüëØ1
-Œ
-java:S1319""oThe type of "dataValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8¯ÄüëØ1
+java:S1319"oThe type of "datevalutazione" should be an interface such as "List" rather than the implementation "ArrayList".(åÅÌÍ8í±ÓöØ1
 ‹
-java:S1319""nThe type of "oraValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8¯ÄüëØ1
-Œ
-java:S1319""oThe type of "dataInserimento" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8¯ÄüëØ1
-Š
-java:S1319""mThe type of "oraInseriento" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8°ÄüëØ1
-Œ
-java:S1319$"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÑÆ¯p8°ÄüëØ1
+java:S1319"nThe type of "orevalutazione" should be an interface such as "List" rather than the implementation "ArrayList".(åÅÌÍ8í±ÓöØ1
+‚
+java:S1319"eThe type of "stati" should be an interface such as "List" rather than the implementation "ArrayList".(åÅÌÍ8í±ÓöØ1
+
+java:S1319"dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(åÅÌÍ8í±ÓöØ1
+„
+java:S1319"gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(åÅÌÍ8í±ÓöØ1
+ƒ
+java:S1319"fThe type of "logins" should be an interface such as "List" rather than the implementation "ArrayList".(åÅÌÍ8í±ÓöØ1
+…
+java:S1319"hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(åÅÌÍ8í±ÓöØ1
+‚
+java:S1319"eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(åÅÌÍ8í±ÓöØ1
+
+java:S1319"dThe type of "date" should be an interface such as "List" rather than the implementation "ArrayList".(åÅÌÍ8í±ÓöØ1
+‡
+java:S1319"eThe type of "frasi" should be an interface such as "List" rather than the implementation "ArrayList".(Ğ˜Õøûÿÿÿÿ8í±ÓöØ1
+ƒ
+java:S1319"fThe type of "titoli" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8î±ÓöØ1
+
+java:S1319"pThe type of "dateOreCreazioni" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8î±ÓöØ1
+
+java:S1319"dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8î±ÓöØ1
+„
+java:S1319"gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8î±ÓöØ1
+‡
+java:S1319"jThe type of "nomiUtente" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8î±ÓöØ1
+…
+java:S1319"hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8î±ÓöØ1
+‚
+java:S1319"eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8î±ÓöØ1
 ˆ
-java:S1319&"fThe type of "titoli" should be an interface such as "List" rather than the implementation "ArrayList".(Íù×Ùùÿÿÿÿ8°ÄüëØ1
+java:S1319"kThe type of "dataNascita" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8î±ÓöØ1
+ˆ
+java:S1319"kThe type of "dateVisioni" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8î±ÓöØ1
+‡
+java:S1319"jThe type of "oreVisioni" should be an interface such as "List" rather than the implementation "ArrayList".(âÄÖü8î±ÓöØ1
+ƒ
+java:S1319""fThe type of "titolo" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8î±ÓöØ1
+
+java:S1319""pThe type of "dataOraCreazione" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8î±ÓöØ1
+
+java:S1319""dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8î±ÓöØ1
+„
+java:S1319""gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8î±ÓöØ1
+‡
+java:S1319""jThe type of "nomiUtente" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8î±ÓöØ1
+…
+java:S1319""hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8î±ÓöØ1
+‚
+java:S1319""eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8î±ÓöØ1
+ˆ
+java:S1319""kThe type of "dataNascita" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8ğ±ÓöØ1
+‰
+java:S1319""lThe type of "dataProposta" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8ğ±ÓöØ1
+ˆ
+java:S1319""kThe type of "oraProposta" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8ğ±ÓöØ1
+Œ
+java:S1319""oThe type of "stringaInserita" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8ğ±ÓöØ1
+ˆ
+java:S1319""kThe type of "numerazione" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8ğ±ÓöØ1
+‚
+java:S1319""eThe type of "stato" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8ğ±ÓöØ1
+Œ
+java:S1319""oThe type of "stringaProposta" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8ğ±ÓöØ1
+Œ
+java:S1319""oThe type of "dataValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8ğ±ÓöØ1
+‹
+java:S1319""nThe type of "oraValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8ğ±ÓöØ1
+Œ
+java:S1319""oThe type of "dataInserimento" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8ğ±ÓöØ1
+Š
+java:S1319""mThe type of "oraInseriento" should be an interface such as "List" rather than the implementation "ArrayList".(¥ÁäÄ8ğ±ÓöØ1
+ˆ
+java:S1319$"fThe type of "titoli" should be an interface such as "List" rather than the implementation "ArrayList".(Íù×Ùùÿÿÿÿ8ğ±ÓöØ1
 ’
-java:S1319&"pThe type of "dataOraCreazione" should be an interface such as "List" rather than the implementation "ArrayList".(Íù×Ùùÿÿÿÿ8°ÄüëØ1
+java:S1319$"pThe type of "dataOraCreazione" should be an interface such as "List" rather than the implementation "ArrayList".(Íù×Ùùÿÿÿÿ8ñ±ÓöØ1
 †
-java:S13198"dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
+java:S13194"dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(ÇòÛÈıÿÿÿÿ8ñ±ÓöØ1
 ‰
-java:S13198"gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
+java:S13194"gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(ÇòÛÈıÿÿÿÿ8ñ±ÓöØ1
 Œ
-java:S13198"jThe type of "nomiUtente" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
+java:S13194"jThe type of "nomiUtente" should be an interface such as "List" rather than the implementation "ArrayList".(ÇòÛÈıÿÿÿÿ8ñ±ÓöØ1
 Š
-java:S13198"hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
+java:S13194"hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(ÇòÛÈıÿÿÿÿ8ñ±ÓöØ1
 ‡
-java:S13198"eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
+java:S13194"eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(ÇòÛÈıÿÿÿÿ8ñ±ÓöØ1
 
-java:S13198"kThe type of "dataNascita" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
+java:S13194"kThe type of "dataNascita" should be an interface such as "List" rather than the implementation "ArrayList".(ÇòÛÈıÿÿÿÿ8ñ±ÓöØ1
 
-java:S13198"lThe type of "dataProposta" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
+java:S13194"lThe type of "dataProposta" should be an interface such as "List" rather than the implementation "ArrayList".(ÇòÛÈıÿÿÿÿ8ñ±ÓöØ1
 
-java:S13198"kThe type of "oraProposta" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
-‘
-java:S13198"oThe type of "stringaInserita" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
+java:S13194"kThe type of "oraProposta" should be an interface such as "List" rather than the implementation "ArrayList".(ÇòÛÈıÿÿÿÿ8ñ±ÓöØ1
 ‡
-java:S13198"eThe type of "stato" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
+java:S13194"eThe type of "stato" should be an interface such as "List" rather than the implementation "ArrayList".(ÇòÛÈıÿÿÿÿ8ñ±ÓöØ1
 ‘
-java:S13198"oThe type of "stringaProposta" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
+java:S13194"oThe type of "stringaProposta" should be an interface such as "List" rather than the implementation "ArrayList".(ÇòÛÈıÿÿÿÿ8ñ±ÓöØ1
 ‘
-java:S13198"oThe type of "dataValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
+java:S13194"oThe type of "dataValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(ÇòÛÈıÿÿÿÿ8ñ±ÓöØ1
 
-java:S13198"nThe type of "oraValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
-‘
-java:S13198"oThe type of "dataInserimento" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
-
-java:S13198"mThe type of "oraInseriento" should be an interface such as "List" rather than the implementation "ArrayList".(ÅÚİÍşÿÿÿÿ8°ÄüëØ1
+java:S13194"nThe type of "oraValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(ÇòÛÈıÿÿÿÿ8ò±ÓöØ1
 
-java:S1319:"dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ò±ÓöØ1
 „
-java:S1319:"gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ò±ÓöØ1
 ‡
-java:S1319:"jThe type of "nomiUtente" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"jThe type of "nomiUtente" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ò±ÓöØ1
 …
-java:S1319:"hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ò±ÓöØ1
 ‚
-java:S1319:"eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ò±ÓöØ1
 ˆ
-java:S1319:"kThe type of "dataNascita" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"kThe type of "dataNascita" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ò±ÓöØ1
 ‰
-java:S1319:"lThe type of "dataProposta" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"lThe type of "dataProposta" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ò±ÓöØ1
 ˆ
-java:S1319:"kThe type of "oraProposta" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"kThe type of "oraProposta" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ò±ÓöØ1
 Œ
-java:S1319:"oThe type of "stringaInserita" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"oThe type of "stringaInserita" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ò±ÓöØ1
 ˆ
-java:S1319:"kThe type of "numerazione" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"kThe type of "numerazione" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ò±ÓöØ1
 ‚
-java:S1319:"eThe type of "stato" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"eThe type of "stato" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ó±ÓöØ1
 Œ
-java:S1319:"oThe type of "stringaProposta" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"oThe type of "stringaProposta" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ó±ÓöØ1
 Œ
-java:S1319:"oThe type of "dataValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"oThe type of "dataValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ó±ÓöØ1
 ‹
-java:S1319:"nThe type of "oraValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"nThe type of "oraValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ó±ÓöØ1
 Œ
-java:S1319:"oThe type of "dataInserimento" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"oThe type of "dataInserimento" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ó±ÓöØ1
 Š
-java:S1319:"mThe type of "oraInseriento" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8±ÄüëØ1
+java:S13196"mThe type of "oraInseriento" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ó±ÓöØ1
 ƒ
-java:S1319>"fThe type of "titolo" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8÷øıìØ1
+java:S1319:"fThe type of "titolo" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ó±ÓöØ1
 
-java:S1319>"pThe type of "dataOraCreazione" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8÷øıìØ1
+java:S1319:"pThe type of "dataOraCreazione" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ó±ÓöØ1
 
-java:S1319>"dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8÷øıìØ1
+java:S1319:"dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ó±ÓöØ1
 „
-java:S1319>"gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8÷øıìØ1
+java:S1319:"gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ô±ÓöØ1
 ‡
-java:S1319>"jThe type of "nomiUtente" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8÷øıìØ1
+java:S1319:"jThe type of "nomiUtente" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ô±ÓöØ1
 …
-java:S1319>"hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8øøıìØ1
+java:S1319:"hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ô±ÓöØ1
 ‚
-java:S1319>"eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8øøıìØ1
+java:S1319:"eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ô±ÓöØ1
 ˆ
-java:S1319>"kThe type of "dataNascita" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8øøıìØ1
+java:S1319:"kThe type of "dataNascita" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ô±ÓöØ1
 ‰
-java:S1319>"lThe type of "dataProposta" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8øøıìØ1
+java:S1319:"lThe type of "dataProposta" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ô±ÓöØ1
 ˆ
-java:S1319>"kThe type of "oraProposta" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8øøıìØ1
+java:S1319:"kThe type of "oraProposta" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ô±ÓöØ1
 Œ
-java:S1319>"oThe type of "stringaInserita" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8øøıìØ1
+java:S1319:"oThe type of "stringaInserita" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ô±ÓöØ1
 ˆ
-java:S1319>"kThe type of "numerazione" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8øøıìØ1
+java:S1319:"kThe type of "numerazione" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ô±ÓöØ1
 ‚
-java:S1319>"eThe type of "stato" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8øøıìØ1
+java:S1319:"eThe type of "stato" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ô±ÓöØ1
 Œ
-java:S1319>"oThe type of "stringaProposta" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8øøıìØ1
+java:S1319:"oThe type of "stringaProposta" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ô±ÓöØ1
 Œ
-java:S1319>"oThe type of "dataValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8øøıìØ1
+java:S1319:"oThe type of "dataValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8õ±ÓöØ1
 ‹
-java:S1319>"nThe type of "oraValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8øøıìØ1
+java:S1319:"nThe type of "oraValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8õ±ÓöØ1
 Œ
-java:S1319>"oThe type of "dataInserimento" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8øøıìØ1
+java:S1319:"oThe type of "dataInserimento" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8õ±ÓöØ1
 Š
-java:S1319>"mThe type of "oraInseriento" should be an interface such as "List" rather than the implementation "ArrayList".(íÙ8øøıìØ1
-r	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş¦ õûÿÿÿÿ8±ÄüëØ1
-]	java:S107"<Method has 9 parameters, which is greater than 7 authorized.(±øëøÿÿÿÿ8µÄüëØ1
-^	java:S107"=Method has 15 parameters, which is greater than 7 authorized.(ÒÛüˆşÿÿÿÿ8µÄüëØ1
-Y	java:S107"=Method has 11 parameters, which is greater than 7 authorized.(âÄÖü8µÄüëØ1
-Y	java:S107""=Method has 19 parameters, which is greater than 7 authorized.(¥ÁäÄ8¶ÄüëØ1
-^	java:S1078"=Method has 23 parameters, which is greater than 7 authorized.(ÅÚİÍşÿÿÿÿ8¶ÄüëØ1
-Y	java:S107:"=Method has 19 parameters, which is greater than 7 authorized.(á´Ô„8¶ÄüëØ1
-Y	java:S107>"=Method has 19 parameters, which is greater than 7 authorized.(íÙ8‹®ıìØ1
+java:S1319:"mThe type of "oraInseriento" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8õ±ÓöØ1
+r	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş¦ õûÿÿÿÿ8õ±ÓöØ1
+]	java:S107"<Method has 9 parameters, which is greater than 7 authorized.(±øëøÿÿÿÿ8ı±ÓöØ1
+Y	java:S107"=Method has 17 parameters, which is greater than 7 authorized.(åÅÌÍ8ı±ÓöØ1
+Y	java:S107"=Method has 11 parameters, which is greater than 7 authorized.(âÄÖü8ı±ÓöØ1
+Y	java:S107""=Method has 19 parameters, which is greater than 7 authorized.(¥ÁäÄ8ı±ÓöØ1
+^	java:S1074"=Method has 16 parameters, which is greater than 7 authorized.(ÇòÛÈıÿÿÿÿ8ş±ÓöØ1
+Y	java:S1076"=Method has 19 parameters, which is greater than 7 authorized.(á´Ô„8ş±ÓöØ1
+Y	java:S107:"=Method has 19 parameters, which is greater than 7 authorized.(ı£±€8ş±ÓöØ1
+L
+java:S1128"*Remove this unused import 'GUI.Notifiche'.(şæèşÿÿÿÿ8‚²ÓöØ1
+F
+java:S1128")Remove this unused import 'MODEL.Pagina'.(ÌñŸÈ8‚²ÓöØ1
