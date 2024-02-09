@@ -42,11 +42,11 @@ public class Notifiche {
         rifiutaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                boolean controllo = controller.aggiornaStato(notificheRicevute, -1);
+                boolean controllo = controller.aggiornaStato(-1);
                 if (controllo) {
-                    notificheRicevute.get(0).getAutore().getNotificheRicevute().remove(0);
-                    if (!notificheRicevute.isEmpty()) {
-                        Notifiche notifiche = new Notifiche(controller, frameChiamante, notificheRicevute);
+
+                    if (controller.contaNotifiche() > 0) {
+                        Notifiche notifiche = new Notifiche(controller, frameChiamante);
                         frame.setVisible(false);
                         notifiche.frame.setVisible(true);
                         frame.dispose();
@@ -60,11 +60,10 @@ public class Notifiche {
         accettaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                boolean controllo = controller.aggiornaStato(notificheRicevute, 1);
+                boolean controllo = controller.aggiornaStato(1);
                 if (controllo) {
-                    notificheRicevute.get(0).getAutore().getNotificheRicevute().remove(0);
-                    if (!notificheRicevute.isEmpty()) {
-                        Notifiche notifiche = new Notifiche(controller, frameChiamante, notificheRicevute);
+                    if (controller.contaNotifiche() > 0) {
+                        Notifiche notifiche = new Notifiche(controller, frameChiamante);
                         frame.setVisible(false);
                         notifiche.frame.setVisible(true);
                         frame.dispose();

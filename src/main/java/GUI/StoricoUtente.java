@@ -71,7 +71,6 @@ public class StoricoUtente {
         tablePagineVisualizzate.setRowHeight(50);
         for (String pagina : pagineVisualizzate) {
             model.addRow(new Object[]{pagina});
-
         }
         tablePagineVisualizzate.addMouseListener((new MouseListener() {
             @Override

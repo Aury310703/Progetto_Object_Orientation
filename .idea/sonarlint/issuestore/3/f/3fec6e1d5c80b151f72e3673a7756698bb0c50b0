@@ -79,10 +79,5 @@ java:S2696ø"6Make the enclosing method "static" or remove this set.(§¾ã8óüµÖ
 k	java:S100„"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§¨¡³8õüµÖÓ1
 k	java:S100Ÿ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8úüµÖÓ1
 p	java:S100º"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8ıµÖÓ1
-U
-java:S1128	"8Remove this unused import 'java.awt.event.FocusAdapter'.(œØ£8ıµÖÓ1
-X
-java:S1128
-"6Remove this unused import 'java.awt.event.FocusEvent'.(“÷ÎËúÿÿÿÿ8ıµÖÓ1
 J
 java:S10680"-Remove this unused "dataField" private field.(¿®üğ8‚ıµÖÓ1

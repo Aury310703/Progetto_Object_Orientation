@@ -40,19 +40,21 @@ public class DettagliModifiche {
 
         controller.getTestoPagina();
 
-        ArrayList<String> frasiSelezionate = controller.getFraseSelezionata();
-        //ArrayList<int>
+        ArrayList<String> frasiSelezionate = controller.getFrasiSelezionate();
+        ArrayList<String> frasiProposte = controller.getFrasiproposte();
+        ArrayList<Integer> stati = controller.getstati();
 
         String stato = null;
-        for (ModificaProposta m : proposte) {
-            if (m.getStato() == -1) {
+        int i = 0;
+        for (Integer m : stati) {
+            if (m == -1) {
                 stato = "rifiutata";
-            } else if (m.getStato() == 0) {
+            } else if (m == 0) {
                 stato = "in attesa";
             } else {
                 stato = "accettata";
             }
-            model.addRow(new Object[]{m.getFraseCorrente().getStringa_inserita(), m.getStringa_inserita(), stato});
+            model.addRow(new Object[]{frasiSelezionate.get(i), frasiProposte.get(i), stato});
         }
 
         paginaPrecedenteButton.addActionListener(new ActionListener() {

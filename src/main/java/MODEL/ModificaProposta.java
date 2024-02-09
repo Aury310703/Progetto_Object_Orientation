@@ -23,6 +23,7 @@ public class ModificaProposta extends Frase {
         autore.getValutate().add(this);
         utente.frasiProposte.add(this);
         fraseCorrente.getProposte().add(this);
+        notifica = new Notifica(autore, this, fraseCorrente.getPagina().getTitolo());
     }
 
     public ModificaProposta(LocalDate dataProposta, LocalTime oraProposta, Autore autore, Utente utente, Frase_Corrente fraseCorrente, String stringaProposta, int numerazione, int stato){
@@ -37,6 +38,8 @@ public class ModificaProposta extends Frase {
         autore.getValutate().add(this);
         utente.frasiProposte.add(this);
         fraseCorrente.getProposte().add(this);
+        if(stato == 0)
+            notifica = new Notifica(autore, this, fraseCorrente.getPagina().getTitolo());
     }
     private Autore autore;
     private Utente utente;

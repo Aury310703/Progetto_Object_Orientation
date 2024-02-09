@@ -1,7 +1,5 @@
 package GUI;
 
-import MODEL.Autore;
-import MODEL.Pagina;
 import controller.Controller;
 
 import javax.swing.*;
@@ -36,7 +34,7 @@ public class StoricoAutore {
     private JFrame frameChiamante;
     public Controller controller;
 
-    public StoricoAutore(Controller controller, JFrame frameChiamante, Autore autoreLoggato) {
+    public StoricoAutore(Controller controller, JFrame frameChiamante) {
         this.controller = controller;
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
@@ -44,7 +42,7 @@ public class StoricoAutore {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
-        ArrayList<Pagina> pagineVisualizzate = controller.storicoPagineVisualizzate(autoreLoggato);
+        ArrayList<String> pagineVisualizzate = controller.storicoPagineVisualizzate();
         DefaultTableModel modelVisualizzate = new DefaultTableModel(new Object[][]{}, new String[]{"Pagine Visualizzate"}) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -53,9 +51,8 @@ public class StoricoAutore {
         };
         pagineVisualizzateTable.setModel(modelVisualizzate);
         pagineVisualizzateTable.setRowHeight(50);
-        for (Pagina i : pagineVisualizzate) {
-            modelVisualizzate.addRow(new Object[]{i.getTitolo()});
-
+        for (String pagina : pagineVisualizzate) {
+            modelVisualizzate.addRow(new Object[]{pagina});
         }
         pagineVisualizzateTable.addMouseListener((new MouseListener() {
             @Override
@@ -66,8 +63,9 @@ public class StoricoAutore {
                         Object cellValue = pagineVisualizzateTable.getValueAt(selectedRow, 0);
                         String titolo = cellValue.toString();
                         System.out.println(titolo);
+                        controller.setPaginaVisualizzata(selectedRow);
 
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, pagineVisualizzate.get(selectedRow), autoreLoggato);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
                         paginaTesto.frame.setLocationRelativeTo(frame);
                         //paginaTesto.frame.setResizable(false);
                         //paginaTesto.frame.setSize(400, 200);
@@ -106,9 +104,9 @@ public class StoricoAutore {
         };
         modificheProposteTable.setModel(modelProposte);
         modificheProposteTable.setRowHeight(50);
-        ArrayList<Pagina> pagineModificate = controller.getModificate(autoreLoggato);
-        for (Pagina i : pagineModificate) {
-            modelProposte.addRow(new Object[]{i.getTitolo()});
+        ArrayList<String> pagineModificate = controller.getModificate();
+        for (String pagine : pagineModificate) {
+            modelProposte.addRow(new Object[]{pagine});
         }
         modificheProposteTable.addMouseListener((new MouseListener() {
             @Override
@@ -120,8 +118,9 @@ public class StoricoAutore {
                         String titolo = cellValue.toString();
                         System.out.println(titolo);
 
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, pagineModificate.get(selectedRow));
-                        DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame, pagineModificate.get(selectedRow), autoreLoggato);
+                        controller.setPaginaVisualizzata(selectedRow);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
+                        DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame, selectedRow);
                         dettagliModifiche.frame.setLocationRelativeTo(frame);
                         //paginaTesto.frame.setResizable(false);
                         //paginaTesto.frame.setSize(400, 200);
@@ -160,7 +159,7 @@ public class StoricoAutore {
             }
         });
 
-        ArrayList<Pagina> pagineCreate = controller.storicoPagineCreate(autoreLoggato);
+        ArrayList<String> pagineCreate = controller.storicoPagineCreate();
         DefaultTableModel modelCreate = new DefaultTableModel(new Object[][]{}, new String[]{"Pagine Create"}) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -169,9 +168,8 @@ public class StoricoAutore {
         };
         pagineCreateTable.setModel(modelCreate);
         pagineCreateTable.setRowHeight(50);
-        for (Pagina i : pagineCreate) {
-            modelCreate.addRow(new Object[]{i.getTitolo()});
-
+        for (String pagine : pagineCreate) {
+            modelProposte.addRow(new Object[]{pagine});
         }
         pagineCreateTable.addMouseListener((new MouseListener() {
             @Override
@@ -183,7 +181,8 @@ public class StoricoAutore {
                         String titolo = cellValue.toString();
                         System.out.println(titolo);
 
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, pagineCreate.get(selectedRow), autoreLoggato);
+                        controller.setPaginaCreata(selectedRow);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
                         paginaTesto.frame.setLocationRelativeTo(frame);
                         //paginaTesto.frame.setResizable(false);
                         //paginaTesto.frame.setSize(400, 200);
@@ -214,7 +213,7 @@ public class StoricoAutore {
             }
         }));
 
-        if (!autoreLoggato.getNotificheRicevute().isEmpty()) {
+        if (controller.contaNotifiche() > 0) {
             notificheButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
