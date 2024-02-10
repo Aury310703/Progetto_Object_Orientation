@@ -69,7 +69,8 @@ public class Login {
                 String login = nomeUtenteField.getText();
                 String password = passwordField.getText();
                 int verificato = controller.verificaLoggato(login, password);
-                if (verificato != 0 && (!login.isEmpty() || !password.isEmpty())) {
+
+                if (verificato == 0 && (!login.isEmpty() || !password.isEmpty())) {
                     ErroreLoginLabel.setText("nomeutente o password errati, riprovare");
                 }
 

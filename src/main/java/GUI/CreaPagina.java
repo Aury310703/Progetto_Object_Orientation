@@ -52,7 +52,8 @@ public class CreaPagina {
                 controller.creazionePagina(titolo, testo);
                 frame.setVisible(false);
                 //HomeLoggato homeLoggato = new HomeLoggato(controller, frame, paginaCreata.getAutore());
-                PaginaTesto paginaTesto = new PaginaTesto(controller, HomeLoggato.frame);
+                HomeLoggato homeLoggato = new HomeLoggato(controller, frame);
+                PaginaTesto paginaTesto = new PaginaTesto(controller, homeLoggato.frame);
                 paginaTesto.frame.setVisible(true);
                 frame.dispose();
             }

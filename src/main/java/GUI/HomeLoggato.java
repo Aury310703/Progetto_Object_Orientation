@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 
 public class HomeLoggato {
 
-    public static JFrame frame = new JFrame("WIKI");
+    public JFrame frame;
     public JFrame frameChiamante;
     private JPanel panel;
     private JPanel panel1;

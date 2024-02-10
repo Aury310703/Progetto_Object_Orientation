@@ -96,6 +96,8 @@ public class StoricoAutore {
             }
         }));
 
+        ArrayList<String> pagineModificate = controller.getModificate();
+
         DefaultTableModel modelProposte = new DefaultTableModel(new Object[][]{}, new String[]{"Modifiche Proposte"}) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -104,7 +106,6 @@ public class StoricoAutore {
         };
         modificheProposteTable.setModel(modelProposte);
         modificheProposteTable.setRowHeight(50);
-        ArrayList<String> pagineModificate = controller.getModificate();
         for (String pagine : pagineModificate) {
             modelProposte.addRow(new Object[]{pagine});
         }
@@ -169,7 +170,8 @@ public class StoricoAutore {
         pagineCreateTable.setModel(modelCreate);
         pagineCreateTable.setRowHeight(50);
         for (String pagine : pagineCreate) {
-            modelProposte.addRow(new Object[]{pagine});
+            System.out.println(pagine);
+            modelCreate.addRow(new Object[]{pagine});
         }
         pagineCreateTable.addMouseListener((new MouseListener() {
             @Override

@@ -94,8 +94,8 @@ public class ListaTitoli {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                Home home = new Home();
-                Home.frame.setVisible(true);
+                HomeLoggato homeLoggato = new HomeLoggato(controller, frame);
+                homeLoggato.frame.setVisible(true);
                 //frame.dispose();
             }
         });
