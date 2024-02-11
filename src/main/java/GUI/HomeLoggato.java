@@ -86,6 +86,7 @@ public class HomeLoggato {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
+
         nomeutenteButton.setText(controller.getLoginLoggato());
         clickOnSearchButton();
         clickOnUsernameButton();

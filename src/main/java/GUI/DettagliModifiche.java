@@ -55,6 +55,7 @@ public class DettagliModifiche {
                 stato = "accettata";
             }
             model.addRow(new Object[]{frasiSelezionate.get(i), frasiProposte.get(i), stato});
+            System.out.println(frasiSelezionate.get(i));
         }
 
         paginaPrecedenteButton.addActionListener(new ActionListener() {
