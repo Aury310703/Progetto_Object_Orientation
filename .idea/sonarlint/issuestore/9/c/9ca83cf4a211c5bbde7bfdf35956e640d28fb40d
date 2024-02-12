@@ -1,9 +1,9 @@
 
+i
+java:S1192“"FDefine a constant instead of duplicating this literal "Label" 3 times.(§ßÁ‡üÿÿÿÿ8òù´õØ1
 h
 java:S1192"FDefine a constant instead of duplicating this literal "it_IT" 5 times.(¯—Çòÿÿÿÿÿ8ñù´õØ1
-i
-java:S1192‰"FDefine a constant instead of duplicating this literal "Label" 3 times.(§ßÁ‡üÿÿÿÿ8òù´õØ1
-u	java:S127¾"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8óù´õØ1
+u	java:S127È"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8óù´õØ1
 L
 java:S1066)"/Merge this if statement with the enclosing one.(¤æÃé8óù´õØ1
 D
@@ -13,7 +13,7 @@ java:S1604E"(Make this anonymous inner class a lambda(­àÕùÿÿÿÿ8ôù´õØ1
 J
 java:S1604N"(Make this anonymous inner class a lambda(­àÕùÿÿÿÿ8ôù´õØ1
 E
-java:S1604["(Make this anonymous inner class a lambda(ã»ñ«8ôù´õØ1
+java:S1604e"(Make this anonymous inner class a lambda(ã»ñ«8ôù´õØ1
 >
 java:S16436"Use a StringBuilder instead.(ÅğÕÔûÿÿÿÿ8õù´õØ1
 n
@@ -29,7 +29,7 @@ r	java:S116"VRename this field "Entrabutton" to match the regular expression 
 w	java:S116"VRename this field "TitoloPanel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Å»Ìıÿÿÿÿ8Ãú´õØ1
 u	java:S116"YRename this field "Versionebutton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ€Ú¶8Ãú´õØ1
 ‰
-java:S3008£"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8Ãú´õØ1
+java:S3008­"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8Ãú´õØ1
 |
 java:S1450"ZRemove the "TitoloPanel" field and declare it as a local variable in the relevant methods.(´Å»Ìıÿÿÿÿ8Æú´õØ1
 
@@ -37,15 +37,15 @@ java:S1450"bRemove the "barraSUperiorePanel" field and declare it as a local v
 €
 java:S1450"^Remove the "infoAutorePanel" field and declare it as a local variable in the relevant methods.(Ö”Ôäùÿÿÿÿ8Çú´õØ1
 ‚
-java:S1149¸"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8Èú´õØ1
+java:S1149Â"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8Èú´õØ1
 X	java:S125"<This block of commented-out lines of code should be removed.(òÒÈå8Éú´õØ1
 f
 java:S3252%"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8Ìú´õØ1
 {
-java:S1171i"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8Ôú´õØ1
-o	java:S100w"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8Õú´õØ1
-p	java:S100¥"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8ãú´õØ1
+java:S1171s"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8Ôú´õØ1
+p	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8Õú´õØ1
+p	java:S100¯"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8ãú´õØ1
 T
-java:S2696«"6Make the enclosing method "static" or remove this set.(§¾ã8äú´õØ1
-k	java:S100·"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8åú´õØ1
-p	java:S100Ò"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8çú´õØ1
+java:S2696µ"6Make the enclosing method "static" or remove this set.(§¾ã8äú´õØ1
+k	java:S100Á"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8åú´õØ1
+p	java:S100Ü"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8çú´õØ1

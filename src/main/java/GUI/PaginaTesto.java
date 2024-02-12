@@ -87,6 +87,16 @@ public class PaginaTesto {
         if (controller.loggato()) {
             controller.addPaginaVisualizzata();
             Entrabutton.setText(controller.getLoginLoggato());
+            frame.setVisible(false);
+            if (controller.verificaRuoloUtente() == 1) {
+                StoricoUtente storicoUtente = new StoricoUtente(controller, frame);
+                frame.setVisible(false);
+                storicoUtente.frame.setVisible(true);
+            } else {
+                StoricoAutore storicoAutore = new StoricoAutore(controller, frame);
+                frame.setVisible(false);
+                storicoAutore.frame.setVisible(true);
+            }
         } else {
             Entrabutton.addActionListener(new ActionListener() {
                 @Override

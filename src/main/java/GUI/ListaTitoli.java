@@ -106,6 +106,16 @@ public class ListaTitoli {
 
         if (controller.loggato()) {
             entraButton.setText(controller.getLoginLoggato());
+            frame.setVisible(false);
+            if (controller.verificaRuoloUtente() == 1) {
+                StoricoUtente storicoUtente = new StoricoUtente(controller, frame);
+                frame.setVisible(false);
+                storicoUtente.frame.setVisible(true);
+            } else {
+                StoricoAutore storicoAutore = new StoricoAutore(controller, frame);
+                frame.setVisible(false);
+                storicoAutore.frame.setVisible(true);
+            }
         } else {
             entraButton.addActionListener(new ActionListener() {
                 @Override

@@ -375,6 +375,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
 
         int num = 0;
         for (String f : frasi){
+            System.out.println("--------------" + f);
             String queryFrase = "INSERT INTO fraseCorrente (stringaInserita, numerazione, idPagina) VALUES (?,?,?)";
             PreparedStatement preparedStatementFrase = null;
             preparedStatementFrase = connection.prepareStatement(queryFrase);

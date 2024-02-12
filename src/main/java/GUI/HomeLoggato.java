@@ -25,57 +25,7 @@ public class HomeLoggato {
     public Controller controller;
 
     void clickOnUsernameButton() {
-        nomeutenteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (controller.verificaRuoloUtente() == 1) {
-                    StoricoUtente storicoUtente = new StoricoUtente(controller, frame);
-                    frame.setVisible(false);
-                    storicoUtente.frame.setVisible(true);
-                } else {
-                    StoricoAutore storicoAutore = new StoricoAutore(controller, frame);
-                    frame.setVisible(false);
-                    storicoAutore.frame.setVisible(true);
-                }
-            }
-        });
-    }
 
-    public void clickOnSearchButton() {
-        cercaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.setTitoloSelezionato(cercaTestoText.getText());
-                ListaTitoli listaTitoli = new ListaTitoli(controller, frame);
-                //listaTitoli.frame.setResizable(false);
-                listaTitoli.frame.setLocationRelativeTo(frame);
-                listaTitoli.frame.setSize(500, 500);
-                listaTitoli.frame.setVisible(true);
-                frame.setVisible(false);
-            }
-        });
-    }
-
-    void clickOnLogoutButton() {
-        esciButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Home.frame.setVisible(true);
-                frame.setVisible(false);
-                frame.dispose();
-            }
-        });
-    }
-
-    public void clickOnCreaPaginaButton() {
-        creaPaginaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                CreaPagina creaPagina = new CreaPagina(controller, frame);
-                frame.setVisible(false);
-                creaPagina.frame.setVisible(true);
-            }
-        });
     }
 
     public HomeLoggato(Controller controller, JFrame frameChiamante) {
@@ -88,10 +38,52 @@ public class HomeLoggato {
 
 
         nomeutenteButton.setText(controller.getLoginLoggato());
-        clickOnSearchButton();
-        clickOnUsernameButton();
-        clickOnLogoutButton();
-        clickOnCreaPaginaButton();
+
+        cercaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.setTitoloSelezionato(cercaTestoText.getText());
+                ListaTitoli listaTitoli = new ListaTitoli(controller, frame);
+                //listaTitoli.frame.setResizable(false);
+                listaTitoli.frame.setLocationRelativeTo(frame);
+                listaTitoli.frame.setSize(500, 500);
+                listaTitoli.frame.setVisible(true);
+                frame.setVisible(false);
+            }
+        });
+
+//        nomeutenteButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                if (controller.verificaRuoloUtente() == 1) {
+//                    StoricoUtente storicoUtente = new StoricoUtente(controller, frame);
+//                    frame.setVisible(false);
+//                    storicoUtente.frame.setVisible(true);
+//                } else {
+//                    StoricoAutore storicoAutore = new StoricoAutore(controller, frame);
+//                    frame.setVisible(false);
+//                    storicoAutore.frame.setVisible(true);
+//                }
+//            }
+//        });
+
+        esciButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Home.frame.setVisible(true);
+                frame.setVisible(false);
+                frame.dispose();
+            }
+        });
+
+        creaPaginaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CreaPagina creaPagina = new CreaPagina(controller, frame);
+                frame.setVisible(false);
+                creaPagina.frame.setVisible(true);
+            }
+        });
     }
 
     {
