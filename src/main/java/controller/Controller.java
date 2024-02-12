@@ -281,16 +281,17 @@ public class Controller {
     public void creazionePagina(String titolo, String testo) {
         ArrayList<String> frasi = new ArrayList<>();
         Pagina paginaCreata = null;
+        LocalDateTime dataCreazione = LocalDateTime.now();
         if(autoreloggato != null){
             System.out.println("sono un autore");
-            paginaCreata = new Pagina(titolo, LocalDateTime.now(), autoreloggato);
+            paginaCreata = new Pagina(titolo, dataCreazione, autoreloggato);
         }else{
             System.out.println("sono un utente");
-            paginaCreata = new Pagina(titolo,LocalDateTime.now(), utenteLoggato.getNome(), utenteLoggato.getCognome(), utenteLoggato.getLogin(), utenteLoggato.getPassword(), utenteLoggato.getEmail(), utenteLoggato.getDataNascita());
+            paginaCreata = new Pagina(titolo,dataCreazione, utenteLoggato.getNome(), utenteLoggato.getCognome(), utenteLoggato.getLogin(), utenteLoggato.getPassword(), utenteLoggato.getEmail(), utenteLoggato.getDataNascita());
             autoreloggato = paginaCreata.getAutore();
             utenteLoggato = null;
-            paginaSelezionata = paginaCreata;
         }
+        paginaSelezionata = paginaCreata;
 
         int length = testo.length();
         int prec = 0;
@@ -299,22 +300,25 @@ public class Controller {
         for (int i = 0; i < length; i++) {
             if (testo.charAt(i) == ',' || testo.charAt(i) == '.' || testo.charAt(i) == ';'|| testo.charAt(i) == '?' || testo.charAt(i) == '!') {
                 System.out.println("carattere == " + testo.charAt(i));
-                sottoStringa = testo.substring(prec, i);
+                sottoStringa = testo.substring(prec, i+1);
+                System.out.println(sottoStringa);
                 int contaSpaziVuoti = 0;
-                while(sottoStringa.charAt(contaSpaziVuoti) == ' '){
-                    contaSpaziVuoti++;
+                if(!(sottoStringa.equals(""))) {
+                    while (sottoStringa.charAt(contaSpaziVuoti) == ' ') {
+                        contaSpaziVuoti++;
+                    }
+                    sottoStringa = sottoStringa.substring(contaSpaziVuoti);
+                    Frase_Corrente fraseCorrente = new Frase_Corrente(sottoStringa, num, paginaCreata, LocalDate.now(), Time.valueOf(LocalTime.now()));
+                    frasi.add(sottoStringa);
+                    num++;
                 }
-                sottoStringa = sottoStringa.substring(contaSpaziVuoti);
-                Frase_Corrente fraseCorrente = new Frase_Corrente(sottoStringa, num, paginaCreata, LocalDate.now(), Time.valueOf(LocalTime.now()));
-                frasi.add(sottoStringa);
-                num++;
                 prec = i+1;
                 System.out.println(sottoStringa);
             }
         }
-
-        if(testo.charAt(length-1) != '.'|| testo.charAt(length-1) == '?' || testo.charAt(length-1) == '!'){
-            System.out.println("carattere == " + testo.charAt(length-1));
+        System.out.println(testo.charAt(length-1));
+        if(!(testo.charAt(length-1) == '.'|| testo.charAt(length-1) == '?' || testo.charAt(length-1) == '!' || testo.charAt(length-1) == ';' || testo.charAt(length-1) == ',')){
+            System.out.println("carattere -> " + testo.charAt(length-1));
             sottoStringa = testo.substring(prec, length);
             int contaSpaziVuoti = 0;
             while(sottoStringa.charAt(contaSpaziVuoti) == ' '){
@@ -328,11 +332,7 @@ public class Controller {
 
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
-            if(utenteLoggato != null){
-                w.creazionePagina(titolo, frasi, utenteLoggato.getLogin());
-            }else{
-                w.creazionePagina(titolo, frasi, autoreloggato.getLogin());
-            }
+            w.creazionePagina(titolo, frasi, autoreloggato.getLogin(), dataCreazione);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -405,6 +405,7 @@ public class Controller {
     }
 
     public ArrayList<String> getModificate() {
+        pagineModificateUtente = new ArrayList<>();
         ArrayList <String> modifiche = new ArrayList<>();
         ArrayList<String> nomi = new ArrayList<>();
         ArrayList<String> cognomi = new ArrayList<>();
@@ -465,6 +466,7 @@ public class Controller {
                 }
                 int controllo;
                 for (int i = 0; i < autoreloggato.getFrasiProposte().size(); i++){
+                    System.out.println(i);
                     controllo = 0;
                     for(int j = 0; j < pagineModificateUtente.size(); j++){
                         System.out.println("------------------------------------------------------------------");

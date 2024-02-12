@@ -27,9 +27,11 @@ java:S1149¤"_Replace the synchronized class "StringBuffer" by an unsynchronize
 f
 java:S3252"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8‡º¥ï×1
 V
-java:S18546"9Remove this useless assignment to local variable "testo".(ÜÆ¸æ8Ü³ŒŸÙ1
+java:S18546"9Remove this useless assignment to local variable "testo".(ÜÆ¸æ8çÄÌôØ1
 G
-java:S14816"*Remove this unused "testo" local variable.(ÜÆ¸æ8İ³ŒŸÙ1
+java:S14816"*Remove this unused "testo" local variable.(ÜÆ¸æ8éÄÌôØ1
+R
+java:S22098"5Change this instance-reference to a static reference.(Àøé˜8”’îïÙ1
 {
 java:S1171C"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8‹º¥ï×1
 o	java:S100Q"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8‹º¥ï×1

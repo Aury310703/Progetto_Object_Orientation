@@ -181,6 +181,8 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         preparedStatementPagina.setString(3, titolo);
         ResultSet rsPagina = preparedStatementPagina.executeQuery();
         rsPagina.next();
+        System.out.println(Timestamp.valueOf(dataOraCreazione));
+        System.out.println(rsPagina.getInt("idPagina"));
         int idPagina = rsPagina.getInt("idPagina");
 
         if(frasiInserite.isEmpty()) {
@@ -341,8 +343,8 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
     }
 
 
-    public void creazionePagina(String titolo, ArrayList<String> frasi, String login) throws SQLException{
-        String queryPagina = "INSERT INTO Pagina (titolo, idAutore) VALUES (?,?)";
+    public void creazionePagina(String titolo, ArrayList<String> frasi, String login, LocalDateTime dataCreazione) throws SQLException{
+        String queryPagina = "INSERT INTO Pagina (titolo, idAutore, dataoracreazione) VALUES (?,?,?)";
         PreparedStatement preparedStatementPagina = null;
         preparedStatementPagina = connection.prepareStatement(queryPagina);
         preparedStatementPagina.setString(1, titolo);
@@ -354,6 +356,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         rs.next();
         int idAutore = rs.getInt("idutente");
         preparedStatementPagina.setInt(2,idAutore);
+        preparedStatementPagina.setTimestamp(3, Timestamp.valueOf(dataCreazione));
         int rowsAffected = preparedStatementPagina.executeUpdate();
 
         if (rowsAffected > 0) {

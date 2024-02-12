@@ -52,6 +52,7 @@ public class StoricoAutore {
         pagineVisualizzateTable.setModel(modelVisualizzate);
         pagineVisualizzateTable.setRowHeight(50);
         for (String pagina : pagineVisualizzate) {
+            System.out.println("ciao" + pagina);
             modelVisualizzate.addRow(new Object[]{pagina});
         }
         pagineVisualizzateTable.addMouseListener((new MouseListener() {

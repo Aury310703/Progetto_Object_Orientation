@@ -43,5 +43,9 @@ java:S2696|"6Make the enclosing method "static" or remove this set.(§¾ã8¥²àî×
 k	java:S100ˆ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§¨¡³8¥²àî×1
 k	java:S100£"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8¨²àî×1
 p	java:S100¾"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8©²àî×1
+S
+java:S1128"6Remove this unused import 'java.awt.event.MouseEvent'.(›õ8õë¡—Ù1
+a
+java:S1128"?Remove this unused import 'java.awt.event.MouseMotionListener'.(«Ä‹ùıÿÿÿÿ8õë¡—Ù1
 N
 java:S1068"2Remove this unused "frameChiamante" private field.(Ğ÷©8ª²àî×1
