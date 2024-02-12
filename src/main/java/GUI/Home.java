@@ -54,8 +54,8 @@ public class Home {
         CercaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String titolo = CercaTestoField.getText();
-                ListaTitoli listaTitoli = new ListaTitoli(controller, frame, titolo);
+                controller.setTitoloSelezionato(CercaTestoField.getText());
+                ListaTitoli listaTitoli = new ListaTitoli(controller, frame);
                 //listaTitoli.frame.setResizable(false);
                 listaTitoli.frame.setLocationRelativeTo(frame);
                 listaTitoli.frame.setSize(500, 500);

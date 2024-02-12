@@ -91,6 +91,10 @@ public class Login {
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
                         frame.setVisible(false);
                         paginaTesto.frame.setVisible(true);
+                    } else if (controllo.equals("listaTitoli")) {
+                        ListaTitoli listaTitoli = new ListaTitoli(controller, frame);
+                        frame.setVisible(false);
+                        listaTitoli.frame.setVisible(true);
                     }
                 }
             }

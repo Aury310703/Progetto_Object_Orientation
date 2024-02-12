@@ -27,7 +27,7 @@ public class ListaTitoli {
     private JTable TitoliTable;
     private JScrollPane scrollpane;
 
-    public ListaTitoli(Controller controller, JFrame frameC, String titolo) {
+    public ListaTitoli(Controller controller, JFrame frameC) {
         frameChiamante = frameC;
         this.frame = new JFrame("Titoli");
         frame.setContentPane(panel);
@@ -41,7 +41,7 @@ public class ListaTitoli {
             }
         };
 
-        ArrayList<String> titoli = controller.getTitoliCercati(titolo);
+        ArrayList<String> titoli = controller.getTitoliCercati(controller.getTitoloSelezionato());
         TitoliTable.setModel(model);
         TitoliTable.setRowHeight(50);
         for (String t : titoli) {
@@ -94,8 +94,12 @@ public class ListaTitoli {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                HomeLoggato homeLoggato = new HomeLoggato(controller, frame);
-                homeLoggato.frame.setVisible(true);
+                if (controller.loggato()) {
+                    HomeLoggato homeLoggato = new HomeLoggato(controller, frame);
+                    homeLoggato.frame.setVisible(true);
+                } else
+                    frameChiamante.setVisible(true);
+
                 //frame.dispose();
             }
         });

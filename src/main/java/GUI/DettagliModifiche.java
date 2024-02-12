@@ -23,7 +23,7 @@ public class DettagliModifiche {
 
     public Controller controller;
 
-    public DettagliModifiche(Controller controller, JFrame frameChiamante, int modificaSelezionata) {
+    public DettagliModifiche(Controller controller, JFrame frameChiamante, int numPaginaSelezionata) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);
@@ -40,13 +40,14 @@ public class DettagliModifiche {
 
         controller.getTestoPagina();
 
-        ArrayList<String> frasiSelezionate = controller.getFrasiSelezionate();
-        ArrayList<String> frasiProposte = controller.getFrasiproposte();
-        ArrayList<Integer> stati = controller.getstati();
+        ArrayList<String> frasiSelezionate = controller.getFrasiSelezionate(numPaginaSelezionata);
+        ArrayList<String> frasiProposte = controller.getFrasiproposte(numPaginaSelezionata);
+        ArrayList<Integer> stati = controller.getstati(numPaginaSelezionata);
 
         String stato = null;
         int i = 0;
         for (Integer m : stati) {
+            System.out.println(frasiSelezionate.get(i));
             if (m == -1) {
                 stato = "rifiutata";
             } else if (m == 0) {
@@ -55,7 +56,8 @@ public class DettagliModifiche {
                 stato = "accettata";
             }
             model.addRow(new Object[]{frasiSelezionate.get(i), frasiProposte.get(i), stato});
-            System.out.println(frasiSelezionate.get(i));
+
+            i++;
         }
 
         paginaPrecedenteButton.addActionListener(new ActionListener() {
