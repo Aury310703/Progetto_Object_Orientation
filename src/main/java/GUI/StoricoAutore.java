@@ -52,7 +52,6 @@ public class StoricoAutore {
         pagineVisualizzateTable.setModel(modelVisualizzate);
         pagineVisualizzateTable.setRowHeight(50);
         for (String pagina : pagineVisualizzate) {
-            System.out.println("ciao" + pagina);
             modelVisualizzate.addRow(new Object[]{pagina});
         }
         pagineVisualizzateTable.addMouseListener((new MouseListener() {
@@ -171,7 +170,6 @@ public class StoricoAutore {
         pagineCreateTable.setModel(modelCreate);
         pagineCreateTable.setRowHeight(50);
         for (String pagine : pagineCreate) {
-            System.out.println(pagine);
             modelCreate.addRow(new Object[]{pagine});
         }
         pagineCreateTable.addMouseListener((new MouseListener() {
@@ -182,7 +180,7 @@ public class StoricoAutore {
                     if (selectedRow != -1) {
                         Object cellValue = pagineCreateTable.getValueAt(selectedRow, 0);
                         String titolo = cellValue.toString();
-                        System.out.println(titolo);
+                        System.out.println("------------------------" + selectedRow);
 
                         controller.setPaginaCreata(selectedRow);
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame);

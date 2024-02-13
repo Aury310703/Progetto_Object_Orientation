@@ -32,8 +32,6 @@ java:S32524"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_
 ]	java:S125="<This block of commented-out lines of code should be removed.(«Ô˜öþÿÿÿÿ8äß·óØ1
 Q
 java:S1874F"/Remove this use of "getText"; it is deprecated.(ðÑøˆÿÿÿÿÿ8åß·óØ1
-R
-java:S2209X"5Change this instance-reference to a static reference.(‘ïÁÔ8ƒíîïÙ1
 X	java:S125l"<This block of commented-out lines of code should be removed.(Ûµƒž8èß·óØ1
 {
 java:S1171y"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8èß·óØ1

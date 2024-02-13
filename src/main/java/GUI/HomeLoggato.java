@@ -47,29 +47,31 @@ public class HomeLoggato {
                 //listaTitoli.frame.setResizable(false);
                 listaTitoli.frame.setLocationRelativeTo(frame);
                 listaTitoli.frame.setSize(500, 500);
-                listaTitoli.frame.setVisible(true);
                 frame.setVisible(false);
+                listaTitoli.frame.setVisible(true);
+
             }
         });
 
-//        nomeutenteButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                if (controller.verificaRuoloUtente() == 1) {
-//                    StoricoUtente storicoUtente = new StoricoUtente(controller, frame);
-//                    frame.setVisible(false);
-//                    storicoUtente.frame.setVisible(true);
-//                } else {
-//                    StoricoAutore storicoAutore = new StoricoAutore(controller, frame);
-//                    frame.setVisible(false);
-//                    storicoAutore.frame.setVisible(true);
-//                }
-//            }
-//        });
+        nomeutenteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (controller.verificaRuoloUtente() == 1) {
+                    StoricoUtente storicoUtente = new StoricoUtente(controller, frame);
+                    frame.setVisible(false);
+                    storicoUtente.frame.setVisible(true);
+                } else {
+                    StoricoAutore storicoAutore = new StoricoAutore(controller, frame);
+                    frame.setVisible(false);
+                    storicoAutore.frame.setVisible(true);
+                }
+            }
+        });
 
         esciButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                controller.logout();
                 Home.frame.setVisible(true);
                 frame.setVisible(false);
                 frame.dispose();

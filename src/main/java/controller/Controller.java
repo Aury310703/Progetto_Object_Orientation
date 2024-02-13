@@ -81,7 +81,6 @@ public class Controller {
                 w.getFrasiCorrenti(paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), frasiInserite, dateInserimento, oreInserimento);
                 int numerazione = 0;
                 for (String frase : frasiInserite) {
-                    System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy" + frase);
                     Frase_Corrente fraseCorrente = new Frase_Corrente(frase, numerazione, paginaSelezionata, dateInserimento.get(numerazione), oreInserimento.get(numerazione));
 
                     ArrayList<String> frasiProposte = new ArrayList<>();
@@ -104,7 +103,6 @@ public class Controller {
 
                             Utente utente = new Utente(nomi.get(i), cognomi.get(i), logins.get(i), password.get(i), email.get(i), date.get(i));
                             ModificaProposta modificaProposta = new ModificaProposta(dateProposte.get(i), oreProposte.get(i), paginaSelezionata.getAutore(), utente, fraseCorrente, frasiProposte.get(i), numerazione, stati.get(i));
-                            System.out.println("statooo = " + stati.get(i));
                             if (datevalutazione.get(i).isPresent()) {
                                 modificaProposta.setDataValutazione(datevalutazione.get(i).get());
                                 modificaProposta.setOraValutazione(orevalutazione.get(i).get());
@@ -123,22 +121,12 @@ public class Controller {
         ArrayList<String> frasiTesto= new ArrayList<>();
         int controllo = 0;
         Frase fr_salvata = null;
-        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------");
-        for(Frase_Corrente f : paginaSelezionata.getFrasi()){
-            System.out.println((f.getStringa_inserita()));
-        }
-        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------");
 
         for(Frase_Corrente f : paginaSelezionata.getFrasi()){
-            System.out.println("-------------------");
-            System.out.println((f.getStringa_inserita()));
             LocalDate data_max = f.getDataInserimento();
             LocalTime oraMax = f.getOraInserimento().toLocalTime();
             for(ModificaProposta fc : f.getProposte()){
-                System.out.println("++++++++++++++++");
-                System.out.println(fc.getStato() + "   " + fc.getStringa_inserita());
                 if(fc.getStato() == 1) {
-                    System.out.println("000000000000000000000000000000");
                     controllo = 1;
                     LocalDate dataModifica = fc.getDataValutazione();
                     LocalTime oraModifica = fc.getOraValutazione();
@@ -149,13 +137,10 @@ public class Controller {
                     }
                 }
             }
-            System.out.println("++++++++++++++++");
             if(controllo == 0){
                 frasiTesto.add(f.getStringa_inserita());
-                System.out.println("frase scelta:" + f.getStringa_inserita());
             }else{
                 frasiTesto.add(fr_salvata.getStringa_inserita());
-                System.out.println("frase scelta:" + fr_salvata.getStringa_inserita());
             }
             controllo = 0;
 
@@ -224,7 +209,7 @@ public class Controller {
             String frase = f.getStringa_inserita();
             for(ModificaProposta mp : f.getProposte()){
                 if (mp.getStato() == 1){
-                    if(mp.getDataValutazione().isAfter(dataMax) && mp.getOraValutazione().isAfter(oraMax)){
+                    if((mp.getDataValutazione().isAfter(dataMax) || (mp.getDataValutazione().isEqual(dataMax)) && mp.getOraValutazione().isAfter(oraMax))){
                        frase = mp.getStringa_inserita();
                        dataMax = mp.getDataValutazione();
                        oraMax = mp.getOraValutazione();
@@ -239,14 +224,41 @@ public class Controller {
     public boolean inviaProposta(String fraseSelezionata, String fraseProposta, int numerazione) {
         boolean controllo = false;
         WikiDAO w = new WikiimplementazionePostgresDAO();
+        ModificaProposta modifica = null;
+        int presenzaFrase = 0;
+        for(Frase_Corrente f : paginaSelezionata.getFrasi()){
+            if(f.getStringa_inserita().equals(fraseSelezionata)){
+                presenzaFrase = 1;
+            }
+        }
+
+        if(presenzaFrase == 0) {
+            for (Frase_Corrente f : paginaSelezionata.getFrasi()) {
+                for (ModificaProposta m : f.getProposte()) {
+                    if (m.getStringa_inserita().equals(fraseSelezionata)) {
+                        fraseSelezionata = m.getFraseCorrente().getStringa_inserita();
+                        break;
+                    }
+                }
+            }
+        }
         try {
-            ModificaProposta modifica = null;
-            if(utenteLoggato.getLogin() != null) {
+            if(utenteLoggato != null) {
                 w.inviaProposta(numerazione, fraseSelezionata, fraseProposta, utenteLoggato.getLogin(), paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione());
                 modifica = new ModificaProposta(LocalDate.now(), LocalTime.now(), paginaSelezionata.getAutore(), utenteLoggato, paginaSelezionata.getFrasi().get(numerazione), fraseProposta, numerazione);
+                if(paginaSelezionata.getAutore().getLogin().equals(utenteLoggato.getLogin())){
+                    modifica.setStato(1);
+                    modifica.setDataValutazione(LocalDate.now());
+                    modifica.setOraValutazione(LocalTime.now());
+                }
             }else {
                 w.inviaProposta(numerazione, fraseSelezionata, fraseProposta, autoreloggato.getLogin(), paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione());
                 modifica = new ModificaProposta(LocalDate.now(), LocalTime.now(), paginaSelezionata.getAutore(), autoreloggato, paginaSelezionata.getFrasi().get(numerazione), fraseProposta, numerazione);
+                if(paginaSelezionata.getAutore().getLogin().equals(autoreloggato.getLogin())){
+                    modifica.setStato(1);
+                    modifica.setDataValutazione(LocalDate.now());
+                    modifica.setOraValutazione(LocalTime.now());
+                }
             }
             paginaSelezionata.getFrasi().get(numerazione).addProposte(modifica);
         } catch (SQLException e) {
@@ -296,10 +308,8 @@ public class Controller {
         Pagina paginaCreata = null;
         LocalDateTime dataCreazione = LocalDateTime.now();
         if(autoreloggato != null){
-            System.out.println("sono un autore");
             paginaCreata = new Pagina(titolo, dataCreazione, autoreloggato);
         }else{
-            System.out.println("sono un utente");
             paginaCreata = new Pagina(titolo,dataCreazione, utenteLoggato.getNome(), utenteLoggato.getCognome(), utenteLoggato.getLogin(), utenteLoggato.getPassword(), utenteLoggato.getEmail(), utenteLoggato.getDataNascita());
             autoreloggato = paginaCreata.getAutore();
             utenteLoggato = null;
@@ -312,7 +322,6 @@ public class Controller {
         String sottoStringa;
         for (int i = 0; i < length; i++) {
             if (testo.charAt(i) == ',' || testo.charAt(i) == '.' || testo.charAt(i) == ';'|| testo.charAt(i) == '?' || testo.charAt(i) == '!') {
-                System.out.println("carattere == " + testo.charAt(i));
                 int j = i+1;
                 while(j < length && testo.charAt(i) == testo.charAt(j)){
                     i++;
@@ -330,11 +339,9 @@ public class Controller {
                     num++;
                 }
                 prec = i+1;
-                System.out.println(sottoStringa);
             }
         }
         if(!(testo.charAt(length-1) == '.'|| testo.charAt(length-1) == '?' || testo.charAt(length-1) == '!' || testo.charAt(length-1) == ';' || testo.charAt(length-1) == ',')){
-            System.out.println("carattere -> " + testo.charAt(length-1));
             sottoStringa = testo.substring(prec, length);
             int contaSpaziVuoti = 0;
             while(sottoStringa.charAt(contaSpaziVuoti) == ' '){
@@ -343,11 +350,6 @@ public class Controller {
             sottoStringa = sottoStringa.substring(contaSpaziVuoti);
             Frase_Corrente fraseCorrente = new Frase_Corrente(sottoStringa, num, paginaCreata, LocalDate.now(), Time.valueOf(LocalTime.now()));
             frasi.add(sottoStringa);
-            System.out.println(sottoStringa);
-        }
-
-        for(String f : frasi){
-            System.out.println("''''''''''''''''''''''''''''''''''''''''''''''" + f);
         }
 
         WikiDAO w = new WikiimplementazionePostgresDAO();
@@ -382,17 +384,6 @@ public class Controller {
                 w.storicoPagineVisualizzate(autoreloggato.getLogin(), titoli, dateOreCreazioni, nomi, cognomi, nomiUtente, password, email, dataNascita, dateVisioni, oreVisioni);
 
             for(int i = 0; i < titoli.size(); i++){
-                System.out.println(titoli.get(i));
-                System.out.println(dateOreCreazioni.get(i));
-                System.out.println(nomi.get(i));
-                System.out.println(cognomi.get(i));
-                System.out.println(nomiUtente.get(i));
-                System.out.println(password.get(i));
-                System.out.println(email.get(i));
-                System.out.println(dataNascita.get(i));
-                System.out.println(dateVisioni.get(i));
-                System.out.println(oreVisioni.get(i));
-
                 Pagina pagina = new Pagina(titoli.get(i), dateOreCreazioni.get(i), nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
                 if(utenteLoggato != null) {
                     Visiona visiona = new Visiona(dateVisioni.get(i), oreVisioni.get(i), pagina, utenteLoggato);
@@ -489,17 +480,12 @@ public class Controller {
                     System.out.println(i);
                     controllo = 0;
                     for(int j = 0; j < pagineModificateUtente.size(); j++){
-                        System.out.println("------------------------------------------------------------------");
-                        System.out.println(pagineModificateUtente.get(j).getTitolo() + " ------- " + autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getTitolo());
-                        System.out.println(pagineModificateUtente.get(j).getDataCreazione() + "-----" + autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getDataCreazione());
                         if(pagineModificateUtente.get(j).getTitolo().equals(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getTitolo()) && pagineModificateUtente.get(j).getDataCreazione().equals(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getDataCreazione())){
                             controllo = 1;
-                            System.out.println("111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
                         }
                     }
                     if(controllo == 0){
                         modifiche.add(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getTitolo());
-                        System.out.println("))))))))))))))))))))))))))))))))))))))))" + autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getTitolo());
                         pagineModificateUtente.add(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina());
                     }
                 }
@@ -520,9 +506,12 @@ public class Controller {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("==================================================================");
         for(int i = 0; i < titoli.size(); i++){
             new Pagina(titoli.get(i), dataOraCreazione.get(i), autoreloggato);
+            System.out.println(titoli.get(i));
         }
+        System.out.println("==================================================================");
 
         return titoli;
     }
@@ -619,6 +608,10 @@ public class Controller {
 
     public void setPaginaCreata(int paginaCreata){
         paginaSelezionata = autoreloggato.getCreazioni().get(paginaCreata);
+        System.out.println("---------------------------------------------");
+        for(Pagina p : autoreloggato.getCreazioni())
+            System.out.println(p.getTitolo());
+        System.out.println("---------------------------------------------");
     }
 
     public void getNotifche() {
@@ -788,33 +781,97 @@ public class Controller {
                 System.out.println(f.getFraseCorrente().getPagina().getDataCreazione() + " vs " + pagineModificateUtente.get(numPaginaSelezionata).getDataCreazione());
                 if(f.getFraseCorrente().getPagina().getTitolo().equals(pagineModificateUtente.get(numPaginaSelezionata).getTitolo()) && f.getFraseCorrente().getPagina().getDataCreazione().equals(pagineModificateUtente.get(numPaginaSelezionata).getDataCreazione())){
                     modifichePagina.add(f);
+                    System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" + modifichePagina);
                 }
             }
-            for (ModificaProposta f : modifichePagina) {
+            
+            for (ModificaProposta modificheUtente : modifichePagina) {
+                System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>" + modificheUtente.getStringa_inserita());
+                Pagina pagina = modificheUtente.getFraseCorrente().getPagina();
+                for (Frase_Corrente f : pagina.getFrasi()) {
+                    if (f.getNumerazione() == modificheUtente.getFraseCorrente().getNumerazione()) {
+                        String fraseTemp = f.getStringa_inserita();
+                        LocalDate dataMax = f.getDataInserimento();
+                        Time oraMax = f.getOraInserimento();
+                        for (ModificaProposta m : f.getProposte()) {
+                            if (m.getStato() == 1 && (m.getDataValutazione().isBefore(dataMax) || m.getDataValutazione().equals(oraMax)) && m.getOraValutazione().isBefore(oraMax.toLocalTime())) {
+                                dataMax = m.getDataValutazione();
+                                oraMax = Time.valueOf(m.getOraValutazione());
+                                fraseTemp = m.getStringa_inserita();
+                            }
+                        }
+                        frasiSelezionate.add(fraseTemp);
+                    }
+                }
+            }
+
                 WikiDAO w = new WikiimplementazionePostgresDAO();
-                try {
-                    frasiSelezionate.add(w.getFraseSelezionata(f.getAutore().getLogin(), utenteLoggato.getLogin(), f.getStringa_inserita(), f.getFraseCorrente().getStringa_inserita(), f.getDataProposta(), f.getOraProposta()));
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
+//                try {
+//                    frasiSelezionate.add(w.getFraseSelezionata(f.getAutore().getLogin(), utenteLoggato.getLogin(), f.getStringa_inserita(), f.getFraseCorrente().getStringa_inserita(), f.getDataProposta(), f.getOraProposta()));
+//                } catch (SQLException e) {
+//                    throw new RuntimeException(e);
+//                }
+
         } else {
             for(ModificaProposta f : autoreloggato.getFrasiProposte()){
-                System.out.println(f.getFraseCorrente().getPagina().getTitolo() + " vs " + pagineModificateUtente.get(numPaginaSelezionata).getTitolo());
-                System.out.println(f.getFraseCorrente().getPagina().getDataCreazione() + " vs " + pagineModificateUtente.get(numPaginaSelezionata).getDataCreazione());
+//                System.out.println(f.getFraseCorrente().getPagina().getTitolo() + " vs " + pagineModificateUtente.get(numPaginaSelezionata).getTitolo());
+//                System.out.println(f.getFraseCorrente().getPagina().getDataCreazione() + " vs " + pagineModificateUtente.get(numPaginaSelezionata).getDataCreazione());
                 if(f.getFraseCorrente().getPagina().getTitolo().equals(pagineModificateUtente.get(numPaginaSelezionata).getTitolo()) && f.getFraseCorrente().getPagina().getDataCreazione().equals(pagineModificateUtente.get(numPaginaSelezionata).getDataCreazione())){
                     modifichePagina.add(f);
+                    System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" + f.getStringa_inserita());
                 }
             }
-            for (ModificaProposta f : modifichePagina) {
-                WikiDAO w = new WikiimplementazionePostgresDAO();
-                try {
-                    frasiSelezionate.add(w.getFraseSelezionata(f.getAutore().getLogin(), autoreloggato.getLogin(), f.getStringa_inserita(), f.getFraseCorrente().getStringa_inserita(), f.getDataProposta(), f.getOraProposta()));
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
+
+            int controllo = 0;
+            System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
+            for (ModificaProposta modificheUtente : modifichePagina) {
+                System.out.println("modifica propost  " + modificheUtente.getStringa_inserita());
+                System.out.println("]]]]]]]]]]]]]]]]]]]]]]  " + modificheUtente.getFraseCorrente().getStringa_inserita());
+                Pagina pagina = modificheUtente.getFraseCorrente().getPagina();
+                for (Frase_Corrente f : pagina.getFrasi()) {
+                    if (f.getNumerazione() == modificheUtente.getFraseCorrente().getNumerazione()) {
+                        System.out.println("frase corrente  " + f.getStringa_inserita());
+                        String fraseTemp = f.getStringa_inserita();
+                        LocalDate dataProposta = modificheUtente.getDataProposta();
+                        Time oraProposta = Time.valueOf(modificheUtente.getOraProposta());
+                        LocalDate dataMax = null;
+                        Time oraMax = null;
+                        controllo = 0;
+                        for (ModificaProposta m : f.getProposte()) {
+                            if(controllo == 0){
+                                dataMax = m.getDataValutazione();
+                                oraMax = Time.valueOf(m.getOraValutazione());
+                                controllo = 1;
+                            }
+                            System.out.println("0000000000000000");
+                            System.out.println("dataValutazione = " + m.getDataValutazione() + " ------ oraValutazione = " + m.getOraValutazione());
+                            System.out.println("dataMax = " + dataMax + " ------ oraMax = " + oraMax);
+                            if (m.getStato() == 1 && (m.getDataValutazione().isBefore(dataProposta) || m.getDataValutazione().equals(dataProposta)) && m.getOraValutazione().isBefore(oraProposta.toLocalTime())) {
+                                if((m.getDataValutazione().isAfter(dataMax)|| m.getDataValutazione().equals(dataMax)) && m.getOraValutazione().isAfter(oraMax.toLocalTime())){
+                                    System.out.println("modifiche proposte  " + m.getStringa_inserita());
+                                    dataMax = m.getDataValutazione();
+                                    oraMax = Time.valueOf(m.getOraValutazione());
+                                    fraseTemp = m.getStringa_inserita();
+                                }
+                            }
+                        }
+                        System.out.println("frase scelta" + fraseTemp);
+                        frasiSelezionate.add(fraseTemp);
+                    }
                 }
+                System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
 
             }
+
+//            for (ModificaProposta f : modifichePagina) {
+//                WikiDAO w = new WikiimplementazionePostgresDAO();
+//                try {
+//                    frasiSelezionate.add(w.getFraseSelezionata(f.getAutore().getLogin(), autoreloggato.getLogin(), f.getStringa_inserita(), f.getFraseCorrente().getStringa_inserita(), f.getDataProposta(), f.getOraProposta()));
+//                } catch (SQLException e) {
+//                    throw new RuntimeException(e);
+//                }
+//
+//            }
         }
         return frasiSelezionate;
     }
@@ -859,4 +916,11 @@ public class Controller {
     }
 
 
+    public void logout() {
+        if(utenteLoggato != null)
+            utenteLoggato = null;
+        else
+            autoreloggato = null;
+
+    }
 }

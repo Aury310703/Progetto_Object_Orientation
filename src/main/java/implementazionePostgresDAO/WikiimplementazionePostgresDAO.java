@@ -181,8 +181,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         preparedStatementPagina.setString(3, titolo);
         ResultSet rsPagina = preparedStatementPagina.executeQuery();
         rsPagina.next();
-        System.out.println(Timestamp.valueOf(dataOraCreazione));
-        System.out.println(rsPagina.getInt("idPagina"));
+
         int idPagina = rsPagina.getInt("idPagina");
 
         if(frasiInserite.isEmpty()) {
@@ -304,13 +303,11 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
         int idAutore = rs.getInt("idutente");
-        System.out.println("idAutore = " + idAutore);
 
         preparedStatement.setString(1, loginUtente);
         rs = preparedStatement.executeQuery();
         rs.next();
         int idUtente = rs.getInt("idUtente");
-        System.out.println("idUtente = " + idUtente);
 
         query = "SELECT idPagina FROM pagina WHERE idAutore = ? AND titolo = ? AND dataOraCreazione = ?";
         preparedStatement = connection.prepareStatement(query);
@@ -443,7 +440,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             ResultSet rsUtente = preparedStatementUtente.executeQuery();
             rsUtente.next();
             int idUtente = rsUtente.getInt("idutente");
-            System.out.println("idAutore = " + idUtente);
 
             String query = "SELECT * FROM visiona WHERE idUtente = ? ORDER BY dataVisone DESC, oraVisione DESC";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -768,16 +764,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         System.out.println("oraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + Time.valueOf(oraProposta));
 
         ResultSet rsModifica = preparedStatementModifica.executeQuery();
-        System.out.println("-------------------------------------------------------");
-        System.out.println(idAutore);
-        System.out.println(idUtente);
-        System.out.println(stringaInserita);
-        System.out.println(stringaProposta);
-        System.out.println(dataProposta);
-        System.out.println(oraProposta);
-        System.out.println("-------------------------------------------------------");
         while(rsModifica.next()) {
-            System.out.println("idModifica = " + rsModifica.getInt("idModifica"));
 
             String query = "SELECT * FROM modificaProposta WHERE idPagina = ? AND stringaInserita = ? AND numerazione = ? AND dataValutazione <= ? AND oravalutazione::time(0) < ? AND stato = 1 LIMIT 1";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -788,20 +775,11 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             preparedStatement.setTime(5, rsModifica.getTime("oraProposta"));
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                System.out.println(oraProposta);
-                System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                System.out.println(rs.getInt("idPagina"));
-                System.out.println(rs.getString("stringaInserita"));
-                System.out.println(rs.getInt("numerazione"));
-
                 frasePropostaTrovata = rs.getString("stringaProposta");
-
             } else {
-
                 frasePropostaTrovata = rsModifica.getString("stringaInserita");
             }
         }
-        System.out.println("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]" + frasePropostaTrovata);
         return frasePropostaTrovata;
     }
 

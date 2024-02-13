@@ -48,10 +48,7 @@ public class PropostaModifica {
             public void actionPerformed(ActionEvent e) {
                 String fraseProposta = propostaField.getText();
                 controller.inviaProposta(fraseSelezionata, fraseProposta, indiceFraseSlezionata);
-
-
-
-                ArrayList<String> testo = controller.componiTesto();
+                controller.componiTesto();
                 HomeLoggato homeLoggato = new HomeLoggato(controller, frame);
                 PaginaTesto paginaTesto = new PaginaTesto(controller, homeLoggato.frame);
                 ModificaTesto modificaTesto = new ModificaTesto(controller, paginaTesto.frame);
