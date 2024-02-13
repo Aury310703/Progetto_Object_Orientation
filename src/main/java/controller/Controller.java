@@ -180,7 +180,10 @@ public class Controller {
                     WikiDAO w2 = new WikiimplementazionePostgresDAO();
                     w2.getPagineCreate(login, titoli, dataOraCreazione);
                     autoreloggato = new Autore(nome, cognome,login, password, email, dataNascita, titoli.get(0), dataOraCreazione.get(0));
-                    for(int i = 0; i < titoli.size(); i++){
+                    for(int i = 0; i < autoreloggato.getCreazioni().size(); i++){
+                        System.out.println("][][][][][][" + autoreloggato.getCreazioni().get(i).getTitolo());
+                    }
+                    for(int i = 1; i < titoli.size(); i++){
                         Pagina pagina = new Pagina(titoli.get(i), dataOraCreazione.get(i), autoreloggato);
                     }
                 }
@@ -380,14 +383,14 @@ public class Controller {
         try {
             if(utenteLoggato != null)
                 w.storicoPagineVisualizzate(utenteLoggato.getLogin(), titoli, dateOreCreazioni, nomi, cognomi, nomiUtente, password, email, dataNascita, dateVisioni, oreVisioni);
-            else
+            else if(autoreloggato != null)
                 w.storicoPagineVisualizzate(autoreloggato.getLogin(), titoli, dateOreCreazioni, nomi, cognomi, nomiUtente, password, email, dataNascita, dateVisioni, oreVisioni);
 
             for(int i = 0; i < titoli.size(); i++){
                 Pagina pagina = new Pagina(titoli.get(i), dateOreCreazioni.get(i), nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
                 if(utenteLoggato != null) {
                     Visiona visiona = new Visiona(dateVisioni.get(i), oreVisioni.get(i), pagina, utenteLoggato);
-                }else {
+                }else if(autoreloggato != null) {
                     Visiona visiona = new Visiona(dateVisioni.get(i), oreVisioni.get(i), pagina, autoreloggato);
                 }
             }
@@ -498,17 +501,10 @@ public class Controller {
     }
 
     public ArrayList<String> storicoPagineCreate() {
-        WikiDAO w = new WikiimplementazionePostgresDAO();
         ArrayList<String> titoli = new ArrayList<>();
-        ArrayList<LocalDateTime> dataOraCreazione = new ArrayList<>();
-        try {
-            w.storicoPagineCreate(autoreloggato.getLogin(), titoli, dataOraCreazione);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
         System.out.println("==================================================================");
-        for(int i = 0; i < titoli.size(); i++){
-            new Pagina(titoli.get(i), dataOraCreazione.get(i), autoreloggato);
+        for(int i = 0; i < autoreloggato.getCreazioni().size(); i++){
+            titoli.add(autoreloggato.getCreazioni().get(i).getTitolo());
             System.out.println(titoli.get(i));
         }
         System.out.println("==================================================================");
@@ -608,10 +604,6 @@ public class Controller {
 
     public void setPaginaCreata(int paginaCreata){
         paginaSelezionata = autoreloggato.getCreazioni().get(paginaCreata);
-        System.out.println("---------------------------------------------");
-        for(Pagina p : autoreloggato.getCreazioni())
-            System.out.println(p.getTitolo());
-        System.out.println("---------------------------------------------");
     }
 
     public void getNotifche() {
@@ -629,27 +621,44 @@ public class Controller {
         ArrayList<LocalDateTime> dataOraCreazione = new ArrayList<>();
         ArrayList<String> stringaProposta = new ArrayList<>();
         ArrayList<Integer> stato = new ArrayList<>();
-        ArrayList<LocalDate> dataValutazione = new ArrayList<>();
-        ArrayList<LocalTime> oraValutazione = new ArrayList<>();
-        ArrayList<LocalDate>  dataInserimento = new ArrayList<>();
+        ArrayList<Optional<LocalDate>> datavalutazione = new ArrayList<>();
+        ArrayList<Optional<LocalTime>> oraValutazione = new ArrayList<>();
+        ArrayList<LocalDate> dataInserimento = new ArrayList<>();
         ArrayList<Time> oraInseriento = new ArrayList<>();
-        WikiDAO w = new WikiimplementazionePostgresDAO();
-        if(utenteLoggato != null) {
-            try {
-                w.getModifichePagina(utenteLoggato.getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), nomi, cognomi, nomiUtente, password, email, dataNascita, dataProposta, oraProposta, stringaInserita, numerazione, stato, stringaProposta, dataValutazione, oraValutazione, dataInserimento, oraInseriento);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            for (int i = 0; i < nomi.size(); i++) {
-                Utente utente = new Utente(nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
-                Frase_Corrente fraseCorrente = new Frase_Corrente(stringaInserita.get(i), numerazione.get(i), paginaSelezionata, dataInserimento.get(i), oraInseriento.get(i));
-                ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), autoreloggato, utente, fraseCorrente, stringaProposta.get(i), numerazione.get(i), stato.get(i));
 
+        if (autoreloggato != null) {
+            for (int j = 0; j < autoreloggato.getCreazioni().size(); j++) {
+                System.out.println("()()()()()()()()())");
+                String titoloPagina = autoreloggato.getCreazioni().get(j).getTitolo();
+                LocalDateTime dataOraCreazionePagina = autoreloggato.getCreazioni().get(j).getDataCreazione();
+                WikiDAO w = new WikiimplementazionePostgresDAO();
+                try {
+                    w.getModifichePagina(autoreloggato.getLogin(), titoloPagina, dataOraCreazionePagina, nomi, cognomi, nomiUtente, password, email, dataNascita, dataProposta, oraProposta, stringaInserita, numerazione, stato, stringaProposta, datavalutazione, oraValutazione, dataInserimento, oraInseriento);
+
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                for (int i = 0; i < nomi.size(); i++) {
+                    System.out.println("kkkkkkkkkkkkkkkkkkkkkk");
+                    if(stato.get(i) == 0) {
+                        System.out.println("0000000000000000000000000000000000");
+                        Utente utente = new Utente(nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
+                        System.out.println(stringaInserita.get(i));
+                        System.out.println(numerazione.get(i));
+                        System.out.println(dataInserimento.get(i));
+                        System.out.println(oraInseriento.get(i));
+                        Frase_Corrente fraseCorrente = new Frase_Corrente(stringaInserita.get(i), numerazione.get(i), autoreloggato.getCreazioni().get(j), dataInserimento.get(i), oraInseriento.get(i));
+                        ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), autoreloggato, utente, fraseCorrente, stringaProposta.get(i), numerazione.get(i), stato.get(i));
+                        Notifica notifica = new Notifica(autoreloggato, modificaProposta, autoreloggato.getCreazioni().get(j).getTitolo());
+                    }
+                }
             }
         }
     }
 
-
+    public void removeNotifica(){
+        autoreloggato.getNotificheRicevute().remove(0);
+    }
     public void getModifica() {
         ArrayList<String> nomi = new ArrayList<>();
         ArrayList<String> cognomi = new ArrayList<>();
@@ -691,19 +700,6 @@ public class Controller {
                 throw new RuntimeException(e);
             }
             for (int i = 0; i < nomi.size(); i++) {
-                System.out.println(nomi.get(i));
-                System.out.println(cognomi.get(i));
-                System.out.println(nomiUtente.get(i));
-                System.out.println(password.get(i));
-                System.out.println(email.get(i));
-                System.out.println(dataNascita.get(i));
-                System.out.println(titolo.get(i));
-                System.out.println(dataOraCreazione.get(i));
-                System.out.println(stringaInserita.get(i));
-                System.out.println(numerazione.get(i));
-                System.out.println(dataInserimento.get(i));
-                System.out.println(oraInseriento.get(i));
-
                 Autore autore = new Autore(nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i), titolo.get(i), dataOraCreazione.get(i));
                 Frase_Corrente fraseCorrente = new Frase_Corrente(stringaInserita.get(i), numerazione.get(i), autore.getCreazioni().getLast(), dataInserimento.get(i), oraInseriento.get(i));
                 ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), autore, autoreloggato, fraseCorrente, stringaProposta.get(i), numerazione.get(i), stato.get(i));

@@ -1,8 +1,8 @@
 
-i
-java:S1192š"FDefine a constant instead of duplicating this literal "Label" 3 times.(§ßÁ‡üÿÿÿÿ8µí¿‘Ú1
 h
 java:S1192"FDefine a constant instead of duplicating this literal "it_IT" 5 times.(¯—Çòÿÿÿÿÿ8´í¿‘Ú1
+i
+java:S1192š"FDefine a constant instead of duplicating this literal "Label" 3 times.(§ßÁ‡üÿÿÿÿ8µí¿‘Ú1
 u	java:S127Ï"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8µí¿‘Ú1
 L
 java:S1066)"/Merge this if statement with the enclosing one.(¤æÃé8µí¿‘Ú1

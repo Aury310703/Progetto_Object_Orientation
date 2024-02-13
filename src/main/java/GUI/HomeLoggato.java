@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class HomeLoggato {
@@ -35,7 +36,6 @@ public class HomeLoggato {
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-
 
         nomeutenteButton.setText(controller.getLoginLoggato());
 

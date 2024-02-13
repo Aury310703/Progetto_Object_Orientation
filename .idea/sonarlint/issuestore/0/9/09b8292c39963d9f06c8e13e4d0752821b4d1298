@@ -132,37 +132,37 @@ java:S13195"oThe type of "dataValutazione" should be an interface such as "List
 
 java:S13195"nThe type of "oraValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(ÇòÛÈıÿÿÿÿ8çëœÙ1
 
-java:S13197"dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8èëœÙ1
+java:S13197"dThe type of "nomi" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8èëœÙ1
 „
-java:S13197"gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8èëœÙ1
+java:S13197"gThe type of "cognomi" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8èëœÙ1
 ‡
-java:S13197"jThe type of "nomiUtente" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8èëœÙ1
+java:S13197"jThe type of "nomiUtente" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8èëœÙ1
 …
-java:S13197"hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8éëœÙ1
+java:S13197"hThe type of "password" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8éëœÙ1
 ‚
-java:S13197"eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8éëœÙ1
+java:S13197"eThe type of "email" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8éëœÙ1
 ˆ
-java:S13197"kThe type of "dataNascita" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8éëœÙ1
+java:S13197"kThe type of "dataNascita" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8éëœÙ1
 ‰
-java:S13197"lThe type of "dataProposta" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8êëœÙ1
+java:S13197"lThe type of "dataProposta" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8êëœÙ1
 ˆ
-java:S13197"kThe type of "oraProposta" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8êëœÙ1
+java:S13197"kThe type of "oraProposta" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8êëœÙ1
 Œ
-java:S13197"oThe type of "stringaInserita" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8êëœÙ1
+java:S13197"oThe type of "stringaInserita" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8êëœÙ1
 ˆ
-java:S13197"kThe type of "numerazione" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ëëœÙ1
+java:S13197"kThe type of "numerazione" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8ëëœÙ1
 ‚
-java:S13197"eThe type of "stato" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ëëœÙ1
+java:S13197"eThe type of "stato" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8ëëœÙ1
 Œ
-java:S13197"oThe type of "stringaProposta" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ëëœÙ1
+java:S13197"oThe type of "stringaProposta" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8ëëœÙ1
 Œ
-java:S13197"oThe type of "dataValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ìëœÙ1
+java:S13197"oThe type of "datavalutazione" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8ìëœÙ1
 ‹
-java:S13197"nThe type of "oraValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ìëœÙ1
+java:S13197"nThe type of "oraValutazione" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8óëœÙ1
 Œ
-java:S13197"oThe type of "dataInserimento" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8óëœÙ1
+java:S13197"oThe type of "dataInserimento" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8ÿÉ¬Ù1
 Š
-java:S13197"mThe type of "oraInseriento" should be an interface such as "List" rather than the implementation "ArrayList".(á´Ô„8ÿÉ¬Ù1
+java:S13197"mThe type of "oraInseriento" should be an interface such as "List" rather than the implementation "ArrayList".(¶¹Ô”8ğà„Ù1
 ƒ
 java:S1319;"fThe type of "titolo" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8íëœÙ1
 
@@ -198,18 +198,18 @@ java:S1319;"nThe type of "oraValutazione" should be an interface such as "List"
 Œ
 java:S1319;"oThe type of "dataInserimento" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ğà„Ù1
 Š
-java:S1319;"mThe type of "oraInseriento" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8ğà„Ù1
+java:S1319;"mThe type of "oraInseriento" should be an interface such as "List" rather than the implementation "ArrayList".(ı£±€8Ò·´çÙ1
 ƒ
 java:S1319="fThe type of "titoli" should be an interface such as "List" rather than the implementation "ArrayList".(ø±¸È8Ò·´çÙ1
 
-java:S1319="pThe type of "dataOraCreazione" should be an interface such as "List" rather than the implementation "ArrayList".(ø±¸È8Ò·´çÙ1
+java:S1319="pThe type of "dataOraCreazione" should be an interface such as "List" rather than the implementation "ArrayList".(ø±¸È8šóë™Ú1
 r	java:S117!"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş¦ õûÿÿÿÿ8ôëœÙ1
 ]	java:S107"<Method has 9 parameters, which is greater than 7 authorized.(±øëøÿÿÿÿ8µÄüëØ1
 ^	java:S107"=Method has 17 parameters, which is greater than 7 authorized.(™ìµûÿÿÿÿ8µÄüëØ1
 Y	java:S107"=Method has 11 parameters, which is greater than 7 authorized.(âÄÖü8úëœÙ1
 ^	java:S107#"=Method has 19 parameters, which is greater than 7 authorized.(Èõï×ûÿÿÿÿ8úëœÙ1
 ^	java:S1075"=Method has 16 parameters, which is greater than 7 authorized.(ÇòÛÈıÿÿÿÿ8úëœÙ1
-Y	java:S1077"=Method has 19 parameters, which is greater than 7 authorized.(á´Ô„8úëœÙ1
+Y	java:S1077"=Method has 19 parameters, which is greater than 7 authorized.(¶¹Ô”8úëœÙ1
 Y	java:S107;"=Method has 19 parameters, which is greater than 7 authorized.(ı£±€8úëœÙ1
 L
 java:S1128"*Remove this unused import 'GUI.Notifiche'.(şæèşÿÿÿÿ8ˆÊ¬Ù1

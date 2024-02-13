@@ -214,11 +214,10 @@ public class StoricoAutore {
             }
         }));
 
-        if (controller.contaNotifiche() > 0) {
+        if (controller.controllaNotifiche()) {
             notificheButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    controller.getNotifche();
                     Notifiche notifiche = new Notifiche(controller, frame);
                     frame.setVisible(false);
                     notifiche.frame.setVisible(true);
@@ -228,8 +227,14 @@ public class StoricoAutore {
             notificheButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Errori erorri = new Errori("Non ci sono notifiche");
-                    erorri.frame.setVisible(true);
+                    if (!controller.controllaNotifiche()) {
+                        Errori erorri = new Errori("Non ci sono notifiche");
+                        erorri.frame.setVisible(true);
+                    } else {
+                        Notifiche notifiche = new Notifiche(controller, frame);
+                        frame.setVisible(false);
+                        notifiche.frame.setVisible(true);
+                    }
                 }
             });
         }

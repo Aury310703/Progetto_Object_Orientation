@@ -35,6 +35,10 @@ public class Notifiche {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
+        for (int i = 0; i < controller.contaNotifiche(); i++) {
+            System.out.println(controller.getTitoloNotifica());
+        }
+
         titoloLabel.setText(controller.getTitoloNotifica());
         fraseDaModificareLAbel.setText(controller.getStringaSelezionata());
         FrasePropostaLabel.setText(controller.getFraseproposta());
@@ -44,7 +48,6 @@ public class Notifiche {
             public void actionPerformed(ActionEvent e) {
                 boolean controllo = controller.aggiornaStato(-1);
                 if (controllo) {
-
                     if (controller.contaNotifiche() > 0) {
                         Notifiche notifiche = new Notifiche(controller, frameChiamante);
                         frame.setVisible(false);

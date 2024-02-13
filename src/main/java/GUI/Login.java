@@ -78,6 +78,7 @@ public class Login {
                 if (verificato != 0) {
                     if (verificato == 2) {
                         boolean notifiche = controller.controllaNotifiche();
+                        controller.getNotifche();
                         if (notifiche) {
                             Errori errori = new Errori("hai delle notifiche");
                             errori.frame.setVisible(true);
