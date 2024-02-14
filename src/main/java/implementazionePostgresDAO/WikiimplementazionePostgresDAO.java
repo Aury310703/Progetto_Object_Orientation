@@ -719,17 +719,11 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         rsUtente.next();
         int idUtente = rsUtente.getInt("idutente");
 
-        String queryModifica = "SELECT * FROM modificaProposta WHERE autorev = ? AND utentep = ? AND stringaInserita = ? AND stringaProposta = ? AND dataproposta = ? AND oraProposta::time(0) = ?";
+        String queryModifica = "SELECT * FROM modificaProposta WHERE autorev = ? AND utentep = ? AND stringaInserita = ? AND stringaProposta = ? AND dataproposta = ? AND oraProposta::TIME(0) = ? AND stato = 0";
         PreparedStatement preparedStatementModifica = connection.prepareStatement(queryModifica);
         preparedStatementModifica.setInt(1, idAutore);
         preparedStatementModifica.setInt(2, idUtente);
         preparedStatementModifica.setString(3, stringaInserita);
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + stringaInserita);
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + stringaInserita);
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + stringaproposta);
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + dataProposta);
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + oraProposta);
-
         preparedStatementModifica.setString(4, stringaproposta);
         preparedStatementModifica.setDate(5, java.sql.Date.valueOf(dataProposta));
         preparedStatementModifica.setTime(6, Time.valueOf(oraProposta));
@@ -745,7 +739,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
 
             if (rowsAffected > 0) {
                 System.out.println("Aggiornamento riuscito!");
-//            notificaCorrente.getAutore().getNotificheRicevute().remove(0);
                 controllo = true;
             } else {
                 System.out.println("Nessuna riga aggiornata.");
@@ -772,15 +765,14 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         rsUtente.next();
         int idUtente = rsUtente.getInt("idutente");
 
-        String queryModifica = "SELECT * FROM modificaProposta WHERE autorev = ? AND utentep = ? AND stringaInserita = ? AND stringaProposta = ? AND dataproposta = ?";
+        String queryModifica = "SELECT * FROM modificaProposta WHERE autorev = ? AND utentep = ? AND stringaInserita = ? AND stringaProposta = ? AND dataproposta = ? AND oraProposta::time(0) = ?";
         PreparedStatement preparedStatementModifica = connection.prepareStatement(queryModifica);
         preparedStatementModifica.setInt(1, idAutore);
         preparedStatementModifica.setInt(2, idUtente);
         preparedStatementModifica.setString(3, stringaInserita);
         preparedStatementModifica.setString(4, stringaProposta);
         preparedStatementModifica.setDate(5, java.sql.Date.valueOf(dataProposta));
-        //preparedStatementModifica.setTime(6, Time.valueOf(oraProposta));
-        System.out.println("oraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + Time.valueOf(oraProposta));
+        preparedStatementModifica.setTime(6, Time.valueOf(oraProposta));
 
         ResultSet rsModifica = preparedStatementModifica.executeQuery();
         while(rsModifica.next()) {

@@ -227,14 +227,8 @@ public class StoricoAutore {
             notificheButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (!controller.controllaNotifiche()) {
                         Errori erorri = new Errori("Non ci sono notifiche");
                         erorri.frame.setVisible(true);
-                    } else {
-                        Notifiche notifiche = new Notifiche(controller, frame);
-                        frame.setVisible(false);
-                        notifiche.frame.setVisible(true);
-                    }
                 }
             });
         }

@@ -36,7 +36,7 @@ public class Notifiche {
         frame.pack();
 
         for (int i = 0; i < controller.contaNotifiche(); i++) {
-            System.out.println(controller.getTitoloNotifica());
+            System.out.println("8  " + controller.getTitoloNotifica());
         }
 
         titoloLabel.setText(controller.getTitoloNotifica());
@@ -48,6 +48,7 @@ public class Notifiche {
             public void actionPerformed(ActionEvent e) {
                 boolean controllo = controller.aggiornaStato(-1);
                 if (controllo) {
+                    controller.contaNotifiche();
                     if (controller.contaNotifiche() > 0) {
                         Notifiche notifiche = new Notifiche(controller, frameChiamante);
                         frame.setVisible(false);
