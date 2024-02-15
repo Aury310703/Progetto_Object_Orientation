@@ -18,10 +18,11 @@ public class Controller {
     private Utente utenteLoggato = null;
     private Autore autoreloggato = null;
     private Controller controller ;
-    private String titoloSelezionato;
+    private String titoloSelezionato  = null;;
     private ArrayList<Pagina> pagineTrovate;
-    private Pagina paginaSelezionata;
+    private Pagina paginaSelezionata  = null;;
     private ArrayList<Pagina> pagineModificateUtente;
+
     private ArrayList <ModificaProposta> modificheRicevute = new ArrayList<>();
     public Controller(){
 
@@ -72,8 +73,6 @@ public class Controller {
         ArrayList<String> frasiInserite = new ArrayList<>();
         ArrayList<LocalDate> dateInserimento = new ArrayList<>();
         ArrayList<Time> oreInserimento = new ArrayList<>();
-        for(Frase_Corrente f : paginaSelezionata.getFrasi()){
-        }
         try {
                 w.getFrasiCorrenti(paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), frasiInserite, dateInserimento, oreInserimento);
                 int numerazione = 0;
@@ -97,7 +96,7 @@ public class Controller {
                     try {
                         w2.getModificheModificate(paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), fraseCorrente.getStringa_inserita(), fraseCorrente.getNumerazione(), frasiProposte, dateProposte, oreProposte, datevalutazione, orevalutazione, stati, nomi, cognomi, logins, password, email, date);
                         for (int i = 0; i < frasiProposte.size(); i++) {
-                            System.out.println("------------------------- modifica " + i + " " + frasiProposte.get(i));
+                            System.out.println("------------------------- modifica utente " + autoreloggato.getFrasiProposte() );
                             Utente utente = new Utente(nomi.get(i), cognomi.get(i), logins.get(i), password.get(i), email.get(i), date.get(i));
                             ModificaProposta modificaProposta = new ModificaProposta(dateProposte.get(i), oreProposte.get(i), paginaSelezionata.getAutore(), utente, fraseCorrente, frasiProposte.get(i), numerazione, stati.get(i));
                             if (datevalutazione.get(i).isPresent()) {
@@ -157,9 +156,6 @@ public class Controller {
 
 
     public int verificaLoggato(String login, String password) {
-        this.titoloSelezionato = null;
-        this.pagineTrovate = new ArrayList<>();
-        this.paginaSelezionata = null;
         this.pagineModificateUtente = new ArrayList<>();
         int controllo = 0;
         WikiDAO w = new WikiimplementazionePostgresDAO();
@@ -502,7 +498,6 @@ public class Controller {
                     }
                     int controllo;
                     for (int i = 0; i < autoreloggato.getFrasiProposte().size(); i++) {
-                        System.out.println("----------------**************" + pagineModificateUtente.size());
                         controllo = 0;
                         for (int j = 0; j < pagineModificateUtente.size(); j++) {
                             if (pagineModificateUtente.get(j).getTitolo().equals(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getTitolo()) && pagineModificateUtente.get(j).getDataCreazione().equals(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getDataCreazione())) {
@@ -511,6 +506,7 @@ public class Controller {
                         }
                         if (controllo == 0) {
                             modifiche.add(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getTitolo());
+                            System.out.println("----------------**************" + modifiche);
                             pagineModificateUtente.add(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina());
                         }
                     }
@@ -567,6 +563,7 @@ public class Controller {
     }
 
     public ArrayList<String> getTitoliCercati(String titoloInserito){
+        this.pagineTrovate = new ArrayList<>();
         ArrayList<String> titoliCercati = new ArrayList<>();
         WikiDAO w = new WikiimplementazionePostgresDAO();
         ArrayList<String> titoli = new ArrayList<>();
@@ -789,7 +786,6 @@ public class Controller {
 
     public ArrayList<String> getFrasiSelezionate() {
         ArrayList<String> frasiSelezionate = new ArrayList<>();
-
         ArrayList<ModificaProposta> modifichePagina = new ArrayList<>();
 
         if (utenteLoggato != null) {
@@ -839,13 +835,19 @@ public class Controller {
                     System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" + f.getStringa_inserita());
                 }
             }
+
+            for(int i = 0; i < paginaSelezionata.getFrasi().size(); i++){
+                System.out.println("0-0-0-0-0-0-0 " + paginaSelezionata.getFrasi().get(i).getStringa_inserita() + " " + paginaSelezionata.getFrasi().get(i).getNumerazione() + " " + paginaSelezionata.getFrasi().get(i).getOraInserimento());
+            }
             int controllo = 0;
             System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
             for (ModificaProposta modificheUtente : modifichePagina) {
                 System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>" + modificheUtente.getStringa_inserita() + "  " + modificheUtente.getUtente().getLogin());
                 Pagina pagina = paginaSelezionata;
-                for (Frase_Corrente f : pagina.getFrasi()) {
-                    if (f.getNumerazione() == modificheUtente.getFraseCorrente().getNumerazione() && autoreloggato.getLogin().equals(modificheUtente.getUtente().getLogin())) {
+                for(int i = 0; i < pagina.getFrasi().size(); i++){
+                    Frase_Corrente f = pagina.getFrasi().get(i);
+
+                    if (f.getNumerazione() == modificheUtente.getFraseCorrente().getNumerazione()) {
                         String fraseTemp = f.getStringa_inserita();
                         LocalDate dataProposta = modificheUtente.getDataProposta();
                         Time oraProposta = Time.valueOf(modificheUtente.getOraProposta());
@@ -853,7 +855,7 @@ public class Controller {
                         Time oraMax = null;
                         int primaModifica = 0;
                         for (ModificaProposta m : f.getProposte()) {
-                            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  " + m.getStringa_inserita());
                             if (primaModifica == 0 && m.getStato() == 1 && (m.getDataValutazione().isBefore(dataProposta) || m.getDataValutazione().equals(dataProposta)) && m.getOraValutazione().isBefore(oraProposta.toLocalTime())) {
                                 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 primaModifica = 1;

@@ -38,8 +38,6 @@ public class DettagliModifiche {
         tableDettagli.setModel(model);
         tableDettagli.setRowHeight(50);
 
-        controller.getTestoPagina();
-
         ArrayList<String> frasiSelezionate = controller.getFrasiSelezionate();
         ArrayList<String> frasiProposte = controller.getFrasiproposte();
         ArrayList<Integer> stati = controller.getstati();
