@@ -17,12 +17,11 @@ public class Controller {
 
     private Utente utenteLoggato = null;
     private Autore autoreloggato = null;
-
-    private String titoloSelezionato = null;
-    private ArrayList<Pagina> pagineTrovate = new ArrayList<>();
     private Controller controller ;
-    private Pagina paginaSelezionata = null;
-    private ArrayList<Pagina> pagineModificateUtente = new ArrayList<>();
+    private String titoloSelezionato;
+    private ArrayList<Pagina> pagineTrovate;
+    private Pagina paginaSelezionata;
+    private ArrayList<Pagina> pagineModificateUtente;
     private ArrayList <ModificaProposta> modificheRicevute = new ArrayList<>();
     public Controller(){
 
@@ -74,10 +73,8 @@ public class Controller {
         ArrayList<LocalDate> dateInserimento = new ArrayList<>();
         ArrayList<Time> oreInserimento = new ArrayList<>();
         for(Frase_Corrente f : paginaSelezionata.getFrasi()){
-
         }
         try {
-            if(paginaSelezionata.getFrasi().isEmpty()) {
                 w.getFrasiCorrenti(paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), frasiInserite, dateInserimento, oreInserimento);
                 int numerazione = 0;
                 for (String frase : frasiInserite) {
@@ -100,7 +97,7 @@ public class Controller {
                     try {
                         w2.getModificheModificate(paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), fraseCorrente.getStringa_inserita(), fraseCorrente.getNumerazione(), frasiProposte, dateProposte, oreProposte, datevalutazione, orevalutazione, stati, nomi, cognomi, logins, password, email, date);
                         for (int i = 0; i < frasiProposte.size(); i++) {
-
+                            System.out.println("------------------------- modifica " + i + " " + frasiProposte.get(i));
                             Utente utente = new Utente(nomi.get(i), cognomi.get(i), logins.get(i), password.get(i), email.get(i), date.get(i));
                             ModificaProposta modificaProposta = new ModificaProposta(dateProposte.get(i), oreProposte.get(i), paginaSelezionata.getAutore(), utente, fraseCorrente, frasiProposte.get(i), numerazione, stati.get(i));
                             if (datevalutazione.get(i).isPresent()) {
@@ -113,7 +110,6 @@ public class Controller {
                     }
                     numerazione++;
                 }
-            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -161,6 +157,10 @@ public class Controller {
 
 
     public int verificaLoggato(String login, String password) {
+        this.titoloSelezionato = null;
+        this.pagineTrovate = new ArrayList<>();
+        this.paginaSelezionata = null;
+        this.pagineModificateUtente = new ArrayList<>();
         int controllo = 0;
         WikiDAO w = new WikiimplementazionePostgresDAO();
         String nome = w.getNomeUtente(login, password);
@@ -381,22 +381,39 @@ public class Controller {
         ArrayList<LocalTime> oreVisioni = new ArrayList<>();
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
-            if(utenteLoggato != null)
-                w.storicoPagineVisualizzate(utenteLoggato.getLogin(), titoli, dateOreCreazioni, nomi, cognomi, nomiUtente, password, email, dataNascita, dateVisioni, oreVisioni);
-            else if(autoreloggato != null)
-                w.storicoPagineVisualizzate(autoreloggato.getLogin(), titoli, dateOreCreazioni, nomi, cognomi, nomiUtente, password, email, dataNascita, dateVisioni, oreVisioni);
-
-            for(int i = 0; i < titoli.size(); i++){
-                Pagina pagina = new Pagina(titoli.get(i), dateOreCreazioni.get(i), nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
-                if(utenteLoggato != null) {
-                    Visiona visiona = new Visiona(dateVisioni.get(i), oreVisioni.get(i), pagina, utenteLoggato);
-                }else if(autoreloggato != null) {
-                    Visiona visiona = new Visiona(dateVisioni.get(i), oreVisioni.get(i), pagina, autoreloggato);
-                }
+            if(utenteLoggato != null) {
+                if (utenteLoggato.getPagineVisualizzate().size() == 0)
+                    w.storicoPagineVisualizzate(utenteLoggato.getLogin(), titoli, dateOreCreazioni, nomi, cognomi, nomiUtente, password, email, dataNascita, dateVisioni, oreVisioni);
+            }else if(autoreloggato != null) {
+                if (autoreloggato.getPagineVisualizzate().size() == 0)
+                    w.storicoPagineVisualizzate(autoreloggato.getLogin(), titoli, dateOreCreazioni, nomi, cognomi, nomiUtente, password, email, dataNascita, dateVisioni, oreVisioni);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+            if(titoli.size() > 0) {
+                for (int i = 0; i < titoli.size(); i++) {
+                    Pagina pagina = new Pagina(titoli.get(i), dateOreCreazioni.get(i), nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
+                    if (utenteLoggato != null) {
+                        Visiona visiona = new Visiona(dateVisioni.get(i), oreVisioni.get(i), pagina, utenteLoggato);
+                    } else if (autoreloggato != null) {
+                        Visiona visiona = new Visiona(dateVisioni.get(i), oreVisioni.get(i), pagina, autoreloggato);
+                    }
+                }
+            }else {
+                if (utenteLoggato != null) {
+                    for (int i = 0; i < utenteLoggato.getPagineVisualizzate().size(); i++) {
+                        System.out.println("- " + utenteLoggato.getPagineVisualizzate().get(i).getPagina().getTitolo());
+                        titoli.add(utenteLoggato.getPagineVisualizzate().get(i).getPagina().getTitolo());
+                    }
+                } else if (autoreloggato != null) {
+                    for (int i = 0; i < autoreloggato.getPagineVisualizzate().size(); i++) {
+                        System.out.println("- " + autoreloggato.getPagineVisualizzate().get(i).getPagina().getTitolo());
+                        titoli.add(autoreloggato.getPagineVisualizzate().get(i).getPagina().getTitolo());
+                    }
+                }
+            }
         return titoli;
     }
 
@@ -419,7 +436,6 @@ public class Controller {
     }
 
     public ArrayList<String> getModificate() {
-        pagineModificateUtente = new ArrayList<>();
         ArrayList <String> modifiche = new ArrayList<>();
         ArrayList<String> nomi = new ArrayList<>();
         ArrayList<String> cognomi = new ArrayList<>();
@@ -443,56 +459,67 @@ public class Controller {
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
             if(utenteLoggato != null) {
-                w.getModificate(utenteLoggato.getLogin(), titolo, dataOraCreazione, nomi, cognomi, nomiUtente, password, email, dataNascita, dataProposta, oraProposta, stringaInserita, numerazione, stato, stringaProposta, datevalutazione, orevalutazione, dataInserimento, oraInseriento);
-                for(int i = 0; i < nomi.size(); i++) {
-                    Pagina pagina = new Pagina(titolo.get(i), dataOraCreazione.get(i), nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
-                    Frase_Corrente fraseCorrente = new Frase_Corrente(stringaInserita.get(i), numerazione.get(i), pagina, dataInserimento.get(i), oraInseriento.get(i));
-                    ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i),oraProposta.get(i), pagina.getAutore(), utenteLoggato, fraseCorrente, stringaProposta.get(i), numerazione.get(i), stato.get(i));
-                    if(datevalutazione.get(i).isPresent()) {
-                        modificaProposta.setDataValutazione(datevalutazione.get(i).get());
-                        modificaProposta.setOraValutazione(orevalutazione.get(i).get());
-                    }
-                }
-                int controllo;
-                for (int i = 0; i < utenteLoggato.getFrasiProposte().size(); i++){
-                    controllo = 0;
-                    for(int j = 0; j < pagineModificateUtente.size(); j++){
-                        if(pagineModificateUtente.get(j).getTitolo().equals(utenteLoggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getTitolo()) && pagineModificateUtente.get(j).getDataCreazione().equals(utenteLoggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getDataCreazione())){
-                            controllo = 1;
+                if(pagineModificateUtente.isEmpty()) {
+                    w.getModificate(utenteLoggato.getLogin(), titolo, dataOraCreazione, nomi, cognomi, nomiUtente, password, email, dataNascita, dataProposta, oraProposta, stringaInserita, numerazione, stato, stringaProposta, datevalutazione, orevalutazione, dataInserimento, oraInseriento);
+                    for (int i = 0; i < nomi.size(); i++) {
+                        Pagina pagina = new Pagina(titolo.get(i), dataOraCreazione.get(i), nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
+                        Frase_Corrente fraseCorrente = new Frase_Corrente(stringaInserita.get(i), numerazione.get(i), pagina, dataInserimento.get(i), oraInseriento.get(i));
+                        ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), pagina.getAutore(), utenteLoggato, fraseCorrente, stringaProposta.get(i), numerazione.get(i), stato.get(i));
+                        if (datevalutazione.get(i).isPresent()) {
+                            modificaProposta.setDataValutazione(datevalutazione.get(i).get());
+                            modificaProposta.setOraValutazione(orevalutazione.get(i).get());
                         }
                     }
-                    if(controllo == 0){
-                        modifiche.add(utenteLoggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getTitolo());
-                        pagineModificateUtente.add(utenteLoggato.getFrasiProposte().get(i).getFraseCorrente().getPagina());
-                    }
-                }
-            }else{
-                w.getModificate(autoreloggato.getLogin(), titolo, dataOraCreazione, nomi, cognomi, nomiUtente, password, email, dataNascita, dataProposta, oraProposta, stringaInserita, numerazione, stato, stringaProposta, datevalutazione, orevalutazione, dataInserimento, oraInseriento);
-                for(int i = 0; i < nomi.size(); i++) {
-                    Pagina pagina = new Pagina(titolo.get(i), dataOraCreazione.get(i), nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
-                    Frase_Corrente fraseCorrente = new Frase_Corrente(stringaInserita.get(i), numerazione.get(i), pagina, dataInserimento.get(i), oraInseriento.get(i));
-                    ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), pagina.getAutore(), autoreloggato, fraseCorrente, stringaProposta.get(i), numerazione.get(i), stato.get(i));
-                    if(datevalutazione.get(i).isPresent()) {
-                        modificaProposta.setDataValutazione(datevalutazione.get(i).get());
-                        modificaProposta.setOraValutazione(orevalutazione.get(i).get());
-                    }
-                }
-                int controllo;
-                for (int i = 0; i < autoreloggato.getFrasiProposte().size(); i++){
-                    System.out.println("----------------**************" + pagineModificateUtente.size());
-                    controllo = 0;
-                    for(int j = 0; j < pagineModificateUtente.size(); j++){
-                        if(pagineModificateUtente.get(j).getTitolo().equals(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getTitolo()) && pagineModificateUtente.get(j).getDataCreazione().equals(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getDataCreazione())){
-                            controllo = 1;
+                    int controllo;
+                    for (int i = 0; i < utenteLoggato.getFrasiProposte().size(); i++) {
+                        controllo = 0;
+                        for (int j = 0; j < pagineModificateUtente.size(); j++) {
+                            if (pagineModificateUtente.get(j).getTitolo().equals(utenteLoggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getTitolo()) && pagineModificateUtente.get(j).getDataCreazione().equals(utenteLoggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getDataCreazione())) {
+                                controllo = 1;
+                            }
+                        }
+                        if (controllo == 0) {
+                            modifiche.add(utenteLoggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getTitolo());
+                            pagineModificateUtente.add(utenteLoggato.getFrasiProposte().get(i).getFraseCorrente().getPagina());
                         }
                     }
-                    if(controllo == 0){
-                        modifiche.add(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getTitolo());
-                        pagineModificateUtente.add(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina());
+                }else{
+                    for(Pagina p : pagineModificateUtente){
+                        modifiche.add(p.getTitolo());
+                    }
+                }
+            }else {
+                if (pagineModificateUtente.isEmpty()) {
+                    w.getModificate(autoreloggato.getLogin(), titolo, dataOraCreazione, nomi, cognomi, nomiUtente, password, email, dataNascita, dataProposta, oraProposta, stringaInserita, numerazione, stato, stringaProposta, datevalutazione, orevalutazione, dataInserimento, oraInseriento);
+                    for (int i = 0; i < nomi.size(); i++) {
+                        Pagina pagina = new Pagina(titolo.get(i), dataOraCreazione.get(i), nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
+                        Frase_Corrente fraseCorrente = new Frase_Corrente(stringaInserita.get(i), numerazione.get(i), pagina, dataInserimento.get(i), oraInseriento.get(i));
+                        ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), pagina.getAutore(), autoreloggato, fraseCorrente, stringaProposta.get(i), numerazione.get(i), stato.get(i));
+                        if (datevalutazione.get(i).isPresent()) {
+                            modificaProposta.setDataValutazione(datevalutazione.get(i).get());
+                            modificaProposta.setOraValutazione(orevalutazione.get(i).get());
+                        }
+                    }
+                    int controllo;
+                    for (int i = 0; i < autoreloggato.getFrasiProposte().size(); i++) {
+                        System.out.println("----------------**************" + pagineModificateUtente.size());
+                        controllo = 0;
+                        for (int j = 0; j < pagineModificateUtente.size(); j++) {
+                            if (pagineModificateUtente.get(j).getTitolo().equals(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getTitolo()) && pagineModificateUtente.get(j).getDataCreazione().equals(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getDataCreazione())) {
+                                controllo = 1;
+                            }
+                        }
+                        if (controllo == 0) {
+                            modifiche.add(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina().getTitolo());
+                            pagineModificateUtente.add(autoreloggato.getFrasiProposte().get(i).getFraseCorrente().getPagina());
+                        }
+                    }
+                }else{
+                    for(Pagina p : pagineModificateUtente){
+                        modifiche.add(p.getTitolo());
                     }
                 }
             }
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -501,12 +528,9 @@ public class Controller {
 
     public ArrayList<String> storicoPagineCreate() {
         ArrayList<String> titoli = new ArrayList<>();
-        System.out.println("==================================================================");
         for(int i = 0; i < autoreloggato.getCreazioni().size(); i++){
             titoli.add(autoreloggato.getCreazioni().get(i).getTitolo());
-            System.out.println(titoli.get(i));
         }
-        System.out.println("==================================================================");
 
         return titoli;
     }
@@ -763,16 +787,16 @@ public class Controller {
         return autoreloggato.getNotificheRicevute().get(0).getModifica().getStringa_inserita();
     }
 
-    public ArrayList<String> getFrasiSelezionate(int numPaginaSelezionata) {
+    public ArrayList<String> getFrasiSelezionate() {
         ArrayList<String> frasiSelezionate = new ArrayList<>();
 
         ArrayList<ModificaProposta> modifichePagina = new ArrayList<>();
 
         if (utenteLoggato != null) {
             for(ModificaProposta f : utenteLoggato.getFrasiProposte()){
-                System.out.println(f.getFraseCorrente().getPagina().getTitolo() + " vs " + pagineModificateUtente.get(numPaginaSelezionata).getTitolo());
-                System.out.println(f.getFraseCorrente().getPagina().getDataCreazione() + " vs " + pagineModificateUtente.get(numPaginaSelezionata).getDataCreazione());
-                if(f.getFraseCorrente().getPagina().getTitolo().equals(pagineModificateUtente.get(numPaginaSelezionata).getTitolo()) && f.getFraseCorrente().getPagina().getDataCreazione().equals(pagineModificateUtente.get(numPaginaSelezionata).getDataCreazione())){
+                System.out.println(f.getFraseCorrente().getPagina().getTitolo() + " vs " + paginaSelezionata.getTitolo());
+                System.out.println(f.getFraseCorrente().getPagina().getDataCreazione() + " vs " + paginaSelezionata.getTitolo());
+                if(f.getFraseCorrente().getPagina().getTitolo().equals(paginaSelezionata.getTitolo()) && f.getFraseCorrente().getPagina().getDataCreazione().equals(paginaSelezionata.getDataCreazione())){
                     modifichePagina.add(f);
                     System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" + modifichePagina);
                 }
@@ -810,7 +834,7 @@ public class Controller {
             }
         } else {
             for(ModificaProposta f : autoreloggato.getFrasiProposte()){
-               if(f.getFraseCorrente().getPagina().getTitolo().equals(pagineModificateUtente.get(numPaginaSelezionata).getTitolo()) && f.getFraseCorrente().getPagina().getDataCreazione().equals(pagineModificateUtente.get(numPaginaSelezionata).getDataCreazione())){
+                if(f.getFraseCorrente().getPagina().getTitolo().equals(paginaSelezionata.getTitolo()) && f.getFraseCorrente().getPagina().getDataCreazione().equals(paginaSelezionata.getDataCreazione())){
                     modifichePagina.add(f);
                     System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" + f.getStringa_inserita());
                 }
@@ -818,10 +842,10 @@ public class Controller {
             int controllo = 0;
             System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
             for (ModificaProposta modificheUtente : modifichePagina) {
-                System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>" + modificheUtente.getStringa_inserita());
-                Pagina pagina = modificheUtente.getFraseCorrente().getPagina();
+                System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>" + modificheUtente.getStringa_inserita() + "  " + modificheUtente.getUtente().getLogin());
+                Pagina pagina = paginaSelezionata;
                 for (Frase_Corrente f : pagina.getFrasi()) {
-                    if (f.getNumerazione() == modificheUtente.getFraseCorrente().getNumerazione()) {
+                    if (f.getNumerazione() == modificheUtente.getFraseCorrente().getNumerazione() && autoreloggato.getLogin().equals(modificheUtente.getUtente().getLogin())) {
                         String fraseTemp = f.getStringa_inserita();
                         LocalDate dataProposta = modificheUtente.getDataProposta();
                         Time oraProposta = Time.valueOf(modificheUtente.getOraProposta());
@@ -829,12 +853,16 @@ public class Controller {
                         Time oraMax = null;
                         int primaModifica = 0;
                         for (ModificaProposta m : f.getProposte()) {
+                            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
                             if (primaModifica == 0 && m.getStato() == 1 && (m.getDataValutazione().isBefore(dataProposta) || m.getDataValutazione().equals(dataProposta)) && m.getOraValutazione().isBefore(oraProposta.toLocalTime())) {
+                                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 primaModifica = 1;
                                 dataMax = m.getDataValutazione();
                                 oraMax = Time.valueOf(m.getOraValutazione());
                                 fraseTemp = m.getStringa_inserita();
+                                System.out.println(fraseTemp);
                             }else if (m.getStato() == 1 && (m.getDataValutazione().isBefore(dataProposta) || m.getDataValutazione().equals(dataProposta)) && m.getOraValutazione().isBefore(oraProposta.toLocalTime())) {
+                                System.out.println("_______________________________________________________________________________________________________");
                                 if(m.getDataValutazione().isAfter(dataMax) || m.getDataValutazione().equals(dataMax) && m.getOraValutazione().isAfter(oraMax.toLocalTime())){
                                     dataMax = m.getDataValutazione();
                                     oraMax = Time.valueOf(m.getOraValutazione());
@@ -844,6 +872,7 @@ public class Controller {
                             }
                         }
                         frasiSelezionate.add(fraseTemp);
+                        System.out.println("----------------------------   " + fraseTemp + "  -------------------------------");
                     }
                 }
             }
@@ -861,11 +890,11 @@ public class Controller {
         return frasiSelezionate;
     }
 
-    public ArrayList<String> getFrasiproposte(int numPaginaSelezionata) {
+    public ArrayList<String> getFrasiproposte() {
         ArrayList<String> frasi = new ArrayList<>();
         if(utenteLoggato != null){
             for(ModificaProposta f : utenteLoggato.getFrasiProposte()) {
-                if(f.getFraseCorrente().getPagina().getTitolo().equals(pagineModificateUtente.get(numPaginaSelezionata).getTitolo()) && f.getFraseCorrente().getPagina().getDataCreazione().equals(pagineModificateUtente.get(numPaginaSelezionata).getDataCreazione())){
+                if(f.getFraseCorrente().getPagina().getTitolo().equals(paginaSelezionata.getTitolo()) && f.getFraseCorrente().getPagina().getDataCreazione().equals(paginaSelezionata.getDataCreazione())){
                     frasi.add(f.getStringa_inserita());
                 }
 
@@ -873,7 +902,7 @@ public class Controller {
             }
         }else {
             for (ModificaProposta f : autoreloggato.getFrasiProposte()) {
-                if(f.getFraseCorrente().getPagina().getTitolo().equals(pagineModificateUtente.get(numPaginaSelezionata).getTitolo()) && f.getFraseCorrente().getPagina().getDataCreazione().equals(pagineModificateUtente.get(numPaginaSelezionata).getDataCreazione())){
+                if(f.getFraseCorrente().getPagina().getTitolo().equals(paginaSelezionata.getTitolo()) && f.getFraseCorrente().getPagina().getDataCreazione().equals(paginaSelezionata.getDataCreazione())){
                     frasi.add(f.getStringa_inserita());
                 }
             }
@@ -881,18 +910,18 @@ public class Controller {
         return frasi;
     }
 
-    public ArrayList<Integer> getstati(int numPaginaSelezionata) {
+    public ArrayList<Integer> getstati() {
         ArrayList<Integer> stati = new ArrayList<>();
         if(utenteLoggato != null){
             for(ModificaProposta f : utenteLoggato.getFrasiProposte()) {
-                if(f.getFraseCorrente().getPagina().getTitolo().equals(pagineModificateUtente.get(numPaginaSelezionata).getTitolo()) && f.getFraseCorrente().getPagina().getDataCreazione().equals(pagineModificateUtente.get(numPaginaSelezionata).getDataCreazione())){
+                if(f.getFraseCorrente().getPagina().getTitolo().equals(paginaSelezionata.getTitolo()) && f.getFraseCorrente().getPagina().getDataCreazione().equals(paginaSelezionata.getDataCreazione())){
                     stati.add(f.getStato());
                 }
 
             }
         }else {
             for (ModificaProposta f : autoreloggato.getFrasiProposte()) {
-                if(f.getFraseCorrente().getPagina().getTitolo().equals(pagineModificateUtente.get(numPaginaSelezionata).getTitolo()) && f.getFraseCorrente().getPagina().getDataCreazione().equals(pagineModificateUtente.get(numPaginaSelezionata).getDataCreazione())){
+                if(f.getFraseCorrente().getPagina().getTitolo().equals(paginaSelezionata.getTitolo()) && f.getFraseCorrente().getPagina().getDataCreazione().equals(paginaSelezionata.getDataCreazione())){
                     stati.add(f.getStato());
                 }
             }
@@ -906,6 +935,11 @@ public class Controller {
             utenteLoggato = null;
         else
             autoreloggato = null;
+
+    }
+
+    public void setPaginaModificata(int numeroPaginaModificata) {
+        paginaSelezionata = pagineModificateUtente.get(numeroPaginaModificata);
 
     }
 }

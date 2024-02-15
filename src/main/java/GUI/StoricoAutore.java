@@ -98,6 +98,7 @@ public class StoricoAutore {
 
         ArrayList<String> pagineModificate = controller.getModificate();
 
+
         DefaultTableModel modelProposte = new DefaultTableModel(new Object[][]{}, new String[]{"Modifiche Proposte"}) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -119,9 +120,9 @@ public class StoricoAutore {
                         String titolo = cellValue.toString();
                         System.out.println(titolo);
 
-                        controller.setPaginaVisualizzata(selectedRow);
+                        controller.setPaginaModificata(selectedRow);
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
-                        DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame, selectedRow);
+                        DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame);
                         dettagliModifiche.frame.setLocationRelativeTo(frame);
                         //paginaTesto.frame.setResizable(false);
                         //paginaTesto.frame.setSize(400, 200);

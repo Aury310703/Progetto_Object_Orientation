@@ -1,4 +1,23 @@
 
+
+java:S13193"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¤ßª°8’ÑµêØ1
+…
+java:S1319<"hThe type of "valutate" should be an interface such as "List" rather than the implementation "ArrayList".(ìæ¢¯8“ÑµêØ1
+
+java:S1319W"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(©ô±8”ÑµêØ1
+†
+java:S1319`"iThe type of "creazioni" should be an interface such as "List" rather than the implementation "ArrayList".(ö®ÑÀ8”ÑµêØ1
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™™òøÿÿÿÿ8¸èï‘Ó1
+T
+java:S2387-"7"notificheRicevute" is the name of a field in "Utente".(°ôãã8™ÑµêØ1
+b	java:S107'"AConstructor has 8 parameters, which is greater than 7 authorized.(Å¦¿üÿÿÿÿ8šÑµêØ1
 H
 java:S1481)"+Remove this unused "pagina" local variable.(š«“ì8ÀèÆ˜Ú1
+W
+java:S1161u":Add the "@Override" annotation above this method signature(øĞ—Ö8¤ÑµêØ1
+W
+java:S1161x":Add the "@Override" annotation above this method signature(ô¢¢ï8¤ÑµêØ1
+\
+java:S1161{":Add the "@Override" annotation above this method signature(©ıç¿ıÿÿÿÿ8¤ÑµêØ1
+V
+java:S1161~":Add the "@Override" annotation above this method signature(ÿéÄI8¥ÑµêØ1

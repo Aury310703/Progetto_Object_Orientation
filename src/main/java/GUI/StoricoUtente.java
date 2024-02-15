@@ -137,7 +137,7 @@ public class StoricoUtente {
                         System.out.println(titolo);
 
                         //PaginaTesto paginaTesto = new PaginaTesto(controller, frame, pagineModificate.get(selectedRow));
-                        DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame, selectedRow);
+                        DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame);
                         dettagliModifiche.frame.setLocationRelativeTo(frame);
                         //paginaTesto.frame.setResizable(false);
                         //paginaTesto.frame.setSize(400, 200);

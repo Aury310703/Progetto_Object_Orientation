@@ -102,6 +102,7 @@ public class Utente {
     }
 
     public ArrayList<Visiona> getPagineVisualizzate() {
+        System.out.println("pagine visualizzATE " + pagineVisualizzate.size());
         return pagineVisualizzate;
     }
 

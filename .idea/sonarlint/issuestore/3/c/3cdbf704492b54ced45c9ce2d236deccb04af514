@@ -32,3 +32,6 @@ S
 java:S2696z"6Make the enclosing method "static" or remove this set.(§¾ã8¿€í»Ò1
 k	java:S100†"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8¿€í»Ò1
 p	java:S100¡"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8Â€í»Ò1
+M
+java:S1128
+"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Ó‹ºãÚ1

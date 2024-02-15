@@ -10,8 +10,9 @@ java:S1319\"qThe type of "notificheRicevute" should be an interface such as "Li
 
 java:S1319h"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(˜ ¼ÿ8 ÉĞÒ1
 ”
-java:S1319l"rThe type of "pagineVisualizzate" should be an interface such as "List" rather than the implementation "ArrayList".(¸ö“ıÿÿÿÿ8 ÉĞÒ1
+java:S1319m"rThe type of "pagineVisualizzate" should be an interface such as "List" rather than the implementation "ArrayList".(¸ö“ıÿÿÿÿ8 ÉĞÒ1
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™™òøÿÿÿÿ8¡ÉĞÒ1
 q	java:S116
 "PRename this field "Email" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Äé¡…úÿÿÿÿ8©ÉĞÒ1
 w	java:S116"VRename this field "DataNascita" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤¸şÿÿÿÿ8©ÉĞÒ1
+G	java:S106i"+Replace this use of System.out by a logger.(îıÛ8å´ÊáÚ1

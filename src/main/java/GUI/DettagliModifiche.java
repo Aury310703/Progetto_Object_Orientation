@@ -23,7 +23,7 @@ public class DettagliModifiche {
 
     public Controller controller;
 
-    public DettagliModifiche(Controller controller, JFrame frameChiamante, int numPaginaSelezionata) {
+    public DettagliModifiche(Controller controller, JFrame frameChiamante) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);
@@ -38,11 +38,11 @@ public class DettagliModifiche {
         tableDettagli.setModel(model);
         tableDettagli.setRowHeight(50);
 
-        //controller.getTestoPagina();
+        controller.getTestoPagina();
 
-        ArrayList<String> frasiSelezionate = controller.getFrasiSelezionate(numPaginaSelezionata);
-        ArrayList<String> frasiProposte = controller.getFrasiproposte(numPaginaSelezionata);
-        ArrayList<Integer> stati = controller.getstati(numPaginaSelezionata);
+        ArrayList<String> frasiSelezionate = controller.getFrasiSelezionate();
+        ArrayList<String> frasiProposte = controller.getFrasiproposte();
+        ArrayList<Integer> stati = controller.getstati();
 
         String stato = null;
         int i = 0;

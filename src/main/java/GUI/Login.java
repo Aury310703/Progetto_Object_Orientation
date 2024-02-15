@@ -1,5 +1,6 @@
 package GUI;
 
+import MODEL.Pagina;
 import controller.Controller;
 
 import javax.swing.*;
@@ -7,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 

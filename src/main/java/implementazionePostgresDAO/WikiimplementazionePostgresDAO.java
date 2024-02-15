@@ -441,7 +441,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             rsUtente.next();
             int idUtente = rsUtente.getInt("idutente");
 
-            String query = "SELECT * FROM visiona WHERE idUtente = ? ORDER BY dataVisone DESC, oraVisione DESC";
+            String query = "SELECT * FROM visiona WHERE idUtente = ? ORDER BY dataVisone ASC, oraVisione ASC";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, idUtente);
             ResultSet rs = preparedStatement.executeQuery();
