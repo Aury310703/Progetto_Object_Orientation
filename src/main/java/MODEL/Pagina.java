@@ -85,8 +85,8 @@ public class Pagina {
         return frasi;
     }
 
-    public void setFrasi(ArrayList<Frase_Corrente> frasi) {
-        frasi = frasi;
+    public void setFrasi(ArrayList<Frase_Corrente> frasiCorrenti) {
+        this.frasi = frasiCorrenti;
     }
 
     public void addFrasi(Frase_Corrente f){

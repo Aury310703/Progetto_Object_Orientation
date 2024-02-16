@@ -26,7 +26,6 @@ public class PaginaTesto {
     private JLabel dataCreazioneLabel;
     private JButton modificaButton;
     private JButton Versionebutton;
-    //private JLabel testoLabel;
     public String locale = "it_IT";
 
     public PaginaTesto(Controller controller, JFrame frameC) {

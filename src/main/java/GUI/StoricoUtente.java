@@ -59,8 +59,6 @@ public class StoricoUtente {
         nomeUtenteLabel2.setText(controller.getLoginLoggato());
 
 
-        // utente.setPagineVisualizzate(controller.storicoPagineVisualizzate(utente));
-
         DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Pagine Visualizzate"}) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -114,6 +112,8 @@ public class StoricoUtente {
             }
         }));
 
+        ArrayList<String> pagineModificate = controller.getModificate();
+
         DefaultTableModel modelDestra = new DefaultTableModel(new Object[][]{}, new String[]{"Modifiche Proposte"}) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -122,7 +122,7 @@ public class StoricoUtente {
         };
         tableModProposte.setModel(modelDestra);
         tableModProposte.setRowHeight(50);
-        ArrayList<String> pagineModificate = controller.getModificate();
+
         for (String pagine : pagineModificate) {
             modelDestra.addRow(new Object[]{pagine});
         }
@@ -135,8 +135,8 @@ public class StoricoUtente {
                         Object cellValue = tableModProposte.getValueAt(selectedRow, 0);
                         String titolo = cellValue.toString();
                         System.out.println(titolo);
-
-                        //PaginaTesto paginaTesto = new PaginaTesto(controller, frame, pagineModificate.get(selectedRow));
+                        controller.setPaginaModificata(selectedRow);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
                         DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame);
                         dettagliModifiche.frame.setLocationRelativeTo(frame);
                         //paginaTesto.frame.setResizable(false);

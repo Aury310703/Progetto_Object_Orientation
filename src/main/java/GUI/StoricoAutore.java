@@ -181,7 +181,6 @@ public class StoricoAutore {
                     if (selectedRow != -1) {
                         Object cellValue = pagineCreateTable.getValueAt(selectedRow, 0);
                         String titolo = cellValue.toString();
-                        System.out.println("------------------------" + selectedRow);
 
                         controller.setPaginaCreata(selectedRow);
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame);

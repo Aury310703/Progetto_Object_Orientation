@@ -589,7 +589,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
 
     public void getModifichePagina(String login, String titolo, LocalDateTime dataOraCreazione, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> nomiUtente, ArrayList<String> password, ArrayList<String> email,  ArrayList<Date> dataNascita, ArrayList<LocalDate> dataProposta, ArrayList<LocalTime> oraProposta , ArrayList<String> stringaInserita, ArrayList<Integer> numerazione, ArrayList<Integer> stato, ArrayList<String> stringaProposta, ArrayList<Optional<LocalDate>> datavalutazione, ArrayList<Optional<LocalTime>> oraValutazione, ArrayList<LocalDate>  dataInserimento, ArrayList<Time> oraInseriento) throws SQLException {
         try{
-            String query = "SELECT * FROM (Pagina p JOIN ModificaProposta m ON p.idPagina = m.idPagina) JOIN utente u ON m.autoreV = u.idUtente WHERE u.login = ? AND p.titolo = ? AND dataOraCreazione = ?";
+            String query = "SELECT * FROM (Pagina p JOIN ModificaProposta m ON p.idPagina = m.idPagina) JOIN utente u ON m.autoreV = u.idUtente WHERE u.login = ? AND p.titolo = ? AND p.dataOraCreazione = ? AND stato = 0";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, login);
             preparedStatement.setString(2, titolo);
@@ -627,14 +627,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
                 preparedStatementFraseCorrente.setInt(3, rsPagina.getInt("numerazione"));
                 ResultSet rsFraseCorrente = preparedStatementFraseCorrente.executeQuery();
                 rsFraseCorrente.next();
-                String queryModifica = "SELECT * FROM ModificaProposta WHERE idPagina = ? AND stringaInserita = ? AND numerazione = ? AND dataValutazione <= ? AND oravalutazione < ?";
-                PreparedStatement preparedStatementModifica = connection.prepareStatement(queryModifica);
-                preparedStatementModifica.setInt(1, rsPagina.getInt("idPagina"));
-                preparedStatementModifica.setString(2, rsPagina.getString("stringaInserita"));
-                preparedStatementModifica.setInt(3, rsPagina.getInt("numerazione"));
-                preparedStatementModifica.setDate(4, rsPagina.getDate("dataProposta"));
-                preparedStatementModifica.setTime(5, rsPagina.getTime("oraProposta"));
-                ResultSet rsModifica = preparedStatementModifica.executeQuery();
                 stringaInserita.add(rsFraseCorrente.getString("stringaInserita"));
                 numerazione.add(rsFraseCorrente.getInt("numerazione"));
                 dataInserimento.add(rsFraseCorrente.getDate("datainserimento").toLocalDate());
@@ -729,6 +721,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         preparedStatementModifica.setTime(6, Time.valueOf(oraProposta));
         ResultSet rsModifica = preparedStatementModifica.executeQuery();
         while(rsModifica.next()){
+            System.out.println("###########################################################################################################");
             int idModifica = rsModifica.getInt("idModifica");
             String queryUpdateModifica = "UPDATE modificaProposta SET stato = ? WHERE idmodifica = ?";
             PreparedStatement preparedStatementUpdateModifica = connection.prepareStatement(queryUpdateModifica);
@@ -750,7 +743,8 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
     }
 
     public String getFraseSelezionata(String loginAutore, String loginUtente, String stringaProposta, String stringaInserita, LocalDate dataProposta, LocalTime oraProposta) throws SQLException{
-        String frasePropostaTrovata = "sbagliato";
+        //errore
+        g frasePropostaTrovata = "sbagliato";
         String queryAutore = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
         PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
         preparedStatementAutore.setString(1, loginAutore);

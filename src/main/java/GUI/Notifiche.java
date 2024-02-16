@@ -36,6 +36,7 @@ public class Notifiche {
         frame.pack();
 
         for (int i = 0; i < controller.contaNotifiche(); i++) {
+            System.out.println("8  ");
             System.out.println("8  " + controller.getTitoloNotifica());
         }
 
@@ -47,17 +48,15 @@ public class Notifiche {
             @Override
             public void actionPerformed(ActionEvent e) {
                 boolean controllo = controller.aggiornaStato(-1);
-                if (controllo) {
-                    controller.contaNotifiche();
-                    if (controller.contaNotifiche() > 0) {
-                        Notifiche notifiche = new Notifiche(controller, frameChiamante);
-                        frame.setVisible(false);
-                        notifiche.frame.setVisible(true);
-                        frame.dispose();
-                    } else {
-                        frame.setVisible(false);
-                        frameChiamante.setVisible(true);
-                    }
+                if (controller.contaNotifiche() > 0) {
+                    Notifiche notifiche = new Notifiche(controller, frameChiamante);
+                    frame.setVisible(false);
+                    notifiche.frame.setVisible(true);
+                    frame.dispose();
+                } else {
+                    frame.setVisible(false);
+                    frameChiamante.setVisible(true);
+                    frame.dispose();
                 }
             }
         });
@@ -65,16 +64,16 @@ public class Notifiche {
             @Override
             public void actionPerformed(ActionEvent e) {
                 boolean controllo = controller.aggiornaStato(1);
-                if (controllo) {
-                    if (controller.contaNotifiche() > 0) {
-                        Notifiche notifiche = new Notifiche(controller, frameChiamante);
-                        frame.setVisible(false);
-                        notifiche.frame.setVisible(true);
-                        frame.dispose();
-                    } else {
-                        frame.setVisible(false);
-                        frameChiamante.setVisible(true);
-                    }
+
+                if (controller.contaNotifiche() > 0) {
+                    Notifiche notifiche = new Notifiche(controller, frameChiamante);
+                    frame.setVisible(false);
+                    notifiche.frame.setVisible(true);
+                    frame.dispose();
+                } else {
+                    frame.setVisible(false);
+                    frameChiamante.setVisible(true);
+                    frame.dispose();
                 }
             }
         });

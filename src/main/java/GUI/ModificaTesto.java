@@ -37,6 +37,10 @@ public class ModificaTesto {
         DefaultListModel<String> listModel = new DefaultListModel<>();
         frasiList.setModel(listModel);
 
+        for (String f : controller.componiTesto()) {
+            System.out.println("££££££££££££££££££££££££££££££ " + f);
+        }
+
         ArrayList<String> frasiTesto = controller.getFrasiTestoSelezionato();
         for (String f : frasiTesto) {
             listModel.addElement(f);
