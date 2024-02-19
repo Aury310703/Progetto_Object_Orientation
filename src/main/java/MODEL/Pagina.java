@@ -9,6 +9,7 @@ import java.util.Date;
 public class Pagina {
     private String titolo;
     private LocalDateTime dataOraCreazione;
+    private ArrayList<Frase_Corrente> collegamenti = new ArrayList<>();
 
     public Pagina(String t, LocalDateTime dataOra, Autore a){
         this.titolo = t;
@@ -111,5 +112,13 @@ public class Pagina {
 
     public void removeNotificheInviate(Notifica n){
         notificheInviate.remove(n);
+    }
+
+    public ArrayList<Frase_Corrente> getCollegamenti() {
+        return collegamenti;
+    }
+
+    public void setCollegamenti(ArrayList<Frase_Corrente> collegamenti) {
+        this.collegamenti = collegamenti;
     }
 }

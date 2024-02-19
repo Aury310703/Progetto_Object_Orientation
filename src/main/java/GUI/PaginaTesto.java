@@ -9,6 +9,11 @@ import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javax.swing.text.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PaginaTesto {
     private final JFrame frameChiamante;
@@ -47,13 +52,33 @@ public class PaginaTesto {
 
         TitoloPaginaLabel.setText(controller.getTitoloPaginaSelezionata());
 
+        // Aggiungi il JTextPane al frame
+        frame.setContentPane(panel1);
+
+        // Imposta il testo nel JTextPane
         ArrayList<String> testoPagina = controller.getTestoPagina();
         String testo = "";
         for (String f : testoPagina) {
             testo = testo + " " + f;
         }
-        panelTesto.setText(testo);
+        setFormattedText(testo);
+
+        // Imposta il JTextPane come non editabile
         panelTesto.setEditable(false);
+
+        // Aggiungi il MouseListener per gestire i clic
+        panelTesto.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int offset = panelTesto.viewToModel(e.getPoint());
+                String clickedSentence = getClickedSentence(panelTesto.getText(), offset);
+
+                if (clickedSentence != null) {
+                    // Esegui un'azione diversa in base alla frase cliccata
+                    handleClickedSentence(clickedSentence);
+                }
+            }
+        });
 
         PrecedenteButton.addActionListener(new ActionListener() {
             @Override
@@ -113,8 +138,45 @@ public class PaginaTesto {
                 }
             });
         }
+    }
 
+    private String getClickedSentence(String text, int offset) {
+        Pattern pattern = Pattern.compile("\\b[^.!?]*[.!?]");
+        Matcher matcher = pattern.matcher(text);
 
+        while (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+
+            if (offset >= start && offset <= end) {
+                return text.substring(start, end);
+            }
+        }
+
+        return null;
+    }
+
+    private void handleClickedSentence(String sentence) {
+        // Esegui un'azione diversa in base alla frase cliccata
+        JOptionPane.showMessageDialog(null, "Frase cliccata: " + sentence);
+    }
+
+    private void setFormattedText(String text) {
+        StyledDocument doc = panelTesto.getStyledDocument();
+        SimpleAttributeSet defaultAttrs = new SimpleAttributeSet();
+
+        try {
+            doc.insertString(0, text, defaultAttrs);
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("PaginaTesto Example");
+            new PaginaTesto(new Controller(), frame);
+        });
     }
 
 

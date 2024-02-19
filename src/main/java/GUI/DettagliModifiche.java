@@ -44,10 +44,7 @@ public class DettagliModifiche {
 
         String stato = null;
         int i = 0;
-        System.out.println(frasiSelezionate.get(2));
         for (Integer m : stati) {
-            System.out.println(i);
-            System.out.println(frasiSelezionate.get(i));
             if (m == -1) {
                 stato = "rifiutata";
             } else if (m == 0) {

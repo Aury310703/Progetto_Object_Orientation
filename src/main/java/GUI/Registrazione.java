@@ -114,7 +114,6 @@ public class Registrazione {
                 Date dataNascita = null;
                 try {
                     dataNascita = formatoData.parse(dataStringa);
-                    System.out.println("Data ottenuta: " + dataNascita);
                 } catch (ParseException pe) {
                     System.out.println("Errore durante la conversione della stringa in data: " + pe.getMessage());
                 }

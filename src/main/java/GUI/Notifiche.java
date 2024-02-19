@@ -35,6 +35,9 @@ public class Notifiche {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
+        controller.setPaginaNotificata();
+        controller.getTestoPagina();
+
         for (int i = 0; i < controller.contaNotifiche(); i++) {
             System.out.println("8  ");
             System.out.println("8  " + controller.getTitoloNotifica());

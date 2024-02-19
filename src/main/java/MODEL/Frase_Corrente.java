@@ -8,6 +8,7 @@ import java.util.Date;
 public class Frase_Corrente extends Frase {
     private LocalDate dataInserimento;
     private Time oraInserimento;
+    private Pagina paginaCollegata;
 
     public Frase_Corrente(String s, int n, Pagina p, LocalDate dataInserimento, Time oraInserimento) {
         super(s);
@@ -70,5 +71,10 @@ public class Frase_Corrente extends Frase {
         proposte.remove(m);
     }
 
-
+    public Pagina getPaginaCollegata() {
+        return paginaCollegata;
+    }
+    public void setPaginaCollegata(Pagina paginaCollegata) {
+        this.paginaCollegata = paginaCollegata;
+    }
 }
