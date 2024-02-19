@@ -193,3 +193,7 @@ Q
 !src/main/java/MODEL/Notifica.java,c\3\c38972407b731479f9334e3a2e3f770a4b510c31
 T
 $src/main/java/GUI/ModificaTesto.form,8\9\8975de26fa8ef1275d8ab058d1be9f39086602e3
+Z
+*src/main/java/GUI/VisionaCollegamenti.java,a\a\aaf3c99464bb574c63f34417b5f1725084c0b0ca
+Z
+*src/main/java/GUI/VisionaCollegamenti.form,2\c\2cfa0b52125009380d5cbd598f336088252de814

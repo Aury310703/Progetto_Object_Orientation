@@ -1,5 +1,6 @@
 package GUI;
 
+import MODEL.Visiona;
 import controller.Controller;
 
 import javax.swing.*;
@@ -31,6 +32,8 @@ public class PaginaTesto {
     private JLabel dataCreazioneLabel;
     private JButton modificaButton;
     private JButton Versionebutton;
+    private JButton aggiungiCollegamentiButton;
+    private JButton visualizzaCollegamentiButton;
     public String locale = "it_IT";
 
     public PaginaTesto(Controller controller, JFrame frameC) {
@@ -41,10 +44,9 @@ public class PaginaTesto {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
-        if (controller.loggato()) {
-            if (!controller.getLoginLoggato().equals(controller.getLoginAutorePaginaSelezionata())) {
-                Versionebutton.setVisible(false);
-            }
+        if (!controller.loggato() || !controller.getLoginLoggato().equals(controller.getLoginAutorePaginaSelezionata())) {
+            Versionebutton.setVisible(false);
+            aggiungiCollegamentiButton.setVisible(false);
         }
 
         nomeAutoreLabel.setText(controller.getNomeAutore() + " " + controller.getCognomeAutore());
@@ -52,33 +54,13 @@ public class PaginaTesto {
 
         TitoloPaginaLabel.setText(controller.getTitoloPaginaSelezionata());
 
-        // Aggiungi il JTextPane al frame
-        frame.setContentPane(panel1);
-
-        // Imposta il testo nel JTextPane
         ArrayList<String> testoPagina = controller.getTestoPagina();
         String testo = "";
         for (String f : testoPagina) {
             testo = testo + " " + f;
         }
-        setFormattedText(testo);
-
-        // Imposta il JTextPane come non editabile
+        panelTesto.setText(testo);
         panelTesto.setEditable(false);
-
-        // Aggiungi il MouseListener per gestire i clic
-        panelTesto.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                int offset = panelTesto.viewToModel(e.getPoint());
-                String clickedSentence = getClickedSentence(panelTesto.getText(), offset);
-
-                if (clickedSentence != null) {
-                    // Esegui un'azione diversa in base alla frase cliccata
-                    handleClickedSentence(clickedSentence);
-                }
-            }
-        });
 
         PrecedenteButton.addActionListener(new ActionListener() {
             @Override
@@ -86,6 +68,7 @@ public class PaginaTesto {
                 frame.setVisible(false);
                 frameChiamante.setVisible(true);
                 frame.dispose();
+                controller.controllaPaginaPrecedenteSalvata();
             }
         });
 
@@ -138,44 +121,26 @@ public class PaginaTesto {
                 }
             });
         }
-    }
 
-    private String getClickedSentence(String text, int offset) {
-        Pattern pattern = Pattern.compile("\\b[^.!?]*[.!?]");
-        Matcher matcher = pattern.matcher(text);
-
-        while (matcher.find()) {
-            int start = matcher.start();
-            int end = matcher.end();
-
-            if (offset >= start && offset <= end) {
-                return text.substring(start, end);
+        visualizzaCollegamentiButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (controller.controllaCollegamenti()) {
+                    VisionaCollegamenti visionaCollegamenti = new VisionaCollegamenti(controller, frame);
+                    visionaCollegamenti.frame.setVisible(true);
+                    frame.setVisible(false);
+                } else {
+                    Errori errori = new Errori("NON CI SONO COLLEGAMENTI");
+                    errori.frame.setVisible(true);
+                }
             }
-        }
+        });
 
-        return null;
-    }
+        aggiungiCollegamentiButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-    private void handleClickedSentence(String sentence) {
-        // Esegui un'azione diversa in base alla frase cliccata
-        JOptionPane.showMessageDialog(null, "Frase cliccata: " + sentence);
-    }
-
-    private void setFormattedText(String text) {
-        StyledDocument doc = panelTesto.getStyledDocument();
-        SimpleAttributeSet defaultAttrs = new SimpleAttributeSet();
-
-        try {
-            doc.insertString(0, text, defaultAttrs);
-        } catch (BadLocationException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("PaginaTesto Example");
-            new PaginaTesto(new Controller(), frame);
+            }
         });
     }
 
@@ -220,13 +185,13 @@ public class PaginaTesto {
         panelTesto.setVisible(true);
         panel1.add(panelTesto, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
         infoAutorePanel = new JPanel();
-        infoAutorePanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(5, 1, new Insets(0, 0, 0, 0), -1, -1));
+        infoAutorePanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(7, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(infoAutorePanel, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         nomeAutoreLabel = new JLabel();
         nomeAutoreLabel.setText("Label");
         infoAutorePanel.add(nomeAutoreLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final com.intellij.uiDesigner.core.Spacer spacer2 = new com.intellij.uiDesigner.core.Spacer();
-        infoAutorePanel.add(spacer2, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        infoAutorePanel.add(spacer2, new com.intellij.uiDesigner.core.GridConstraints(6, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         dataCreazioneLabel = new JLabel();
         dataCreazioneLabel.setText("Label");
         infoAutorePanel.add(dataCreazioneLabel, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -236,6 +201,12 @@ public class PaginaTesto {
         modificaButton = new JButton();
         this.$$$loadButtonText$$$(modificaButton, this.$$$getMessageFromBundle$$$("it_IT", "modifica"));
         infoAutorePanel.add(modificaButton, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        aggiungiCollegamentiButton = new JButton();
+        this.$$$loadButtonText$$$(aggiungiCollegamentiButton, this.$$$getMessageFromBundle$$$("it_IT", "Aggiungi collegamenti"));
+        infoAutorePanel.add(aggiungiCollegamentiButton, new com.intellij.uiDesigner.core.GridConstraints(5, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        visualizzaCollegamentiButton = new JButton();
+        this.$$$loadButtonText$$$(visualizzaCollegamentiButton, this.$$$getMessageFromBundle$$$("it_IT", "Visualizza Collegamenti"));
+        infoAutorePanel.add(visualizzaCollegamentiButton, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     private static Method $$$cachedGetBundleMethod$$$ = null;

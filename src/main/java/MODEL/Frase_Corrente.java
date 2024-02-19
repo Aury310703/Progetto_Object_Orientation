@@ -8,7 +8,7 @@ import java.util.Date;
 public class Frase_Corrente extends Frase {
     private LocalDate dataInserimento;
     private Time oraInserimento;
-    private Pagina paginaCollegata;
+    private Pagina paginaCollegata = null;
 
     public Frase_Corrente(String s, int n, Pagina p, LocalDate dataInserimento, Time oraInserimento) {
         super(s);

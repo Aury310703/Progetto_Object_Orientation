@@ -22,7 +22,8 @@ public class Controller {
     private Controller controller ;
     private String titoloSelezionato  = null;;
     private ArrayList<Pagina> pagineTrovate;
-    private Pagina paginaSelezionata  = null;;
+    private Pagina paginaSelezionata  = null;
+    private Pagina SalvaVecchiaPaginaSelezionata  = null;
     private ArrayList<Pagina> pagineModificateUtente;
     private ArrayList <ModificaProposta> modificheRicevute = new ArrayList<>();
     public Controller(){
@@ -119,11 +120,14 @@ public class Controller {
                         for (int i = 0; i < frasiProposte.size(); i++) {
                             Utente utente = new Utente(nomi.get(i), cognomi.get(i), logins.get(i), password.get(i), email.get(i), date.get(i));
                             ModificaProposta modificaProposta = new ModificaProposta(dateProposte.get(i), oreProposte.get(i), paginaSelezionata.getAutore(), utente, fraseCorrente, frasiProposte.get(i), numerazione, stati.get(i));
-                            for(int j = 0; j < autoreloggato.getNotificheRicevute().size(); j++){
-                                if(modificaProposta.equals(autoreloggato.getNotificheRicevute().get(j).getModifica())){
-                                   autoreloggato.getNotificheRicevute().remove(j);
+                            if(autoreloggato != null) {
+                                for (int j = 0; j < autoreloggato.getNotificheRicevute().size(); j++) {
+                                    if (modificaProposta.equals(autoreloggato.getNotificheRicevute().get(j).getModifica())) {
+                                        autoreloggato.getNotificheRicevute().remove(j);
+                                    }
                                 }
                             }
+
                             if (datevalutazione.get(i).isPresent()) {
                                 modificaProposta.setDataValutazione(datevalutazione.get(i).get());
                                 modificaProposta.setOraValutazione(orevalutazione.get(i).get());
@@ -964,5 +968,82 @@ public class Controller {
             f.setProposte(new ArrayList<>());
         }
         paginaSelezionata.setFrasi(new ArrayList<>());
+    }
+
+    public boolean controllaCollegamenti(){
+        int conteggio = 0;
+        for (Frase_Corrente f : paginaSelezionata.getFrasi()){
+            if(f.getPaginaCollegata() != null)
+                conteggio++;
+        }
+        if(conteggio > 0)
+            return true;
+        return false;
+    }
+
+
+    public void setPaginaCollegata(String clickedSentence) {
+        SalvaVecchiaPaginaSelezionata = paginaSelezionata;
+        boolean controllo = false;
+        //paginaSelezionata = paginaSelezionata.getFrasi().get(indiceElemento).getPaginaCollegata();
+        for(Frase_Corrente f : paginaSelezionata.getFrasi()){
+            if(f.getPaginaCollegata() != null && !controllo) {
+                if (f.getStringa_inserita().equals(clickedSentence)) {
+                    controllo = true;
+                    paginaSelezionata = f.getPaginaCollegata();
+                }
+            }
+        }
+        if(!controllo){
+            for(Frase_Corrente f : paginaSelezionata.getFrasi()){
+                for(ModificaProposta m : f.getProposte()){
+                    if(m.getFraseCorrente().getPaginaCollegata() != null && !controllo) {
+                        if (m.getStringa_inserita().equals(clickedSentence)) {
+                            controllo = true;
+                            paginaSelezionata = f.getPaginaCollegata();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public ArrayList<String> getFrasiCollegamento() {
+        ArrayList<String> frasi = new ArrayList<>();
+        String fraseTemp = null;
+
+        for(Frase_Corrente f : paginaSelezionata.getFrasi()){
+            if(f.getPaginaCollegata() != null){
+                fraseTemp = f.getStringa_inserita();
+                LocalDate dataMax = f.getDataInserimento();
+                Time oraMax = f.getOraInserimento();
+                for(ModificaProposta m : f.getProposte()) {
+                    if (m.getStato() == 1) {
+                        if (m.getDataValutazione().isAfter(dataMax)) {
+                            dataMax = m.getDataValutazione();
+                            oraMax = Time.valueOf(m.getOraValutazione());
+                            fraseTemp = m.getStringa_inserita();
+                        } else if (m.getDataValutazione().isEqual(dataMax) && m.getOraValutazione().isAfter(oraMax.toLocalTime())) {
+                            dataMax = m.getDataValutazione();
+                            oraMax = Time.valueOf(m.getOraValutazione());
+                            fraseTemp = m.getStringa_inserita();
+                        }
+                    }
+                }
+                frasi.add(fraseTemp);
+            }
+
+        }
+        return frasi;
+    }
+
+    public void ripristinaPaginaSelezionata(){
+        paginaSelezionata = SalvaVecchiaPaginaSelezionata;
+    }
+
+    public void controllaPaginaPrecedenteSalvata() {
+        if(SalvaVecchiaPaginaSelezionata != null){
+            ripristinaPaginaSelezionata();
+        }
     }
 }
