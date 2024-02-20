@@ -32,8 +32,8 @@ public class InserisciCollegamento {
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+            String titoloSalvato = controller.getTitoloSelezionato();
 
-        String titoloSalvato = controller.getTitoloSelezionato();
 
         cercaButton.addActionListener(new ActionListener() {
             @Override

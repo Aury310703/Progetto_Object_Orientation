@@ -1040,6 +1040,8 @@ public class Controller {
         WikiDAO w = new WikiimplementazionePostgresDAO();
 
         String stringaInserita = paginaSelezionata.getFrasi().get(indiceFrase).getStringa_inserita();
+        System.out.println("1111111111111111111111111111111  " + stringaInserita);
+
 
         try {
             w.addPaginacollegata(paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), stringaInserita, paginaSelezionata.getFrasi().get(indiceFrase).getDataInserimento(), paginaSelezionata.getFrasi().get(indiceFrase).getOraInserimento(), indiceFrase, pagineTrovate.get(clickedRow).getTitolo(), pagineTrovate.get(clickedRow).getDataCreazione());

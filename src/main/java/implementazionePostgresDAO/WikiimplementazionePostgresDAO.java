@@ -134,6 +134,9 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
     @Override
     public void ricercaTitoli(String titoloInserito, ArrayList<String> titoli, ArrayList<LocalDateTime> dateOreCreazioni, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> login, ArrayList<String> password, ArrayList<String> email, ArrayList<Date> date) throws SQLException{
         try {
+            if(titoloInserito == null){
+                titoloInserito = "";
+            }
             String query = "SELECT * FROM pagina WHERE LOWER(titolo) LIKE ?"; //LOWER TRASFORMA TITOLO IN MINUSCOLO
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, "%" + titoloInserito.toLowerCase() + "%");
@@ -845,12 +848,14 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
     }
 
     public void addPaginacollegata(String titolo, LocalDateTime dataCreazione, String stringaInserita, LocalDate dataInserimento, Time oraInserimento, int indiceFrase, String titoloCollegata, LocalDateTime dataCreazioneCollegata) throws SQLException{
-        String queryFrase = "SELECT idPagina From fraseCorrente WHERE stringaInserita LIKE ? AND numerazione = ? AND dataInserimento = ? AND oraInserimento::time(0) = ?";
+        String queryFrase = "SELECT idPagina From fraseCorrente WHERE stringaInserita LIKE ? AND numerazione = ? AND dataInserimento = ? AND (date_trunc('second', oraInserimento))::time(0) = ?";
         PreparedStatement preparedStatementFrase = connection.prepareStatement(queryFrase);
         preparedStatementFrase.setString(1, stringaInserita);
         preparedStatementFrase.setInt(2, indiceFrase);
         preparedStatementFrase.setDate(3, java.sql.Date.valueOf(dataInserimento));
         preparedStatementFrase.setTime(4, oraInserimento);
+        System.out.println("£££££££££££££££££££££££££££££  " + oraInserimento);
+
         ResultSet rsFrase = preparedStatementFrase.executeQuery();
 
         String queryPagina = "SELECT idPagina From Pagina WHERE titolo LIKE ? AND dataOraCreazione = ?";
@@ -859,14 +864,17 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         preparedStatementPagina.setTimestamp(2, Timestamp.valueOf(dataCreazioneCollegata));
         ResultSet rsPagina = preparedStatementPagina.executeQuery();
         if(rsFrase.next()){
+            System.out.println("££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££33");
             if(rsPagina.next()){
+                System.out.println("--------------------------------------------------------------");
+
                 String queryInserimento = "INSERT INTO Collegamento (idPagina, stringaInserita, numerazione, paginaCollegata) VALUES (?,?,?,?)";
                 PreparedStatement preparedStatementInserimento = connection.prepareStatement(queryInserimento);
                 preparedStatementInserimento.setInt(1, rsFrase.getInt("idPagina"));
                 preparedStatementInserimento.setString(2, stringaInserita);
                 preparedStatementInserimento.setInt(3, indiceFrase);
                 preparedStatementInserimento.setInt(4, rsPagina.getInt("idPagina"));
-                int rowsAffectedInserimento = preparedStatementFrase.executeUpdate();
+                int rowsAffectedInserimento = preparedStatementInserimento.executeUpdate();
 
                 if (rowsAffectedInserimento > 0) {
                     System.out.println("Inserimento riuscito!");
