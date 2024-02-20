@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class PaginaTesto {
@@ -34,6 +33,7 @@ public class PaginaTesto {
     private JComboBox meseComboBox;
     private JComboBox annoComboBox;
     private JButton okVersioneButton;
+    private JButton VersioneCorrentButton;
     public String locale = "it_IT";
 
     public PaginaTesto(Controller controller, JFrame frameC) {
@@ -48,11 +48,12 @@ public class PaginaTesto {
         meseComboBox.setVisible(false);
         annoComboBox.setVisible(false);
         okVersioneButton.setVisible(false);
+        VersioneCorrentButton.setVisible(false);
 
         if (!controller.loggato() || !controller.getLoginLoggato().equals(controller.getLoginAutorePaginaSelezionata())) {
             Versionebutton.setVisible(false);
             aggiungiCollegamentiButton.setVisible(false);
-            okVersioneButton.setVisible(false);
+
         }
 
         int annoInizio = controller.getAnnoInzio();
@@ -170,7 +171,9 @@ public class PaginaTesto {
         aggiungiCollegamentiButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                SelezionaFraseCollegamento selezionaFraseCollegamento = new SelezionaFraseCollegamento(controller, frame);
+                selezionaFraseCollegamento.frame.setVisible(true);
+                frame.setVisible(false);
             }
         });
 
@@ -182,6 +185,7 @@ public class PaginaTesto {
                 meseComboBox.setVisible(true);
                 annoComboBox.setVisible(true);
                 okVersioneButton.setVisible(true);
+                VersioneCorrentButton.setVisible(true);
             }
         });
 
@@ -191,7 +195,7 @@ public class PaginaTesto {
                 int giornoSelezionato = Integer.parseInt((String) giornoComboBox.getSelectedItem());
                 int meseSelezionato = 1;
                 for (int i = 0; i < mesi.length; i++) {
-                    if (mesi[i].equals((String) giornoComboBox.getSelectedItem())) {
+                    if (mesi[i].equals((String) meseComboBox.getSelectedItem())) {
                         meseSelezionato = i + 1;
                     }
                 }
@@ -199,10 +203,39 @@ public class PaginaTesto {
                 LocalDate dataSelezionata = LocalDate.of(annoSelezionato, meseSelezionato, giornoSelezionato);
 
                 controller.setVersionePrecedenteTrue(dataSelezionata);
-                controller.getTestoPagina();
-                PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
-                paginaTesto.frame.setVisible(true);
-                frame.setVisible(false);
+
+//                PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
+//                paginaTesto.frame.setVisible(true);
+//                frame.setVisible(false);
+                ArrayList<String> testoPagina = new ArrayList<>();
+                String testo = "";
+                testoPagina = controller.getTestoPagina();
+                for (String f : testoPagina) {
+                    testo = testo + " " + f;
+                }
+                panelTesto.setText(testo);
+            }
+        });
+
+        VersioneCorrentButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.setVersionePrecedenteFalse();
+                ArrayList<String> testoPagina = new ArrayList<>();
+                String testo = "";
+                testoPagina = controller.getTestoPagina();
+                for (String f : testoPagina) {
+                    testo = testo + " " + f;
+                }
+                panelTesto.setText(testo);
+
+                Versionebutton.setVisible(true);
+                giornoComboBox.setVisible(false);
+                meseComboBox.setVisible(false);
+                annoComboBox.setVisible(false);
+                okVersioneButton.setVisible(false);
+                VersioneCorrentButton.setVisible(false);
+
             }
         });
     }
@@ -248,13 +281,13 @@ public class PaginaTesto {
         panelTesto.setVisible(true);
         panel1.add(panelTesto, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
         infoAutorePanel = new JPanel();
-        infoAutorePanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(9, 1, new Insets(0, 0, 0, 0), -1, -1));
+        infoAutorePanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(10, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(infoAutorePanel, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         nomeAutoreLabel = new JLabel();
         nomeAutoreLabel.setText("Label");
         infoAutorePanel.add(nomeAutoreLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final com.intellij.uiDesigner.core.Spacer spacer2 = new com.intellij.uiDesigner.core.Spacer();
-        infoAutorePanel.add(spacer2, new com.intellij.uiDesigner.core.GridConstraints(8, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        infoAutorePanel.add(spacer2, new com.intellij.uiDesigner.core.GridConstraints(9, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         dataCreazioneLabel = new JLabel();
         dataCreazioneLabel.setText("Label");
         infoAutorePanel.add(dataCreazioneLabel, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -282,6 +315,9 @@ public class PaginaTesto {
         okVersioneButton = new JButton();
         this.$$$loadButtonText$$$(okVersioneButton, this.$$$getMessageFromBundle$$$("it_IT", "Visualizza"));
         infoAutorePanel.add(okVersioneButton, new com.intellij.uiDesigner.core.GridConstraints(7, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        VersioneCorrentButton = new JButton();
+        this.$$$loadButtonText$$$(VersioneCorrentButton, this.$$$getMessageFromBundle$$$("it_IT", "Versione Corrente"));
+        infoAutorePanel.add(VersioneCorrentButton, new com.intellij.uiDesigner.core.GridConstraints(8, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     private static Method $$$cachedGetBundleMethod$$$ = null;

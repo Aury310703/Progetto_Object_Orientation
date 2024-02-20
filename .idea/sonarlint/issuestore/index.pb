@@ -197,3 +197,17 @@ Z
 *src/main/java/GUI/VisionaCollegamenti.java,a\a\aaf3c99464bb574c63f34417b5f1725084c0b0ca
 Z
 *src/main/java/GUI/VisionaCollegamenti.form,2\c\2cfa0b52125009380d5cbd598f336088252de814
+T
+$src/main/java/GUI/VersioneTesto.java,e\0\e0e804a99ce97a099937a1e5f90616c2dd537436
+T
+$src/main/java/GUI/VersioneTesto.form,6\3\63997cd4d19203ca39f7bef1040205ce5ddb3726
+U
+%src/main/java/GUI/VerssioneTesto.form,f\a\fab76c606a734434e0e2762d7b9bda8820b7e650
+a
+1src/main/java/GUI/SelezionaFraseCollegamento.java,e\4\e4ff7b3851df7535b746c279347b48be54deedb5
+a
+1src/main/java/GUI/SelezionaFraseCollegamento.form,b\3\b3748376e8939800f5f4f40d536293beda7f7c96
+\
+,src/main/java/GUI/InserisciCollegamento.java,0\8\081090cfd0c47385523c275f47f956ee64a73404
+\
+,src/main/java/GUI/InserisciCollegamento.form,2\8\2870591b2b8d93a9a9a9d6b7cedc478ebd33b291
