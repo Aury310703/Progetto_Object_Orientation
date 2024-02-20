@@ -64,7 +64,7 @@
           <visible value="true"/>
         </properties>
       </component>
-      <grid id="470de" binding="infoAutorePanel" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="470de" binding="infoAutorePanel" layout-manager="GridLayoutManager" row-count="9" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -82,7 +82,7 @@
           </component>
           <vspacer id="adfe5">
             <constraints>
-              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
           <component id="51bbe" class="javax.swing.JLabel" binding="dataCreazioneLabel">
@@ -91,14 +91,6 @@
             </constraints>
             <properties>
               <text value="Label"/>
-            </properties>
-          </component>
-          <component id="aa7ff" class="javax.swing.JButton" binding="Versionebutton">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text resource-bundle="it_IT" key="Versione Precedente"/>
             </properties>
           </component>
           <component id="154db" class="javax.swing.JButton" binding="modificaButton">
@@ -111,7 +103,7 @@
           </component>
           <component id="9f72a" class="javax.swing.JButton" binding="aggiungiCollegamentiButton" default-binding="true">
             <constraints>
-              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text resource-bundle="it_IT" key="Aggiungi collegamenti"/>
@@ -119,10 +111,54 @@
           </component>
           <component id="c4ab7" class="javax.swing.JButton" binding="visualizzaCollegamentiButton" default-binding="true">
             <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text resource-bundle="it_IT" key="Visualizza Collegamenti"/>
+            </properties>
+          </component>
+          <component id="aa7ff" class="javax.swing.JButton" binding="Versionebutton">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="it_IT" key="Versione Precedente"/>
+            </properties>
+          </component>
+          <grid id="c3e75" binding="dataPanel" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="476f7" class="javax.swing.JComboBox" binding="giornoComboBox">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="3f3a3" class="javax.swing.JComboBox" binding="meseComboBox">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="9f13f" class="javax.swing.JComboBox" binding="annoComboBox">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+              </component>
+            </children>
+          </grid>
+          <component id="eb1f6" class="javax.swing.JButton" binding="okVersioneButton">
+            <constraints>
+              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="it_IT" key="Visualizza"/>
             </properties>
           </component>
         </children>

@@ -77,16 +77,13 @@ public class Registrazione {
         String[] mesi = {"Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
                 "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
 
-        for (int i = 0; i < 12; i++) {
-            meseComboBox.addItem(mesi[i]);
-        }
-
-
         for (int i = 1914; i <= 2023; i++) {
             annoComboBox.addItem(String.valueOf(i));
         }
 
-
+        for (int i = 0; i < 12; i++) {
+            meseComboBox.addItem(mesi[i]);
+        }
         paginaPrecedenteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

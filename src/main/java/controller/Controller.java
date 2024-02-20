@@ -26,6 +26,8 @@ public class Controller {
     private Pagina SalvaVecchiaPaginaSelezionata  = null;
     private ArrayList<Pagina> pagineModificateUtente;
     private ArrayList <ModificaProposta> modificheRicevute = new ArrayList<>();
+    private  boolean controlloVersione = false;
+    private LocalDate dataVersioneSelezionata = null;
     public Controller(){
 
     }
@@ -87,6 +89,8 @@ public class Controller {
 
         try {
             if (paginaSelezionata.getFrasi().isEmpty()) {
+                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@");
+
                 w.getFrasiCorrenti(paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), frasiInserite, dateInserimento, oreInserimento, titoloCollegata, dataOraCereazioneCollegata, nomiCollegata, cognomiCollegata, loginCollegata, passwordCollegata, emailCollegata, dateCollegata, numCollegata);
                 int numerazione = 0;
                 for (String frase : frasiInserite) {
@@ -139,37 +143,59 @@ public class Controller {
                     numerazione++;
                 }
             }
-            } catch(SQLException e){
-                throw new RuntimeException(e);
-            }
+        } catch(SQLException e){
+            throw new RuntimeException(e);
+        }
 
         ArrayList<String> frasiTesto= new ArrayList<>();
         int controllo = 0;
         Frase fr_salvata = null;
+        boolean dataPrecedente = false;
+        if(controlloVersionePrecedente()) {
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
+            if (dataVersioneSelezionata.isBefore(paginaSelezionata.getDataCreazione().toLocalDate())) {
+                dataPrecedente = true;
+            }
+        }
+            for (Frase_Corrente f : paginaSelezionata.getFrasi()) {
+                System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+                if (dataPrecedente) {
+                    System.out.println("++++++++++++++++++++++++++++++++");
+                    frasiTesto.add(f.getStringa_inserita());
+                }else{
+                    System.out.println("/////////////////////////////////");
 
-        for(Frase_Corrente f : paginaSelezionata.getFrasi()){
-            LocalDate data_max = f.getDataInserimento();
-            LocalTime oraMax = f.getOraInserimento().toLocalTime();
-            for(ModificaProposta fc : f.getProposte()){
-                if(fc.getStato() == 1) {
-                    controllo = 1;
-                    LocalDate dataModifica = fc.getDataValutazione();
-                    LocalTime oraModifica = fc.getOraValutazione();
-                    if (data_max.isAfter(dataModifica) && oraMax.isAfter((oraModifica))) {
-                        fr_salvata = f;
-                    } else {
-                        fr_salvata = fc;
+                    LocalDate data_max = f.getDataInserimento();
+                    LocalTime oraMax = f.getOraInserimento().toLocalTime();
+                    for (ModificaProposta fc : f.getProposte()) {
+                        if (fc.getStato() == 1) {
+                            controllo = 1;
+                            LocalDate dataModifica = null;
+                            LocalTime oraModifica = null;
+                            if(controlloVersionePrecedente()){
+                                if(fc.getDataValutazione().isBefore(dataVersioneSelezionata) || fc.getDataValutazione().equals(dataVersioneSelezionata)){
+                                     dataModifica = fc.getDataValutazione();
+                                     oraModifica = fc.getOraValutazione();
+                                }
+                            }else {
+                                 dataModifica = fc.getDataValutazione();
+                                 oraModifica = fc.getOraValutazione();
+                            }
+                            if (data_max.isAfter(dataModifica) && oraMax.isAfter((oraModifica))) {
+                                fr_salvata = f;
+                            } else {
+                                fr_salvata = fc;
+                            }
+                        }
                     }
+                    if (controllo == 0) {
+                        frasiTesto.add(f.getStringa_inserita());
+                    } else {
+                        frasiTesto.add(fr_salvata.getStringa_inserita());
+                    }
+                    controllo = 0;
                 }
             }
-            if(controllo == 0){
-                frasiTesto.add(f.getStringa_inserita());
-            }else{
-                frasiTesto.add(fr_salvata.getStringa_inserita());
-            }
-            controllo = 0;
-
-        }
         return frasiTesto;
     }
 
@@ -1045,5 +1071,23 @@ public class Controller {
         if(SalvaVecchiaPaginaSelezionata != null){
             ripristinaPaginaSelezionata();
         }
+    }
+
+    public int getAnnoInzio() {
+        return paginaSelezionata.getDataCreazione().getYear();
+
+    }
+
+    public void setVersionePrecedenteTrue(LocalDate dataSelezionata) {
+        controlloVersione = true;
+        dataVersioneSelezionata = dataSelezionata;
+    }
+
+    public void setVersionePrecedenteFalse() {
+        controlloVersione = true;
+    }
+
+    public boolean controlloVersionePrecedente() {
+        return controlloVersione;
     }
 }
