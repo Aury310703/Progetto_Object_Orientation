@@ -54,7 +54,9 @@ public class ModificaTesto {
                         int indiceElemento = frasiList.getSelectedIndex();
                         String selectedValue = (String) selectedObject;
                         PropostaModifica propostaModifica = new PropostaModifica(controller, frame, frasiTesto.get(indiceElemento), indiceElemento);
-                        frame.setVisible(false);
+                        propostaModifica.frame.setLocationRelativeTo(null);
+                        propostaModifica.frame.setLocation(200, 400);
+                        propostaModifica.frame.setSize(1200, 200);
                         propostaModifica.frame.setVisible(true);
                     }
                 }
@@ -65,6 +67,7 @@ public class ModificaTesto {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
+                frameChiamante.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frameChiamante.setVisible(true);
                 frame.dispose();
 

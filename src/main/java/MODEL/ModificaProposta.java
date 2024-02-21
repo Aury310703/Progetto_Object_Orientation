@@ -41,6 +41,7 @@ public class ModificaProposta extends Frase {
         if(stato == 0)
             notifica = new Notifica(autore, this, fraseCorrente.getPagina().getTitolo());
     }
+
     private Autore autore;
     private Utente utente;
     private Frase_Corrente fraseCorrente;

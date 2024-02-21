@@ -12,44 +12,46 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class SelezionaFraseCollegamento {
-    private JPanel panel;
-    private JScrollPane listPane;
-    private JList listaList;
-    private JButton paginaPrecedenteButton;
-    private JLabel titoloLabel;
-    private JPanel suPanel;
-    private JFrame frameChiamante;
-    public JFrame frame;
+public class VisionaCollegamenti {
 
-    public SelezionaFraseCollegamento(Controller controller, JFrame frameC) {
-        this.frameChiamante = frameC;
-        this.frame = new JFrame("Modifica");
+    public JFrame frame;
+    private JFrame frameChiamante;
+    private JPanel panel;
+    private JButton paginaPrecedenteButton;
+    private JScrollPane scrollPane;
+    private JLabel titoloLabel;
+    private JPanel buttonpanel;
+    private JList frasiList;
+
+    public VisionaCollegamenti(Controller controller, JFrame frameChiamante) {
+        this.frameChiamante = frameChiamante;
+        this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         titoloLabel.setText(controller.getTitoloPaginaSelezionata());
         DefaultListModel<String> listModel = new DefaultListModel<>();
-        listaList.setModel(listModel);
+        frasiList.setModel(listModel);
 
-        ArrayList<String> frasiTesto = controller.getFrasiTestoSelezionato();
+        ArrayList<String> frasiTesto = controller.getFrasiCollegamento();
         for (String f : frasiTesto) {
             listModel.addElement(f);
         }
 
-        listaList.addListSelectionListener(new ListSelectionListener() {
+        frasiList.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 if (!e.getValueIsAdjusting()) {
-                    Object selectedObject = listaList.getSelectedValue();
+                    Object selectedObject = frasiList.getSelectedValue();
 
                     if (selectedObject != null) {
-                        int indiceElemento = listaList.getSelectedIndex();
                         String selectedValue = (String) selectedObject;
-                        InserisciCollegamento inserisciCollegamento = new InserisciCollegamento(controller, frame, indiceElemento);
-                        inserisciCollegamento.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                        controller.setPaginaCollegata(selectedValue);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
+                        paginaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
-                        inserisciCollegamento.frame.setVisible(true);
+                        paginaTesto.frame.setVisible(true);
+                        frame.dispose();
                     }
                 }
             }
@@ -58,6 +60,9 @@ public class SelezionaFraseCollegamento {
         paginaPrecedenteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (controller.getSalaVecchiaPaginaSelezionata()) {
+                    controller.ripristinaPaginaSelezionata();
+                }
                 frame.setVisible(false);
                 frameChiamante.setVisible(true);
                 frame.dispose();
@@ -83,23 +88,23 @@ public class SelezionaFraseCollegamento {
     private void $$$setupUI$$$() {
         panel = new JPanel();
         panel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
-        listPane = new JScrollPane();
-        panel.add(listPane, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        listaList = new JList();
-        listPane.setViewportView(listaList);
-        suPanel = new JPanel();
-        suPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 4, new Insets(0, 0, 0, 0), -1, -1));
-        panel.add(suPanel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        buttonpanel = new JPanel();
+        buttonpanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 4, new Insets(0, 0, 0, 0), -1, -1));
+        panel.add(buttonpanel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         paginaPrecedenteButton = new JButton();
         this.$$$loadButtonText$$$(paginaPrecedenteButton, this.$$$getMessageFromBundle$$$("it_IT", "paginaPrecedente"));
-        suPanel.add(paginaPrecedenteButton, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        buttonpanel.add(paginaPrecedenteButton, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         titoloLabel = new JLabel();
         titoloLabel.setText("Label");
-        suPanel.add(titoloLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        buttonpanel.add(titoloLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
-        suPanel.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        buttonpanel.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         final com.intellij.uiDesigner.core.Spacer spacer2 = new com.intellij.uiDesigner.core.Spacer();
-        suPanel.add(spacer2, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        buttonpanel.add(spacer2, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        scrollPane = new JScrollPane();
+        panel.add(scrollPane, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        frasiList = new JList();
+        scrollPane.setViewportView(frasiList);
     }
 
     private static Method $$$cachedGetBundleMethod$$$ = null;
@@ -152,4 +157,5 @@ public class SelezionaFraseCollegamento {
     public JComponent $$$getRootComponent$$$() {
         return panel;
     }
+
 }

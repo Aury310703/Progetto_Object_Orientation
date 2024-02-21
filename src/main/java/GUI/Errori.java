@@ -19,7 +19,6 @@ public class Errori {
     public Errori(String TestoDaVisualizzare) {
         this.frame = new JFrame("Errori");
         frame.setContentPane(Panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         testoLabel.setText(TestoDaVisualizzare);
 

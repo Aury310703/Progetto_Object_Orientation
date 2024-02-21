@@ -61,8 +61,7 @@ public class ListaTitoli {
                         controller.addPaginaSelezionata(selectedRow);
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
                         paginaTesto.frame.setLocationRelativeTo(frame);
-                        //paginaTesto.frame.setResizable(false);
-                        //paginaTesto.frame.setSize(400, 200);
+                        paginaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         paginaTesto.frame.setVisible(true);
                         frame.setVisible(false);
                     }
@@ -112,10 +111,12 @@ public class ListaTitoli {
                     frame.setVisible(false);
                     if (controller.verificaRuoloUtente() == 1) {
                         StoricoUtente storicoUtente = new StoricoUtente(controller, frame);
+                        storicoUtente.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
                         storicoUtente.frame.setVisible(true);
                     } else {
                         StoricoAutore storicoAutore = new StoricoAutore(controller, frame);
+                        storicoAutore.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
                         storicoAutore.frame.setVisible(true);
                     }
@@ -126,8 +127,11 @@ public class ListaTitoli {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     Login login = new Login(controller, frame, "listaTitoli");
-                    frame.setVisible(false);
+                    login.frame.setLocationRelativeTo(frame);
+                    login.frame.setResizable(false);
+                    login.frame.setSize(400, 200);
                     login.frame.setVisible(true);
+                    frame.setVisible(false);
 
                 }
             });

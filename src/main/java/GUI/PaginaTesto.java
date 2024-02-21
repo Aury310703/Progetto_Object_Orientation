@@ -109,7 +109,8 @@ public class PaginaTesto {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     frame.setVisible(false);
-                    ModificaTesto modificaTesto = new ModificaTesto(controller, frame); // da modificare il costruttore
+                    ModificaTesto modificaTesto = new ModificaTesto(controller, frame);
+                    modificaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     modificaTesto.frame.setVisible(true);
                 }
             });
@@ -118,6 +119,8 @@ public class PaginaTesto {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     Errori errori = new Errori("Loggarsi prima di modificare");
+                    errori.frame.setLocationRelativeTo(frame);
+                    errori.frame.setSize(300, 100);
                     errori.frame.setVisible(true);
                 }
             });
@@ -133,10 +136,12 @@ public class PaginaTesto {
                     frame.setVisible(false);
                     if (controller.verificaRuoloUtente() == 1) {
                         StoricoUtente storicoUtente = new StoricoUtente(controller, frame);
+                        storicoUtente.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
                         storicoUtente.frame.setVisible(true);
                     } else {
                         StoricoAutore storicoAutore = new StoricoAutore(controller, frame);
+                        storicoAutore.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
                         storicoAutore.frame.setVisible(true);
                     }
@@ -149,6 +154,9 @@ public class PaginaTesto {
                 public void actionPerformed(ActionEvent e) {
                     Login login = new Login(controller, frame, "paginaTesto");
                     frame.setVisible(false);
+                    login.frame.setLocationRelativeTo(frame);
+                    login.frame.setResizable(false);
+                    login.frame.setSize(400, 200);
                     login.frame.setVisible(true);
                 }
             });
@@ -158,11 +166,14 @@ public class PaginaTesto {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (controller.controllaCollegamenti()) {
-                    //VisionaCollegamenti visionaCollegamenti = new VisionaCollegamenti(controller, frame);
-                    //visionaCollegamenti.frame.setVisible(true);
-                    //frame.setVisible(false);
+                    VisionaCollegamenti visionaCollegamenti = new VisionaCollegamenti(controller, frame);
+                    visionaCollegamenti.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                    visionaCollegamenti.frame.setVisible(true);
+                    frame.setVisible(false);
                 } else {
                     Errori errori = new Errori("NON CI SONO COLLEGAMENTI");
+                    errori.frame.setLocationRelativeTo(frame);
+                    errori.frame.setSize(300, 100);
                     errori.frame.setVisible(true);
                 }
             }
@@ -172,6 +183,7 @@ public class PaginaTesto {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SelezionaFraseCollegamento selezionaFraseCollegamento = new SelezionaFraseCollegamento(controller, frame);
+                selezionaFraseCollegamento.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 selezionaFraseCollegamento.frame.setVisible(true);
                 frame.setVisible(false);
             }
@@ -204,9 +216,6 @@ public class PaginaTesto {
 
                 controller.setVersionePrecedenteTrue(dataSelezionata);
 
-//                PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
-//                paginaTesto.frame.setVisible(true);
-//                frame.setVisible(false);
                 ArrayList<String> testoPagina = new ArrayList<>();
                 String testo = "";
                 testoPagina = controller.getTestoPagina();

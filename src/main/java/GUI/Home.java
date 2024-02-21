@@ -26,8 +26,9 @@ public class Home {
     public static void main(String[] args) {
 
         frame.setContentPane(new Home().panel);
-        frame.setSize(800, 700);
-        frame.setLocationRelativeTo(null);
+        frame.setSize(1000, 1100);
+        //frame.setLocationRelativeTo(null);
+        frame.setLocation(700, 400);
         //frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
@@ -56,9 +57,8 @@ public class Home {
             public void actionPerformed(ActionEvent e) {
                 controller.setTitoloSelezionato(CercaTestoField.getText());
                 ListaTitoli listaTitoli = new ListaTitoli(controller, frame);
-                //listaTitoli.frame.setResizable(false);
                 listaTitoli.frame.setLocationRelativeTo(frame);
-                listaTitoli.frame.setSize(500, 500);
+                listaTitoli.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 listaTitoli.frame.setVisible(true);
                 frame.setVisible(false);
             }

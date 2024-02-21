@@ -32,8 +32,7 @@ public class InserisciCollegamento {
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-            String titoloSalvato = controller.getTitoloSelezionato();
-
+        String titoloSalvato = controller.getTitoloSelezionato();
 
         cercaButton.addActionListener(new ActionListener() {
             @Override
@@ -69,10 +68,13 @@ public class InserisciCollegamento {
                                     controller.addPaginaSelezionata(clickedRow);
                                     PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
                                     paginaTesto.frame.setLocationRelativeTo(frame);
+                                    paginaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                                     paginaTesto.frame.setVisible(true);
                                     frame.setVisible(false);
                                 } else {
                                     Errori errori = new Errori("inserimento collegamento!!");
+                                    errori.frame.setLocationRelativeTo(frame);
+                                    errori.frame.setSize(300, 100);
                                     controller.addPaginaCollegata(indiceFrase, clickedRow);
                                     frame.setVisible(false);
                                     frameChiamante.setVisible(true);

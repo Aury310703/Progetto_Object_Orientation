@@ -848,13 +848,11 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
     }
 
     public void addPaginacollegata(String titolo, LocalDateTime dataCreazione, String stringaInserita, LocalDate dataInserimento, Time oraInserimento, int indiceFrase, String titoloCollegata, LocalDateTime dataCreazioneCollegata) throws SQLException{
-        String queryFrase = "SELECT idPagina From fraseCorrente WHERE stringaInserita LIKE ? AND numerazione = ? AND dataInserimento = ? AND (date_trunc('second', oraInserimento))::time(0) = ?";
+        String queryFrase = "SELECT idPagina From fraseCorrente WHERE stringaInserita = ? AND numerazione = ? AND dataInserimento = ?";
         PreparedStatement preparedStatementFrase = connection.prepareStatement(queryFrase);
         preparedStatementFrase.setString(1, stringaInserita);
         preparedStatementFrase.setInt(2, indiceFrase);
         preparedStatementFrase.setDate(3, java.sql.Date.valueOf(dataInserimento));
-        preparedStatementFrase.setTime(4, oraInserimento);
-        System.out.println("£££££££££££££££££££££££££££££  " + oraInserimento);
 
         ResultSet rsFrase = preparedStatementFrase.executeQuery();
 
@@ -864,22 +862,44 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         preparedStatementPagina.setTimestamp(2, Timestamp.valueOf(dataCreazioneCollegata));
         ResultSet rsPagina = preparedStatementPagina.executeQuery();
         if(rsFrase.next()){
-            System.out.println("££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££33");
             if(rsPagina.next()){
-                System.out.println("--------------------------------------------------------------");
+                String queryCollegamento = "SELECT * From Collegamento WHERE idPagina = ? AND stringaInserita = ? AND numerazione = ?";
+                PreparedStatement preparedStatementCollegamento = connection.prepareStatement(queryCollegamento);
+                preparedStatementCollegamento.setInt(1, rsFrase.getInt("idPagina"));
+                preparedStatementCollegamento.setString(2, stringaInserita);
+                preparedStatementCollegamento.setInt(3, indiceFrase);
 
-                String queryInserimento = "INSERT INTO Collegamento (idPagina, stringaInserita, numerazione, paginaCollegata) VALUES (?,?,?,?)";
-                PreparedStatement preparedStatementInserimento = connection.prepareStatement(queryInserimento);
-                preparedStatementInserimento.setInt(1, rsFrase.getInt("idPagina"));
-                preparedStatementInserimento.setString(2, stringaInserita);
-                preparedStatementInserimento.setInt(3, indiceFrase);
-                preparedStatementInserimento.setInt(4, rsPagina.getInt("idPagina"));
-                int rowsAffectedInserimento = preparedStatementInserimento.executeUpdate();
 
-                if (rowsAffectedInserimento > 0) {
-                    System.out.println("Inserimento riuscito!");
-                } else {
-                    System.out.println("Nessuna riga inserita.");
+                ResultSet rsCollegamento= preparedStatementCollegamento.executeQuery();
+
+                if(rsCollegamento.next()){
+                    String queryInserimento = "UPDATE Collegamento SET paginaCollegata = ? WHERE idPagina = ? AND stringaInserita = ? AND numerazione = ?";
+                    PreparedStatement preparedStatementInserimento = connection.prepareStatement(queryInserimento);
+                    preparedStatementInserimento.setInt(1, rsPagina.getInt("idPagina"));
+                    preparedStatementInserimento.setInt(2, rsFrase.getInt("idPagina"));
+                    preparedStatementInserimento.setString(3, stringaInserita);
+                    preparedStatementInserimento.setInt(4, indiceFrase);
+                    int rowsAffectedInserimento = preparedStatementInserimento.executeUpdate();
+
+                    if (rowsAffectedInserimento > 0) {
+                        System.out.println("Inserimento riuscito!");
+                    } else {
+                        System.out.println("Nessuna riga inserita.");
+                    }
+                }else {
+                    String queryInserimento = "INSERT INTO Collegamento (idPagina, stringaInserita, numerazione, paginaCollegata) VALUES (?,?,?,?)";
+                    PreparedStatement preparedStatementInserimento = connection.prepareStatement(queryInserimento);
+                    preparedStatementInserimento.setInt(1, rsFrase.getInt("idPagina"));
+                    preparedStatementInserimento.setString(2, stringaInserita);
+                    preparedStatementInserimento.setInt(3, indiceFrase);
+                    preparedStatementInserimento.setInt(4, rsPagina.getInt("idPagina"));
+                    int rowsAffectedInserimento = preparedStatementInserimento.executeUpdate();
+
+                    if (rowsAffectedInserimento > 0) {
+                        System.out.println("Inserimento riuscito!");
+                    } else {
+                        System.out.println("Nessuna riga inserita.");
+                    }
                 }
             }
         }

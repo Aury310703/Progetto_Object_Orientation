@@ -88,14 +88,17 @@ public class Login {
                     }
                     if (controllo.equals("Home")) {
                         HomeLoggato homeLoggato = new HomeLoggato(controller, frame);
+                        homeLoggato.frame.setLocation(700, 400);
                         homeLoggato.frame.setVisible(true);
                         frame.setVisible(false);
                     } else if (controllo.equals("paginaTesto")) {
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
+                        paginaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
                         paginaTesto.frame.setVisible(true);
                     } else if (controllo.equals("listaTitoli")) {
                         ListaTitoli listaTitoli = new ListaTitoli(controller, frame);
+                        listaTitoli.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
                         listaTitoli.frame.setVisible(true);
                     }
@@ -106,9 +109,10 @@ public class Login {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Registrazione registazione = new Registrazione(controller, frame);
+                registazione.frame.setLocationRelativeTo(null);
+                registazione.frame.setSize(500, 300);
                 frame.setVisible(false);
                 registazione.frame.setVisible(true);
-                //9frame.dispose();
             }
         });
     }

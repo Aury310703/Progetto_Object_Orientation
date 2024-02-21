@@ -952,7 +952,6 @@ public class Controller {
     public void setPaginaCollegata(String clickedSentence) {
         SalvaVecchiaPaginaSelezionata = paginaSelezionata;
         boolean controllo = false;
-        //paginaSelezionata = paginaSelezionata.getFrasi().get(indiceElemento).getPaginaCollegata();
         for(Frase_Corrente f : paginaSelezionata.getFrasi()){
             if(f.getPaginaCollegata() != null && !controllo) {
                 if (f.getStringa_inserita().equals(clickedSentence)) {
@@ -972,6 +971,14 @@ public class Controller {
                     }
                 }
             }
+        }
+    }
+
+    public boolean getSalaVecchiaPaginaSelezionata(){
+        if (SalvaVecchiaPaginaSelezionata == null){
+            return false;
+        }else{
+            return true;
         }
     }
 
@@ -1034,8 +1041,20 @@ public class Controller {
     }
 
     public void addPaginaCollegata(int indiceFrase, int clickedRow) {
-        paginaSelezionata.getFrasi().get(indiceFrase).setPaginaCollegata(pagineTrovate.get(clickedRow));
-        pagineTrovate.get(clickedRow).addFrasi_collegate(paginaSelezionata.getFrasi().get(indiceFrase));
+        if( paginaSelezionata.getFrasi().get(indiceFrase).getPaginaCollegata() == null) {
+            paginaSelezionata.getFrasi().get(indiceFrase).setPaginaCollegata(pagineTrovate.get(clickedRow));
+            pagineTrovate.get(clickedRow).addFrasi_collegate(paginaSelezionata.getFrasi().get(indiceFrase));
+        }else{
+            paginaSelezionata.getFrasi().get(indiceFrase).setPaginaCollegata(pagineTrovate.get(clickedRow));
+            for(Frase_Corrente f : pagineTrovate.get(clickedRow).getCollegamenti()){
+                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                if(f.equals(paginaSelezionata.getFrasi().get(indiceFrase))){
+                    pagineTrovate.get(clickedRow).removeFrasi_collegate(f);
+                    pagineTrovate.get(clickedRow).addFrasi_collegate(paginaSelezionata.getFrasi().get(indiceFrase));
+                }
+            }
+
+        }
 
         WikiDAO w = new WikiimplementazionePostgresDAO();
 

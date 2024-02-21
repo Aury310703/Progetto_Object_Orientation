@@ -28,7 +28,6 @@ public class PropostaModifica {
         this.frameChiamante = frameC;
         this.frame = new JFrame("Modifica");
         frame.setContentPane(panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         titoloLabel.setText(controller.getTitoloPaginaSelezionata());
         fraseLabel.setText(fraseSelezionata);
@@ -48,14 +47,14 @@ public class PropostaModifica {
             public void actionPerformed(ActionEvent e) {
                 String fraseProposta = propostaField.getText();
                 controller.inviaProposta(fraseSelezionata, fraseProposta, indiceFraseSlezionata);
-                //controller.componiTesto();
                 HomeLoggato homeLoggato = new HomeLoggato(controller, frame);
                 PaginaTesto paginaTesto = new PaginaTesto(controller, homeLoggato.frame);
+                frameChiamante.setVisible(false);
                 ModificaTesto modificaTesto = new ModificaTesto(controller, paginaTesto.frame);
-                Errori errori = new Errori("la proposta è stata inviata", modificaTesto.frame, frame);
-                errori.frame.setVisible(true);
                 frameChiamante.dispose();
                 frame.dispose();
+                modificaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                modificaTesto.frame.setVisible(true);
             }
         });
     }

@@ -67,8 +67,7 @@ public class StoricoAutore {
 
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
                         paginaTesto.frame.setLocationRelativeTo(frame);
-                        //paginaTesto.frame.setResizable(false);
-                        //paginaTesto.frame.setSize(400, 200);
+                        paginaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         paginaTesto.frame.setVisible(true);
                         frame.setVisible(false);
                     }
@@ -124,8 +123,8 @@ public class StoricoAutore {
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
                         DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame);
                         dettagliModifiche.frame.setLocationRelativeTo(frame);
-                        //paginaTesto.frame.setResizable(false);
-                        //paginaTesto.frame.setSize(400, 200);
+                        dettagliModifiche.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
                         dettagliModifiche.frame.setVisible(true);
                         frame.setVisible(false);
                     }
@@ -185,8 +184,7 @@ public class StoricoAutore {
                         controller.setPaginaCreata(selectedRow);
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
                         paginaTesto.frame.setLocationRelativeTo(frame);
-                        //paginaTesto.frame.setResizable(false);
-                        //paginaTesto.frame.setSize(400, 200);
+                        paginaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         paginaTesto.frame.setVisible(true);
                         frame.setVisible(false);
                     }
@@ -228,6 +226,8 @@ public class StoricoAutore {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                         Errori erorri = new Errori("Non ci sono notifiche");
+                        erorri.frame.setLocationRelativeTo(frame);
+                        erorri.frame.setSize(300, 100);
                         erorri.frame.setVisible(true);
                 }
             });
