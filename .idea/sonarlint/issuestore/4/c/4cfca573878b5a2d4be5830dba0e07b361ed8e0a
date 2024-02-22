@@ -25,8 +25,8 @@ java:S1450"\Remove the "passwordLabel" field and declare it as a local variabl
 java:S1149Ò"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8ğ›…İ1
 ‚
 java:S1149í"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8ğ›…İ1
-o
-java:S37762"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(Ö€äŸ8ñ›…İ1
+n
+java:S37762"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(Ô×¡F8ñ›…İ1
 f
 java:S32526"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ò›…İ1
 ]	java:S125?"<This block of commented-out lines of code should be removed.(«Ô˜öşÿÿÿÿ8ó›…İ1
@@ -46,8 +46,8 @@ k	java:S100Ñ"NRename this method name to match the regular expression '^[a-z]
 k	java:S100ì"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8ƒœ…İ1
 p	java:S100‡"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8„œ…İ1
 F
-java:S1128")Remove this unused import 'MODEL.Pagina'.(ÌñŸÈ8„œ…İ1
+java:S1128")Remove this unused import 'MODEL.Pagina'.(ÌñŸÈ8ß´‹İ1
 M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8„œ…İ1
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ß´‹İ1
 T
 java:S1068"2Remove this unused "frameChiamante" private field.(°ˆ‚àıÿÿÿÿ8„œ…İ1

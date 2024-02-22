@@ -17,7 +17,7 @@ public class RegistrazioneBuonFine {
     public JFrame frame;
     public JFrame frameChiamante;
 
-    public RegistrazioneBuonFine(JFrame frameChiamante, JFrame frameLogin, Controller controller) {
+    public RegistrazioneBuonFine(JFrame frameChiamante, JFrame frameLogin, Controller controller, String locale) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Registrazione Effettuata");
         frame.setContentPane(panel);

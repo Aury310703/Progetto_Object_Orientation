@@ -24,7 +24,7 @@ public class HomeLoggato {
     private JButton cercaButton;
     private JLabel logoLabel;
 
-    public HomeLoggato(Controller controller, JFrame frameChiamante) {
+    public HomeLoggato(Controller controller, JFrame frameChiamante, String locale) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
         frame.pack();
@@ -46,7 +46,7 @@ public class HomeLoggato {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.setTitoloSelezionato(cercaTestoText.getText());
-                ListaTitoli listaTitoli = new ListaTitoli(controller, frame);
+                ListaTitoli listaTitoli = new ListaTitoli(controller, frame, locale);
                 //listaTitoli.frame.setResizable(false);
                 listaTitoli.frame.setLocationRelativeTo(frame);
                 listaTitoli.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -60,13 +60,13 @@ public class HomeLoggato {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (controller.verificaRuoloUtente() == 1) {
-                    StoricoUtente storicoUtente = new StoricoUtente(controller, frame);
+                    StoricoUtente storicoUtente = new StoricoUtente(controller, frame, locale);
                     storicoUtente.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
                     frame.setVisible(false);
                     storicoUtente.frame.setVisible(true);
                 } else {
-                    StoricoAutore storicoAutore = new StoricoAutore(controller, frame);
+                    StoricoAutore storicoAutore = new StoricoAutore(controller, frame, locale);
                     storicoAutore.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     frame.setVisible(false);
                     storicoAutore.frame.setVisible(true);
@@ -87,7 +87,7 @@ public class HomeLoggato {
         creaPaginaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CreaPagina creaPagina = new CreaPagina(controller, frame);
+                CreaPagina creaPagina = new CreaPagina(controller, frame, locale);
                 creaPagina.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(false);
                 creaPagina.frame.setVisible(true);

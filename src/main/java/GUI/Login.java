@@ -47,7 +47,7 @@ public class Login {
      * @param frameChiamante the frame chiamante
      * @param controllo      the controllo
      */
-    public Login(Controller controller, JFrame frameChiamante, String controllo) {
+    public Login(Controller controller, JFrame frameChiamante, String controllo, String locale) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Login");
         frame.setContentPane(panel);
@@ -80,7 +80,7 @@ public class Login {
                 if (verificato != 0) {
 
                     if (controllo.equals("Home")) {
-                        HomeLoggato homeLoggato = new HomeLoggato(controller, frame);
+                        HomeLoggato homeLoggato = new HomeLoggato(controller, frame, locale);
                         homeLoggato.frame.setLocation(700, 400);
                         homeLoggato.frame.setSize(580, 280);
                         homeLoggato.frame.setVisible(true);
@@ -88,7 +88,7 @@ public class Login {
                             boolean notifiche = controller.controllaNotifiche();
                             controller.getNotifche();
                             if (notifiche) {
-                                Errori errori = new Errori("hai delle notifiche");
+                                Errori errori = new Errori("hai delle notifiche", locale);
                                 errori.frame.setLocationRelativeTo(homeLoggato.frame);
                                 errori.frame.setSize(300, 100);
                                 errori.frame.setResizable(false);
@@ -97,12 +97,12 @@ public class Login {
                         }
                         frame.setVisible(false);
                     } else if (controllo.equals("paginaTesto")) {
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
                         paginaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
                         paginaTesto.frame.setVisible(true);
                     } else if (controllo.equals("listaTitoli")) {
-                        ListaTitoli listaTitoli = new ListaTitoli(controller, frame);
+                        ListaTitoli listaTitoli = new ListaTitoli(controller, frame, locale);
                         listaTitoli.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
                         listaTitoli.frame.setVisible(true);
@@ -113,7 +113,7 @@ public class Login {
         registratiButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Registrazione registazione = new Registrazione(controller, frame);
+                Registrazione registazione = new Registrazione(controller, frame, locale);
                 registazione.frame.setLocationRelativeTo(null);
                 registazione.frame.setSize(500, 300);
                 frame.setVisible(false);

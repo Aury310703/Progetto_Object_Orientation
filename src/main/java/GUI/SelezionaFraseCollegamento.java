@@ -22,7 +22,7 @@ public class SelezionaFraseCollegamento {
     private JFrame frameChiamante;
     public JFrame frame;
 
-    public SelezionaFraseCollegamento(Controller controller, JFrame frameC) {
+    public SelezionaFraseCollegamento(Controller controller, JFrame frameC, String locale) {
         this.frameChiamante = frameC;
         this.frame = new JFrame("Modifica");
         frame.setContentPane(panel);
@@ -46,7 +46,7 @@ public class SelezionaFraseCollegamento {
                     if (selectedObject != null) {
                         int indiceElemento = listaList.getSelectedIndex();
                         String selectedValue = (String) selectedObject;
-                        InserisciCollegamento inserisciCollegamento = new InserisciCollegamento(controller, frame, indiceElemento);
+                        InserisciCollegamento inserisciCollegamento = new InserisciCollegamento(controller, frame, indiceElemento, locale);
                         inserisciCollegamento.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
                         inserisciCollegamento.frame.setVisible(true);

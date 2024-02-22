@@ -27,7 +27,7 @@ public class ModificaTesto {
 
     public Controller controller;
 
-    public ModificaTesto(Controller controller, JFrame frameChiamante) {
+    public ModificaTesto(Controller controller, JFrame frameChiamante, String locale) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Modifica");
         frame.setContentPane(panel);
@@ -53,7 +53,7 @@ public class ModificaTesto {
                     if (selectedObject != null) {
                         int indiceElemento = frasiList.getSelectedIndex();
                         String selectedValue = (String) selectedObject;
-                        PropostaModifica propostaModifica = new PropostaModifica(controller, frame, frasiTesto.get(indiceElemento), indiceElemento);
+                        PropostaModifica propostaModifica = new PropostaModifica(controller, frame, frasiTesto.get(indiceElemento), indiceElemento, locale);
                         propostaModifica.frame.setLocationRelativeTo(null);
                         propostaModifica.frame.setLocation(200, 400);
                         propostaModifica.frame.setSize(1200, 200);

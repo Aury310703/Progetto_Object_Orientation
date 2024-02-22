@@ -28,7 +28,7 @@ public class CreaPagina {
     private JFrame frameChiamante;
     private Controller controller;
 
-    public CreaPagina(Controller controller, JFrame frameChiamante) {
+    public CreaPagina(Controller controller, JFrame frameChiamante, String locale) {
         this.frameChiamante = frameChiamante;
         this.controller = controller;
         this.frame = new JFrame("CREAZIONE PAGINA");
@@ -52,8 +52,8 @@ public class CreaPagina {
                 controller.creazionePagina(titolo, testo);
                 frame.setVisible(false);
                 //HomeLoggato homeLoggato = new HomeLoggato(controller, frame, paginaCreata.getAutore());
-                HomeLoggato homeLoggato = new HomeLoggato(controller, frame);
-                PaginaTesto paginaTesto = new PaginaTesto(controller, homeLoggato.frame);
+                HomeLoggato homeLoggato = new HomeLoggato(controller, frame, locale);
+                PaginaTesto paginaTesto = new PaginaTesto(controller, homeLoggato.frame, locale);
                 paginaTesto.frame.setVisible(true);
                 frame.dispose();
             }

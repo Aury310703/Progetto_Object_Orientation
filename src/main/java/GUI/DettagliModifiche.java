@@ -23,7 +23,7 @@ public class DettagliModifiche {
 
     public Controller controller;
 
-    public DettagliModifiche(Controller controller, JFrame frameChiamante) {
+    public DettagliModifiche(Controller controller, JFrame frameChiamante, String locale) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);

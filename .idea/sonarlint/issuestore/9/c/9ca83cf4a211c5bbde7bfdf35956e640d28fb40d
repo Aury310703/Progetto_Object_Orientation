@@ -68,7 +68,7 @@ java:S1450"^Remove the "infoAutorePanel" field and declare it as a local varia
 ‚
 java:S1149á"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8“«ÃÜÜ1
 o
-java:S3776'"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(ª¯Ñ‡8“«ÃÜÜ1
+java:S3776'"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(ƒ¦Éß8“«ÃÜÜ1
 f
 java:S3252,"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8”«ÃÜÜ1
 Z

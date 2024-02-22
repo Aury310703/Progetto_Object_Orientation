@@ -23,7 +23,7 @@ public class VisionaCollegamenti {
     private JPanel buttonpanel;
     private JList frasiList;
 
-    public VisionaCollegamenti(Controller controller, JFrame frameChiamante) {
+    public VisionaCollegamenti(Controller controller, JFrame frameChiamante, String locale) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);
@@ -47,7 +47,7 @@ public class VisionaCollegamenti {
                     if (selectedObject != null) {
                         String selectedValue = (String) selectedObject;
                         controller.setPaginaCollegata(selectedValue);
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
                         paginaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
                         paginaTesto.frame.setVisible(true);

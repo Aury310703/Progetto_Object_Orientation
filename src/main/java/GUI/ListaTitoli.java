@@ -27,14 +27,18 @@ public class ListaTitoli {
     private JTable TitoliTable;
     private JScrollPane scrollpane;
 
-    public ListaTitoli(Controller controller, JFrame frameC) {
+    public ListaTitoli(Controller controller, JFrame frameC, String locale) {
         frameChiamante = frameC;
         this.frame = new JFrame("Titoli");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
-        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Pagine Trovate"}) {
+        paginaPrecedenteButton.setText(this.$$$getMessageFromBundle$$$(locale, "paginaPrecedente"));
+        entraButton.setText(this.$$$getMessageFromBundle$$$(locale, "entra"));
+        TitoloLabel.setText(this.$$$getMessageFromBundle$$$(locale, "TESTI"));
+
+        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{this.$$$getMessageFromBundle$$$(locale, "TESTI")}) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -59,7 +63,7 @@ public class ListaTitoli {
                         System.out.println(titolo);
 
                         controller.addPaginaSelezionata(selectedRow);
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
                         paginaTesto.frame.setLocationRelativeTo(frame);
                         paginaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         paginaTesto.frame.setVisible(true);
@@ -94,7 +98,7 @@ public class ListaTitoli {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 if (controller.loggato()) {
-                    HomeLoggato homeLoggato = new HomeLoggato(controller, frame);
+                    HomeLoggato homeLoggato = new HomeLoggato(controller, frame, locale);
                     homeLoggato.frame.setVisible(true);
                 } else
                     frameChiamante.setVisible(true);
@@ -110,12 +114,12 @@ public class ListaTitoli {
                 public void actionPerformed(ActionEvent e) {
                     frame.setVisible(false);
                     if (controller.verificaRuoloUtente() == 1) {
-                        StoricoUtente storicoUtente = new StoricoUtente(controller, frame);
+                        StoricoUtente storicoUtente = new StoricoUtente(controller, frame, locale);
                         storicoUtente.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
                         storicoUtente.frame.setVisible(true);
                     } else {
-                        StoricoAutore storicoAutore = new StoricoAutore(controller, frame);
+                        StoricoAutore storicoAutore = new StoricoAutore(controller, frame, locale);
                         storicoAutore.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
                         storicoAutore.frame.setVisible(true);
@@ -126,7 +130,7 @@ public class ListaTitoli {
             entraButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Login login = new Login(controller, frame, "listaTitoli");
+                    Login login = new Login(controller, frame, "listaTitoli", locale);
                     login.frame.setLocationRelativeTo(frame);
                     login.frame.setResizable(false);
                     login.frame.setSize(400, 200);

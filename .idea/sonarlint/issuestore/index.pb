@@ -75,3 +75,9 @@ T
 $src/main/java/GUI/Registrazione.java,3\f\3fec6e1d5c80b151f72e3673a7756698bb0c50b0
 T
 $src/main/java/GUI/Registrazione.form,1\f\1f5bf736b8b061396b2e0079b2ecef34571072e6
+X
+(src/main/java/GUI/DettagliModifiche.java,2\a\2a756e5bd22ce5877c55d675f88854d5034a8728
+\
+,src/main/java/GUI/RegistrazioneBuonFine.java,4\e\4e2f35999a8d2d8ab18f2530aea7427e8615f90d
+R
+"src/main/java/GUI/ListaTitoli.form,0\4\042cfb462597e11ed7b6ea36889485ddd7c28e22

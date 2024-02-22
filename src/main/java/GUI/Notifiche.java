@@ -28,7 +28,7 @@ public class Notifiche {
     private JFrame frameChiamante;
     public Controller controller;
 
-    public Notifiche(Controller controller, JFrame frameChiamante) {
+    public Notifiche(Controller controller, JFrame frameChiamante, String locale) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Modifica");
         frame.setContentPane(panel);
@@ -48,7 +48,7 @@ public class Notifiche {
             public void actionPerformed(ActionEvent e) {
                 boolean controllo = controller.aggiornaStato(-1);
                 if (controller.contaNotifiche() > 0) {
-                    Notifiche notifiche = new Notifiche(controller, frameChiamante);
+                    Notifiche notifiche = new Notifiche(controller, frameChiamante, locale);
                     frame.setVisible(false);
                     notifiche.frame.setResizable(false);
                     notifiche.frame.setLocation(200, 400);
@@ -68,7 +68,7 @@ public class Notifiche {
                 boolean controllo = controller.aggiornaStato(1);
 
                 if (controller.contaNotifiche() > 0) {
-                    Notifiche notifiche = new Notifiche(controller, frameChiamante);
+                    Notifiche notifiche = new Notifiche(controller, frameChiamante, locale);
                     frame.setVisible(false);
                     notifiche.frame.setLocation(200, 400);
                     notifiche.frame.setSize(1500, 250);

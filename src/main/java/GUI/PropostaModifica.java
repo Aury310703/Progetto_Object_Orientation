@@ -24,7 +24,7 @@ public class PropostaModifica {
     private JLabel fraseLabel;
     private JLabel propostaLabel;
 
-    public PropostaModifica(Controller controller, JFrame frameC, String fraseSelezionata, int indiceFraseSlezionata) {
+    public PropostaModifica(Controller controller, JFrame frameC, String fraseSelezionata, int indiceFraseSlezionata, String locale) {
         this.frameChiamante = frameC;
         this.frame = new JFrame("Modifica");
         frame.setContentPane(panel);
@@ -47,10 +47,10 @@ public class PropostaModifica {
             public void actionPerformed(ActionEvent e) {
                 String fraseProposta = propostaField.getText();
                 controller.inviaProposta(fraseSelezionata, fraseProposta, indiceFraseSlezionata);
-                HomeLoggato homeLoggato = new HomeLoggato(controller, frame);
-                PaginaTesto paginaTesto = new PaginaTesto(controller, homeLoggato.frame);
+                HomeLoggato homeLoggato = new HomeLoggato(controller, frame, locale);
+                PaginaTesto paginaTesto = new PaginaTesto(controller, homeLoggato.frame, locale);
                 frameChiamante.setVisible(false);
-                ModificaTesto modificaTesto = new ModificaTesto(controller, paginaTesto.frame);
+                ModificaTesto modificaTesto = new ModificaTesto(controller, paginaTesto.frame, locale);
                 frameChiamante.dispose();
                 frame.dispose();
                 modificaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);

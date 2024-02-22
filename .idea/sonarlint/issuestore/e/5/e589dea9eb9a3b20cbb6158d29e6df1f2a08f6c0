@@ -44,8 +44,8 @@ k	java:S100‡"NRename this method name to match the regular expression '^[a-z]
 k	java:S100¢"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8ñš†İÜ1
 p	java:S100½"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8óš†İÜ1
 S
-java:S1128"6Remove this unused import 'java.awt.event.MouseEvent'.(›õ8„¸”İÜ1
+java:S1128"6Remove this unused import 'java.awt.event.MouseEvent'.(›õ8Óá´‹İ1
 a
-java:S1128"?Remove this unused import 'java.awt.event.MouseMotionListener'.(«Ä‹ùıÿÿÿÿ8„¸”İÜ1
+java:S1128"?Remove this unused import 'java.awt.event.MouseMotionListener'.(«Ä‹ùıÿÿÿÿ8Óá´‹İ1
 N
 java:S1068"2Remove this unused "frameChiamante" private field.(Ğ÷©8óš†İÜ1

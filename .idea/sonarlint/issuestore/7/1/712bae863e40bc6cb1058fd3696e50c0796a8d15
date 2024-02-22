@@ -1,6 +1,6 @@
 
 u	java:S127†"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8Ëê¥³Ò1
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉÔ—Ÿ8Ìê¥³Ò1
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á”èÀ8Ìê¥³Ò1
 m	java:S117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ïˆ•8Ìê¥³Ò1
 m	java:S1177"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿§Ü±8®ÅòŠÔ1
 E
@@ -26,6 +26,8 @@ y
 java:S1450"WRemove the "topPanel" field and declare it as a local variable in the relevant methods.(¸¿©ûÿÿÿÿ8…ë¥³Ò1
 ‚
 java:S1149€"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8†ë¥³Ò1
+J
+java:S1172"-Remove this unused method parameter "locale".(Á”èÀ8Š¸ìŠİ1
 f
 java:S3252&"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8Œë¥³Ò1
 f

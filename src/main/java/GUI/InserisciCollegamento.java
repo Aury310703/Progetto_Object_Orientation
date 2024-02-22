@@ -26,7 +26,7 @@ public class InserisciCollegamento {
     public JFrame frame;
     private JFrame frameChiamante;
 
-    public InserisciCollegamento(Controller controller, JFrame frameC, int indiceFrase) {
+    public InserisciCollegamento(Controller controller, JFrame frameC, int indiceFrase, String locale) {
         this.frameChiamante = frameC;
         this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);
@@ -66,13 +66,13 @@ public class InserisciCollegamento {
                                     System.out.println(titolo);
 
                                     controller.addPaginaSelezionata(clickedRow);
-                                    PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
+                                    PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
                                     paginaTesto.frame.setLocationRelativeTo(frame);
                                     paginaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                                     paginaTesto.frame.setVisible(true);
                                     frame.setVisible(false);
                                 } else {
-                                    Errori errori = new Errori("inserimento collegamento!!");
+                                    Errori errori = new Errori("inserimento collegamento!!", locale);
                                     errori.frame.setLocationRelativeTo(frame);
                                     errori.frame.setSize(300, 100);
                                     controller.addPaginaCollegata(indiceFrase, clickedRow);

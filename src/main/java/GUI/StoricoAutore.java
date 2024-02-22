@@ -34,7 +34,7 @@ public class StoricoAutore {
     private JFrame frameChiamante;
     public Controller controller;
 
-    public StoricoAutore(Controller controller, JFrame frameChiamante) {
+    public StoricoAutore(Controller controller, JFrame frameChiamante, String locale) {
         this.controller = controller;
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
@@ -65,7 +65,7 @@ public class StoricoAutore {
                         System.out.println(titolo);
                         controller.setPaginaVisualizzata(selectedRow);
 
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
                         paginaTesto.frame.setLocationRelativeTo(frame);
                         paginaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         paginaTesto.frame.setVisible(true);
@@ -120,8 +120,8 @@ public class StoricoAutore {
                         System.out.println(titolo);
 
                         controller.setPaginaModificata(selectedRow);
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
-                        DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
+                        DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame, locale);
                         dettagliModifiche.frame.setLocationRelativeTo(frame);
                         dettagliModifiche.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
@@ -182,7 +182,7 @@ public class StoricoAutore {
                         String titolo = cellValue.toString();
 
                         controller.setPaginaCreata(selectedRow);
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
                         paginaTesto.frame.setLocationRelativeTo(frame);
                         paginaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         paginaTesto.frame.setVisible(true);
@@ -216,7 +216,7 @@ public class StoricoAutore {
             notificheButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Notifiche notifiche = new Notifiche(controller, frame);
+                    Notifiche notifiche = new Notifiche(controller, frame, locale);
                     frame.setVisible(false);
                     notifiche.frame.setResizable(false);
                     notifiche.frame.setLocation(200, 400);
@@ -228,7 +228,7 @@ public class StoricoAutore {
             notificheButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                        Errori erorri = new Errori("Non ci sono notifiche");
+                        Errori erorri = new Errori("Non ci sono notifiche", locale);
                         erorri.frame.setLocationRelativeTo(frame);
                         erorri.frame.setSize(300, 100);
                         erorri.frame.setVisible(true);

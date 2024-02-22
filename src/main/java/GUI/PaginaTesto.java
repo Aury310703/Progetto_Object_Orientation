@@ -36,7 +36,7 @@ public class PaginaTesto {
     private JButton VersioneCorrentButton;
     public String locale = "it_IT";
 
-    public PaginaTesto(Controller controller, JFrame frameC) {
+    public PaginaTesto(Controller controller, JFrame frameC, String locale) {
         panelTesto.setText("");
         frameChiamante = frameC;
         this.frame = new JFrame("Pagina");
@@ -109,7 +109,7 @@ public class PaginaTesto {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     frame.setVisible(false);
-                    ModificaTesto modificaTesto = new ModificaTesto(controller, frame);
+                    ModificaTesto modificaTesto = new ModificaTesto(controller, frame, locale);
                     modificaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     modificaTesto.frame.setVisible(true);
                 }
@@ -118,7 +118,7 @@ public class PaginaTesto {
             modificaButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Errori errori = new Errori("Loggarsi prima di modificare");
+                    Errori errori = new Errori("Loggarsi prima di modificare", locale);
                     errori.frame.setLocationRelativeTo(frame);
                     errori.frame.setSize(300, 100);
                     errori.frame.setVisible(true);
@@ -135,12 +135,12 @@ public class PaginaTesto {
                 public void actionPerformed(ActionEvent e) {
                     frame.setVisible(false);
                     if (controller.verificaRuoloUtente() == 1) {
-                        StoricoUtente storicoUtente = new StoricoUtente(controller, frame);
+                        StoricoUtente storicoUtente = new StoricoUtente(controller, frame, locale);
                         storicoUtente.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
                         storicoUtente.frame.setVisible(true);
                     } else {
-                        StoricoAutore storicoAutore = new StoricoAutore(controller, frame);
+                        StoricoAutore storicoAutore = new StoricoAutore(controller, frame, locale);
                         storicoAutore.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
                         storicoAutore.frame.setVisible(true);
@@ -152,7 +152,7 @@ public class PaginaTesto {
             Entrabutton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Login login = new Login(controller, frame, "paginaTesto");
+                    Login login = new Login(controller, frame, "paginaTesto", locale);
                     frame.setVisible(false);
                     login.frame.setLocationRelativeTo(frame);
                     login.frame.setResizable(false);
@@ -166,12 +166,12 @@ public class PaginaTesto {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (controller.controllaCollegamenti()) {
-                    VisionaCollegamenti visionaCollegamenti = new VisionaCollegamenti(controller, frame);
+                    VisionaCollegamenti visionaCollegamenti = new VisionaCollegamenti(controller, frame, locale);
                     visionaCollegamenti.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     visionaCollegamenti.frame.setVisible(true);
                     frame.setVisible(false);
                 } else {
-                    Errori errori = new Errori("NON CI SONO COLLEGAMENTI");
+                    Errori errori = new Errori("NON CI SONO COLLEGAMENTI", locale);
                     errori.frame.setLocationRelativeTo(frame);
                     errori.frame.setSize(300, 100);
                     errori.frame.setVisible(true);
@@ -182,7 +182,7 @@ public class PaginaTesto {
         aggiungiCollegamentiButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SelezionaFraseCollegamento selezionaFraseCollegamento = new SelezionaFraseCollegamento(controller, frame);
+                SelezionaFraseCollegamento selezionaFraseCollegamento = new SelezionaFraseCollegamento(controller, frame, locale);
                 selezionaFraseCollegamento.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 selezionaFraseCollegamento.frame.setVisible(true);
                 frame.setVisible(false);

@@ -18,8 +18,8 @@ java:S1450"WRemove the "paneltop" field and declare it as a local variable in 
 java:S1149Y"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8¯†ÃÅÑ1
 
 java:S1149t"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8°†ÃÅÑ1
-N
-java:S1172"1Remove this unused method parameter "controller".(£õÏ±8±†ÃÅÑ1
+_
+java:S1172"=Remove these unused method parameters "controller", "locale".(“²É›şÿÿÿÿ8±†ÃÅÑ1
 f
 java:S3252"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8³†ÃÅÑ1
 {

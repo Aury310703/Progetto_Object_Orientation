@@ -20,6 +20,7 @@ public class Home {
     static JFrame frame = new JFrame("WIKI");
     public JFrame frameChiamante;
     public Controller controller = new Controller();
+    //private String locale = "en_GB";
     private String locale = "it_IT";
 
 
@@ -39,7 +40,7 @@ public class Home {
         LoginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Login login = new Login(controller, frame, "Home");
+                Login login = new Login(controller, frame, "Home", locale);
                 login.frame.setLocationRelativeTo(frame);
                 login.frame.setResizable(false);
                 login.frame.setSize(400, 200);
@@ -54,7 +55,7 @@ public class Home {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.setTitoloSelezionato(CercaTestoField.getText());
-                ListaTitoli listaTitoli = new ListaTitoli(controller, frame);
+                ListaTitoli listaTitoli = new ListaTitoli(controller, frame, locale);
                 listaTitoli.frame.setLocationRelativeTo(frame);
                 listaTitoli.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 listaTitoli.frame.setVisible(true);

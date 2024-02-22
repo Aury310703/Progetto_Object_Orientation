@@ -16,7 +16,7 @@ public class Errori {
     private JButton TornaButton;
     private JLabel testoLabel;
 
-    public Errori(String TestoDaVisualizzare) {
+    public Errori(String TestoDaVisualizzare, String locale) {
         this.frame = new JFrame("Errori");
         frame.setContentPane(Panel);
         frame.pack();

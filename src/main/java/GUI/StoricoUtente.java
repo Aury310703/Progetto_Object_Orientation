@@ -44,7 +44,7 @@ public class StoricoUtente {
     private JFrame frameChiamante;
     private Controller controller;
 
-    public StoricoUtente(Controller controller, JFrame frameChiamante) {
+    public StoricoUtente(Controller controller, JFrame frameChiamante, String locale) {
         this.controller = controller;
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
@@ -81,7 +81,7 @@ public class StoricoUtente {
                         System.out.println(titolo);
                         controller.setPaginaVisualizzata(selectedRow);
 
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
                         paginaTesto.frame.setLocationRelativeTo(frame);
                         paginaTesto.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         paginaTesto.frame.setVisible(true);
@@ -135,8 +135,8 @@ public class StoricoUtente {
                         String titolo = cellValue.toString();
                         System.out.println(titolo);
                         controller.setPaginaModificata(selectedRow);
-                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame);
-                        DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame);
+                        PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
+                        DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame, locale);
                         dettagliModifiche.frame.setLocationRelativeTo(frame);
                         dettagliModifiche.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         dettagliModifiche.frame.setVisible(true);
