@@ -61,5 +61,7 @@ public interface WikiDAO {
     public void getPagineCreate(String login, ArrayList<String> titoli, ArrayList<LocalDateTime> dataOraCreazione) throws SQLException;
 
     public void addPaginacollegata(String titolo, LocalDateTime dataCreazione, String stringaInserita, LocalDate dataInserimento, Time oraInserimento, int indiceFrase, String titoloCollegata, LocalDateTime dataCreazioneCollegata) throws SQLException;
+
+    boolean controllaNomeUtente(String nomeUtente) throws SQLException;
 }
 

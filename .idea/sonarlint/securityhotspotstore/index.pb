@@ -5,8 +5,6 @@ R
 "src/main/java/GUI/PaginaTesto.form,4\b\4b5c70b668e0621a37f7e8bcc0efc1bdfdd8ec02
 X
 (src/main/java/controller/Controller.java,0\5\05fd466bff28423ca702e1a116df355b44712db1
-H
-src/main/java/GUI/l.form,b\5\b52e5132ddf1494bfeb6764135617aaf3d561a1a
 Z
 *src/main/java/GUI/VisionaCollegamenti.java,a\a\aaf3c99464bb574c63f34417b5f1725084c0b0ca
 a
@@ -59,3 +57,21 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+N
+src/main/java/GUI/HomeLog.java,0\8\081393d6fd6b0314aa885debd2bd194cc7e7ac41
+N
+src/main/java/GUI/HomeLog.form,3\0\30a220a24dbdbea6aca8fecb5b591f3d8096c086
+N
+src/main/java/GUI/Homelog.java,b\5\b5fdbd88928a3dc3c2adea52facab4bf98c02d5b
+N
+src/main/java/GUI/Homelog.form,c\b\cb31b8f13337bec322e58ce82191d8d47c93c041
+R
+"src/main/java/GUI/Homeloggato.form,c\c\cc97b171cf3f762558e8989bdb59ceec90073802
+R
+"src/main/java/GUI/Homeloggato.java,d\f\dfe91a2ed0a5c0a5c57fa690a3cf66235d385b9a
+P
+ src/main/java/GUI/Notifiche.java,5\8\586cd765ea41858e02042b8af3a63d2257b65c20
+T
+$src/main/java/GUI/Registrazione.java,3\f\3fec6e1d5c80b151f72e3673a7756698bb0c50b0
+T
+$src/main/java/GUI/Registrazione.form,1\f\1f5bf736b8b061396b2e0079b2ecef34571072e6

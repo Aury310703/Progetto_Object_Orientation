@@ -15,6 +15,7 @@ h	java:S112»"FDefine and throw a dedicated exception instead of using a gener
 h	java:S112å"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§‹İÙÜ1
 h	java:S112ò"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§‹İÙÜ1
 h	java:S112¬"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§‹İÙÜ1
+h	java:S112¶"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Õù†İ1
 u	java:S127Ş"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8«‹İÙÜ1
 M
 java:S1066"/Merge this if statement with the enclosing one.(·ÚéÆ8¬‹İÙÜ1
@@ -61,13 +62,13 @@ java:S1488Ï"^Immediately return this expression instead of assigning it to the
 ;
 java:S1700"Rename field "controller"(š·Âëüÿÿÿÿ8´‹İÙÜ1
 n
-java:S3655é"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(°Ëûú8‰•İÙÜ1
+java:S3655é"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(°Ëûú8 ãˆ‡İ1
+s
+java:S3655ˆ"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Ğï°Õúÿÿÿÿ8 ãˆ‡İ1
+s
+java:S3655ê"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Ğï°Õúÿÿÿÿ8 ãˆ‡İ1
 n
-java:S3655‡"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(°Ëûú8‰•İÙÜ1
-s
-java:S3655ˆ"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Ğï°Õúÿÿÿÿ8‰•İÙÜ1
-s
-java:S3655ê"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Ğï°Õúÿÿÿÿ8‰•İÙÜ1
+java:S3655‡"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(°Ëûú8¡ãˆ‡İ1
 ƒ	java:S116"hRename this field "SalvaVecchiaPaginaSelezionata" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø¾8‹•İÙÜ1
 
 java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(§ ÿ8‹•İÙÜ1
@@ -153,10 +154,10 @@ java:S1871è"MThis branch's code block is the same as the block for the branch 
 M	java:S106š"+Replace this use of System.out by a logger.(×½ Šÿÿÿÿÿ8ú‘ßÙÜ1
 H	java:S106¦"+Replace this use of System.out by a logger.(ìø©º8™ğàÙÜ1
 L
-java:S1128"*Remove this unused import 'GUI.Notifiche'.(şæèşÿÿÿÿ8ˆ°ŞÙÜ1
+java:S1128"*Remove this unused import 'GUI.Notifiche'.(şæèşÿÿÿÿ8…äˆ‡İ1
 U
 java:S1128
-"8Remove this unused import 'java.time.DateTimeException'.(úÛ”™8‰°ŞÙÜ1
+"8Remove this unused import 'java.time.DateTimeException'.(úÛ”™8…äˆ‡İ1
 P
 java:S1068".Remove this unused "controller" private field.(š·Âëüÿÿÿÿ8ö•İÙÜ1
 ä

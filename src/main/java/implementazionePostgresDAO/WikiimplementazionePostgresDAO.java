@@ -905,5 +905,16 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         }
     }
 
+    public boolean controllaNomeUtente(String nomeUtente) throws SQLException{
+        String query = "SELECT * From utente WHERE login = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, nomeUtente);
+        ResultSet rs = preparedStatement.executeQuery();
+        if(rs.next()){
+            return true;
+        }
+        return false;
+    }
+
 
 }

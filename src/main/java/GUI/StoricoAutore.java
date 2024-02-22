@@ -218,6 +218,9 @@ public class StoricoAutore {
                 public void actionPerformed(ActionEvent e) {
                     Notifiche notifiche = new Notifiche(controller, frame);
                     frame.setVisible(false);
+                    notifiche.frame.setResizable(false);
+                    notifiche.frame.setLocation(200, 400);
+                    notifiche.frame.setSize(1500, 250);
                     notifiche.frame.setVisible(true);
                 }
             });

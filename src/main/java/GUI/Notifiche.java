@@ -38,10 +38,6 @@ public class Notifiche {
         controller.setPaginaNotificata();
         controller.getTestoPagina();
 
-        for (int i = 0; i < controller.contaNotifiche(); i++) {
-            System.out.println("8  ");
-            System.out.println("8  " + controller.getTitoloNotifica());
-        }
 
         titoloLabel.setText(controller.getTitoloNotifica());
         fraseDaModificareLAbel.setText(controller.getStringaSelezionata());
@@ -54,6 +50,9 @@ public class Notifiche {
                 if (controller.contaNotifiche() > 0) {
                     Notifiche notifiche = new Notifiche(controller, frameChiamante);
                     frame.setVisible(false);
+                    notifiche.frame.setResizable(false);
+                    notifiche.frame.setLocation(200, 400);
+                    notifiche.frame.setSize(1500, 250);
                     notifiche.frame.setVisible(true);
                     frame.dispose();
                 } else {
@@ -71,6 +70,8 @@ public class Notifiche {
                 if (controller.contaNotifiche() > 0) {
                     Notifiche notifiche = new Notifiche(controller, frameChiamante);
                     frame.setVisible(false);
+                    notifiche.frame.setLocation(200, 400);
+                    notifiche.frame.setSize(1500, 250);
                     notifiche.frame.setVisible(true);
                     frame.dispose();
                 } else {

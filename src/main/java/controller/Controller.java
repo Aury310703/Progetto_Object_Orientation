@@ -1069,4 +1069,13 @@ public class Controller {
         }
 
     }
+
+    public boolean controllaNomeUtente(String nomeUtente) {
+        WikiDAO w = new WikiimplementazionePostgresDAO();
+        try {
+            return w.controllaNomeUtente(nomeUtente);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

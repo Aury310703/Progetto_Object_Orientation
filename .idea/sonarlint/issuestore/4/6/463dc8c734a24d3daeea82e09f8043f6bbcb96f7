@@ -1,51 +1,44 @@
 
 c
-java:S1192v"FDefine a constant instead of duplicating this literal "it_IT" 4 times.(¿¿Û½8Ó¬ÈİÜ1
-u	java:S127¥"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8‘Îî—Ú1
+java:S1192w"FDefine a constant instead of duplicating this literal "it_IT" 3 times.(ª÷°8Ö¯°…İ1
+u	java:S127¯"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8íåƒ…İ1
 E
-java:S1604*"(Make this anonymous inner class a lambda(£à€õ8‘Îî—Ú1
+java:S1604-"(Make this anonymous inner class a lambda(£à€õ8¢Ğ„…İ1
+J
+java:S1604;"(Make this anonymous inner class a lambda(Ñ±ëîøÿÿÿÿ8¢Ğ„…İ1
 E
-java:S16048"(Make this anonymous inner class a lambda(öÊùõ8Ö²€ÜÜ1
+java:S1604M"(Make this anonymous inner class a lambda(¼‰‚ø8¢Ğ„…İ1
 E
-java:S1604J"(Make this anonymous inner class a lambda(¼‰‚ø8Ö²€ÜÜ1
-E
-java:S1604T"(Make this anonymous inner class a lambda(§„ˆÜ8Ö²€ÜÜ1
+java:S1604W"(Make this anonymous inner class a lambda(§„ˆÜ8¢Ğ„…İ1
 n
-java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8’Îî—Ú1
+java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8ïåƒ…İ1
 |
-java:S1104"ZMake frameChiamante a static final constant or non-public and provide accessors if needed.(™¹†½üÿÿÿÿ8’Îî—Ú1
-s
-java:S1104"VMake controller a static final constant or non-public and provide accessors if needed.(Ó‘çõ8’Îî—Ú1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8’Îî—Ú1
+java:S1104"ZMake frameChiamante a static final constant or non-public and provide accessors if needed.(™¹†½üÿÿÿÿ8ïåƒ…İ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8ñåƒ…İ1
 ‰
-java:S3008Š"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8³€ÜÜ1
-£
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ˆÀÌìÿÿÿÿÿ8µÎî—Ú1
-x
-java:S1450"[Remove the "bottoniPanel" field and declare it as a local variable in the relevant methods.(—µìŠ8¶Îî—Ú1
-r
-java:S1450"URemove the "panel1" field and declare it as a local variable in the relevant methods.(–¾Ê‰8¶Îî—Ú1
+java:S3008”"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8—æƒ…İ1
+}
+java:S1450"[Remove the "panelBottoni" field and declare it as a local variable in the relevant methods.(ÿµ‰àüÿÿÿÿ8˜æƒ…İ1
+y
+java:S1450"WRemove the "panelgiu" field and declare it as a local variable in the relevant methods.(ÆİüÏûÿÿÿÿ8˜æƒ…İ1
 ‚
-java:S1149Ÿ"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8ƒ³€ÜÜ1
+java:S1149©"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8™æƒ…İ1
 f
-java:S3252%"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8¹Îî—Ú1
-]	java:S125/"<This block of commented-out lines of code should be removed.(ÂôØîøÿÿÿÿ8½Îî—Ú1
+java:S3252""IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8›æƒ…İ1
+]	java:S1252"<This block of commented-out lines of code should be removed.(ÂôØîøÿÿÿÿ8êĞ„…İ1
 _
-java:S32521"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(‰€ËŠıÿÿÿÿ8‰’€ÜÜ1
+java:S32524"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(‰€ËŠıÿÿÿÿ8ëĞ„…İ1
 Z
-java:S3252="=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(½ÉÂ8ßô€ÜÜ1
+java:S3252@"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(½ÉÂ8ìĞ„…İ1
 _
-java:S3252C"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(«óÕ±şÿÿÿÿ8»ÜÜ1
+java:S3252F"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(«óÕ±şÿÿÿÿ8íĞ„…İ1
 Y
-java:S3252X"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(â…¥Y8àç‚ÜÜ1
+java:S3252["=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(â…¥Y8ğĞ„…İ1
 {
-java:S1171_"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8‡³€ÜÜ1
-o	java:S100m"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8ˆ³€ÜÜ1
-p	java:S100Œ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8³€ÜÜ1
+java:S1171b"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ğĞ„…İ1
+o	java:S100p"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8ğĞ„…İ1
+p	java:S100–"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8ªæƒ…İ1
 T
-java:S2696’"6Make the enclosing method "static" or remove this set.(§¾ã8³€ÜÜ1
-k	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8³€ÜÜ1
-p	java:S100¹"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8“³€ÜÜ1
-M
-java:S1128
-"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ª»ÜÜ1
+java:S2696œ"6Make the enclosing method "static" or remove this set.(§¾ã8«æƒ…İ1
+k	java:S100¨"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8¬æƒ…İ1
+p	java:S100Ã"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8®æƒ…İ1

@@ -78,18 +78,23 @@ public class Login {
 
 
                 if (verificato != 0) {
-                    if (verificato == 2) {
-                        boolean notifiche = controller.controllaNotifiche();
-                        controller.getNotifche();
-                        if (notifiche) {
-                            Errori errori = new Errori("hai delle notifiche");
-                            errori.frame.setVisible(true);
-                        }
-                    }
+
                     if (controllo.equals("Home")) {
                         HomeLoggato homeLoggato = new HomeLoggato(controller, frame);
                         homeLoggato.frame.setLocation(700, 400);
+                        homeLoggato.frame.setSize(580, 280);
                         homeLoggato.frame.setVisible(true);
+                        if (verificato == 2) {
+                            boolean notifiche = controller.controllaNotifiche();
+                            controller.getNotifche();
+                            if (notifiche) {
+                                Errori errori = new Errori("hai delle notifiche");
+                                errori.frame.setLocationRelativeTo(homeLoggato.frame);
+                                errori.frame.setSize(300, 100);
+                                errori.frame.setResizable(false);
+                                errori.frame.setVisible(true);
+                            }
+                        }
                         frame.setVisible(false);
                     } else if (controllo.equals("paginaTesto")) {
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame);

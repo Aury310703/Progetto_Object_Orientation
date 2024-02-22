@@ -37,4 +37,4 @@ k	java:S100Ÿ"NRename this method name to match the regular expression '^[a-z]
 p	java:S100º"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8üÊÚ1
 M
 java:S1128
-"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8„š‚İÜ1
+"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8®Îİƒİ1
