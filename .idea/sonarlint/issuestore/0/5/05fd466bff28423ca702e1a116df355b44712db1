@@ -1,168 +1,151 @@
 
-h	java:S112Œ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¥‹İÙÜ1
-h	java:S112’"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¥‹İÙÜ1
-h	java:S112÷"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¦‹İÙÜ1
-h	java:S112‚"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¦‹İÙÜ1
-h	java:S112Ã"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¦‹İÙÜ1
-h	java:S112ş"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¦‹İÙÜ1
-h	java:S112œ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¦‹İÙÜ1
-h	java:S112Æ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¦‹İÙÜ1
-h	java:S112Ÿ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¦‹İÙÜ1
-h	java:S112³"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¦‹İÙÜ1
-h	java:S112Á"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¦‹İÙÜ1
-h	java:S112İ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¦‹İÙÜ1
-h	java:S112»"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¦‹İÙÜ1
-h	java:S112å"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§‹İÙÜ1
-h	java:S112ò"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§‹İÙÜ1
-h	java:S112¬"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8§‹İÙÜ1
-h	java:S112¶"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Õù†İ1
-u	java:S127Ş"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8«‹İÙÜ1
-M
-java:S1066"/Merge this if statement with the enclosing one.(·ÚéÆ8¬‹İÙÜ1
-M
-java:S1066˜"/Merge this if statement with the enclosing one.(çÎÇ«8¬‹İÙÜ1
-M
-java:S1066‰"/Merge this if statement with the enclosing one.(·ÚéÆ8¬‹İÙÜ1
-M
-java:S1066²"/Merge this if statement with the enclosing one.(İÀÜã8¬‹İÙÜ1
-M
-java:S1066Ø"/Merge this if statement with the enclosing one.(İÀÜã8¬‹İÙÜ1
-M
-java:S1066½"/Merge this if statement with the enclosing one.(™Å8¬‹İÙÜ1
-M
-java:S1066Ç"/Merge this if statement with the enclosing one.(‰ª·©8¬‹İÙÜ1
-
-java:S1319I"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ò…ğú8­‹İÙÜ1
-“
-java:S1319†"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(íà¿Æúÿÿÿÿ8­‹İÙÜ1
-
-java:S1319‡"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Şñ†8­‹İÙÜ1
-
-java:S1319Ê"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(«ª‚Ô8­‹İÙÜ1
-
-java:S1319¤"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ê½ù8­‹İÙÜ1
-“
-java:S1319Î"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ôĞğ©şÿÿÿÿ8­‹İÙÜ1
-
-java:S1319ë"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(î…8­‹İÙÜ1
-“
-java:S1319—"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÇŠ£Èşÿÿÿÿ8­‹İÙÜ1
-
-java:S1319ç"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".( •ì8­‹İÙÜ1
-“
-java:S1319ù"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(™³ŸŒıÿÿÿÿ8­‹İÙÜ1
-“
-java:S1319Ù"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Š¼¡ÿøÿÿÿÿ8­‹İÙÜ1
-W
-java:S1141y"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8®‹İÙÜ1
-n	java:S117—"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8®‹İÙÜ1
-s	java:S117¦"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ÕÙ©øÿÿÿÿ8®‹İÙÜ1
-
-java:S1488Ï"^Immediately return this expression instead of assigning it to the temporary variable "utente".(É’£œùÿÿÿÿ8°‹İÙÜ1
-;
-java:S1700"Rename field "controller"(š·Âëüÿÿÿÿ8´‹İÙÜ1
-n
-java:S3655é"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(°Ëûú8 ãˆ‡İ1
-s
-java:S3655ˆ"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Ğï°Õúÿÿÿÿ8 ãˆ‡İ1
-s
-java:S3655ê"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Ğï°Õúÿÿÿÿ8 ãˆ‡İ1
-n
-java:S3655‡"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(°Ëûú8¡ãˆ‡İ1
-ƒ	java:S116"hRename this field "SalvaVecchiaPaginaSelezionata" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø¾8‹•İÙÜ1
-
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(§ ÿ8‹•İÙÜ1
->
-java:S1116"Remove this empty statement.(½–³ûÿÿÿÿ8•İÙÜ1
-o
-java:S3776I"RRefactor this method to reduce its Cognitive Complexity from 91 to the 15 allowed.(ò…ğú8’•İÙÜ1
-G	java:S106["+Replace this use of System.out by a logger.(”•º¡8–•İÙÜ1
-M	java:S106š"+Replace this use of System.out by a logger.(ØãŸ•øÿÿÿÿ8›•İÙÜ1
-d
-java:S1126Ô"AReplace this if-then-else statement by a single return statement.(©úÛãûÿÿÿÿ8•İÙÜ1
-X
-java:S1854ò":Remove this useless assignment to local variable "pagina".(Òç©˜8•İÙÜ1
-K	java:S108ï")Either remove or fill this block of code.(ãíÒÄûÿÿÿÿ8Ÿ•İÙÜ1
-I
-java:S1481ò"+Remove this unused "pagina" local variable.(Òç©˜8Ÿ•İÙÜ1
-p
-java:S3776š"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(‹½¡Ö8¡•İÙÜ1
-p
-java:S3776É"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(ÿÀ¨¼8¥•İÙÜ1
-_
-java:S1854è"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8¥•İÙÜ1
-_
-java:S1854ö"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8¥•İÙÜ1
-P
-java:S1481è"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8§•İÙÜ1
-P
-java:S1481ö"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8¨•İÙÜ1
-p
-java:S3776‡"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(Şñ†8©•İÙÜ1
-^
-java:S1854£";Remove this useless assignment to local variable "visiona".(ÚäÀ§ıÿÿÿÿ8©•İÙÜ1
-^
-java:S1854¥";Remove this useless assignment to local variable "visiona".(í–Ä‡ùÿÿÿÿ8©•İÙÜ1
-\
-java:S1155•">Use isEmpty() to check whether the collection is empty or not.(öÚ°›8ª•İÙÜ1
-\
-java:S1155˜">Use isEmpty() to check whether the collection is empty or not.(çÎÇ«8ª•İÙÜ1
-a
-java:S1155Ÿ">Use isEmpty() to check whether the collection is empty or not.(øŞ¿‚ûÿÿÿÿ8«•İÙÜ1
-O
-java:S1481£",Remove this unused "visiona" local variable.(ÚäÀ§ıÿÿÿÿ8¬•İÙÜ1
-O
-java:S1481¥",Remove this unused "visiona" local variable.(í–Ä‡ùÿÿÿÿ8¬•İÙÜ1
-H	java:S106«"+Replace this use of System.out by a logger.(í¬â8¬•İÙÜ1
-H	java:S106°"+Replace this use of System.out by a logger.(ãšôå8¬•İÙÜ1
-f
-java:S1854¾"CRemove this useless assignment to local variable "paginaVisionata".(ªê¤çùÿÿÿÿ8®•İÙÜ1
-f
-java:S1854Á"CRemove this useless assignment to local variable "paginaVisionata".(‡Î“ùúÿÿÿÿ8®•İÙÜ1
+g	java:S112|"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ä‚¾İ1
+h	java:S112‚"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ä‚¾İ1
+h	java:S112Ş"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ä‚¾İ1
+h	java:S112é"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ä‚¾İ1
+h	java:S112ª"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ä‚¾İ1
+h	java:S112å"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Å‚¾İ1
+h	java:S112ƒ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Å‚¾İ1
+h	java:S112«"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Å‚¾İ1
+h	java:S112„"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Å‚¾İ1
+h	java:S112˜"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Å‚¾İ1
+h	java:S112¦"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Å‚¾İ1
+h	java:S112Á"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Å‚¾İ1
+h	java:S112“"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Å‚¾İ1
+h	java:S112À"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Æ‚¾İ1
+h	java:S112Ê"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Æ‚¾İ1
+u	java:S127Å"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8Ì‚¾İ1
 R
-java:S1481¼"4Remove this unused "paginaVisionata" local variable.(°—¡ô8®•İÙÜ1
-p
-java:S3776Ê"RRefactor this method to reduce its Cognitive Complexity from 63 to the 15 allowed.(«ª‚Ô8°•İÙÜ1
-H	java:S106Ê"+Replace this use of System.out by a logger.(½âï­8»•İÙÜ1
-g
-java:S1854Á"DRemove this useless assignment to local variable "modificaProposta".(Ùû–¨ıÿÿÿÿ8À•İÙÜ1
-X
-java:S1481Á"5Remove this unused "modificaProposta" local variable.(Ùû–¨ıÿÿÿÿ8Æ•İÙÜ1
-b
-java:S1854ê"DRemove this useless assignment to local variable "modificaProposta".(œÀš­8Æ•İÙÜ1
-g
-java:S1854÷"DRemove this useless assignment to local variable "modificaProposta".(¤Ç®šÿÿÿÿÿ8Ç•İÙÜ1
-S
-java:S1481ê"5Remove this unused "modificaProposta" local variable.(œÀš­8É•İÙÜ1
-X
-java:S1481÷"5Remove this unused "modificaProposta" local variable.(¤Ç®šÿÿÿÿÿ8Ê•İÙÜ1
-u
-java:S3776—"RRefactor this method to reduce its Cognitive Complexity from 86 to the 15 allowed.(ÇŠ£Èşÿÿÿÿ8Î•İÙÜ1
-G	java:S106Ö"+Replace this use of System.out by a logger.(ºŠ”	8×•İÙÜ1
-M	java:S106¤"+Replace this use of System.out by a logger.(¥ØŠ¡ÿÿÿÿÿ8î•İÙÜ1
-M	java:S106¥"+Replace this use of System.out by a logger.(¸£Àıÿÿÿÿ8î•İÙÜ1
+java:S1066õ"/Merge this if statement with the enclosing one.(àñüÿÿÿÿ8Í‚¾İ1
+M
+java:S1066ÿ"/Merge this if statement with the enclosing one.(çÎÇ«8Í‚¾İ1
+M
+java:S1066­"/Merge this if statement with the enclosing one.(ÙÿŞç8Í‚¾İ1
+R
+java:S1066Ö"/Merge this if statement with the enclosing one.(Ûù¹¥ûÿÿÿÿ8Í‚¾İ1
+R
+java:S1066û"/Merge this if statement with the enclosing one.(ºÑØ›ÿÿÿÿÿ8Í‚¾İ1
+M
+java:S1066Ù"/Merge this if statement with the enclosing one.(™Å8Í‚¾İ1
+M
+java:S1066ã"/Merge this if statement with the enclosing one.(‰ª·©8é•¿İ1
+R
+java:S1066€"/Merge this if statement with the enclosing one.(è•¬®úÿÿÿÿ8³¤Àİ1
+
+java:S1319;"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ò…ğú8Ğ‚¾İ1
+“
+java:S1319í"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(íà¿Æúÿÿÿÿ8Ğ‚¾İ1
+
+java:S1319î"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Şñ†8Ğ‚¾İ1
+
+java:S1319¯"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(«ª‚Ô8Ğ‚¾İ1
+
+java:S1319‰"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ê½ù8Ğ‚¾İ1
+“
+java:S1319²"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ôĞğ©şÿÿÿÿ8Ñ‚¾İ1
+“
+java:S1319»"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÇŠ£Èşÿÿÿÿ8Ñ‚¾İ1
+
+java:S1319Š"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".( •ì8Ñ‚¾İ1
+“
+java:S1319œ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(™³ŸŒıÿÿÿÿ8Ñ‚¾İ1
+“
+java:S1319õ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Š¼¡ÿøÿÿÿÿ8Ñ‚¾İ1
+W
+java:S1141i"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8Ñ‚¾İ1
+n	java:S117‡"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·«Ãˆ8Ò‚¾İ1
+s	java:S117•"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ÕÙ©øÿÿÿÿ8Ò‚¾İ1
+;
+java:S1700"Rename field "controller"(š·Âëüÿÿÿÿ8Ş‚¾İ1
+s
+java:S3655Ï"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Ğï°Õúÿÿÿÿ8¦¾İ1
+r
+java:S3655x"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Ğï°Õúÿÿÿÿ8¦¾İ1
+n
+java:S3655Î"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(°Ëûú8¦¾İ1
+m
+java:S3655w"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(°Ëûú8¥¾İ1
+ƒ	java:S116"hRename this field "SalvaVecchiaPaginaSelezionata" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø¾8§¾İ1
+
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(§ ÿ8§¾İ1
+>
+java:S1116"Remove this empty statement.(½–³ûÿÿÿÿ8­¾İ1
+o
+java:S3776;"RRefactor this method to reduce its Cognitive Complexity from 93 to the 15 allowed.(ò…ğú8°¾İ1
 d
-java:S1126²"AReplace this if-then-else statement by a single return statement.(ÓÛèßşÿÿÿÿ8ï•İÙÜ1
-u
-java:S3776¸"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(ñ¿Ëşıÿÿÿÿ8ï•İÙÜ1
+java:S1126¾"AReplace this if-then-else statement by a single return statement.(©úÛãûÿÿÿÿ8½¾İ1
+X
+java:S1854Ù":Remove this useless assignment to local variable "pagina".(Òç©˜8¿¾İ1
+I
+java:S1481Ù"+Remove this unused "pagina" local variable.(Òç©˜8Â¾İ1
+p
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(‹½¡Ö8Ä¾İ1
+p
+java:S3776°"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(ÿÀ¨¼8Ê¾İ1
 _
-java:S1126Ò"AReplace this if-then-else statement by a single return statement.(©Şó©8ñ•İÙÜ1
+java:S1854Ï"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8Ê¾İ1
+_
+java:S1854İ"ARemove this useless assignment to local variable "fraseCorrente".(¼†ú¾8Ë¾İ1
+P
+java:S1481Ï"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8Ì¾İ1
+P
+java:S1481İ"2Remove this unused "fraseCorrente" local variable.(¼†ú¾8Í¾İ1
+p
+java:S3776î"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(Şñ†8Î¾İ1
+^
+java:S1854Š";Remove this useless assignment to local variable "visiona".(ÚäÀ§ıÿÿÿÿ8Ï¾İ1
+^
+java:S1854Œ";Remove this useless assignment to local variable "visiona".(í–Ä‡ùÿÿÿÿ8Ï¾İ1
+\
+java:S1155ü">Use isEmpty() to check whether the collection is empty or not.(öÚ°›8Ğ¾İ1
+\
+java:S1155ÿ">Use isEmpty() to check whether the collection is empty or not.(çÎÇ«8Ğ¾İ1
+a
+java:S1155†">Use isEmpty() to check whether the collection is empty or not.(øŞ¿‚ûÿÿÿÿ8Ñ¾İ1
+O
+java:S1481Š",Remove this unused "visiona" local variable.(ÚäÀ§ıÿÿÿÿ8Ò¾İ1
+O
+java:S1481Œ",Remove this unused "visiona" local variable.(í–Ä‡ùÿÿÿÿ8Õ¾İ1
+f
+java:S1854£"CRemove this useless assignment to local variable "paginaVisionata".(ªê¤çùÿÿÿÿ8Ö¾İ1
+f
+java:S1854¦"CRemove this useless assignment to local variable "paginaVisionata".(‡Î“ùúÿÿÿÿ8Ö¾İ1
+R
+java:S1481¡"4Remove this unused "paginaVisionata" local variable.(°—¡ô8Ö¾İ1
+p
+java:S3776¯"RRefactor this method to reduce its Cognitive Complexity from 63 to the 15 allowed.(«ª‚Ô8Ú¾İ1
+g
+java:S1854™"DRemove this useless assignment to local variable "modificaProposta".(Ùû–¨ıÿÿÿÿ8ï¾İ1
+X
+java:S1481™"5Remove this unused "modificaProposta" local variable.(Ùû–¨ıÿÿÿÿ8ò¾İ1
 u
-java:S3776Ù"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Š¼¡ÿøÿÿÿÿ8ñ•İÙÜ1
-k
-java:S1871è"MThis branch's code block is the same as the block for the branch on line 996.(®Øè¡8ò•İÙÜ1
-M	java:S106š"+Replace this use of System.out by a logger.(×½ Šÿÿÿÿÿ8ú‘ßÙÜ1
-H	java:S106¦"+Replace this use of System.out by a logger.(ìø©º8™ğàÙÜ1
+java:S3776»"RRefactor this method to reduce its Cognitive Complexity from 84 to the 15 allowed.(ÇŠ£Èşÿÿÿÿ8õ¾İ1
+X
+java:S1854ø":Remove this useless assignment to local variable "oraMax".(ºíœô8û­Àİ1
+X
+java:S1854ı":Remove this useless assignment to local variable "oraMax".(ºíœô8û­Àİ1
+N
+java:S1481ò"+Remove this unused "oraMax" local variable.(µ¯ğ¹üÿÿÿÿ8®Àİ1
+M	java:S106Á"+Replace this use of System.out by a logger.(¥ØŠ¡ÿÿÿÿÿ8ƒ¾İ1
+M	java:S106Â"+Replace this use of System.out by a logger.(¸£Àıÿÿÿÿ8ƒ¾İ1
+d
+java:S1126Ï"AReplace this if-then-else statement by a single return statement.(ÓÛèßşÿÿÿÿ8„¾İ1
+u
+java:S3776Ô"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(ñ¿Ëşıÿÿÿÿ8„¾İ1
+_
+java:S1126î"AReplace this if-then-else statement by a single return statement.(©Şó©8†¾İ1
+u
+java:S3776õ"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Š¼¡ÿøÿÿÿÿ8†¾İ1
 L
-java:S1128"*Remove this unused import 'GUI.Notifiche'.(şæèşÿÿÿÿ8…äˆ‡İ1
+java:S1128"*Remove this unused import 'GUI.Notifiche'.(şæèşÿÿÿÿ8¾İ1
 U
 java:S1128
-"8Remove this unused import 'java.time.DateTimeException'.(úÛ”™8…äˆ‡İ1
+"8Remove this unused import 'java.time.DateTimeException'.(úÛ”™8¾İ1
 P
-java:S1068".Remove this unused "controller" private field.(š·Âëüÿÿÿÿ8ö•İÙÜ1
+java:S1068".Remove this unused "controller" private field.(š·Âëüÿÿÿÿ8¾İ1
 ä
-java:S6541I"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 124 to 64, Complexity from 26 to 14, Nesting Level from 8 to 2, Number of Variables from 47 to 6.(ò…ğú8÷•İÙÜ1
+java:S6541;"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 122 to 64, Complexity from 28 to 14, Nesting Level from 8 to 2, Number of Variables from 47 to 6.(ò…ğú8¾İ1
 ä
-java:S6541Ê"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 88 to 64, Complexity from 20 to 14, Nesting Level from 6 to 2, Number of Variables from 37 to 6.(«ª‚Ô8÷•İÙÜ1
+java:S6541¯"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 88 to 64, Complexity from 20 to 14, Nesting Level from 6 to 2, Number of Variables from 37 to 6.(«ª‚Ô8¾İ1
 é
-java:S6541—"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 77 to 64, Complexity from 40 to 14, Nesting Level from 7 to 2, Number of Variables from 26 to 6.(ÇŠ£Èşÿÿÿÿ8÷•İÙÜ1
+java:S6541»"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 76 to 64, Complexity from 38 to 14, Nesting Level from 7 to 2, Number of Variables from 26 to 6.(ÇŠ£Èşÿÿÿÿ8¾İ1

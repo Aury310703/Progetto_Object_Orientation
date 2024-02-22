@@ -35,6 +35,8 @@ public class CreaPagina {
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+
+        labelTitolo.setText(this.$$$getMessageFromBundle$$$(locale, "Titolo"));
         paginaPrecedenteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -51,7 +53,6 @@ public class CreaPagina {
                 String testo = ScriviTesto.getText();
                 controller.creazionePagina(titolo, testo);
                 frame.setVisible(false);
-                //HomeLoggato homeLoggato = new HomeLoggato(controller, frame, paginaCreata.getAutore());
                 HomeLoggato homeLoggato = new HomeLoggato(controller, frame, locale);
                 PaginaTesto paginaTesto = new PaginaTesto(controller, homeLoggato.frame, locale);
                 paginaTesto.frame.setVisible(true);

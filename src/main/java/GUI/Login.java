@@ -78,7 +78,6 @@ public class Login {
 
 
                 if (verificato != 0) {
-
                     if (controllo.equals("Home")) {
                         HomeLoggato homeLoggato = new HomeLoggato(controller, frame, locale);
                         homeLoggato.frame.setLocation(700, 400);

@@ -1,14 +1,14 @@
 
 h
 java:S1192)"FDefine a constant instead of duplicating this literal "it_IT" 6 times.(È’¡°ûÿÿÿÿ8«›…İ1
-u	java:S127Ø"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8«›…İ1
-u	java:S127ó"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8«›…İ1
+u	java:S127×"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8«›…İ1
+u	java:S127ò"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8«›…İ1
 E
 java:S1604:"(Make this anonymous inner class a lambda(ä¼‘–8¬›…İ1
 J
 java:S1604D"(Make this anonymous inner class a lambda(•±òîûÿÿÿÿ8¬›…İ1
 J
-java:S1604q"(Make this anonymous inner class a lambda(õ¬­üÿÿÿÿ8¬›…İ1
+java:S1604p"(Make this anonymous inner class a lambda(õ¬­üÿÿÿÿ8¬›…İ1
 n
 java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8¬›…İ1
 s
@@ -16,15 +16,15 @@ java:S1104%"VMake controller a static final constant or non-public and provide 
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8®›…İ1
 |	java:S116!"[Rename this field "ErroreLoginLabel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù€—ºúÿÿÿÿ8í›…İ1
 ‰
-java:S3008½"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8í›…İ1
+java:S3008¼"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8í›…İ1
 €
 java:S1450"^Remove the "nomeUtenteLabel" field and declare it as a local variable in the relevant methods.(È¼×áûÿÿÿÿ8ï›…İ1
 y
 java:S1450"\Remove the "passwordLabel" field and declare it as a local variable in the relevant methods.(‰É¨Š8ï›…İ1
 ‚
-java:S1149Ò"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8ğ›…İ1
+java:S1149Ñ"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8ğ›…İ1
 ‚
-java:S1149í"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8ğ›…İ1
+java:S1149ì"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8ğ›…İ1
 n
 java:S37762"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(Ô×¡F8ñ›…İ1
 f
@@ -33,18 +33,18 @@ java:S32526"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_
 Q
 java:S1874H"/Remove this use of "getText"; it is deprecated.(ğÑøˆÿÿÿÿÿ8ô›…İ1
 Z
-java:S3252e"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(ÔËÚĞ8ö›…İ1
+java:S3252d"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(ÔËÚĞ8ö›…İ1
 _
-java:S3252j"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(‰€ËŠıÿÿÿÿ8÷›…İ1
+java:S3252i"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(‰€ËŠıÿÿÿÿ8÷›…İ1
 |
-java:S1171…"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ø›…İ1
-p	java:S100“"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8ø›…İ1
-p	java:S100¿"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8€œ…İ1
+java:S1171„"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ø›…İ1
+p	java:S100’"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8ø›…İ1
+p	java:S100¾"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8€œ…İ1
 T
-java:S2696Å"6Make the enclosing method "static" or remove this set.(§¾ã8œ…İ1
-k	java:S100Ñ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§¨¡³8œ…İ1
-k	java:S100ì"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8ƒœ…İ1
-p	java:S100‡"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8„œ…İ1
+java:S2696Ä"6Make the enclosing method "static" or remove this set.(§¾ã8œ…İ1
+k	java:S100Ğ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§¨¡³8œ…İ1
+k	java:S100ë"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8ƒœ…İ1
+p	java:S100†"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8„œ…İ1
 F
 java:S1128")Remove this unused import 'MODEL.Pagina'.(ÌñŸÈ8ß´‹İ1
 M
