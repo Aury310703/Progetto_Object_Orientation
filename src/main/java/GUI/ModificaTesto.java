@@ -14,6 +14,9 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Schermata in cui si può selezionare una frase da modificare dall'elenco che verrà mostrato.
+ */
 public class ModificaTesto {
 
     public JFrame frame;
@@ -27,6 +30,13 @@ public class ModificaTesto {
 
     public Controller controller;
 
+    /**
+     * Istanzia una nuova schermata modificaTesto.
+     *
+     * @param controller     realizza le operazioni algoritmiche
+     * @param frameChiamante schermata da cui viene istanziata ModificaTesto
+     * @param locale         indica la lingua.
+     */
     public ModificaTesto(Controller controller, JFrame frameChiamante, String locale) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Modifica");
@@ -184,6 +194,9 @@ public class ModificaTesto {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

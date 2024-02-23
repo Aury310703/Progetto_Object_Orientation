@@ -942,7 +942,7 @@ public class Controller {
             pagineTrovate.get(clickedRow).addFrasi_collegate(paginaSelezionata.getFrasi().get(indiceFrase));
         }else{
             paginaSelezionata.getFrasi().get(indiceFrase).setPaginaCollegata(pagineTrovate.get(clickedRow));
-            for(Frase_Corrente f : pagineTrovate.get(clickedRow).getCollegamenti()){
+            for(Frase_Corrente f : pagineTrovate.get(clickedRow).getFrasi_collegate()){
                 if(f.equals(paginaSelezionata.getFrasi().get(indiceFrase))){
                     pagineTrovate.get(clickedRow).removeFrasi_collegate(f);
                     pagineTrovate.get(clickedRow).addFrasi_collegate(paginaSelezionata.getFrasi().get(indiceFrase));
@@ -955,7 +955,7 @@ public class Controller {
         String stringaInserita = paginaSelezionata.getFrasi().get(indiceFrase).getStringa_inserita();
 
         try {
-            w.addPaginacollegata(paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), stringaInserita, paginaSelezionata.getFrasi().get(indiceFrase).getDataInserimento(), paginaSelezionata.getFrasi().get(indiceFrase).getOraInserimento(), indiceFrase, pagineTrovate.get(clickedRow).getTitolo(), pagineTrovate.get(clickedRow).getDataCreazione());
+            w.addPaginacollegata(stringaInserita, paginaSelezionata.getFrasi().get(indiceFrase).getDataInserimento(), paginaSelezionata.getFrasi().get(indiceFrase).getOraInserimento(), indiceFrase, pagineTrovate.get(clickedRow).getTitolo(), pagineTrovate.get(clickedRow).getDataCreazione());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -1,11 +1,11 @@
 
 
-java:S1319:"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ñ·Ää8÷ó‹Ü1
+java:S1319i"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ñ·Ää8–š—´İ1
 …
-java:S1319>"hThe type of "proposte" should be an interface such as "List" rather than the implementation "ArrayList".(¿Áí8÷ó‹Ü1
-i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ş•ëÒ8÷ó‹Ü1
+java:S1319r"hThe type of "proposte" should be an interface such as "List" rather than the implementation "ArrayList".(¿Áí8–š—´İ1
+i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ş•ëÒ8÷ó‹Ü1
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™™òøÿÿÿÿ8øó‹Ü1
 M
-java:S2387"+"pagina" is the name of a field in "Frase".(°„È•ùÿÿÿÿ8ûó‹Ü1
+java:S2387""+"pagina" is the name of a field in "Frase".(°„È•ùÿÿÿÿ8¢š—´İ1
 H
-java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8ÿó‹Ü1
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8°š—´İ1

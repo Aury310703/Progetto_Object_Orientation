@@ -10,6 +10,11 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * In questa schermata l'autore può accedere solo nel momento in cui è presente almeno una notifica.
+ * All'autore verrà mostrata il titolo della pagina, in cui c'è stata una proposta di modifica, la frase selezionata e la frase proposta da un utente. L'autore può decidere se accettare o rifiutare la proposta.
+ *
+ */
 public class Notifiche {
     private JPanel panel;
     private JPanel panel1;
@@ -24,10 +29,19 @@ public class Notifiche {
     private JLabel fraseDaModificareLAbel;
     private JLabel frasePropLabel;
     private JLabel FrasePropostaLabel;
+
     public JFrame frame;
     private JFrame frameChiamante;
+
     public Controller controller;
 
+    /**
+     * Istanzia una nuova schermata Notifiche.
+     *
+     *  @param controller     realizza le operazioni algoritmiche
+     *  @param frameChiamante schermata da cui viene istanziata Notifiche
+     *  @param locale         indica la lingua.
+     */
     public Notifiche(Controller controller, JFrame frameChiamante, String locale) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Modifica");
@@ -211,6 +225,9 @@ public class Notifiche {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

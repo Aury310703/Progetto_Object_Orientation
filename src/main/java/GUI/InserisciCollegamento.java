@@ -13,6 +13,10 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Schermata usata per selezionare la pagina da collegare alla frase scelta nella schermata precedente.
+ * In questa pagina è possibile cercare delle pagine, viusalizzare le pagine, selezionare la pagina scelta e tornare indietro alla pagina precedente.
+ */
 public class InserisciCollegamento {
     private JPanel panel;
     private JPanel panel1;
@@ -23,9 +27,18 @@ public class InserisciCollegamento {
     private JPanel precedentePanel;
     private JButton paginaPrecedenteButton;
     private JTable titoliTable;
+
     public JFrame frame;
     private JFrame frameChiamante;
 
+    /**
+     * Istanzia una nuova schermata Inserisci collegamento.
+     *
+     * @param controller  realizza le operazioni algoritmiche
+     * @param frameC      schermata da cui viene istanziata HomeLoggato
+     * @param indiceFrase indica la numerazine della frase scelta
+     * @param locale      indica la lingua.
+     */
     public InserisciCollegamento(Controller controller, JFrame frameC, int indiceFrase, String locale) {
         this.frameChiamante = frameC;
         this.frame = new JFrame("WIKI");
@@ -207,6 +220,9 @@ public class InserisciCollegamento {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

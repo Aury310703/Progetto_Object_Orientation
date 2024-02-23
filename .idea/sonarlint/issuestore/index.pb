@@ -57,14 +57,6 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
-N
-src/main/java/GUI/HomeLog.java,0\8\081393d6fd6b0314aa885debd2bd194cc7e7ac41
-N
-src/main/java/GUI/HomeLog.form,3\0\30a220a24dbdbea6aca8fecb5b591f3d8096c086
-N
-src/main/java/GUI/Homelog.java,b\5\b5fdbd88928a3dc3c2adea52facab4bf98c02d5b
-N
-src/main/java/GUI/Homelog.form,c\b\cb31b8f13337bec322e58ce82191d8d47c93c041
 R
 "src/main/java/GUI/Homeloggato.form,c\c\cc97b171cf3f762558e8989bdb59ceec90073802
 R
@@ -81,3 +73,21 @@ X
 ,src/main/java/GUI/RegistrazioneBuonFine.java,4\e\4e2f35999a8d2d8ab18f2530aea7427e8615f90d
 R
 "src/main/java/GUI/ListaTitoli.form,0\4\042cfb462597e11ed7b6ea36889485ddd7c28e22
+_
+/src/main/java/database/ConnessioneDatabase.java,c\c\cc6637f4448f72f749fd185cb4312475e161ad72
+O
+src/main/java/MODEL/Autore.java,3\a\3aa8fcc81f42d10eb2ed9c73517e22a21c7670a6
+N
+src/main/java/MODEL/Frase.java,b\7\b7cb78e5cdb18e3df27626c87593ba455ca367cf
+Q
+!src/main/java/MODEL/Notifica.java,c\3\c38972407b731479f9334e3a2e3f770a4b510c31
+O
+src/main/java/MODEL/Utente.java,3\b\3b07e6bbcf3da3f26471c7d6aa3734832a32ece5
+P
+ src/main/java/MODEL/Visiona.java,b\7\b702b053d5e58c426cddfcd0b01ffbfbb5bb288c
+X
+(src/main/java/GUI/DettagliModifiche.form,8\2\82bd2071bd34a72cfea43e6b98bd07adbaf25b35
+T
+$src/main/java/GUI/ModificaTesto.form,8\9\8975de26fa8ef1275d8ab058d1be9f39086602e3
+P
+ src/main/java/GUI/Notifiche.form,7\2\72be3eb9e487f59f4b50f88c052a464d511fd4a2

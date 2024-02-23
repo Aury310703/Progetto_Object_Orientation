@@ -7,8 +7,13 @@ import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
 import java.util.ResourceBundle;
 
+/**
+ * Schermata che viene effettuata per mostrare messaggi di errore e di avvenuta operazione.
+ */
 public class Errori {
+
     public JFrame frameChiamante;
+
     public JFrame frame;
     private JPanel Panel;
     private JPanel topPanel;
@@ -16,6 +21,12 @@ public class Errori {
     private JButton TornaButton;
     private JLabel testoLabel;
 
+    /**
+     * Istanzia una nuova schermata errori.
+     *
+     * @param TestoDaVisualizzare indica il testo che verrà visualizzato all'apertura di questa schermata
+     * @param locale              indica la lingua
+     */
     public Errori(String TestoDaVisualizzare, String locale) {
         this.frame = new JFrame("Errori");
         frame.setContentPane(Panel);
@@ -31,6 +42,13 @@ public class Errori {
 
     }
 
+    /**
+     * Instanzia una nuova schermata Errori
+     *
+     * @param TestoDaVisualizzare indica il testo che verrà visualizzato all'apertura di questa schermata
+     * @param frameModificaTesto  indica il frame di modifica testo
+     * @param frameChiamante      schermata da cui viene istanziata Errori
+     */
     public Errori(String TestoDaVisualizzare, JFrame frameModificaTesto, JFrame frameChiamante) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
@@ -52,6 +70,12 @@ public class Errori {
 
     }
 
+    /**
+     * Istanzia una nuova schermata Errori.
+     *
+     * @param TestoDaVisualizzare indica il testo che verrà visualizzato all'apertura di questa schermata
+     * @param frameSuccessivo     indica il frame che verrà viusalizzato subito dopo la chiusura della schermata attuale
+     */
     public Errori(String TestoDaVisualizzare, JFrame frameSuccessivo) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
@@ -149,6 +173,9 @@ public class Errori {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

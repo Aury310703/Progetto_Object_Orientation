@@ -7,13 +7,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
-import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Rappresenta la schermata dedicata alla creazione di una nuova pagina all'interno della wiki, dove l'autore inserirà titolo della pagina e corpo della pagina.
+ */
 public class CreaPagina {
     private JPanel panel;
     private JPanel panel1;
@@ -28,6 +26,13 @@ public class CreaPagina {
     private JFrame frameChiamante;
     private Controller controller;
 
+    /**
+     * Istanzia una nuova crea pagina.
+     *
+     * @param controller     realizza le operazioni algoritmiche
+     * @param frameChiamante schermata da cui viene istanziata CreaPagina
+     * @param locale         indica la lingua.
+     */
     public CreaPagina(Controller controller, JFrame frameChiamante, String locale) {
         this.frameChiamante = frameChiamante;
         this.controller = controller;
@@ -173,6 +178,9 @@ public class CreaPagina {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

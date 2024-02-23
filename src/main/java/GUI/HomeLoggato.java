@@ -9,6 +9,10 @@ import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
 import java.util.ResourceBundle;
 
+/**
+ * Schermata iniziale dei soli utenti che hanno effettuato l'accesso alla wiki. In questa schermata potranno essere fatte le stesse operazioni della schermata Home
+ * ma con l'aggiunta di un bottone che una volta premuto ci porterà nell'area riservata dell'utente ,un bottone dedicato a portarci all'area di creazione di una pagina e infine il bottone di logout
+ */
 public class HomeLoggato {
 
     public JFrame frame;
@@ -24,6 +28,13 @@ public class HomeLoggato {
     private JButton cercaButton;
     private JLabel logoLabel;
 
+    /**
+     * Istanzia una nuova schermata HomeLoggato.
+     *
+     * @param controller     realizza le operazioni algoritmiche
+     * @param frameChiamante schermata da cui viene istanziata HomeLoggato
+     * @param locale         indica la lingua.
+     */
     public HomeLoggato(Controller controller, JFrame frameChiamante, String locale) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
@@ -33,7 +44,7 @@ public class HomeLoggato {
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        ImageIcon originalIcon = new ImageIcon("C:\\Users\\david\\Desktop\\progetto_OO\\src\\Screenshot_2024-02-21_124631-removebg-preview (1).png");
+        ImageIcon originalIcon = new ImageIcon("C:\\Users\\Aurelio Nani\\OneDrive\\Desktop\\progetto\\src\\Screenshot_2024-02-21_124631-removebg-preview (1).png");
         Image originalImage = originalIcon.getImage();
         Image resizedImage = originalImage.getScaledInstance(300, 100, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
@@ -190,6 +201,9 @@ public class HomeLoggato {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

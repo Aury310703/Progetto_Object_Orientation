@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 public class VisionaCollegamenti {
 
     public JFrame frame;
-    private JFrame frameChiamante;
+    private final JFrame frameChiamante;
     private JPanel panel;
     private JButton paginaPrecedenteButton;
     private JScrollPane scrollPane;

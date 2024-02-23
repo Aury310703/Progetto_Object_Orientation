@@ -10,6 +10,9 @@ import java.lang.reflect.Method;
 import java.util.ResourceBundle;
 
 
+/**
+ * Rappresenta la pagina inziale della pagina wiki in cui si puo effettuare una ricerca di una pagina wiki oppure accedere all'area di login/registrazione.
+ */
 public class Home {
     private JPanel panel;
     private JButton LoginButton;
@@ -17,13 +20,21 @@ public class Home {
     private JButton CercaButton;
     private JPanel panel1;
     private JLabel logoLabel;
+
     static JFrame frame = new JFrame("WIKI");
+
     public JFrame frameChiamante;
+
     public Controller controller = new Controller();
     //private String locale = "en_GB";
     private String locale = "it_IT";
 
 
+    /**
+     * Punto di partenza dell'applicazione.
+     *
+     * @param args argomenti di input
+     */
     public static void main(String[] args) {
         frame.setContentPane(new Home().panel);
         frame.setSize(1000, 1100);
@@ -36,6 +47,9 @@ public class Home {
 
     }
 
+    /**
+     * click sul LoginButton. Questa funzione rappresenta il click del bottone che una volta premuto ci porterà all'area di login
+     */
     void clickOnLoginButton() {
         LoginButton.addActionListener(new ActionListener() {
             @Override
@@ -50,6 +64,9 @@ public class Home {
         });
     }
 
+    /**
+     * Click sul SearchButton. Una volta schiacciato il bottone di ricerca si aprirà la schermata con i risulatiti delle pagine cercate dall'utente all'interno della wiki
+     */
     public void clickOnSearchButton() {
         CercaButton.addActionListener(new ActionListener() {
             @Override
@@ -65,12 +82,15 @@ public class Home {
     }
 
 
+    /**
+     * Istanzia una nuova schermata Home.
+     */
     public Home() {
         LoginButton.setText(this.$$$getMessageFromBundle$$$(locale, "LOGIN"));
         CercaButton.setText(this.$$$getMessageFromBundle$$$(locale, "cerca"));
         clickOnLoginButton();
         clickOnSearchButton();
-        ImageIcon originalIcon = new ImageIcon("C:\\Users\\david\\Desktop\\progetto_OO\\src\\Screenshot_2024-02-21_124631-removebg-preview (1).png");
+        ImageIcon originalIcon = new ImageIcon("C:\\Users\\Aurelio Nani\\OneDrive\\Desktop\\progetto\\src\\Screenshot_2024-02-21_124631-removebg-preview (1).png");
         Image originalImage = originalIcon.getImage();
         Image resizedImage = originalImage.getScaledInstance(300, 100, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
@@ -165,6 +185,9 @@ public class Home {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

@@ -14,9 +14,14 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * In questa schermata verranno mostarti i riusltati in base alla ricerca effettuata nella schermata precedente dall'utente.
+ * Verranno dunque mostrati all'utente un elenco con i titoli delle pagine trovate che possono essere successivamente visualizzate, inoltre sarà possibile accedere all'area personale (o loggarsi nel caso in cui l'accesso non è stato effettuato) o tornare alla pagina precedente.
+ */
 public class ListaTitoli {
 
     private final JFrame frameChiamante;
+
     public JFrame frame;
     private JPanel panel;
     private JPanel TitoloPanel;
@@ -27,6 +32,13 @@ public class ListaTitoli {
     private JTable TitoliTable;
     private JScrollPane scrollpane;
 
+    /**
+     * Istanzia una nuova schermata ListaTitoli.
+     *
+     * @param controller     realizza le operazioni algoritmiche
+     * @param frameC schermata da cui viene istanziata ListaTitoli
+     * @param locale         indica la lingua.
+     */
     public ListaTitoli(Controller controller, JFrame frameC, String locale) {
         frameChiamante = frameC;
         this.frame = new JFrame("Titoli");
@@ -257,6 +269,9 @@ public class ListaTitoli {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

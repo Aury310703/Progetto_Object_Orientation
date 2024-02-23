@@ -8,19 +8,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
 /**
- * The type Login.
+ * Schermata dove puo essere effettuato l'accesso alla wiki tramite Username e Password, nel caso in cui l'utente non è registrato potrà accedere ad un ulteriore schermata di registrazione.
  */
 public class Login {
 
     private final JFrame frameChiamante;
-    /**
-     * The Frame.
-     */
+
     public JFrame frame;
     private JPanel panel;
     private JTextField nomeUtenteField;
@@ -31,21 +28,14 @@ public class Login {
     private JButton dietroButton;
     private JButton registratiButton;
     private JLabel ErroreLoginLabel;
-    /**
-     * The Controller.
-     */
+
     public Controller controller;
     /**
-     * The Locale.
-     */
-    String locale = "it_IT";
-
-    /**
-     * Instantiates a new Login.
+     * Istanzia una nuova schermata Login.
      *
-     * @param controller     the controller
-     * @param frameChiamante the frame chiamante
-     * @param controllo      the controllo
+     * @param controller     realizza le operazioni algoritmiche
+     * @param frameChiamante schermata da cui viene istanziata Login
+     * @param locale         indica la lingua.
      */
     public Login(Controller controller, JFrame frameChiamante, String controllo, String locale) {
         this.frameChiamante = frameChiamante;

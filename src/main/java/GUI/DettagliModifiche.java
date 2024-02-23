@@ -11,6 +11,9 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Rappresenta la schermata nella quale vengono mostrate tutte le modifiche effettuate dall'utente con la frase selezionata , la frase proposta e il relativo stato di accettazione(rifiutata,accetta,in attesa).
+ */
 public class DettagliModifiche {
     private JPanel panel;
     private JPanel panel1;
@@ -23,6 +26,13 @@ public class DettagliModifiche {
 
     public Controller controller;
 
+    /**
+     * Istanzia un nuovo dettagliModifiche.
+     *
+     * @param controller     realizza le operazioni algoritmiche
+     * @param frameChiamante schermata da cui viene istanziata dettagliModifiche
+     * @param locale         indica la lingua.
+     */
     public DettagliModifiche(Controller controller, JFrame frameChiamante, String locale) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
@@ -143,6 +153,9 @@ public class DettagliModifiche {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {
