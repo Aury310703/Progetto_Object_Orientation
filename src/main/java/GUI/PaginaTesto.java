@@ -44,6 +44,16 @@ public class PaginaTesto {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
+        Entrabutton.setText(this.$$$getMessageFromBundle$$$(locale, "entra"));
+        PrecedenteButton.setText(this.$$$getMessageFromBundle$$$(locale, "paginaPrecedente"));
+        modificaButton.setText(this.$$$getMessageFromBundle$$$(locale, "modifica"));
+        visualizzaCollegamentiButton.setText(this.$$$getMessageFromBundle$$$(locale, "VisualizzaCollegamenti"));
+        aggiungiCollegamentiButton.setText(this.$$$getMessageFromBundle$$$(locale, "AggiungiCollegamenti"));
+        okVersioneButton.setText(this.$$$getMessageFromBundle$$$(locale, "Visualizza"));
+        VersioneCorrentButton.setText(this.$$$getMessageFromBundle$$$(locale, "VersioneCorrente"));
+        Versionebutton.setText(this.$$$getMessageFromBundle$$$(locale, "VersionePrecedente"));
+
+
         giornoComboBox.setVisible(false);
         meseComboBox.setVisible(false);
         annoComboBox.setVisible(false);
@@ -62,8 +72,12 @@ public class PaginaTesto {
             giornoComboBox.addItem(String.valueOf(i));
         }
 
-        String[] mesi = {"Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
-                "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
+        String[] mesi = new String[]{"Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
+                    "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
+//        if (locale.equals("en_GB")) {
+//            String[] englishMonths = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+//            mesi = englishMonths;
+//        }
 
         for (int i = 0; i < 12; i++) {
             meseComboBox.addItem(mesi[i]);
@@ -118,7 +132,7 @@ public class PaginaTesto {
             modificaButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Errori errori = new Errori("Loggarsi prima di modificare", locale);
+                    Errori errori = new Errori("loggarsi", locale);
                     errori.frame.setLocationRelativeTo(frame);
                     errori.frame.setSize(300, 100);
                     errori.frame.setVisible(true);
@@ -171,7 +185,7 @@ public class PaginaTesto {
                     visionaCollegamenti.frame.setVisible(true);
                     frame.setVisible(false);
                 } else {
-                    Errori errori = new Errori("NON CI SONO COLLEGAMENTI", locale);
+                    Errori errori = new Errori("noCollegamenti", locale);
                     errori.frame.setLocationRelativeTo(frame);
                     errori.frame.setSize(300, 100);
                     errori.frame.setVisible(true);
@@ -304,13 +318,13 @@ public class PaginaTesto {
         this.$$$loadButtonText$$$(modificaButton, this.$$$getMessageFromBundle$$$("it_IT", "modifica"));
         infoAutorePanel.add(modificaButton, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         aggiungiCollegamentiButton = new JButton();
-        this.$$$loadButtonText$$$(aggiungiCollegamentiButton, this.$$$getMessageFromBundle$$$("it_IT", "Aggiungi collegamenti"));
+        this.$$$loadButtonText$$$(aggiungiCollegamentiButton, this.$$$getMessageFromBundle$$$("it_IT", "AggiungiCollegamenti"));
         infoAutorePanel.add(aggiungiCollegamentiButton, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         visualizzaCollegamentiButton = new JButton();
-        this.$$$loadButtonText$$$(visualizzaCollegamentiButton, this.$$$getMessageFromBundle$$$("it_IT", "Visualizza Collegamenti"));
+        this.$$$loadButtonText$$$(visualizzaCollegamentiButton, this.$$$getMessageFromBundle$$$("it_IT", "VisualizzaCollegamenti"));
         infoAutorePanel.add(visualizzaCollegamentiButton, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         Versionebutton = new JButton();
-        this.$$$loadButtonText$$$(Versionebutton, this.$$$getMessageFromBundle$$$("it_IT", "Versione Precedente"));
+        this.$$$loadButtonText$$$(Versionebutton, this.$$$getMessageFromBundle$$$("it_IT", "VersionePrecedente"));
         infoAutorePanel.add(Versionebutton, new com.intellij.uiDesigner.core.GridConstraints(5, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         dataPanel = new JPanel();
         dataPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 3, new Insets(0, 0, 0, 0), -1, -1));
@@ -325,7 +339,7 @@ public class PaginaTesto {
         this.$$$loadButtonText$$$(okVersioneButton, this.$$$getMessageFromBundle$$$("it_IT", "Visualizza"));
         infoAutorePanel.add(okVersioneButton, new com.intellij.uiDesigner.core.GridConstraints(7, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         VersioneCorrentButton = new JButton();
-        this.$$$loadButtonText$$$(VersioneCorrentButton, this.$$$getMessageFromBundle$$$("it_IT", "Versione Corrente"));
+        this.$$$loadButtonText$$$(VersioneCorrentButton, this.$$$getMessageFromBundle$$$("it_IT", "VersioneCorrente"));
         infoAutorePanel.add(VersioneCorrentButton, new com.intellij.uiDesigner.core.GridConstraints(8, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 

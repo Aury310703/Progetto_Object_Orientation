@@ -44,7 +44,12 @@ public class HomeLoggato {
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        ImageIcon originalIcon = new ImageIcon("C:\\Users\\Aurelio Nani\\OneDrive\\Desktop\\progetto\\src\\Screenshot_2024-02-21_124631-removebg-preview (1).png");
+        creaPaginaButton.setText(this.$$$getMessageFromBundle$$$(locale, "creapagina"));
+        esciButton.setText(this.$$$getMessageFromBundle$$$(locale, "esci"));
+        cercaButton.setText(this.$$$getMessageFromBundle$$$(locale, "cerca"));
+
+
+        ImageIcon originalIcon = new ImageIcon("C:\\Users\\david\\Desktop\\progetto_OO\\src\\Screenshot_2024-02-21_124631-removebg-preview (1).png");
         Image originalImage = originalIcon.getImage();
         Image resizedImage = originalImage.getScaledInstance(300, 100, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);

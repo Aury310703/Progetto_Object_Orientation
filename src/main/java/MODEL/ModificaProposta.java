@@ -25,16 +25,14 @@ public class ModificaProposta extends Frase {
      * @param utente          indica utente che propone la modifica a una pagina
      * @param fraseCorrente   indica la frase corrente a cui viene proposta la modifica
      * @param stringaProposta indica la frase proposta come modifica a una frase corrente
-     * @param numerazione     indica la numerazione della frase corrente
      */
-    public ModificaProposta(LocalDate dataProposta, LocalTime oraProposta, Autore autore, Utente utente, Frase_Corrente fraseCorrente, String stringaProposta, int numerazione){
+    public ModificaProposta(LocalDate dataProposta, LocalTime oraProposta, Autore autore, Utente utente, Frase_Corrente fraseCorrente, String stringaProposta){
         super(stringaProposta);
         this.dataProposta = dataProposta;
         this.oraProposta = oraProposta;
         this.autore = autore;
         this.utente = utente;
         this.fraseCorrente = fraseCorrente;
-        this.Numerazione = numerazione;
         autore.getValutate().add(this);
         utente.frasiProposte.add(this);
         fraseCorrente.getProposte().add(this);
@@ -50,17 +48,15 @@ public class ModificaProposta extends Frase {
      * @param utente          indica utente che propone la modifica a una pagina
      * @param fraseCorrente   indica la frase corrente a cui viene proposta la modifica
      * @param stringaProposta indica la frase proposta come modifica a una frase corrente
-     * @param numerazione     indica la numerazione della frase corrente
      * @param stato           indica lo stato di accettazione della modifica (-1 rifiutata, 1 accettata, 0 in attesa)
      */
-    public ModificaProposta(LocalDate dataProposta, LocalTime oraProposta, Autore autore, Utente utente, Frase_Corrente fraseCorrente, String stringaProposta, int numerazione, int stato){
+    public ModificaProposta(LocalDate dataProposta, LocalTime oraProposta, Autore autore, Utente utente, Frase_Corrente fraseCorrente, String stringaProposta, int stato){
         super(stringaProposta);
         this.dataProposta = dataProposta;
         this.oraProposta = oraProposta;
         this.autore = autore;
         this.utente = utente;
         this.fraseCorrente = fraseCorrente;
-        this.Numerazione = numerazione;
         this.stato = stato;
         autore.getValutate().add(this);
         utente.frasiProposte.add(this);

@@ -6,8 +6,7 @@ import database.ConnessioneDatabase;
 
 import java.sql.*;
 import java.time.*;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
@@ -289,6 +288,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         preparedStatement.setString(2, password);
         ResultSet rs = preparedStatement.executeQuery();
         while(rs.next()){
+            System.out.println("$$$$$$$$$$$$$$$$$$$");
             controllo = true;
         }
         connection.close();

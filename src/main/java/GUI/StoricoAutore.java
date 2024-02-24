@@ -42,8 +42,16 @@ public class StoricoAutore {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
+        String pagineVisualizzateText = this.$$$getMessageFromBundle$$$(locale, "pagineVisualizzate");
+        String modificheProposteText = this.$$$getMessageFromBundle$$$(locale, "modificheProposte");
+        String pagineCreateText = this.$$$getMessageFromBundle$$$(locale, "pagineCreate");
+
+
+        notificheButton.setText(this.$$$getMessageFromBundle$$$(locale, "notifiche"));
+        paginaPrecedenteButton.setText(this.$$$getMessageFromBundle$$$(locale, "paginaPrecedente"));
+
         ArrayList<String> pagineVisualizzate = controller.storicoPagineVisualizzate();
-        DefaultTableModel modelVisualizzate = new DefaultTableModel(new Object[][]{}, new String[]{"Pagine Visualizzate"}) {
+        DefaultTableModel modelVisualizzate = new DefaultTableModel(new Object[][]{}, new String[]{pagineVisualizzateText}) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -98,7 +106,7 @@ public class StoricoAutore {
         ArrayList<String> pagineModificate = controller.getModificate();
 
 
-        DefaultTableModel modelProposte = new DefaultTableModel(new Object[][]{}, new String[]{"Modifiche Proposte"}) {
+        DefaultTableModel modelProposte = new DefaultTableModel(new Object[][]{}, new String[]{modificheProposteText}) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -161,7 +169,7 @@ public class StoricoAutore {
         });
 
         ArrayList<String> pagineCreate = controller.storicoPagineCreate();
-        DefaultTableModel modelCreate = new DefaultTableModel(new Object[][]{}, new String[]{"Pagine Create"}) {
+        DefaultTableModel modelCreate = new DefaultTableModel(new Object[][]{}, new String[]{pagineCreateText}) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -228,7 +236,7 @@ public class StoricoAutore {
             notificheButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                        Errori erorri = new Errori("Non ci sono notifiche", locale);
+                        Errori erorri = new Errori("noNotifiche", locale);
                         erorri.frame.setLocationRelativeTo(frame);
                         erorri.frame.setSize(300, 100);
                         erorri.frame.setVisible(true);

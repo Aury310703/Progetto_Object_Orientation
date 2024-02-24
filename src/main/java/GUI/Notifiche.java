@@ -44,13 +44,19 @@ public class Notifiche {
      */
     public Notifiche(Controller controller, JFrame frameChiamante, String locale) {
         this.frameChiamante = frameChiamante;
-        this.frame = new JFrame("Modifica");
+        this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
         controller.setPaginaNotificata();
         controller.getTestoPagina();
+
+        tLabel.setText(this.$$$getMessageFromBundle$$$(locale, "titolo2"));
+        fraseModificareLabel.setText(this.$$$getMessageFromBundle$$$(locale, "fraseDaModificare"));
+        frasePropLabel.setText(this.$$$getMessageFromBundle$$$(locale, "fraseProposta"));
+        rifiutaButton.setText(this.$$$getMessageFromBundle$$$(locale, "Rifiuta"));
+        accettaButton.setText(this.$$$getMessageFromBundle$$$(locale, "Accetta"));
 
 
         titoloLabel.setText(controller.getTitoloNotifica());
@@ -60,7 +66,7 @@ public class Notifiche {
         rifiutaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                boolean controllo = controller.aggiornaStato(-1);
+                controller.aggiornaStato(-1);
                 if (controller.contaNotifiche() > 0) {
                     Notifiche notifiche = new Notifiche(controller, frameChiamante, locale);
                     frame.setVisible(false);
@@ -79,7 +85,7 @@ public class Notifiche {
         accettaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                boolean controllo = controller.aggiornaStato(1);
+               controller.aggiornaStato(1);
 
                 if (controller.contaNotifiche() > 0) {
                     Notifiche notifiche = new Notifiche(controller, frameChiamante, locale);

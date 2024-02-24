@@ -14,6 +14,11 @@ public class Frase_Corrente extends Frase {
     private Pagina paginaCollegata = null;
 
     /**
+     * Numerazione, rappresenta la posizione della frase all'interno del testo
+     */
+    private int Numerazione;
+
+    /**
      * Istanzia una nuova Frase corrente .
      *
      * @param s               La stringa inserit dall'utente

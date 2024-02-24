@@ -48,6 +48,7 @@ public class Registrazione {
     private JComboBox meseComboBox;
     private JComboBox annoComboBox;
     private JLabel mancanzaLabel;
+    private JLabel dataNascitaLabel;
     private JFormattedTextField dataField;
 
     public Registrazione(Controller controller, JFrame frameChiamante, String locale) {
@@ -58,13 +59,25 @@ public class Registrazione {
         frame.pack();
         mancanzaLabel.setText("");
 
+        nomeLabel.setText(this.$$$getMessageFromBundle$$$(locale, "nome"));
+        cognomeLabel.setText(this.$$$getMessageFromBundle$$$(locale, "cognome"));
+        nomeUtenteLabel.setText(this.$$$getMessageFromBundle$$$(locale, "Username"));
+        passwordLabel.setText(this.$$$getMessageFromBundle$$$(locale, "password"));
+        emailLabel.setText(this.$$$getMessageFromBundle$$$(locale, "email"));
+        dataNascitaLabel.setText(this.$$$getMessageFromBundle$$$(locale, "datanascita"));
+        paginaPrecedenteButton.setText(this.$$$getMessageFromBundle$$$(locale, "paginaPrecedente"));
+        registratiButton.setText(this.$$$getMessageFromBundle$$$(locale, "Registrati"));
+        titoloLavel.setText(this.$$$getMessageFromBundle$$$(locale, "registazione"));
+
 
         for (int i = 1; i <= 31; i++) {
             giornoComboBox.addItem(String.valueOf(i));
         }
 
-        String[] mesi = {"Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
-                "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
+        String[] mesi = new String[]{"Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
+        if (locale.equals("en_GB")) {
+            mesi = new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+        }
 
         for (int i = 1914; i <= 2023; i++) {
             annoComboBox.addItem(String.valueOf(i));
@@ -92,36 +105,32 @@ public class Registrazione {
                 String email = emailField.getText();
 
                 String giorno = (String) giornoComboBox.getSelectedItem();
-                System.out.println("iondicer  =========  " + meseComboBox.getSelectedIndex());
                 String mese = (String) String.valueOf(meseComboBox.getSelectedIndex() + 1);
                 String anno = (String) annoComboBox.getSelectedItem();
 
                 String dataStringa = anno + "-" + mese + "-" + giorno;
-                System.out.println("Data  =========  " + dataStringa);
                 SimpleDateFormat formatoData = new SimpleDateFormat("yyyy-MM-dd");
                 Date dataNascita = null;
                 try {
                     dataNascita = formatoData.parse(dataStringa);
-                    System.out.println("Data Nascita =========  " + dataNascita);
                 } catch (ParseException pe) {
                     System.out.println("Errore durante la conversione della stringa in data: " + pe.getMessage());
                 }
 
                 if (nome.equals("") || cognome.equals("") || nomeUtente.equals("") || password.equals("") || email.equals("") || dataStringa.equals("")) {
-                    mancanzaLabel.setText("Campi mancanti");
+                    setTestoMancanzaLabel(locale, "campiMancanti");
                 } else {
                     boolean controllo = true;
                     if (controller.controllaNomeUtente(nomeUtente)) {
-                        mancanzaLabel.setText("nome utente giá esistente");
+                        setTestoMancanzaLabel(locale, "nomeUtenteGiaEsistente");
                         controllo = false;
                     }
                     if (dataStringa.equals("1914-1-1")) {
-                        System.out.println("Data di default");
-                        mancanzaLabel.setText("Inserire data nascita");
+                        setTestoMancanzaLabel(locale, "InserireDataNascita");
                         controllo = false;
                     }
                     if (!isEmailValid(email)) {
-                        mancanzaLabel.setText("Formato email non valido");
+                        setTestoMancanzaLabel(locale, "FormatoEmailNonValido");
                         controllo = false;
                     }
                     if (controllo) {
@@ -135,6 +144,10 @@ public class Registrazione {
 
             }
         });
+    }
+
+    public void setTestoMancanzaLabel(String locale, String key) {
+        mancanzaLabel.setText(this.$$$getMessageFromBundle$$$(locale, key));
     }
 
     public boolean isEmailValid(String email) {
@@ -173,9 +186,9 @@ public class Registrazione {
         dataNascitaPanel = new JPanel();
         dataNascitaPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 4, new Insets(0, 0, 0, 0), -1, -1));
         panel.add(dataNascitaPanel, new com.intellij.uiDesigner.core.GridConstraints(8, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        final JLabel label1 = new JLabel();
-        this.$$$loadLabelText$$$(label1, this.$$$getMessageFromBundle$$$("it_IT", "data nascita"));
-        dataNascitaPanel.add(label1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        dataNascitaLabel = new JLabel();
+        this.$$$loadLabelText$$$(dataNascitaLabel, this.$$$getMessageFromBundle$$$("it_IT", "datanascita"));
+        dataNascitaPanel.add(dataNascitaLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         giornoComboBox = new JComboBox();
         dataNascitaPanel.add(giornoComboBox, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         meseComboBox = new JComboBox();

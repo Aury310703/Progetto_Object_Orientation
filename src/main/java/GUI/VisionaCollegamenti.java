@@ -33,6 +33,8 @@ public class VisionaCollegamenti {
         DefaultListModel<String> listModel = new DefaultListModel<>();
         frasiList.setModel(listModel);
 
+        paginaPrecedenteButton.setText(this.$$$getMessageFromBundle$$$(locale, "paginaPrecedente"));
+
         ArrayList<String> frasiTesto = controller.getFrasiCollegamento();
         for (String f : frasiTesto) {
             listModel.addElement(f);

@@ -1,8 +1,8 @@
 
-h
-java:S11923"FDefine a constant instead of duplicating this literal "TESTI" 3 times.(àÒ ÷ýÿÿÿÿ8£½óªÝ1
 i
 java:S1192µ"FDefine a constant instead of duplicating this literal "it_IT" 3 times.(åÔôãýÿÿÿÿ8†””û×1
+h
+java:S11923"FDefine a constant instead of duplicating this literal "TESTI" 3 times.(àÒ ÷ýÿÿÿÿ8£½óªÝ1
 u	java:S127ã"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8†””û×1
 u	java:S127þ"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8‡””û×1
 D

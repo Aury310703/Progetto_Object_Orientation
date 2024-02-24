@@ -26,8 +26,8 @@ public class Home {
     public JFrame frameChiamante;
 
     public Controller controller = new Controller();
-    //private String locale = "en_GB";
-    private String locale = "it_IT";
+    private String locale = "en_GB";
+    //private String locale = "it_IT";
 
 
     /**
@@ -51,34 +51,24 @@ public class Home {
      * click sul LoginButton. Questa funzione rappresenta il click del bottone che una volta premuto ci porterà all'area di login
      */
     void clickOnLoginButton() {
-        LoginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Login login = new Login(controller, frame, "Home", locale);
-                login.frame.setLocationRelativeTo(frame);
-                login.frame.setResizable(false);
-                login.frame.setSize(400, 200);
-                login.frame.setVisible(true);
-                frame.setVisible(false);
-            }
-        });
+        Login login = new Login(controller, frame, "Home", locale);
+        login.frame.setLocationRelativeTo(frame);
+        login.frame.setResizable(false);
+        login.frame.setSize(400, 200);
+        login.frame.setVisible(true);
+        frame.setVisible(false);
     }
 
     /**
      * Click sul SearchButton. Una volta schiacciato il bottone di ricerca si aprirà la schermata con i risulatiti delle pagine cercate dall'utente all'interno della wiki
      */
     public void clickOnSearchButton() {
-        CercaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.setTitoloSelezionato(CercaTestoField.getText());
-                ListaTitoli listaTitoli = new ListaTitoli(controller, frame, locale);
-                listaTitoli.frame.setLocationRelativeTo(frame);
-                listaTitoli.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                listaTitoli.frame.setVisible(true);
-                frame.setVisible(false);
-            }
-        });
+        controller.setTitoloSelezionato(CercaTestoField.getText());
+        ListaTitoli listaTitoli = new ListaTitoli(controller, frame, locale);
+        listaTitoli.frame.setLocationRelativeTo(frame);
+        listaTitoli.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        listaTitoli.frame.setVisible(true);
+        frame.setVisible(false);
     }
 
 
@@ -88,9 +78,21 @@ public class Home {
     public Home() {
         LoginButton.setText(this.$$$getMessageFromBundle$$$(locale, "LOGIN"));
         CercaButton.setText(this.$$$getMessageFromBundle$$$(locale, "cerca"));
-        clickOnLoginButton();
-        clickOnSearchButton();
-        ImageIcon originalIcon = new ImageIcon("C:\\Users\\Aurelio Nani\\OneDrive\\Desktop\\progetto\\src\\Screenshot_2024-02-21_124631-removebg-preview (1).png");
+        LoginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clickOnLoginButton();
+            }
+        });
+
+        CercaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clickOnSearchButton();
+            }
+        });
+
+        ImageIcon originalIcon = new ImageIcon("C:\\Users\\david\\Desktop\\progetto_OO\\src\\Screenshot_2024-02-21_124631-removebg-preview (1).png");
         Image originalImage = originalIcon.getImage();
         Image resizedImage = originalImage.getScaledInstance(300, 100, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);

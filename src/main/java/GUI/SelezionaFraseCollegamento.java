@@ -28,6 +28,8 @@ public class SelezionaFraseCollegamento {
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+
+        paginaPrecedenteButton.setText(this.$$$getMessageFromBundle$$$(locale, "paginaPrecedente"));
         titoloLabel.setText(controller.getTitoloPaginaSelezionata());
         DefaultListModel<String> listModel = new DefaultListModel<>();
         listaList.setModel(listModel);

@@ -26,12 +26,16 @@ public class PropostaModifica {
 
     public PropostaModifica(Controller controller, JFrame frameC, String fraseSelezionata, int indiceFraseSlezionata, String locale) {
         this.frameChiamante = frameC;
-        this.frame = new JFrame("Modifica");
+        this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);
         frame.pack();
         titoloLabel.setText(controller.getTitoloPaginaSelezionata());
         fraseLabel.setText(fraseSelezionata);
         propostaField.setText(fraseSelezionata);
+
+        paginaPrecedenteButton.setText(this.$$$getMessageFromBundle$$$(locale, "paginaPrecedente"));
+        propostaLabel.setText(this.$$$getMessageFromBundle$$$(locale, "inerisciProposta"));
+        inviaButton.setText(this.$$$getMessageFromBundle$$$(locale, "invia"));
 
         paginaPrecedenteButton.addActionListener(new ActionListener() {
             @Override
@@ -100,6 +104,7 @@ public class PropostaModifica {
         final com.intellij.uiDesigner.core.Spacer spacer2 = new com.intellij.uiDesigner.core.Spacer();
         panel3.add(spacer2, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         propostaLabel = new JLabel();
+        propostaLabel.setForeground(new Color(-1762047));
         this.$$$loadLabelText$$$(propostaLabel, this.$$$getMessageFromBundle$$$("it_IT", "inerisciProposta"));
         panel3.add(propostaLabel, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         propostaField = new JTextField();

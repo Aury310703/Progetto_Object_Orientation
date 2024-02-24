@@ -46,12 +46,18 @@ public class InserisciCollegamento {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         String titoloSalvato = controller.getTitoloSelezionato();
+        String pagineTrovate = this.$$$getMessageFromBundle$$$(locale, "pagineTrovate");
+        String scelta = this.$$$getMessageFromBundle$$$(locale, "scelta");
+        String seleziona = this.$$$getMessageFromBundle$$$(locale, "seleziona");
+
+        paginaPrecedenteButton.setText(this.$$$getMessageFromBundle$$$(locale, "paginaPrecedente"));
+        cercaButton.setText(this.$$$getMessageFromBundle$$$(locale, "cerca"));
 
         cercaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.setTitoloSelezionato(titoloField.getText());
-                DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Pagine Trovate", "Scelta"}) {
+                DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{pagineTrovate, scelta}) {
                     @Override
                     public boolean isCellEditable(int row, int column) {
                         return false;
@@ -62,7 +68,7 @@ public class InserisciCollegamento {
                 titoliTable.setModel(model);
                 titoliTable.setRowHeight(50);
                 for (String t : titoli) {
-                    model.addRow(new Object[]{t, "seleziona"});
+                    model.addRow(new Object[]{t, seleziona});
 
                 }
                 titoliTable.addMouseListener((new MouseListener() {
@@ -74,7 +80,7 @@ public class InserisciCollegamento {
 
                             if (clickedColumn != -1 && clickedRow != -1) {
                                 Object cellValue = titoliTable.getValueAt(clickedRow, clickedColumn);
-                                if (!cellValue.equals("seleziona")) {
+                                if (!cellValue.equals(seleziona)) {
                                     String titolo = cellValue.toString();
                                     System.out.println(titolo);
 
@@ -85,7 +91,7 @@ public class InserisciCollegamento {
                                     paginaTesto.frame.setVisible(true);
                                     frame.setVisible(false);
                                 } else {
-                                    Errori errori = new Errori("inserimento collegamento!!", locale);
+                                    Errori errori = new Errori("inserimentoCollegamento", locale);
                                     errori.frame.setLocationRelativeTo(frame);
                                     errori.frame.setSize(300, 100);
                                     controller.addPaginaCollegata(indiceFrase, clickedRow);

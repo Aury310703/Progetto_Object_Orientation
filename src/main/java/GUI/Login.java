@@ -1,6 +1,5 @@
 package GUI;
 
-import MODEL.Pagina;
 import controller.Controller;
 
 import javax.swing.*;
@@ -27,9 +26,11 @@ public class Login {
     private JLabel nomeUtenteLabel;
     private JButton dietroButton;
     private JButton registratiButton;
-    private JLabel ErroreLoginLabel;
+    private JLabel erroLabel;
+    private JLabel erroreLoginLabel;
 
     public Controller controller;
+
     /**
      * Istanzia una nuova schermata Login.
      *
@@ -44,13 +45,18 @@ public class Login {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
+        erroLabel.setText("");
+        nomeUtenteLabel.setText(this.$$$getMessageFromBundle$$$(locale, "Username"));
+        passwordLabel.setText(this.$$$getMessageFromBundle$$$(locale, "password"));
+        entraButton.setText(this.$$$getMessageFromBundle$$$(locale, "entra"));
+        registratiButton.setText(this.$$$getMessageFromBundle$$$(locale, "Registrati"));
+        dietroButton.setText(this.$$$getMessageFromBundle$$$(locale, "paginaPrecedente"));
 
         dietroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 frameChiamante.setVisible(true);
-                // frame.dispose();
 
             }
         });
@@ -62,10 +68,9 @@ public class Login {
                 String password = passwordField.getText();
                 int verificato = controller.verificaLoggato(login, password);
 
-                if (verificato == 0 && (!login.isEmpty() || !password.isEmpty())) {
-                    ErroreLoginLabel.setText("nomeutente o password errati, riprovare");
+                if (verificato == 0 && (!login.isEmpty() || !password.isEmpty()) || (login.isEmpty() || password.isEmpty())) {
+                    setTestoErrorelabel(locale, "inserireNomeUtentePassword");
                 }
-
 
                 if (verificato != 0) {
                     if (controllo.equals("Home")) {
@@ -77,7 +82,7 @@ public class Login {
                             boolean notifiche = controller.controllaNotifiche();
                             controller.getNotifche();
                             if (notifiche) {
-                                Errori errori = new Errori("hai delle notifiche", locale);
+                                Errori errori = new Errori("haiDelleNotifiche", locale);
                                 errori.frame.setLocationRelativeTo(homeLoggato.frame);
                                 errori.frame.setSize(300, 100);
                                 errori.frame.setResizable(false);
@@ -109,6 +114,10 @@ public class Login {
                 registazione.frame.setVisible(true);
             }
         });
+    }
+
+    public void setTestoErrorelabel(String locale, String key) {
+        erroLabel.setText(this.$$$getMessageFromBundle$$$(locale, key));
     }
 
     /**
@@ -169,10 +178,10 @@ public class Login {
         registratiButton = new JButton();
         this.$$$loadButtonText$$$(registratiButton, this.$$$getMessageFromBundle$$$("it_IT", "Registrati"));
         panel.add(registratiButton, new com.intellij.uiDesigner.core.GridConstraints(5, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        ErroreLoginLabel = new JLabel();
-        ErroreLoginLabel.setForeground(new Color(-1766656));
-        ErroreLoginLabel.setText("");
-        panel.add(ErroreLoginLabel, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        erroLabel = new JLabel();
+        erroLabel.setForeground(new Color(-1762816));
+        erroLabel.setText("Label");
+        panel.add(erroLabel, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     private static Method $$$cachedGetBundleMethod$$$ = null;

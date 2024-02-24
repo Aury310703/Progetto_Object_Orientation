@@ -91,3 +91,13 @@ T
 $src/main/java/GUI/ModificaTesto.form,8\9\8975de26fa8ef1275d8ab058d1be9f39086602e3
 P
  src/main/java/GUI/Notifiche.form,7\2\72be3eb9e487f59f4b50f88c052a464d511fd4a2
+L
+src/main/java/GUI/Login.form,0\2\02109b8a5187c8648f06d4aba1ff20ff84cd97f4
+\
+,src/main/java/GUI/RegistrazioneBuonFine.form,0\d\0d3aa97e41bfbee8de6646e827ee3c980492d3d7
+W
+'src/main/java/GUI/PropostaModifica.form,a\7\a78f42a33c4abb52ea3cf583569a3bbfb495e8c3
+T
+$src/main/java/GUI/StoricoAutore.form,c\c\cc3299d14e1fe793c5fea46cdbce98b21a49e6c0
+T
+$src/main/java/GUI/StoricoUtente.form,e\6\e66251aebf2ca8d819958f64e328fc51162fe375

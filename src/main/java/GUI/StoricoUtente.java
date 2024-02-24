@@ -52,6 +52,14 @@ public class StoricoUtente {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
+        String pagineVisualizzateText = this.$$$getMessageFromBundle$$$(locale, "pagineVisualizzate");
+        String modificheProposteText = this.$$$getMessageFromBundle$$$(locale, "modificheProposte");
+        titoloLabel.setText(this.$$$getMessageFromBundle$$$(locale, "Storico"));
+        paginaPrecedenteButton.setText(this.$$$getMessageFromBundle$$$(locale, "paginaPrecedente"));
+        nomeLabel.setText(this.$$$getMessageFromBundle$$$(locale, "nome"));
+        cognomeLabel.setText(this.$$$getMessageFromBundle$$$(locale, "cognome"));
+        nomeUtenteLabel.setText(this.$$$getMessageFromBundle$$$(locale, "Username"));
+
         ArrayList<String> pagineVisualizzate = controller.storicoPagineVisualizzate();
 
         nomeLabel2.setText(controller.getNomeUtenteLoggato());
@@ -59,7 +67,7 @@ public class StoricoUtente {
         nomeUtenteLabel2.setText(controller.getLoginLoggato());
 
 
-        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Pagine Visualizzate"}) {
+        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{pagineVisualizzateText}) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -113,7 +121,7 @@ public class StoricoUtente {
 
         ArrayList<String> pagineModificate = controller.getModificate();
 
-        DefaultTableModel modelDestra = new DefaultTableModel(new Object[][]{}, new String[]{"Modifiche Proposte"}) {
+        DefaultTableModel modelDestra = new DefaultTableModel(new Object[][]{}, new String[]{modificheProposteText}) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;

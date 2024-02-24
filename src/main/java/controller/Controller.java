@@ -106,7 +106,7 @@ public class Controller {
                         w2.getModificheModificate(paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione(), fraseCorrente.getStringa_inserita(), fraseCorrente.getNumerazione(), frasiProposte, dateProposte, oreProposte, datevalutazione, orevalutazione, stati, nomi, cognomi, logins, password, email, date);
                         for (int i = 0; i < frasiProposte.size(); i++) {
                             Utente utente = new Utente(nomi.get(i), cognomi.get(i), logins.get(i), password.get(i), email.get(i), date.get(i));
-                            ModificaProposta modificaProposta = new ModificaProposta(dateProposte.get(i), oreProposte.get(i), paginaSelezionata.getAutore(), utente, fraseCorrente, frasiProposte.get(i), numerazione, stati.get(i));
+                            ModificaProposta modificaProposta = new ModificaProposta(dateProposte.get(i), oreProposte.get(i), paginaSelezionata.getAutore(), utente, fraseCorrente, frasiProposte.get(i), stati.get(i));
                             if(autoreloggato != null) {
                                 for (int j = 0; j < autoreloggato.getNotificheRicevute().size(); j++) {
                                     if (modificaProposta.equals(autoreloggato.getNotificheRicevute().get(j).getModifica())) {
@@ -257,6 +257,7 @@ public class Controller {
     public boolean inviaProposta(String fraseSelezionata, String fraseProposta, int numerazione) {
         boolean controllo = false;
         WikiDAO w = new WikiimplementazionePostgresDAO();
+
         ModificaProposta modifica = null;
         int presenzaFrase = 0;
         for(Frase_Corrente f : paginaSelezionata.getFrasi()){
@@ -275,10 +276,17 @@ public class Controller {
                 }
             }
         }
+
+        if (fraseProposta.charAt(fraseProposta.length()-1) != ',' && fraseProposta.charAt(fraseProposta.length()-1) != '.' && fraseProposta.charAt(fraseProposta.length()-1) != ';' && fraseProposta.charAt(fraseProposta.length()-1) != '?' && fraseProposta.charAt(fraseProposta.length()-1) != '!') {
+            System.out.println(fraseSelezionata);
+            fraseProposta = fraseProposta + fraseSelezionata.charAt(fraseSelezionata.length()-1);
+        }
+
+
         try {
             if(utenteLoggato != null) {
                 w.inviaProposta(numerazione, fraseSelezionata, fraseProposta, utenteLoggato.getLogin(), paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione());
-                modifica = new ModificaProposta(LocalDate.now(), LocalTime.now(), paginaSelezionata.getAutore(), utenteLoggato, paginaSelezionata.getFrasi().get(numerazione), fraseProposta, numerazione);
+                modifica = new ModificaProposta(LocalDate.now(), LocalTime.now(), paginaSelezionata.getAutore(), utenteLoggato, paginaSelezionata.getFrasi().get(numerazione), fraseProposta);
                 if(paginaSelezionata.getAutore().getLogin().equals(utenteLoggato.getLogin())){
                     modifica.setStato(1);
                     modifica.setDataValutazione(LocalDate.now());
@@ -286,7 +294,7 @@ public class Controller {
                 }
             }else {
                 w.inviaProposta(numerazione, fraseSelezionata, fraseProposta, autoreloggato.getLogin(), paginaSelezionata.getAutore().getLogin(), paginaSelezionata.getTitolo(), paginaSelezionata.getDataCreazione());
-                modifica = new ModificaProposta(LocalDate.now(), LocalTime.now(), paginaSelezionata.getAutore(), autoreloggato, paginaSelezionata.getFrasi().get(numerazione), fraseProposta, numerazione);
+                modifica = new ModificaProposta(LocalDate.now(), LocalTime.now(), paginaSelezionata.getAutore(), autoreloggato, paginaSelezionata.getFrasi().get(numerazione), fraseProposta);
                 if(paginaSelezionata.getAutore().getLogin().equals(autoreloggato.getLogin())){
                     modifica.setStato(1);
                     modifica.setDataValutazione(LocalDate.now());
@@ -308,7 +316,7 @@ public class Controller {
         if(autoreloggato != null){
             paginaCreata = new Pagina(titolo, dataCreazione, autoreloggato);
         }else{
-            paginaCreata = new Pagina(titolo,dataCreazione, utenteLoggato.getNome(), utenteLoggato.getCognome(), utenteLoggato.getLogin(), utenteLoggato.getPassword(), utenteLoggato.getEmail(), utenteLoggato.getDataNascita());
+            paginaCreata = new Pagina(titolo,dataCreazione, utenteLoggato);
             autoreloggato = paginaCreata.getAutore();
             utenteLoggato = null;
         }
@@ -457,7 +465,7 @@ public class Controller {
                     for (int i = 0; i < nomi.size(); i++) {
                         Pagina pagina = new Pagina(titolo.get(i), dataOraCreazione.get(i), nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
                         Frase_Corrente fraseCorrente = new Frase_Corrente(stringaInserita.get(i), numerazione.get(i), pagina, dataInserimento.get(i), oraInseriento.get(i));
-                        ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), pagina.getAutore(), utenteLoggato, fraseCorrente, stringaProposta.get(i), numerazione.get(i), stato.get(i));
+                        ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), pagina.getAutore(), utenteLoggato, fraseCorrente, stringaProposta.get(i), stato.get(i));
                         if (datevalutazione.get(i).isPresent()) {
                             modificaProposta.setDataValutazione(datevalutazione.get(i).get());
                             modificaProposta.setOraValutazione(orevalutazione.get(i).get());
@@ -487,7 +495,7 @@ public class Controller {
                     for (int i = 0; i < nomi.size(); i++) {
                         Pagina pagina = new Pagina(titolo.get(i), dataOraCreazione.get(i), nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
                         Frase_Corrente fraseCorrente = new Frase_Corrente(stringaInserita.get(i), numerazione.get(i), pagina, dataInserimento.get(i), oraInseriento.get(i));
-                        ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), pagina.getAutore(), autoreloggato, fraseCorrente, stringaProposta.get(i), numerazione.get(i), stato.get(i));
+                        ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), pagina.getAutore(), autoreloggato, fraseCorrente, stringaProposta.get(i), stato.get(i));
                         if (datevalutazione.get(i).isPresent()) {
                             modificaProposta.setDataValutazione(datevalutazione.get(i).get());
                             modificaProposta.setOraValutazione(orevalutazione.get(i).get());
@@ -662,8 +670,7 @@ public class Controller {
                     if(stato.get(i) == 0) {
                         Utente utente = new Utente(nomi.get(i), cognomi.get(i), nomiUtente.get(i), password.get(i), email.get(i), dataNascita.get(i));
                         Frase_Corrente fraseCorrente = new Frase_Corrente(stringaInserita.get(i), numerazione.get(i), autoreloggato.getCreazioni().get(j), dataInserimento.get(i), oraInseriento.get(i));
-                        ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), autoreloggato, utente, fraseCorrente, stringaProposta.get(i), numerazione.get(i), stato.get(i));
-
+                        ModificaProposta modificaProposta = new ModificaProposta(dataProposta.get(i), oraProposta.get(i), autoreloggato, utente, fraseCorrente, stringaProposta.get(i), stato.get(i));
                     }
                 }
             }

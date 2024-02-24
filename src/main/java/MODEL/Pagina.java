@@ -37,7 +37,8 @@ public class Pagina {
         this.titolo = t;
         this.dataOraCreazione = dataOra;
         this.autore = new Autore(u.getNome(), u.getCognome(), u.getLogin(), u.getPassword(), u.getEmail(), u.getDataNascita(),this);
-        autore.addCreazioni(this);
+        this.autore.setFrasiProposte(u.getFrasiProposte());
+        this.autore.setPagineVisualizzate(u.getPagineVisualizzate());
     }
 
     /**
@@ -56,7 +57,6 @@ public class Pagina {
         this.titolo = titolo;
         this.dataOraCreazione = dataOra;
         this.autore = new Autore(nome, cognome, login, password, email, dataNascita,this);
-        autore.addCreazioni(this);
     }
     private ArrayList <Visiona> visualizzatori = new ArrayList<>();
     private Autore autore;

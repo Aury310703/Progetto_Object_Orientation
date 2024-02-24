@@ -12,10 +12,6 @@ public class Frase {
      * La Stringa inserita, rappresenta la frase inserita dall'utente .
      */
     protected String stringa_inserita;
-    /**
-     * Numerazione, rappresenta la posizione della frase all'interno del testo
-     */
-    protected int Numerazione;
 
     /**
      * Istanzia una nuova frase indicndo la stringa.

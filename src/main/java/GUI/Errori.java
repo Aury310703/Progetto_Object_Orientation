@@ -24,14 +24,14 @@ public class Errori {
     /**
      * Istanzia una nuova schermata errori.
      *
-     * @param TestoDaVisualizzare indica il testo che verrà visualizzato all'apertura di questa schermata
+     * @param testoDaVisualizzare indica il testo che verrà visualizzato all'apertura di questa schermata
      * @param locale              indica la lingua
      */
-    public Errori(String TestoDaVisualizzare, String locale) {
+    public Errori(String testoDaVisualizzare, String locale) {
         this.frame = new JFrame("Errori");
         frame.setContentPane(Panel);
         frame.pack();
-        testoLabel.setText(TestoDaVisualizzare);
+        testoLabel.setText(this.$$$getMessageFromBundle$$$(locale, testoDaVisualizzare));
 
         TornaButton.addActionListener(new ActionListener() {
             @Override

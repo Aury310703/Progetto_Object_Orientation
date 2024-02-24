@@ -44,6 +44,9 @@ public class ModificaTesto {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
 
+        paginaPrecedenteButton.setText(this.$$$getMessageFromBundle$$$(locale, "paginaPrecedente"));
+        labelAvviso.setText(this.$$$getMessageFromBundle$$$(locale, "Avviso"));
+
         DefaultListModel<String> listModel = new DefaultListModel<>();
         frasiList.setModel(listModel);
 
@@ -56,10 +59,7 @@ public class ModificaTesto {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 if (!e.getValueIsAdjusting()) {
-                    // Ottieni l'elemento selezionato
                     Object selectedObject = frasiList.getSelectedValue();
-
-                    // Esegui un'azione in base all'elemento selezionato
                     if (selectedObject != null) {
                         int indiceElemento = frasiList.getSelectedIndex();
                         String selectedValue = (String) selectedObject;

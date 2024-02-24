@@ -42,6 +42,8 @@ public class CreaPagina {
         frame.pack();
 
         labelTitolo.setText(this.$$$getMessageFromBundle$$$(locale, "Titolo"));
+        paginaPrecedenteButton.setText(this.$$$getMessageFromBundle$$$(locale, "paginaPrecedente"));
+        crea.setText(this.$$$getMessageFromBundle$$$(locale, "crea"));
         paginaPrecedenteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
