@@ -7,10 +7,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Proposta modifica rappresenta la schermata in cui l'utente, dopo aver selezionato la frase da modificare, indica la sua proposta di modifica.
+ */
 public class PropostaModifica {
+
     public JFrame frame;
     private JFrame frameChiamante;
     private JPanel panel;
@@ -24,6 +27,15 @@ public class PropostaModifica {
     private JLabel fraseLabel;
     private JLabel propostaLabel;
 
+    /**
+     * Istanzia una nuova Proposta modifica.
+     * @param controller            realizza le operazioni algoritmiche
+     * @param frameC                schermata da cui viene istanziata PropostaModifica
+     * @param fraseSelezionata      indica la frase selezionata dall'autore che vuole modificare
+     * @param indiceFraseSlezionata indica l'attributo numerazione di fraseCorrente, cioé la posizione all'interno della frase nel testo.
+     * @param locale                indica la lingua.
+
+     */
     public PropostaModifica(Controller controller, JFrame frameC, String fraseSelezionata, int indiceFraseSlezionata, String locale) {
         this.frameChiamante = frameC;
         this.frame = new JFrame("WIKI");
@@ -186,6 +198,9 @@ public class PropostaModifica {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

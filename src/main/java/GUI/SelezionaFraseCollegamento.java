@@ -12,6 +12,9 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * SelezionaFraseCollegamento rappresenta la schermata in cui l'autore della pagina seleziona la frase a cui vuole aggiungere un collegamento.
+ */
 public class SelezionaFraseCollegamento {
     private JPanel panel;
     private JScrollPane listPane;
@@ -20,8 +23,16 @@ public class SelezionaFraseCollegamento {
     private JLabel titoloLabel;
     private JPanel suPanel;
     private JFrame frameChiamante;
+
     public JFrame frame;
 
+    /**
+     * Istanzia una nuova SelezionaFraseCollegamento.
+     *
+     * @param controller     realizza le operazioni algoritmiche
+     * @param frameC         schermata da cui viene istanziata CreaPagina
+     * @param locale         indica la lingua.
+     */
     public SelezionaFraseCollegamento(Controller controller, JFrame frameC, String locale) {
         this.frameChiamante = frameC;
         this.frame = new JFrame("Modifica");
@@ -47,7 +58,6 @@ public class SelezionaFraseCollegamento {
 
                     if (selectedObject != null) {
                         int indiceElemento = listaList.getSelectedIndex();
-                        String selectedValue = (String) selectedObject;
                         InserisciCollegamento inserisciCollegamento = new InserisciCollegamento(controller, frame, indiceElemento, locale);
                         inserisciCollegamento.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(false);
@@ -149,6 +159,9 @@ public class SelezionaFraseCollegamento {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

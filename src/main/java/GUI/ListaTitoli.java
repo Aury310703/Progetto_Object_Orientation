@@ -72,8 +72,6 @@ public class ListaTitoli {
                     if (selectedRow != -1) {
                         Object cellValue = TitoliTable.getValueAt(selectedRow, 0);
                         String titolo = cellValue.toString();
-                        System.out.println(titolo);
-
                         controller.addPaginaSelezionata(selectedRow);
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
                         paginaTesto.frame.setLocationRelativeTo(frame);

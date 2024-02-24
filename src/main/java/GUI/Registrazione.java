@@ -18,9 +18,14 @@ import java.util.regex.Pattern;
 import javax.swing.JFormattedTextField;
 
 
+/**
+ * Registrazione rappresenta la schermata in cui si ci puó registrare, inserendo tutte le informazioni richieste.
+ */
 public class Registrazione {
+
     public JFrame frame;
     public JFrame frameChimante;
+
     public Controller controller;
     private JPanel panel;
     private JPanel intestazionePanel;
@@ -51,6 +56,13 @@ public class Registrazione {
     private JLabel dataNascitaLabel;
     private JFormattedTextField dataField;
 
+    /**
+     * Istanzia una nuova Registrazione.
+     *
+     * @param controller            realizza le operazioni algoritmiche
+     * @param frameChiamante        schermata da cui viene istanziata Registrazione
+     * @param locale                indica la lingua.
+     */
     public Registrazione(Controller controller, JFrame frameChiamante, String locale) {
         this.frameChimante = frameChiamante;
         this.frame = new JFrame("Registazione");
@@ -135,7 +147,7 @@ public class Registrazione {
                     }
                     if (controllo) {
                         controller.registrazioneUtente(nome, cognome, nomeUtente, password, email, dataNascita);
-                        RegistrazioneBuonFine registrazioneBuonFine = new RegistrazioneBuonFine(frame, frameChiamante, controller, locale);
+                        RegistrazioneBuonFine registrazioneBuonFine = new RegistrazioneBuonFine(frame, frameChiamante, locale);
                         registrazioneBuonFine.frame.setLocationRelativeTo(frame);
                         registrazioneBuonFine.frame.setSize(300, 100);
                         registrazioneBuonFine.frame.setVisible(true);
@@ -146,10 +158,22 @@ public class Registrazione {
         });
     }
 
+    /**
+     * Sets testo mancanza label.
+     *
+     * @param locale the locale
+     * @param key    the key
+     */
     public void setTestoMancanzaLabel(String locale, String key) {
         mancanzaLabel.setText(this.$$$getMessageFromBundle$$$(locale, key));
     }
 
+    /**
+     * Is email valid boolean.
+     *
+     * @param email the email
+     * @return the boolean
+     */
     public boolean isEmailValid(String email) {
         String EMAIL_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(EMAIL_REGEX);
@@ -327,6 +351,9 @@ public class Registrazione {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

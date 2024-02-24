@@ -14,6 +14,9 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * StoricUtente rappresenta la schermata in cui l'utente puó visionare le pagine visualizzate e le pagine in cui ha proposto delle modifiche.
+ */
 public class StoricoUtente {
     private JPanel panel;
     private JPanel panelSu;
@@ -44,6 +47,13 @@ public class StoricoUtente {
     private JFrame frameChiamante;
     private Controller controller;
 
+    /**
+     * Istanzia un nuovo StoricoUtente.
+     *
+     * @param controller        realizza le operazioni algoritmiche
+     * @param frameChiamante    schermata da cui viene istanziata CreaPagina
+     * @param locale            indica la lingua.
+     */
     public StoricoUtente(Controller controller, JFrame frameChiamante, String locale) {
         this.controller = controller;
         this.frameChiamante = frameChiamante;
@@ -84,9 +94,6 @@ public class StoricoUtente {
                 if (e.getClickCount() == 2) {
                     int selectedRow = tablePagineVisualizzate.getSelectedRow();
                     if (selectedRow != -1) {
-                        Object cellValue = tablePagineVisualizzate.getValueAt(selectedRow, 0);
-                        String titolo = cellValue.toString();
-                        System.out.println(titolo);
                         controller.setPaginaVisualizzata(selectedRow);
 
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
@@ -141,7 +148,6 @@ public class StoricoUtente {
                     if (selectedRow != -1) {
                         Object cellValue = tableModProposte.getValueAt(selectedRow, 0);
                         String titolo = cellValue.toString();
-                        System.out.println(titolo);
                         controller.setPaginaModificata(selectedRow);
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
                         DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame, locale);
@@ -334,6 +340,9 @@ public class StoricoUtente {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

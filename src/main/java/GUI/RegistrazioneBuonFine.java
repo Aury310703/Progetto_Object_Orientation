@@ -9,16 +9,28 @@ import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
 import java.util.ResourceBundle;
 
+/**
+ * RegistrazioneBuonFine rappresenta la schermata di conferma registrazione.
+ */
 public class RegistrazioneBuonFine {
     private JPanel panel;
     private JPanel paneltop;
     private JPanel panellow;
     private JButton okButton;
     private JLabel okRegistrazione;
+
     public JFrame frame;
+
     public JFrame frameChiamante;
 
-    public RegistrazioneBuonFine(JFrame frameChiamante, JFrame frameLogin, Controller controller, String locale) {
+    /**
+     * Istanzia una nuova RegistrazioneBuonFine.
+     *
+     * @param frameChiamante schermata da cui viene istanziata RegistrazioneBuonFine.
+     * @param frameLogin     indica il frame di Logi
+     * @param locale         indica la lingua.
+     */
+    public RegistrazioneBuonFine(JFrame frameChiamante, JFrame frameLogin, String locale) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);
@@ -139,6 +151,9 @@ public class RegistrazioneBuonFine {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

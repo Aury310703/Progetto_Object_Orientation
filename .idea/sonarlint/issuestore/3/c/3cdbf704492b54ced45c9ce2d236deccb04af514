@@ -18,7 +18,7 @@ r
 java:S1450"URemove the "panel1" field and declare it as a local variable in the relevant methods.(–¾Ê‰8àÊŸ¾Ý1
 ‚
 java:S1149¦"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜Ýâœÿÿÿÿÿ8àÊŸ¾Ý1
-X	java:S125"<This block of commented-out lines of code should be removed.(Óà€¨8Çûµ¾Ý1
+X	java:S125"<This block of commented-out lines of code should be removed.(Óà€¨8ÉÄÞÜÝ1
 f
 java:S3252*"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8äÊŸ¾Ý1
 _

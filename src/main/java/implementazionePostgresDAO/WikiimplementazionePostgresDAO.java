@@ -11,10 +11,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 
+
 public class WikiimplementazionePostgresDAO implements WikiDAO {
     private Connection connection;
     public Controller controller;
 
+    /**
+     * Instantiates a new Wikiimplementazione postgres dao.
+     */
     public WikiimplementazionePostgresDAO() {
         try {
             connection = ConnessioneDatabase.getInstance().getConnection();
@@ -24,14 +28,13 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         }
     }
 
-    public String getNomeUtente(String login, String password){
-        String query = "SELECT nome FROM Utente WHERE LOWER(login) = ? AND password = ?";
+    public String getNomeUtente(String login){
+        String query = "SELECT nome FROM Utente WHERE LOWER(login) = ?";
         PreparedStatement preparedStatement = null;
         String nome = "";
         try {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, login.toLowerCase());
-            preparedStatement.setString(2, password);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
                 nome = rs.getString("nome");
@@ -43,14 +46,13 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         return nome;
     }
 
-    public String getCognomeUtente(String login, String password){
-        String query = "SELECT cognome FROM Utente WHERE LOWER(login) = ? AND password = ?";
+    public String getCognomeUtente(String login){
+        String query = "SELECT cognome FROM Utente WHERE LOWER(login) = ?";
         PreparedStatement preparedStatement = null;
         String cognome = "";
         try {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, login.toLowerCase());
-            preparedStatement.setString(2, password);
             ResultSet rs = preparedStatement.executeQuery();
             if(rs.next())
                 cognome = rs.getString("cognome");
@@ -60,14 +62,14 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         return cognome;
     }
 
-    public String getEmailUtente(String login, String password){
-        String query = "SELECT email FROM Utente WHERE LOWER(login) = ? AND password = ?";
+    public String getEmailUtente(String login){
+        String query = "SELECT email FROM Utente WHERE LOWER(login) = ?";
         PreparedStatement preparedStatement = null;
         String email = "";
         try {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, login.toLowerCase());
-            preparedStatement.setString(2, password);
+
             ResultSet rs = preparedStatement.executeQuery();
             if(rs.next())
                 email = rs.getString("email");
@@ -77,14 +79,13 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         return email;
     }
 
-    public Date getDataNascitaUtente(String login, String password){
-        String query = "SELECT dataNascita FROM Utente WHERE LOWER(login) = ? AND password = ?";
+    public Date getDataNascitaUtente(String login){
+        String query = "SELECT dataNascita FROM Utente WHERE LOWER(login) = ?";
         PreparedStatement preparedStatement = null;
         Date datanascita = null;
         try {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, login.toLowerCase());
-            preparedStatement.setString(2, password);
             ResultSet rs = preparedStatement.executeQuery();
             if(rs.next())
                 datanascita = rs.getDate("datanascita");
@@ -94,14 +95,13 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         return datanascita;
     }
 
-    public String getRuolotente(String login, String password){
-        String query = "SELECT ruolo FROM Utente WHERE LOWER(login) = ? AND password = ?";
+    public String getRuolotente(String login){
+        String query = "SELECT ruolo FROM Utente WHERE LOWER(login) = ?";
         PreparedStatement preparedStatement = null;
         String ruolo = "";
         try {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, login.toLowerCase());
-            preparedStatement.setString(2, password);
             ResultSet rs = preparedStatement.executeQuery();
             if(rs.next())
                 ruolo = rs.getString("ruolo");
@@ -135,13 +135,11 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             if(titoloInserito == null){
                 titoloInserito = "";
             }
-            String query = "SELECT * FROM pagina WHERE LOWER(titolo) LIKE ?"; //LOWER TRASFORMA TITOLO IN MINUSCOLO
+            String query = "SELECT * FROM pagina WHERE LOWER(titolo) LIKE ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, "%" + titoloInserito.toLowerCase() + "%");
             ResultSet rs = preparedStatement.executeQuery();
-            if(rs.wasNull()){
-                System.out.println("no");
-            }
+
             while (rs.next()) {
                 String titolo = rs.getString("titolo");
                 LocalDateTime dataOra = rs.getTimestamp("dataOraCreazione").toLocalDateTime();
@@ -275,12 +273,11 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
                 frasiProposte.add(rsModifica.getString("stringaProposta"));
                 datavalutazione.add(Optional.ofNullable(dataValutazione));
                 orevalutazione.add(Optional.ofNullable(oraValutazione));
-                System.out.println(rsModifica.getDate("datavalutazione"));
             }
         }
     }
 
-    public boolean verificaLoggato(String nome, String cognome, String login, String password, String email, Date datNascita, String ruolo) throws SQLException {
+    public boolean verificaLoggato(String login, String password) throws SQLException {
         boolean controllo = false;
         String query = "SELECT * FROM Utente WHERE LOWER(login) = ? AND password = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -288,7 +285,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         preparedStatement.setString(2, password);
         ResultSet rs = preparedStatement.executeQuery();
         while(rs.next()){
-            System.out.println("$$$$$$$$$$$$$$$$$$$");
             controllo = true;
         }
         connection.close();
@@ -308,13 +304,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         long timestamp = dataNascita.getTime();
         java.sql.Date sqlDate = new java.sql.Date(timestamp);
         preparedStatement.setDate(6, sqlDate);
-        int rowsAffected = preparedStatement.executeUpdate();
-
-        if (rowsAffected > 0) {
-            System.out.println("Inserimento riuscito!");
-        } else {
-            System.out.println("Nessuna riga inserita.");
-        }
+        preparedStatement.executeUpdate();
         connection.close();
     }
 
@@ -349,15 +339,8 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         preparedStatement.setString(4, fraseSelezionata);
         preparedStatement.setInt(5, numerazione);
         preparedStatement.setInt(6, idPagina);
+        preparedStatement.executeUpdate();
 
-        int rowsAffected = preparedStatement.executeUpdate();
-
-        if (rowsAffected > 0) {
-            System.out.println("Inserimento riuscito!");
-            controllo = true;
-        } else {
-            System.out.println("Nessuna riga inserita.");
-        }
         connection.close();
         return controllo;
     }
@@ -377,13 +360,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         int idAutore = rs.getInt("idutente");
         preparedStatementPagina.setInt(2,idAutore);
         preparedStatementPagina.setTimestamp(3, Timestamp.valueOf(dataCreazione));
-        int rowsAffected = preparedStatementPagina.executeUpdate();
-
-        if (rowsAffected > 0) {
-            System.out.println("Inserimento riuscito!");
-        } else {
-            System.out.println("Nessuna riga inserita.");
-        }
+        preparedStatementPagina.executeUpdate();
 
         query = "SELECT idPagina FROM pagina WHERE idAutore = ? AND titolo = ? LIMIT 1";
         preparedStatement = connection.prepareStatement(query);
@@ -395,20 +372,13 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
 
         int num = 0;
         for (String f : frasi){
-            System.out.println("--------------" + f);
             String queryFrase = "INSERT INTO fraseCorrente (stringaInserita, numerazione, idPagina) VALUES (?,?,?)";
             PreparedStatement preparedStatementFrase = null;
             preparedStatementFrase = connection.prepareStatement(queryFrase);
             preparedStatementFrase.setString(1, f);
             preparedStatementFrase.setInt(2, num);
             preparedStatementFrase.setInt(3, idPagina);
-            int rowsAffectedFrase = preparedStatementFrase.executeUpdate();
-
-            if (rowsAffectedFrase > 0) {
-                System.out.println("Inserimento riuscito!");
-            } else {
-                System.out.println("Nessuna riga inserita.");
-            }
+            preparedStatementFrase.executeUpdate();
             num++;
         }
         connection.close();
@@ -443,14 +413,7 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         PreparedStatement preparedStatementVisona = connection.prepareStatement(queryVisona);
         preparedStatementVisona.setInt(1, idPagina);
         preparedStatementVisona.setInt(2,idUtente);
-
-        int rowsAffectedFrase = preparedStatementVisona.executeUpdate();
-
-        if (rowsAffectedFrase > 0) {
-            System.out.println("Inserimento riuscito!");
-        } else {
-            System.out.println("Nessuna riga inserita.");
-        }
+        preparedStatementVisona.executeUpdate();
         connection.close();
     }
 
@@ -468,9 +431,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, idUtente);
             ResultSet rs = preparedStatement.executeQuery();
-            if(rs.wasNull()){
-                System.out.println("no");
-            }
             while (rs.next()) {
                 String quesryPagina = "SELECT * FROM PAGINA WHERE idPagina = ?";
                 PreparedStatement preparedStatementPagina = connection.prepareStatement(quesryPagina);
@@ -511,7 +471,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             ResultSet rsUtente = preparedStatementUtente.executeQuery();
             rsUtente.next();
             int idUtente = rsUtente.getInt("idutente");
-            System.out.println(idUtente);
 
             preparedStatement.setInt(1,idUtente);
             ResultSet rsPagina = preparedStatement.executeQuery();
@@ -521,7 +480,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
                 preparedStatementAutore.setInt(1, rsPagina.getInt("autorev"));
                 ResultSet rsAutore = preparedStatementAutore.executeQuery();
                 rsAutore.next();
-                System.out.println(rsAutore.getString("nome"));
                 titolo.add(rsPagina.getString("titolo"));
                 dataOraCreazione.add(rsPagina.getTimestamp("dataOraCreazione").toLocalDateTime());
                 nomi.add(rsAutore.getString("nome"));
@@ -612,7 +570,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
                 ResultSet rsOraProposta = preparedStatementOraProposta.executeQuery();
                 rsOraProposta.next();
                 oraProposta.add(rsOraProposta.getTime("oraProposta").toLocalTime());
-                System.out.println("<><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" + rsOraProposta.getTime("oraProposta"));
 
 
                 LocalDate dataV = rsPagina.getDate("dataValutazione") != null ?
@@ -670,21 +627,12 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         preparedStatementModifica.setTime(6, Time.valueOf(oraProposta));
         ResultSet rsModifica = preparedStatementModifica.executeQuery();
         while(rsModifica.next()){
-            System.out.println("###########################################################################################################");
             int idModifica = rsModifica.getInt("idModifica");
             String queryUpdateModifica = "UPDATE modificaProposta SET stato = ? WHERE idmodifica = ?";
             PreparedStatement preparedStatementUpdateModifica = connection.prepareStatement(queryUpdateModifica);
             preparedStatementUpdateModifica.setInt(1, cambiaStato);
             preparedStatementUpdateModifica.setInt(2, idModifica);
-
-            int rowsAffected = preparedStatementUpdateModifica.executeUpdate();
-
-            if (rowsAffected > 0) {
-                System.out.println("Aggiornamento riuscito!");
-                controllo = true;
-            } else {
-                System.out.println("Nessuna riga aggiornata.");
-            }
+            preparedStatementUpdateModifica.executeUpdate();
         }
 
         connection.close();
@@ -747,6 +695,4 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         }
         return false;
     }
-
-
 }

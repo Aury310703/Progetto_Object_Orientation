@@ -1,0 +1,4 @@
+nome = postgres
+password = ranavolo16
+url = jdbc:postgresql://localhost:5432/progetto
+driver = org.postgresql.Driver

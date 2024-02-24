@@ -10,9 +10,16 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * la schermata PaginaTesto, é la schemata dove l'utente visona il testo della pagina selezionata, con le relative informazioni.
+ * In aggiunta si possono visionare i collegamenti delle frasi alle altre pagine e nel caso in cui si fosse un utente loggato comparirá
+ * il tasto per proporre modifiche o se si é l'autore della pagina usciranno i tasti per aggiungere collegamenti e visionmare le varie veersioni del testo.
+ */
 public class PaginaTesto {
     private final JFrame frameChiamante;
+
     public JFrame frame;
+
     public Controller controller;
     private JPanel panel1;
     private JPanel barraSUperiorePanel;
@@ -34,8 +41,14 @@ public class PaginaTesto {
     private JComboBox annoComboBox;
     private JButton okVersioneButton;
     private JButton VersioneCorrentButton;
-    public String locale = "it_IT";
 
+    /**
+     * Instazia un nuova schermata PaginaTesto
+     *
+     * @param controller     realizza le operazioni algoritmiche
+     * @param frameC         schermata da cui viene istanziata CreaPagina
+     * @param locale         indica la lingua.
+     */
     public PaginaTesto(Controller controller, JFrame frameC, String locale) {
         panelTesto.setText("");
         frameChiamante = frameC;
@@ -388,6 +401,9 @@ public class PaginaTesto {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

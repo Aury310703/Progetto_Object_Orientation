@@ -13,6 +13,9 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * StoricAutore rappresenta la schermata in cui l'autore puó visionare le pagine create, le pagine visualizzate e le pagine in cui ha proposto delle modifiche.
+ */
 public class StoricoAutore {
     private JPanel panel;
     private JPanel panel1;
@@ -30,10 +33,19 @@ public class StoricoAutore {
     private JScrollPane pagineVisualizzateScrollPane;
     private JPanel panel6;
     private JPanel panel7;
+
     public JFrame frame;
     private JFrame frameChiamante;
+
     public Controller controller;
 
+    /**
+     * Instantiates a new Storico autore.
+     *
+     * @param controller        realizza le operazioni algoritmiche
+     * @param frameChiamante    schermata da cui viene istanziata CreaPagina
+     * @param locale            indica la lingua.
+     */
     public StoricoAutore(Controller controller, JFrame frameChiamante, String locale) {
         this.controller = controller;
         this.frameChiamante = frameChiamante;
@@ -70,7 +82,6 @@ public class StoricoAutore {
                     if (selectedRow != -1) {
                         Object cellValue = pagineVisualizzateTable.getValueAt(selectedRow, 0);
                         String titolo = cellValue.toString();
-                        System.out.println(titolo);
                         controller.setPaginaVisualizzata(selectedRow);
 
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
@@ -125,8 +136,6 @@ public class StoricoAutore {
                     if (selectedRow != -1) {
                         Object cellValue = modificheProposteTable.getValueAt(selectedRow, 0);
                         String titolo = cellValue.toString();
-                        System.out.println(titolo);
-
                         controller.setPaginaModificata(selectedRow);
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
                         DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame, locale);
@@ -357,6 +366,9 @@ public class StoricoAutore {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

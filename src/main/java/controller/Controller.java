@@ -15,11 +15,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 
+/**
+ * The type Controller.
+ */
 public class Controller {
 
     private Utente utenteLoggato = null;
     private Autore autoreloggato = null;
-    private Controller controller ;
     private String titoloSelezionato  = null;;
     private ArrayList<Pagina> pagineTrovate;
     private Pagina paginaSelezionata  = null;
@@ -27,10 +29,19 @@ public class Controller {
     private ArrayList<Pagina> pagineModificateUtente;
     private  boolean controlloVersione = false;
     private LocalDate dataVersioneSelezionata = null;
+
+    /**
+     * I a new Controller.
+     */
     public Controller(){
 
     }
 
+    /**
+     * Verifica ruolo utente int.
+     *
+     * @return the int
+     */
     public int verificaRuoloUtente(){
         if(utenteLoggato != null){
             return 1;
@@ -40,22 +51,47 @@ public class Controller {
         return 0;
     }
 
+    /**
+     * Sets titolo selezionato.
+     *
+     * @param titoloSelezionato the titolo selezionato
+     */
     public void setTitoloSelezionato(String titoloSelezionato) {
         this.titoloSelezionato = titoloSelezionato;
     }
 
+    /**
+     * Gets titolo selezionato.
+     *
+     * @return the titolo selezionato
+     */
     public String getTitoloSelezionato() {
         return titoloSelezionato;
     }
 
+    /**
+     * Get nome utente loggato string.
+     *
+     * @return the string
+     */
     public String getNomeUtenteLoggato(){
         return utenteLoggato.getNome();
     }
 
+    /**
+     * Get cognome utente loggato string.
+     *
+     * @return the string
+     */
     public String getCognomeUtenteLoggato(){
         return utenteLoggato.getCognome();
     }
 
+    /**
+     * Gets testo pagina.
+     *
+     * @return the testo pagina
+     */
     public ArrayList<String> getTestoPagina() {
         WikiDAO w = new WikiimplementazionePostgresDAO();
         ArrayList<String> frasiInserite = new ArrayList<>();
@@ -186,23 +222,36 @@ public class Controller {
         return frasiTesto;
     }
 
+    /**
+     * Loggato boolean.
+     *
+     * @return the boolean
+     */
     public boolean loggato(){
         if(utenteLoggato != null || autoreloggato != null)
             return true;
         return false;
     }
 
+    /**
+     * Verifica loggato int.
+     *
+     * @param login    the login
+     * @param password the password
+     * @return the int
+     */
     public int verificaLoggato(String login, String password) {
         this.pagineModificateUtente = new ArrayList<>();
         int controllo = 0;
         WikiDAO w = new WikiimplementazionePostgresDAO();
-        String nome = w.getNomeUtente(login, password);
-        String cognome = w.getCognomeUtente(login, password);
-        String email = w.getEmailUtente(login, password);
-        Date dataNascita = w.getDataNascitaUtente(login, password);
-        String ruolo = w.getRuolotente(login, password);
         try {
-            if(w.verificaLoggato(nome, cognome, login, password, email, dataNascita, ruolo)){
+            if(w.verificaLoggato(login, password)){
+                w = new WikiimplementazionePostgresDAO();
+                String nome = w.getNomeUtente(login);
+                String cognome = w.getCognomeUtente(login);
+                String email = w.getEmailUtente(login);
+                Date dataNascita = w.getDataNascitaUtente(login);
+                String ruolo = w.getRuolotente(login);
                 if(ruolo.equals("utente")){
                     controllo = 1;
                     utenteLoggato = new Utente(nome, cognome, login, password, email, dataNascita);
@@ -224,6 +273,16 @@ public class Controller {
         return controllo;
     }
 
+    /**
+     * Registrazione utente.
+     *
+     * @param nome        the nome
+     * @param cognome     the cognome
+     * @param nomeUtente  the nome utente
+     * @param password    the password
+     * @param email       the email
+     * @param dataNascita the data nascita
+     */
     public void registrazioneUtente(String nome, String cognome, String nomeUtente, String password, String email, Date dataNascita) {
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
@@ -234,6 +293,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Get frasi testo selezionato array list.
+     *
+     * @return the array list
+     */
     public ArrayList<String> getFrasiTestoSelezionato(){
         ArrayList<String> frasiTesto = new ArrayList<>();
         for(Frase_Corrente f : paginaSelezionata.getFrasi()){
@@ -254,6 +318,14 @@ public class Controller {
         return frasiTesto;
     }
 
+    /**
+     * Invia proposta boolean.
+     *
+     * @param fraseSelezionata the frase selezionata
+     * @param fraseProposta    the frase proposta
+     * @param numerazione      the numerazione
+     * @return the boolean
+     */
     public boolean inviaProposta(String fraseSelezionata, String fraseProposta, int numerazione) {
         boolean controllo = false;
         WikiDAO w = new WikiimplementazionePostgresDAO();
@@ -278,7 +350,6 @@ public class Controller {
         }
 
         if (fraseProposta.charAt(fraseProposta.length()-1) != ',' && fraseProposta.charAt(fraseProposta.length()-1) != '.' && fraseProposta.charAt(fraseProposta.length()-1) != ';' && fraseProposta.charAt(fraseProposta.length()-1) != '?' && fraseProposta.charAt(fraseProposta.length()-1) != '!') {
-            System.out.println(fraseSelezionata);
             fraseProposta = fraseProposta + fraseSelezionata.charAt(fraseSelezionata.length()-1);
         }
 
@@ -309,6 +380,12 @@ public class Controller {
         return controllo;
     }
 
+    /**
+     * Creazione pagina.
+     *
+     * @param titolo the titolo
+     * @param testo  the testo
+     */
     public void creazionePagina(String titolo, String testo) {
         ArrayList<String> frasi = new ArrayList<>();
         Pagina paginaCreata = null;
@@ -366,11 +443,21 @@ public class Controller {
         }
     }
 
+    /**
+     * Add pagina selezionata.
+     *
+     * @param numeroPaginaSelezionata the numero pagina selezionata
+     */
     public void addPaginaSelezionata(int numeroPaginaSelezionata){
         paginaSelezionata = pagineTrovate.get(numeroPaginaSelezionata);
     }
 
 
+    /**
+     * Storico pagine visualizzate array list.
+     *
+     * @return the array list
+     */
     public ArrayList<String> storicoPagineVisualizzate() {
         ArrayList<String> titoli = new ArrayList<>();
         ArrayList<LocalDateTime> dateOreCreazioni = new ArrayList<>();
@@ -418,6 +505,9 @@ public class Controller {
         return titoli;
     }
 
+    /**
+     * Add pagina visualizzata.
+     */
     public void addPaginaVisualizzata() {
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {
@@ -436,6 +526,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Gets modificate.
+     *
+     * @return the modificate
+     */
     public ArrayList<String> getModificate() {
         ArrayList <String> modifiche = new ArrayList<>();
         ArrayList<String> nomi = new ArrayList<>();
@@ -526,6 +621,11 @@ public class Controller {
         return modifiche;
     }
 
+    /**
+     * Storico pagine create array list.
+     *
+     * @return the array list
+     */
     public ArrayList<String> storicoPagineCreate() {
         ArrayList<String> titoli = new ArrayList<>();
         for(int i = 0; i < autoreloggato.getCreazioni().size(); i++){
@@ -535,6 +635,11 @@ public class Controller {
         return titoli;
     }
 
+    /**
+     * Controlla notifiche boolean.
+     *
+     * @return the boolean
+     */
     public boolean controllaNotifiche(){
         boolean notifiche = false;
         WikiDAO w = new WikiimplementazionePostgresDAO();
@@ -546,6 +651,12 @@ public class Controller {
         return notifiche;
     }
 
+    /**
+     * Aggiorna stato boolean.
+     *
+     * @param cambiaStato the cambia stato
+     * @return the boolean
+     */
     public boolean aggiornaStato(int cambiaStato) {
         boolean controllo = false;
         ModificaProposta modificaProposta = null;
@@ -563,10 +674,21 @@ public class Controller {
         return controllo;
     }
 
+    /**
+     * Conta notifiche int.
+     *
+     * @return the int
+     */
     public int contaNotifiche(){
         return autoreloggato.getNotificheRicevute().size();
     }
 
+    /**
+     * Get titoli cercati array list.
+     *
+     * @param titoloInserito the titolo inserito
+     * @return the array list
+     */
     public ArrayList<String> getTitoliCercati(String titoloInserito){
         this.pagineTrovate = new ArrayList<>();
         ArrayList<String> titoliCercati = new ArrayList<>();
@@ -592,26 +714,56 @@ public class Controller {
         return titoliCercati;
     }
 
+    /**
+     * Gets nome autore.
+     *
+     * @return the nome autore
+     */
     public String getNomeAutore() {
         return paginaSelezionata.getAutore().getNome();
     }
 
+    /**
+     * Gets cognome autore.
+     *
+     * @return the cognome autore
+     */
     public String getCognomeAutore() {
         return paginaSelezionata.getAutore().getCognome();
     }
 
+    /**
+     * Get login autore pagina selezionata string.
+     *
+     * @return the string
+     */
     public String getLoginAutorePaginaSelezionata(){
         return paginaSelezionata.getAutore().getLogin();
     }
 
+    /**
+     * Gets titolo pagina selezionata.
+     *
+     * @return the titolo pagina selezionata
+     */
     public String getTitoloPaginaSelezionata() {
         return paginaSelezionata.getTitolo();
     }
 
+    /**
+     * Gets data ora creazionepagina selezionata.
+     *
+     * @return the data ora creazionepagina selezionata
+     */
     public LocalDateTime getDataOraCreazionepaginaSelezionata() {
         return paginaSelezionata.getDataCreazione();
     }
 
+    /**
+     * Gets login loggato.
+     *
+     * @return the login loggato
+     */
     public String getLoginLoggato() {
         if(utenteLoggato != null){
             return utenteLoggato.getLogin();
@@ -620,6 +772,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Set pagina visualizzata.
+     *
+     * @param paginaVisualizzata the pagina visualizzata
+     */
     public void setPaginaVisualizzata(int paginaVisualizzata){
         if(utenteLoggato != null){
             paginaSelezionata = utenteLoggato.getPagineVisualizzate().get(paginaVisualizzata).getPagina();
@@ -628,6 +785,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Set pagina creata.
+     *
+     * @param paginaCreata the pagina creata
+     */
     public void setPaginaCreata(int paginaCreata){
         for (Frase_Corrente f : autoreloggato.getCreazioni().get(paginaCreata).getFrasi()){
             f.setProposte(new ArrayList<>());
@@ -637,6 +799,9 @@ public class Controller {
         paginaSelezionata = autoreloggato.getCreazioni().get(paginaCreata);
     }
 
+    /**
+     * Gets notifche.
+     */
     public void getNotifche() {
         if (autoreloggato != null) {
             for (int j = 0; j < autoreloggato.getCreazioni().size(); j++) {
@@ -677,10 +842,20 @@ public class Controller {
         }
     }
 
+    /**
+     * Gets titolo notifica.
+     *
+     * @return the titolo notifica
+     */
     public String getTitoloNotifica() {
         return autoreloggato.getNotificheRicevute().get(0).getTitolo();
     }
 
+    /**
+     * Gets stringa selezionata.
+     *
+     * @return the stringa selezionata
+     */
     public String getStringaSelezionata() {
         ModificaProposta modificaProposta = autoreloggato.getNotificheRicevute().getFirst().getModifica();
         LocalDate dataMax = modificaProposta.getFraseCorrente().getDataInserimento();
@@ -699,10 +874,20 @@ public class Controller {
         return frase;
     }
 
+    /**
+     * Gets fraseproposta.
+     *
+     * @return the fraseproposta
+     */
     public String getFraseproposta() {
         return autoreloggato.getNotificheRicevute().get(0).getModifica().getStringa_inserita();
     }
 
+    /**
+     * Gets frasi selezionate.
+     *
+     * @return the frasi selezionate
+     */
     public ArrayList<String> getFrasiSelezionate() {
         ArrayList<String> frasiSelezionate = new ArrayList<>();
         ArrayList<ModificaProposta> modifichePagina = new ArrayList<>();
@@ -782,6 +967,11 @@ public class Controller {
         return frasiSelezionate;
     }
 
+    /**
+     * Gets frasiproposte.
+     *
+     * @return the frasiproposte
+     */
     public ArrayList<String> getFrasiproposte() {
         ArrayList<String> frasi = new ArrayList<>();
         if(utenteLoggato != null){
@@ -800,6 +990,11 @@ public class Controller {
         return frasi;
     }
 
+    /**
+     * Gets .
+     *
+     * @return the
+     */
     public ArrayList<Integer> getstati() {
         ArrayList<Integer> stati = new ArrayList<>();
         if(utenteLoggato != null){
@@ -820,6 +1015,9 @@ public class Controller {
     }
 
 
+    /**
+     * Logout.
+     */
     public void logout() {
         if(utenteLoggato != null)
             utenteLoggato = null;
@@ -827,6 +1025,11 @@ public class Controller {
             autoreloggato = null;
     }
 
+    /**
+     * Sets pagina modificata.
+     *
+     * @param numeroPaginaModificata the numero pagina modificata
+     */
     public void setPaginaModificata(int numeroPaginaModificata) {
         for (Frase_Corrente f : pagineModificateUtente.get(numeroPaginaModificata).getFrasi()) {
             f.setProposte(new ArrayList<>());
@@ -835,16 +1038,22 @@ public class Controller {
         paginaSelezionata = pagineModificateUtente.get(numeroPaginaModificata);
     }
 
+    /**
+     * Sets pagina notificata.
+     */
     public void setPaginaNotificata() {
         paginaSelezionata = autoreloggato.getNotificheRicevute().get(0).getModifica().getFraseCorrente().getPagina();
-        System.out.println("titolo pagina " + paginaSelezionata.getTitolo());
-        System.out.println("orario pagina " + paginaSelezionata.getDataCreazione());
         for(Frase_Corrente f : paginaSelezionata.getFrasi()){
             f.setProposte(new ArrayList<>());
         }
         paginaSelezionata.setFrasi(new ArrayList<>());
     }
 
+    /**
+     * Controlla collegamenti boolean.
+     *
+     * @return the boolean
+     */
     public boolean controllaCollegamenti(){
         int conteggio = 0;
         for (Frase_Corrente f : paginaSelezionata.getFrasi()){
@@ -856,6 +1065,11 @@ public class Controller {
         return false;
     }
 
+    /**
+     * Sets pagina collegata.
+     *
+     * @param clickedSentence the clicked sentence
+     */
     public void setPaginaCollegata(String clickedSentence) {
         SalvaVecchiaPaginaSelezionata = paginaSelezionata;
         boolean controllo = false;
@@ -881,6 +1095,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Get sala vecchia pagina selezionata boolean.
+     *
+     * @return the boolean
+     */
     public boolean getSalaVecchiaPaginaSelezionata(){
         if (SalvaVecchiaPaginaSelezionata == null){
             return false;
@@ -889,6 +1108,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Gets frasi collegamento.
+     *
+     * @return the frasi collegamento
+     */
     public ArrayList<String> getFrasiCollegamento() {
         ArrayList<String> frasi = new ArrayList<>();
         String fraseTemp = null;
@@ -914,35 +1138,65 @@ public class Controller {
         return frasi;
     }
 
+    /**
+     * Ripristina pagina selezionata.
+     */
     public void ripristinaPaginaSelezionata(){
         paginaSelezionata = SalvaVecchiaPaginaSelezionata;
     }
 
+    /**
+     * Controlla pagina precedente salvata.
+     */
     public void controllaPaginaPrecedenteSalvata() {
         if(SalvaVecchiaPaginaSelezionata != null){
             ripristinaPaginaSelezionata();
         }
     }
 
+    /**
+     * Gets anno inzio.
+     *
+     * @return the anno inzio
+     */
     public int getAnnoInzio() {
         return paginaSelezionata.getDataCreazione().getYear();
 
     }
 
+    /**
+     * Sets versione precedente true.
+     *
+     * @param dataSelezionata the data selezionata
+     */
     public void setVersionePrecedenteTrue(LocalDate dataSelezionata) {
         controlloVersione = true;
         dataVersioneSelezionata = dataSelezionata;
     }
 
+    /**
+     * Sets versione precedente false.
+     */
     public void setVersionePrecedenteFalse() {
         controlloVersione = false;
         dataVersioneSelezionata = null;
     }
 
+    /**
+     * Controllo versione precedente boolean.
+     *
+     * @return the boolean
+     */
     public boolean controlloVersionePrecedente() {
         return controlloVersione;
     }
 
+    /**
+     * Add pagina collegata.
+     *
+     * @param indiceFrase the indice frase
+     * @param clickedRow  the clicked row
+     */
     public void addPaginaCollegata(int indiceFrase, int clickedRow) {
         if( paginaSelezionata.getFrasi().get(indiceFrase).getPaginaCollegata() == null) {
             paginaSelezionata.getFrasi().get(indiceFrase).setPaginaCollegata(pagineTrovate.get(clickedRow));
@@ -969,6 +1223,12 @@ public class Controller {
 
     }
 
+    /**
+     * Controlla nome utente boolean.
+     *
+     * @param nomeUtente the nome utente
+     * @return the boolean
+     */
     public boolean controllaNomeUtente(String nomeUtente) {
         WikiDAO w = new WikiimplementazionePostgresDAO();
         try {

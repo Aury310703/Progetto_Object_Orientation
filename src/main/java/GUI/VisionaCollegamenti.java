@@ -12,8 +12,10 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * VisionaCollegamenti rappresenta la schermata in cui vengono mostrate le frasi che hanno un collegamento ad un'altra pagina.
+ */
 public class VisionaCollegamenti {
-
     public JFrame frame;
     private final JFrame frameChiamante;
     private JPanel panel;
@@ -23,6 +25,13 @@ public class VisionaCollegamenti {
     private JPanel buttonpanel;
     private JList frasiList;
 
+    /**
+     * istanzia una nuova VisionaCollegamenti.
+     *
+     * @param controller        realizza le operazioni algoritmiche
+     * @param frameChiamante    schermata da cui viene istanziata CreaPagina
+     * @param locale            indica la lingua.
+     */
     public VisionaCollegamenti(Controller controller, JFrame frameChiamante, String locale) {
         this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
@@ -154,6 +163,9 @@ public class VisionaCollegamenti {
     }
 
     /**
+     * $$$ get root component $$$ j component.
+     *
+     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

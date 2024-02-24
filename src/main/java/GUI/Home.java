@@ -92,7 +92,7 @@ public class Home {
             }
         });
 
-        ImageIcon originalIcon = new ImageIcon("C:\\Users\\david\\Desktop\\progetto_OO\\src\\Screenshot_2024-02-21_124631-removebg-preview (1).png");
+        ImageIcon originalIcon = new ImageIcon("C:\\Users\\david\\Desktop\\progetto_OO\\Immagini\\Screenshot_2024-02-21_124631-removebg-preview (1).png");
         Image originalImage = originalIcon.getImage();
         Image resizedImage = originalImage.getScaledInstance(300, 100, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
