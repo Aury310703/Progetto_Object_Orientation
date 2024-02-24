@@ -71,7 +71,7 @@ public class VisionaCollegamenti {
         paginaPrecedenteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (controller.getSalaVecchiaPaginaSelezionata()) {
+                if (controller.getSalvaVecchiaPaginaSelezionata()) {
                     controller.ripristinaPaginaSelezionata();
                 }
                 frame.setVisible(false);

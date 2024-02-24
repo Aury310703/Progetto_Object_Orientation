@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.Optional;
 
 /**
- * The type Controller.
+ * Controller responsabile della realizzazione delle funzionalità del sistema e viene usato per far comunicare la GUI con il Model.
  */
 public class Controller {
 
@@ -31,16 +31,16 @@ public class Controller {
     private LocalDate dataVersioneSelezionata = null;
 
     /**
-     * I a new Controller.
+     *Istanzia un nuovo Controller.
      */
     public Controller(){
 
     }
 
     /**
-     * Verifica ruolo utente int.
+     * Questo metodo serve a verificare con quale ruolo sta accedeno l'utente al sistema (utente o autore).
      *
-     * @return the int
+     * @return ruolo
      */
     public int verificaRuoloUtente(){
         if(utenteLoggato != null){
@@ -52,45 +52,45 @@ public class Controller {
     }
 
     /**
-     * Sets titolo selezionato.
+     * Setta il titolo selezionato dall'utente nel momento della ricerca.
      *
-     * @param titoloSelezionato the titolo selezionato
+     * @param titoloSelezionato indica il titolo selezionato dall'utente
      */
     public void setTitoloSelezionato(String titoloSelezionato) {
         this.titoloSelezionato = titoloSelezionato;
     }
 
     /**
-     * Gets titolo selezionato.
+     * Restituisce il titolo selezionato dall'utente al momento della ricerca.
      *
-     * @return the titolo selezionato
+     * @return titoloSelezionato
      */
     public String getTitoloSelezionato() {
         return titoloSelezionato;
     }
 
     /**
-     * Get nome utente loggato string.
-     *
-     * @return the string
+     * Restituisce il nome dell'utente loggato.
+
+     * @return nome
      */
     public String getNomeUtenteLoggato(){
         return utenteLoggato.getNome();
     }
 
     /**
-     * Get cognome utente loggato string.
+     * Restituisce il cognome dell'utente loggato.
      *
-     * @return the string
+     * @return cognome
      */
     public String getCognomeUtenteLoggato(){
         return utenteLoggato.getCognome();
     }
 
     /**
-     * Gets testo pagina.
+     * Restituisce un ArrayList di frasi correnti che compongono il testo della pagina wiki selezionata dall'utente.
      *
-     * @return the testo pagina
+     * @return frasiTesto
      */
     public ArrayList<String> getTestoPagina() {
         WikiDAO w = new WikiimplementazionePostgresDAO();
@@ -223,9 +223,9 @@ public class Controller {
     }
 
     /**
-     * Loggato boolean.
+     * Restituisce un valore booleano, vero se l'utente o autore che accede alla wiki è loggato, falso se l'utente non è loggato.
      *
-     * @return the boolean
+     * @return boolean
      */
     public boolean loggato(){
         if(utenteLoggato != null || autoreloggato != null)
@@ -234,11 +234,11 @@ public class Controller {
     }
 
     /**
-     * Verifica loggato int.
+     * Questo metodo verifica con quale ruolo sta accedendo alla wiki l'utente loggato (utente o autore).
      *
-     * @param login    the login
-     * @param password the password
-     * @return the int
+     * @param login    indica il login di accesso dell'utente loggato
+     * @param password indica la password di accesso dell'utente loggato
+     * @return ruolo
      */
     public int verificaLoggato(String login, String password) {
         this.pagineModificateUtente = new ArrayList<>();
@@ -274,14 +274,14 @@ public class Controller {
     }
 
     /**
-     * Registrazione utente.
+     * Metodo che viene utilizzato nel momento della registrazione di un nuovo utente alla pagina wiki.
      *
-     * @param nome        the nome
-     * @param cognome     the cognome
-     * @param nomeUtente  the nome utente
-     * @param password    the password
-     * @param email       the email
-     * @param dataNascita the data nascita
+     * @param nome        indica il nome dell'utente che si sta registrando
+     * @param cognome     indica il cognome dell'utente che si sta registrando
+     * @param nomeUtente  indica il login di accesso dell'utente che si sta registrando
+     * @param password    indica la password di accesso dell'utente che si sta registrando
+     * @param email       indica l'indirizzo email dell'utente che si sta registrando
+     * @param dataNascita indica la data di nascita dell'utente che si sta registrando
      */
     public void registrazioneUtente(String nome, String cognome, String nomeUtente, String password, String email, Date dataNascita) {
         WikiDAO w = new WikiimplementazionePostgresDAO();
@@ -294,9 +294,9 @@ public class Controller {
     }
 
     /**
-     * Get frasi testo selezionato array list.
+     * Restituisce le frasi selezionate dall'utente nel momento di una modifica o di un aggiunta di un collegamento ad esse.
      *
-     * @return the array list
+     * @return frasiTesto
      */
     public ArrayList<String> getFrasiTestoSelezionato(){
         ArrayList<String> frasiTesto = new ArrayList<>();
@@ -319,12 +319,12 @@ public class Controller {
     }
 
     /**
-     * Invia proposta boolean.
+     * Metodo che permette all'utente di poter effettuare modifiche al testo di una pagina wiki.
      *
-     * @param fraseSelezionata the frase selezionata
-     * @param fraseProposta    the frase proposta
-     * @param numerazione      the numerazione
-     * @return the boolean
+     * @param fraseSelezionata indica la frase che l'utente vuole modificare dal testo
+     * @param fraseProposta    indica la modifica proposta dall'utente sulla frase selezionata
+     * @param numerazione      indica la numerazione della frase selezionata dall'utente
+     * @return boolean
      */
     public boolean inviaProposta(String fraseSelezionata, String fraseProposta, int numerazione) {
         boolean controllo = false;
@@ -381,10 +381,10 @@ public class Controller {
     }
 
     /**
-     * Creazione pagina.
+     * Metodo che permette all'utente di creare una pagina wiki.
      *
-     * @param titolo the titolo
-     * @param testo  the testo
+     * @param titolo indica il titolo scelto dall'utente per la creazione della nuova pagina
+     * @param testo  indica il testo scelto dall'utente per la creazine della nuova pagina
      */
     public void creazionePagina(String titolo, String testo) {
         ArrayList<String> frasi = new ArrayList<>();
@@ -444,9 +444,9 @@ public class Controller {
     }
 
     /**
-     * Add pagina selezionata.
+     * Metodo usato per selezionare una pagina.
      *
-     * @param numeroPaginaSelezionata the numero pagina selezionata
+     * @param numeroPaginaSelezionata indica la pagina selezionata dall'utente
      */
     public void addPaginaSelezionata(int numeroPaginaSelezionata){
         paginaSelezionata = pagineTrovate.get(numeroPaginaSelezionata);
@@ -454,9 +454,9 @@ public class Controller {
 
 
     /**
-     * Storico pagine visualizzate array list.
+     * Restituisce un ArrayList contenente tutte le pagine viusalizzate dall'utente.
      *
-     * @return the array list
+     * @return titoli
      */
     public ArrayList<String> storicoPagineVisualizzate() {
         ArrayList<String> titoli = new ArrayList<>();
@@ -506,7 +506,7 @@ public class Controller {
     }
 
     /**
-     * Add pagina visualizzata.
+     * Aggiunge la pagina viusalizzata allo storico al momento della viusalizzazione.
      */
     public void addPaginaVisualizzata() {
         WikiDAO w = new WikiimplementazionePostgresDAO();
@@ -527,9 +527,9 @@ public class Controller {
     }
 
     /**
-     * Gets modificate.
+     * Restituisce un ArrayList contenente i titoli delle pagine modificate dall'utente.
      *
-     * @return the modificate
+     * @return modificate
      */
     public ArrayList<String> getModificate() {
         ArrayList <String> modifiche = new ArrayList<>();
@@ -622,9 +622,9 @@ public class Controller {
     }
 
     /**
-     * Storico pagine create array list.
+     * Restituisce un ArrayList di pagine create dall'autore
      *
-     * @return the array list
+     * @return titoli
      */
     public ArrayList<String> storicoPagineCreate() {
         ArrayList<String> titoli = new ArrayList<>();
@@ -636,9 +636,9 @@ public class Controller {
     }
 
     /**
-     * Controlla notifiche boolean.
+     * restituisce un valore boooleano che indica se l'autore ha delle notifiche da visualizzare al momento del login.
      *
-     * @return the boolean
+     * @return notifiche
      */
     public boolean controllaNotifiche(){
         boolean notifiche = false;
@@ -652,9 +652,9 @@ public class Controller {
     }
 
     /**
-     * Aggiorna stato boolean.
+     * Restituisce un valore booleano che indica se l'autore una volata visionata la moficica, accetta o rifiuta una modifica proposta a una sua pagina.
      *
-     * @param cambiaStato the cambia stato
+     * @param cambiaStato indica lo stato di accettazione della modifica (-1 rifiutata, 1 accetta)
      * @return the boolean
      */
     public boolean aggiornaStato(int cambiaStato) {
@@ -675,19 +675,19 @@ public class Controller {
     }
 
     /**
-     * Conta notifiche int.
+     * Restituisce il numero di notifiche da visualizzare.
      *
-     * @return the int
+     * @return int
      */
     public int contaNotifiche(){
         return autoreloggato.getNotificheRicevute().size();
     }
 
     /**
-     * Get titoli cercati array list.
+     * Restituisce un ArrayList di titoli di pagine in base alla stringa inserita dall'utente nella barra di ricerca.
      *
-     * @param titoloInserito the titolo inserito
-     * @return the array list
+     * @param titoloInserito stringa inserita dall'utente nella barra di ricerca che indica un possibile tsto da cercare nella wiki
+     * @return titoliCercati
      */
     public ArrayList<String> getTitoliCercati(String titoloInserito){
         this.pagineTrovate = new ArrayList<>();
@@ -715,54 +715,54 @@ public class Controller {
     }
 
     /**
-     * Gets nome autore.
+     * Restituisce il nome dell'autore.
      *
-     * @return the nome autore
+     * @return nome
      */
     public String getNomeAutore() {
         return paginaSelezionata.getAutore().getNome();
     }
 
     /**
-     * Gets cognome autore.
+     * Restituisce il cognome dell'autore.
      *
-     * @return the cognome autore
+     * @return cognome
      */
     public String getCognomeAutore() {
         return paginaSelezionata.getAutore().getCognome();
     }
 
     /**
-     * Get login autore pagina selezionata string.
+     * Restituisce il login di accesso dell'autore.
      *
-     * @return the string
+     * @return login
      */
     public String getLoginAutorePaginaSelezionata(){
         return paginaSelezionata.getAutore().getLogin();
     }
 
     /**
-     * Gets titolo pagina selezionata.
+     * Restituisce il titolo della pagina selezionata dall'utente.
      *
-     * @return the titolo pagina selezionata
+     * @return titolo
      */
     public String getTitoloPaginaSelezionata() {
         return paginaSelezionata.getTitolo();
     }
 
     /**
-     * Gets data ora creazionepagina selezionata.
+     * Restituisce la data e l'ora di creazione della pagina selezionata dall'utente.
      *
-     * @return the data ora creazionepagina selezionata
+     * @return DataCreazione
      */
     public LocalDateTime getDataOraCreazionepaginaSelezionata() {
         return paginaSelezionata.getDataCreazione();
     }
 
     /**
-     * Gets login loggato.
+     * restituisce il loogin di accesso dell'utente o autore loggato.
      *
-     * @return the login loggato
+     * @return login
      */
     public String getLoginLoggato() {
         if(utenteLoggato != null){
@@ -773,9 +773,9 @@ public class Controller {
     }
 
     /**
-     * Set pagina visualizzata.
+     * Setta la pagina visualizzata dall'utente o dall'autore.
      *
-     * @param paginaVisualizzata the pagina visualizzata
+     * @param paginaVisualizzata indica la pagina visualizzata dall'utente o dall'autore.
      */
     public void setPaginaVisualizzata(int paginaVisualizzata){
         if(utenteLoggato != null){
@@ -786,9 +786,9 @@ public class Controller {
     }
 
     /**
-     * Set pagina creata.
+     * Setta la pagina creata dall'autore.
      *
-     * @param paginaCreata the pagina creata
+     * @param paginaCreata indica la pagina creata.
      */
     public void setPaginaCreata(int paginaCreata){
         for (Frase_Corrente f : autoreloggato.getCreazioni().get(paginaCreata).getFrasi()){
@@ -800,7 +800,7 @@ public class Controller {
     }
 
     /**
-     * Gets notifche.
+     *Metodo utilizzato per indicare le notifiche dell'autore.
      */
     public void getNotifche() {
         if (autoreloggato != null) {
@@ -843,18 +843,18 @@ public class Controller {
     }
 
     /**
-     * Gets titolo notifica.
+     * Restituisce il titolo della pagina che è stata notificata all'autore.
      *
-     * @return the titolo notifica
+     * @return Titolo
      */
     public String getTitoloNotifica() {
         return autoreloggato.getNotificheRicevute().get(0).getTitolo();
     }
 
     /**
-     * Gets stringa selezionata.
+     * Restituisce la stringa selezionata dall'utente da modificare.
      *
-     * @return the stringa selezionata
+     * @return stringaSelezionata
      */
     public String getStringaSelezionata() {
         ModificaProposta modificaProposta = autoreloggato.getNotificheRicevute().getFirst().getModifica();
@@ -875,18 +875,18 @@ public class Controller {
     }
 
     /**
-     * Gets fraseproposta.
+     * Restituuisce la frase proposta dall'utente al momento della modifica.
      *
-     * @return the fraseproposta
+     * @return fraseproposta
      */
     public String getFraseproposta() {
         return autoreloggato.getNotificheRicevute().get(0).getModifica().getStringa_inserita();
     }
 
     /**
-     * Gets frasi selezionate.
+     * Restituisce un ArrayList contenente le frasi selezionate dall'utente.
      *
-     * @return the frasi selezionate
+     * @return frasiSelezionate
      */
     public ArrayList<String> getFrasiSelezionate() {
         ArrayList<String> frasiSelezionate = new ArrayList<>();
@@ -968,9 +968,9 @@ public class Controller {
     }
 
     /**
-     * Gets frasiproposte.
+     * Restituisce un ArrayList di frasi proposte dall'Utente.
      *
-     * @return the frasiproposte
+     * @return frasiproposte
      */
     public ArrayList<String> getFrasiproposte() {
         ArrayList<String> frasi = new ArrayList<>();
@@ -991,9 +991,9 @@ public class Controller {
     }
 
     /**
-     * Gets .
+     * restituisce un ArrayList di interi che indica gli stati delle modifiche (1 accetata, -1 rifiutata, 0 in attesa) .
      *
-     * @return the
+     * @return stati
      */
     public ArrayList<Integer> getstati() {
         ArrayList<Integer> stati = new ArrayList<>();
@@ -1016,7 +1016,7 @@ public class Controller {
 
 
     /**
-     * Logout.
+     * Metodo utilizzato nel momento in cui l'utente o l'autore ha intenzione di effettuare il logout dalla pagina wiki.
      */
     public void logout() {
         if(utenteLoggato != null)
@@ -1026,9 +1026,9 @@ public class Controller {
     }
 
     /**
-     * Sets pagina modificata.
+     * Setta la pagina modificata dall'utente o dall'autore.
      *
-     * @param numeroPaginaModificata the numero pagina modificata
+     * @param numeroPaginaModificata indica l'id della pagina da modificare
      */
     public void setPaginaModificata(int numeroPaginaModificata) {
         for (Frase_Corrente f : pagineModificateUtente.get(numeroPaginaModificata).getFrasi()) {
@@ -1039,7 +1039,7 @@ public class Controller {
     }
 
     /**
-     * Sets pagina notificata.
+     * Setta la notifica della pagina modificata.
      */
     public void setPaginaNotificata() {
         paginaSelezionata = autoreloggato.getNotificheRicevute().get(0).getModifica().getFraseCorrente().getPagina();
@@ -1050,9 +1050,9 @@ public class Controller {
     }
 
     /**
-     * Controlla collegamenti boolean.
+     * Metodo che viene utilizzato per controllare se una frase possiede un collegamento ad un altra pagina. Restituisce vero se la frase ha un collegamento falso altrimenti.
      *
-     * @return the boolean
+     * @return boolean
      */
     public boolean controllaCollegamenti(){
         int conteggio = 0;
@@ -1066,9 +1066,9 @@ public class Controller {
     }
 
     /**
-     * Sets pagina collegata.
+     * Setta la pagina collegata alla frase.
      *
-     * @param clickedSentence the clicked sentence
+     * @param clickedSentence indica la frase cliccata che ha il collegamento
      */
     public void setPaginaCollegata(String clickedSentence) {
         SalvaVecchiaPaginaSelezionata = paginaSelezionata;
@@ -1096,11 +1096,11 @@ public class Controller {
     }
 
     /**
-     * Get sala vecchia pagina selezionata boolean.
+     * Restituisce un valore booleano che indica se la vecchia pagina ha ancora il collegamento alla frase.
      *
-     * @return the boolean
+     * @return boolean
      */
-    public boolean getSalaVecchiaPaginaSelezionata(){
+    public boolean getSalvaVecchiaPaginaSelezionata(){
         if (SalvaVecchiaPaginaSelezionata == null){
             return false;
         }else{
@@ -1109,9 +1109,9 @@ public class Controller {
     }
 
     /**
-     * Gets frasi collegamento.
+     * Restituisce un ArrayList contenente le frasi che hanno un collegamento ad altre pagine.
      *
-     * @return the frasi collegamento
+     * @return frasi
      */
     public ArrayList<String> getFrasiCollegamento() {
         ArrayList<String> frasi = new ArrayList<>();
@@ -1155,9 +1155,9 @@ public class Controller {
     }
 
     /**
-     * Gets anno inzio.
+     * Restituisce l'anno di creazione di una pagina.
      *
-     * @return the anno inzio
+     * @return anno inzio
      */
     public int getAnnoInzio() {
         return paginaSelezionata.getDataCreazione().getYear();
@@ -1165,9 +1165,9 @@ public class Controller {
     }
 
     /**
-     * Sets versione precedente true.
+     * Setta la versione precdente della pagina.
      *
-     * @param dataSelezionata the data selezionata
+     * @param dataSelezionata indica la data di quale versione del testo si vuole visualizzare
      */
     public void setVersionePrecedenteTrue(LocalDate dataSelezionata) {
         controlloVersione = true;
@@ -1183,7 +1183,7 @@ public class Controller {
     }
 
     /**
-     * Controllo versione precedente boolean.
+     * Ritorna un valore booleano che indica .
      *
      * @return the boolean
      */
