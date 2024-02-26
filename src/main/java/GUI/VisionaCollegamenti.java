@@ -17,7 +17,6 @@ import java.util.ResourceBundle;
  */
 public class VisionaCollegamenti {
     public JFrame frame;
-    private final JFrame frameChiamante;
     private JPanel panel;
     private JButton paginaPrecedenteButton;
     private JScrollPane scrollPane;
@@ -33,7 +32,6 @@ public class VisionaCollegamenti {
      * @param locale            indica la lingua.
      */
     public VisionaCollegamenti(Controller controller, JFrame frameChiamante, String locale) {
-        this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

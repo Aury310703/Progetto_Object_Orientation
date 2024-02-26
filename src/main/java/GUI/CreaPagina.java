@@ -23,8 +23,6 @@ public class CreaPagina {
     private JPanel panel2;
 
     public JFrame frame;
-    private JFrame frameChiamante;
-    private Controller controller;
 
     /**
      * Istanzia una nuova crea pagina.
@@ -34,8 +32,6 @@ public class CreaPagina {
      * @param locale         indica la lingua.
      */
     public CreaPagina(Controller controller, JFrame frameChiamante, String locale) {
-        this.frameChiamante = frameChiamante;
-        this.controller = controller;
         this.frame = new JFrame("CREAZIONE PAGINA");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

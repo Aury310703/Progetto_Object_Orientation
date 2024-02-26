@@ -15,8 +15,6 @@ import java.util.ResourceBundle;
  */
 public class Login {
 
-    private final JFrame frameChiamante;
-
     public JFrame frame;
     private JPanel panel;
     private JTextField nomeUtenteField;
@@ -27,7 +25,6 @@ public class Login {
     private JButton dietroButton;
     private JButton registratiButton;
     private JLabel erroLabel;
-    private JLabel erroreLoginLabel;
 
     public Controller controller;
 
@@ -39,7 +36,6 @@ public class Login {
      * @param locale         indica la lingua.
      */
     public Login(Controller controller, JFrame frameChiamante, String controllo, String locale) {
-        this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Login");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

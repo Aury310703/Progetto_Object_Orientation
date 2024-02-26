@@ -42,6 +42,8 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+
         }
         return nome;
     }
@@ -112,20 +114,21 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
     }
 
     public void getPagineCreate(String login, ArrayList<String> titoli, ArrayList<LocalDateTime> dataOraCreazione) throws SQLException{
-        String query = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
+        String query = "SELECT * FROM Utente WHERE LOWER(login) = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
-        preparedStatement.setString(1, login);
+        preparedStatement.setString(1, login.toLowerCase());
         ResultSet rs = preparedStatement.executeQuery();
-        rs.next();
-        int idAutore = rs.getInt("idutente");
+        if(rs.next()) {
+            int idAutore = rs.getInt("idutente");
 
-        String querypagine = "SELECT titolo, dataOraCreazione FROM PAGINA WHERE idAutore = ?";
-        PreparedStatement preparedStatementPagine = connection.prepareStatement(querypagine);
-        preparedStatementPagine.setInt(1, idAutore);
-        ResultSet rsPagine = preparedStatementPagine.executeQuery();
-        while (rsPagine.next()){
-            titoli.add(rsPagine.getString("titolo"));
-            dataOraCreazione.add(rsPagine.getTimestamp("dataOraCreazione").toLocalDateTime());
+            String querypagine = "SELECT titolo, dataOraCreazione FROM PAGINA WHERE idAutore = ?";
+            PreparedStatement preparedStatementPagine = connection.prepareStatement(querypagine);
+            preparedStatementPagine.setInt(1, idAutore);
+            ResultSet rsPagine = preparedStatementPagine.executeQuery();
+            while (rsPagine.next()) {
+                titoli.add(rsPagine.getString("titolo"));
+                dataOraCreazione.add(rsPagine.getTimestamp("dataOraCreazione").toLocalDateTime());
+            }
         }
     }
 
@@ -161,8 +164,6 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         } catch (Exception e) {
             System.out.println("Errore durante l'esecuzione della query: " + e.getMessage());
             e.printStackTrace();
-        }finally {
-
         }
         connection.close();
     }
@@ -310,9 +311,9 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
 
     public boolean inviaProposta(int numerazione, String fraseSelezionata, String fraseProposta, String loginUtente, String loginAutore, String titolo, LocalDateTime dataOraCreazione) throws SQLException {
         boolean controllo = false;
-        String query = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
+        String query = "SELECT idutente FROM utente WHERE LOWER(login) = ? LIMIT 1";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
-        preparedStatement.setString(1, loginAutore);
+        preparedStatement.setString(1, loginAutore.toLowerCase());
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
         int idAutore = rs.getInt("idutente");
@@ -390,9 +391,9 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         preparedStatementPagina.setString(1, titolo);
         preparedStatementPagina.setTimestamp(2, Timestamp.valueOf(DataOraCreazione));
 
-        String queryAutore = "SELECT idutente FROM UTENTE WHERE login = ? LIMIT 1";
+        String queryAutore = "SELECT idutente FROM utente WHERE LOWER(login) = ? LIMIT 1";
         PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
-        preparedStatementAutore.setString(1,loginAutorePagina);
+        preparedStatementAutore.setString(1,loginAutorePagina.toLowerCase());
         ResultSet rsAutore = preparedStatementAutore.executeQuery();
         rsAutore.next();
         int idAutore = rsAutore.getInt("idutente");
@@ -402,9 +403,9 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         rsPagina.next();
         int idPagina = rsPagina.getInt("idPagina");
 
-        String queryUtente = "SELECT idutente FROM UTENTE WHERE login = ? LIMIT 1";
+        String queryUtente = "SELECT idutente FROM utente WHERE LOWER(login) = ? LIMIT 1";
         PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
-        preparedStatementUtente.setString(1, loginUtenteViusalizzatore);
+        preparedStatementUtente.setString(1, loginUtenteViusalizzatore.toLowerCase());
         ResultSet rsUtente = preparedStatementUtente.executeQuery();
         rsUtente.next();
         int idUtente = rsUtente.getInt("idutente");
@@ -420,9 +421,9 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
 
     public void storicoPagineVisualizzate(String loginUtente, ArrayList<String> titoli, ArrayList<LocalDateTime> dateOreCreazioni, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> nomiUtente, ArrayList<String> password, ArrayList<String> email, ArrayList<Date> dataNascita, ArrayList<LocalDate> dateVisioni, ArrayList<LocalTime> oreVisioni) throws SQLException{
         try {
-            String queryUtente = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
+            String queryUtente = "SELECT idutente FROM utente WHERE LOWER(login) = ? LIMIT 1";
             PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
-            preparedStatementUtente.setString(1, loginUtente);
+            preparedStatementUtente.setString(1, loginUtente.toLowerCase());
             ResultSet rsUtente = preparedStatementUtente.executeQuery();
             rsUtente.next();
             int idUtente = rsUtente.getInt("idutente");
@@ -465,9 +466,9 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         try{
             String query = "SELECT * FROM Pagina p JOIN ModificaProposta m ON p.idPagina = m.idPagina WHERE m.utentep = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            String queryUtente = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
+            String queryUtente = "SELECT idutente FROM utente WHERE LOWER(login) = ? LIMIT 1";
             PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
-            preparedStatementUtente.setString(1, login);
+            preparedStatementUtente.setString(1, login.toLowerCase());
             ResultSet rsUtente = preparedStatementUtente.executeQuery();
             rsUtente.next();
             int idUtente = rsUtente.getInt("idutente");
@@ -527,9 +528,9 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
         String queryNotifiche = "SELECT * FROM modificaProposta M WHERE M.autorev = ?  AND M.stato = 0 LIMIT 1";
         PreparedStatement preparedStatementNotifiche = connection.prepareStatement(queryNotifiche);
 
-        String queryAutore = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
+        String queryAutore = "SELECT idutente FROM utente WHERE LOWER(login) = ? LIMIT 1";
         PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
-        preparedStatementAutore.setString(1,login);
+        preparedStatementAutore.setString(1,login.toLowerCase());
         ResultSet rsAutore = preparedStatementAutore.executeQuery();
         rsAutore.next();
         int idAutore = rsAutore.getInt("idutente");
@@ -603,17 +604,17 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
     public boolean aggiornaStato(String loginAutore, String loginUtente, String stringaInserita, String stringaproposta, LocalDate dataProposta, LocalTime oraProposta, int cambiaStato) throws SQLException{
         boolean controllo = false;
 
-        String queryAutore = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
+        String queryAutore = "SELECT idutente FROM utente WHERE LOWER(login) = ? LIMIT 1";
         PreparedStatement preparedStatementAutore = connection.prepareStatement(queryAutore);
-        preparedStatementAutore.setString(1, loginAutore);
+        preparedStatementAutore.setString(1, loginAutore.toLowerCase());
         ResultSet rsAutore = preparedStatementAutore.executeQuery();
         rsAutore.next();
         int idAutore = rsAutore.getInt("idutente");
 
-        String queryUtente = "SELECT idutente FROM utente WHERE login = ? LIMIT 1";
+        String queryUtente = "SELECT idutente FROM utente WHERE LOWER(login) = ? LIMIT 1";
         PreparedStatement preparedStatementUtente = connection.prepareStatement(queryUtente);
-        preparedStatementAutore.setString(1, loginUtente);
-        ResultSet rsUtente = preparedStatementAutore.executeQuery();
+        preparedStatementUtente.setString(1, loginUtente.toLowerCase());
+        ResultSet rsUtente = preparedStatementUtente.executeQuery();
         rsUtente.next();
         int idUtente = rsUtente.getInt("idutente");
 
@@ -686,9 +687,9 @@ public class WikiimplementazionePostgresDAO implements WikiDAO {
     }
 
     public boolean controllaNomeUtente(String nomeUtente) throws SQLException{
-        String query = "SELECT * From utente WHERE login = ?";
+        String query = "SELECT * From utente WHERE LOWER(login) = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
-        preparedStatement.setString(1, nomeUtente);
+        preparedStatement.setString(1, nomeUtente.toLowerCase());
         ResultSet rs = preparedStatement.executeQuery();
         if(rs.next()){
             return true;

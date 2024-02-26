@@ -35,7 +35,6 @@ public class StoricoAutore {
     private JPanel panel7;
 
     public JFrame frame;
-    private JFrame frameChiamante;
 
     public Controller controller;
 
@@ -48,7 +47,6 @@ public class StoricoAutore {
      */
     public StoricoAutore(Controller controller, JFrame frameChiamante, String locale) {
         this.controller = controller;
-        this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -135,13 +133,11 @@ public class StoricoAutore {
                     int selectedRow = modificheProposteTable.getSelectedRow();
                     if (selectedRow != -1) {
                         Object cellValue = modificheProposteTable.getValueAt(selectedRow, 0);
-                        String titolo = cellValue.toString();
                         controller.setPaginaModificata(selectedRow);
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
                         DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame, locale);
                         dettagliModifiche.frame.setLocationRelativeTo(frame);
                         dettagliModifiche.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
                         dettagliModifiche.frame.setVisible(true);
                         frame.setVisible(false);
                     }
@@ -196,7 +192,6 @@ public class StoricoAutore {
                     int selectedRow = pagineCreateTable.getSelectedRow();
                     if (selectedRow != -1) {
                         Object cellValue = pagineCreateTable.getValueAt(selectedRow, 0);
-                        String titolo = cellValue.toString();
 
                         controller.setPaginaCreata(selectedRow);
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);

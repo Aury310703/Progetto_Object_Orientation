@@ -8,8 +8,6 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -20,7 +18,7 @@ import java.util.ResourceBundle;
 public class ModificaTesto {
 
     public JFrame frame;
-    private JFrame frameChiamante;
+
     private JPanel panel;
     private JPanel buttonPanel;
     private JButton paginaPrecedenteButton;
@@ -38,7 +36,6 @@ public class ModificaTesto {
      * @param locale         indica la lingua.
      */
     public ModificaTesto(Controller controller, JFrame frameChiamante, String locale) {
-        this.frameChiamante = frameChiamante;
         this.frame = new JFrame("Modifica");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -62,7 +59,6 @@ public class ModificaTesto {
                     Object selectedObject = frasiList.getSelectedValue();
                     if (selectedObject != null) {
                         int indiceElemento = frasiList.getSelectedIndex();
-                        String selectedValue = (String) selectedObject;
                         PropostaModifica propostaModifica = new PropostaModifica(controller, frame, frasiTesto.get(indiceElemento), indiceElemento, locale);
                         propostaModifica.frame.setLocationRelativeTo(null);
                         propostaModifica.frame.setLocation(200, 400);

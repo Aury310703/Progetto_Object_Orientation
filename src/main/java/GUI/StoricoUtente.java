@@ -147,7 +147,6 @@ public class StoricoUtente {
                     int selectedRow = tableModProposte.getSelectedRow();
                     if (selectedRow != -1) {
                         Object cellValue = tableModProposte.getValueAt(selectedRow, 0);
-                        String titolo = cellValue.toString();
                         controller.setPaginaModificata(selectedRow);
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
                         DettagliModifiche dettagliModifiche = new DettagliModifiche(controller, frame, locale);

@@ -1,9 +1,5 @@
 package dao;
 
-import GUI.Notifiche;
-import MODEL.Pagina;
-
-
 import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalDate;

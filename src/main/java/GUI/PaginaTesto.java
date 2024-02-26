@@ -45,9 +45,9 @@ public class PaginaTesto {
     /**
      * Instazia un nuova schermata PaginaTesto
      *
-     * @param controller     realizza le operazioni algoritmiche
-     * @param frameC         schermata da cui viene istanziata CreaPagina
-     * @param locale         indica la lingua.
+     * @param controller realizza le operazioni algoritmiche
+     * @param frameC     schermata da cui viene istanziata CreaPagina
+     * @param locale     indica la lingua.
      */
     public PaginaTesto(Controller controller, JFrame frameC, String locale) {
         panelTesto.setText("");
@@ -86,7 +86,7 @@ public class PaginaTesto {
         }
 
         String[] mesi = new String[]{"Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
-                    "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
+                "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
 //        if (locale.equals("en_GB")) {
 //            String[] englishMonths = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 //            mesi = englishMonths;
@@ -243,9 +243,8 @@ public class PaginaTesto {
 
                 controller.setVersionePrecedenteTrue(dataSelezionata);
 
-                ArrayList<String> testoPagina = new ArrayList<>();
+                ArrayList<String> testoPagina = controller.getTestoPagina();
                 String testo = "";
-                testoPagina = controller.getTestoPagina();
                 for (String f : testoPagina) {
                     testo = testo + " " + f;
                 }
@@ -257,9 +256,9 @@ public class PaginaTesto {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.setVersionePrecedenteFalse();
-                ArrayList<String> testoPagina = new ArrayList<>();
+                ArrayList<String> testoPagina = controller.getTestoPagina();
+                ;
                 String testo = "";
-                testoPagina = controller.getTestoPagina();
                 for (String f : testoPagina) {
                     testo = testo + " " + f;
                 }
@@ -401,9 +400,6 @@ public class PaginaTesto {
     }
 
     /**
-     * $$$ get root component $$$ j component.
-     *
-     * @return the j component
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {

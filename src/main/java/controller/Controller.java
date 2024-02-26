@@ -88,7 +88,9 @@ public class Controller {
     }
 
     /**
-     * Restituisce un ArrayList di frasi correnti che compongono il testo della pagina wiki selezionata dall'utente.
+     * Restituisce un ArrayList di frasi che corrisponde all'insieme delle frasi del testo della pagina wiki selezionata dall'utente. Le frasi verranno "scelte" in base a
+     * se si sta componendo la versione piú recente o se si sta componendo una versione precedente del testo. In base alla scelta verrá verificato se una frase ha delle
+     * modifiche accettate, a quel punto se ci sono verrá presa l'ultima modifica.
      *
      * @return frasiTesto
      */
@@ -234,7 +236,8 @@ public class Controller {
     }
 
     /**
-     * Questo metodo verifica con quale ruolo sta accedendo alla wiki l'utente loggato (utente o autore).
+     * Questo metodo verifica se le credenziali immesse al momento del login sono valide. Se sono valide la funzione restituisce vero. Inoltre se il ruolo di chi accede
+     * é "autore", verranno caricate nel sistema le pagine da lui create.
      *
      * @param login    indica il login di accesso dell'utente loggato
      * @param password indica la password di accesso dell'utente loggato
@@ -381,7 +384,7 @@ public class Controller {
     }
 
     /**
-     * Metodo che permette all'utente di creare una pagina wiki.
+     * Metodo che permette all'utente di creare una pagina wiki. La funzione si occupa anche della suddivisione del testo in frasi.
      *
      * @param titolo indica il titolo scelto dall'utente per la creazione della nuova pagina
      * @param testo  indica il testo scelto dall'utente per la creazine della nuova pagina
@@ -444,7 +447,7 @@ public class Controller {
     }
 
     /**
-     * Metodo usato per selezionare una pagina.
+     * Metodo usato per memorizzare la pagina selezionata dall'utente.
      *
      * @param numeroPaginaSelezionata indica la pagina selezionata dall'utente
      */
@@ -652,7 +655,7 @@ public class Controller {
     }
 
     /**
-     * Restituisce un valore booleano che indica se l'autore una volata visionata la moficica, accetta o rifiuta una modifica proposta a una sua pagina.
+     * Restituisce un valore booleano che indica se l'autore una volta visionata la mofifica, accetta o rifiuta una modifica proposta a una sua pagina.
      *
      * @param cambiaStato indica lo stato di accettazione della modifica (-1 rifiutata, 1 accetta)
      * @return the boolean
@@ -760,7 +763,7 @@ public class Controller {
     }
 
     /**
-     * restituisce il loogin di accesso dell'utente o autore loggato.
+     * restituisce il login di accesso dell'utente o autore loggato.
      *
      * @return login
      */
@@ -773,7 +776,7 @@ public class Controller {
     }
 
     /**
-     * Setta la pagina visualizzata dall'utente o dall'autore.
+     * Setta la pagina da visualizzaere uguale alla pagina selezionata nell'elenco delle pagine visualizzate dall'utente o dall'autore.
      *
      * @param paginaVisualizzata indica la pagina visualizzata dall'utente o dall'autore.
      */
@@ -786,7 +789,7 @@ public class Controller {
     }
 
     /**
-     * Setta la pagina creata dall'autore.
+     * Setta la pagina da visualizzaere uguale alla pagina selezionata nell'elenco delle pagine create dall'utente o dall'autore.
      *
      * @param paginaCreata indica la pagina creata.
      */
@@ -800,7 +803,7 @@ public class Controller {
     }
 
     /**
-     *Metodo utilizzato per indicare le notifiche dell'autore.
+     * Metodo utilizzato per prendere dal database le notifiche dell'autore.
      */
     public void getNotifche() {
         if (autoreloggato != null) {
@@ -884,7 +887,7 @@ public class Controller {
     }
 
     /**
-     * Restituisce un ArrayList contenente le frasi selezionate dall'utente.
+     * Restituisce un ArrayList contenente le frasi selezionate dall'utente al momento della modifica.
      *
      * @return frasiSelezionate
      */
@@ -952,7 +955,7 @@ public class Controller {
                                 oraMax = Time.valueOf(m.getOraValutazione());
                                 fraseTemp = m.getStringa_inserita();
                             }else if (m.getStato() == 1 && (m.getDataValutazione().isBefore(dataProposta) || m.getDataValutazione().equals(dataProposta)) && m.getOraValutazione().isBefore(oraProposta.toLocalTime())) {
-                                if(m.getDataValutazione().isAfter(dataMax)){
+                                if(m.getDataValutazione().isAfter(dataMax) || (m.getDataValutazione().equals(dataMax) && m.getOraValutazione().isAfter(oraMax.toLocalTime()))) {
                                     dataMax = m.getDataValutazione();
                                     oraMax = Time.valueOf(m.getOraValutazione());
                                     fraseTemp = m.getStringa_inserita();
@@ -968,7 +971,7 @@ public class Controller {
     }
 
     /**
-     * Restituisce un ArrayList di frasi proposte dall'Utente.
+     * Restituisce un ArrayList di frasi proposte dall'Utente al momento della modifica.
      *
      * @return frasiproposte
      */
@@ -1026,7 +1029,7 @@ public class Controller {
     }
 
     /**
-     * Setta la pagina modificata dall'utente o dall'autore.
+     * Setta la pagina da visualizzare uguale alla pagina selezionata nell'elenco delle pagine modificate dall'utente o dall'autore.
      *
      * @param numeroPaginaModificata indica l'id della pagina da modificare
      */
@@ -1039,7 +1042,7 @@ public class Controller {
     }
 
     /**
-     * Setta la notifica della pagina modificata.
+     * Setta la pagina a cui é collegata la notifica come paginaSelezionata
      */
     public void setPaginaNotificata() {
         paginaSelezionata = autoreloggato.getNotificheRicevute().get(0).getModifica().getFraseCorrente().getPagina();
@@ -1066,7 +1069,7 @@ public class Controller {
     }
 
     /**
-     * Setta la pagina collegata alla frase.
+     * Setta la pagina da visualizzaere uguale alla pagina selezionata nell'elenco delle pagine a cui si vuole collegare la frase selezionata dall'autore.
      *
      * @param clickedSentence indica la frase cliccata che ha il collegamento
      */
@@ -1096,7 +1099,7 @@ public class Controller {
     }
 
     /**
-     * Restituisce un valore booleano che indica se la vecchia pagina ha ancora il collegamento alla frase.
+     * Restituisce un valore booleano che indica se la vecchia pagina é anora valorizzata.
      *
      * @return boolean
      */
@@ -1139,14 +1142,14 @@ public class Controller {
     }
 
     /**
-     * Ripristina pagina selezionata.
+     * Ripristina la pagina selezionata.
      */
     public void ripristinaPaginaSelezionata(){
         paginaSelezionata = SalvaVecchiaPaginaSelezionata;
     }
 
     /**
-     * Controlla pagina precedente salvata.
+     * Controlla se pagina precedente salvata é ancora valorizzata, se lo é viene 1ripristinata.
      */
     public void controllaPaginaPrecedenteSalvata() {
         if(SalvaVecchiaPaginaSelezionata != null){
@@ -1175,7 +1178,7 @@ public class Controller {
     }
 
     /**
-     * Sets versione precedente false.
+     * Setta la versione precedente a false.
      */
     public void setVersionePrecedenteFalse() {
         controlloVersione = false;
@@ -1183,7 +1186,7 @@ public class Controller {
     }
 
     /**
-     * Ritorna un valore booleano che indica .
+     * Ritorna un valore booleano che corrisponde al valore di controlloVersione, che indica se il testo ha una versione precedente.
      *
      * @return the boolean
      */
@@ -1192,7 +1195,7 @@ public class Controller {
     }
 
     /**
-     * Add pagina collegata.
+     * Aggiunge alla frase selezionata il collegamento indicato. Se la frase ha giá un collegamento questo viene modificato.
      *
      * @param indiceFrase the indice frase
      * @param clickedRow  the clicked row
@@ -1224,7 +1227,7 @@ public class Controller {
     }
 
     /**
-     * Controlla nome utente boolean.
+     * Controlla se il nome utente inserito giá é esistente nel database. Restituisce il valore della funzione "w.controllaNomeUtente(nomeUtente)".
      *
      * @param nomeUtente the nome utente
      * @return the boolean

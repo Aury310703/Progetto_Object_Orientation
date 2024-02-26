@@ -45,20 +45,21 @@ public class ConnessioneDatabase {
         try {
             FileInputStream fileInput = new FileInputStream(new File(percorsoFileConfigurazione));
             InputStreamReader inputReader = new InputStreamReader(fileInput);
-            BufferedReader bufferedReader = new BufferedReader(inputReader);
+            try (BufferedReader bufferedReader = new BufferedReader(inputReader)) {
 
-            String linea;
+                String linea;
 
-            while ((linea = bufferedReader.readLine()) != null) {
-                String[] parts = linea.split("=");
-                if (parts.length >= 2) {
-                    String chiave = parts[0].trim();
-                    String valore = parts[1].trim();
-                    configurazione.put(chiave, valore);
+                while ((linea = bufferedReader.readLine()) != null) {
+                    String[] parts = linea.split("=");
+                    if (parts.length >= 2) {
+                        String chiave = parts[0].trim();
+                        String valore = parts[1].trim();
+                        configurazione.put(chiave, valore);
+                    }
                 }
-            }
 
-            bufferedReader.close();
+                bufferedReader.close();
+            }
             inputReader.close();
             fileInput.close();
 

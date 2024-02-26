@@ -101,7 +101,7 @@ T
 $src/main/java/GUI/StoricoAutore.form,c\c\cc3299d14e1fe793c5fea46cdbce98b21a49e6c0
 T
 $src/main/java/GUI/StoricoUtente.form,e\6\e66251aebf2ca8d819958f64e328fc51162fe375
-=
-Immagini.java,9\9\9915b462a9e370fb181a36879ff856dca3cda072
 E
 parametriDatabase.txt,7\3\7305d9626f880bde9f04fefb1ce7f4b1ce1e682c
+M
+src/main/java/GUI/Errori.form,a\a\aa519754e2641285877a14725f2fcee68d6a9e15

@@ -81,8 +81,6 @@ public class InserisciCollegamento {
                             if (clickedColumn != -1 && clickedRow != -1) {
                                 Object cellValue = titoliTable.getValueAt(clickedRow, clickedColumn);
                                 if (!cellValue.equals(seleziona)) {
-                                    String titolo = cellValue.toString();
-
                                     controller.addPaginaSelezionata(clickedRow);
                                     PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
                                     paginaTesto.frame.setLocationRelativeTo(frame);

@@ -7,7 +7,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -31,7 +30,6 @@ public class Notifiche {
     private JLabel FrasePropostaLabel;
 
     public JFrame frame;
-    private JFrame frameChiamante;
 
     public Controller controller;
 
@@ -43,7 +41,6 @@ public class Notifiche {
      *  @param locale         indica la lingua.
      */
     public Notifiche(Controller controller, JFrame frameChiamante, String locale) {
-        this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

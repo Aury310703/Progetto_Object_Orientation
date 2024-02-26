@@ -4,7 +4,6 @@ import controller.Controller;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -71,7 +70,6 @@ public class ListaTitoli {
                     int selectedRow = TitoliTable.getSelectedRow();
                     if (selectedRow != -1) {
                         Object cellValue = TitoliTable.getValueAt(selectedRow, 0);
-                        String titolo = cellValue.toString();
                         controller.addPaginaSelezionata(selectedRow);
                         PaginaTesto paginaTesto = new PaginaTesto(controller, frame, locale);
                         paginaTesto.frame.setLocationRelativeTo(frame);

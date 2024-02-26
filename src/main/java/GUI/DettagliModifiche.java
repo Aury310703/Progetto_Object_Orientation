@@ -22,7 +22,6 @@ public class DettagliModifiche {
     private JButton paginaPrecedenteButton;
 
     public JFrame frame;
-    private JFrame frameChiamante;
 
     public Controller controller;
 
@@ -34,12 +33,11 @@ public class DettagliModifiche {
      * @param locale         indica la lingua.
      */
     public DettagliModifiche(Controller controller, JFrame frameChiamante, String locale) {
-        this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{"Frase da modificare", "Modifica Proposta", "Stato Modifica"}) {
+        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, new String[]{this.$$$getMessageFromBundle$$$(locale, "fraseDaModificare"), this.$$$getMessageFromBundle$$$(locale, "fraseDaModificare"), this.$$$getMessageFromBundle$$$(locale, "statoModifica")}) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -56,11 +54,11 @@ public class DettagliModifiche {
         int i = 0;
         for (Integer m : stati) {
             if (m == -1) {
-                stato = "rifiutata";
+                stato = this.$$$getMessageFromBundle$$$(locale, "rifiutata");
             } else if (m == 0) {
-                stato = "in attesa";
+                stato = this.$$$getMessageFromBundle$$$(locale, "inAttesta");
             } else {
-                stato = "accettata";
+                stato = this.$$$getMessageFromBundle$$$(locale, "accettata");
             }
             model.addRow(new Object[]{frasiSelezionate.get(i), frasiProposte.get(i), stato});
 

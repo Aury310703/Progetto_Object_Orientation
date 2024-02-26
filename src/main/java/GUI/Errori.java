@@ -77,7 +77,6 @@ public class Errori {
      * @param frameSuccessivo     indica il frame che verrà viusalizzato subito dopo la chiusura della schermata attuale
      */
     public Errori(String TestoDaVisualizzare, JFrame frameSuccessivo) {
-        this.frameChiamante = frameChiamante;
         this.frame = new JFrame("WIKI");
         frame.setContentPane(Panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
