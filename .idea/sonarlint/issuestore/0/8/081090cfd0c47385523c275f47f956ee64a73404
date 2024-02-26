@@ -1,0 +1,44 @@
+
+u	java:S127Ğ"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8ºş²Áİ1
+E
+java:S16048"(Make this anonymous inner class a lambda(£à€õ8ºş²Áİ1
+E
+java:S1604"(Make this anonymous inner class a lambda(±Ûà/8ºş²Áİ1
+n
+java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8»ş²Áİ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8¼ş²Áİ1
+q	java:S116"URename this field "CercaPanel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(å¦şé8Öş²Áİ1
+‰
+java:S3008µ"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8Öş²Áİ1
+v
+java:S1450"YRemove the "CercaPanel" field and declare it as a local variable in the relevant methods.(å¦şé8×ş²Áİ1
+{
+java:S1450"YRemove the "checkPanel" field and declare it as a local variable in the relevant methods.(ªÏÔ¢şÿÿÿÿ8×ş²Áİ1
+r
+java:S1450"URemove the "panel1" field and declare it as a local variable in the relevant methods.(–¾Ê‰8×ş²Áİ1
+€
+java:S1450"^Remove the "precedentePanel" field and declare it as a local variable in the relevant methods.(€¹œ…ÿÿÿÿÿ8×ş²Áİ1
+‚
+java:S1149Ê"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8Øş²Áİ1
+n
+java:S3776*"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(£¼ƒ28Øş²Áİ1
+f
+java:S3252."IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8Ùş²Áİ1
+£
+java:S1186k"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(®î’×üÿÿÿÿ8Üş²Áİ1
+
+java:S1186p"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ãÆĞÂ8Üş²Áİ1
+£
+java:S1186u"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö„˜şúÿÿÿÿ8Üş²Áİ1
+£
+java:S1186z"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•ßçùÿÿÿÿ8Üş²Áİ1
+Z
+java:S3252W"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(ÔËÚĞ8Şş²Áİ1
+|
+java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8àş²Áİ1
+p	java:S100›"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8àş²Áİ1
+p	java:S100·"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8æş²Áİ1
+T
+java:S2696½"6Make the enclosing method "static" or remove this set.(§¾ã8æş²Áİ1
+k	java:S100É"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8çş²Áİ1
+p	java:S100ç"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8èş²Áİ1

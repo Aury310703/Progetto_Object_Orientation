@@ -1,0 +1,35 @@
+
+
+java:S1319l"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(í•›¸8‡õ•Ãİ1
+
+java:S1319u"nThe type of "visualizzatori" should be an interface such as "List" rather than the implementation "ArrayList".(È×ÏÄøÿÿÿÿ8‡õ•Ãİ1
+“
+java:S1319¢"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(˜¢úÂşÿÿÿÿ8‡õ•Ãİ1
+
+java:S1319«"oThe type of "frasi_collegate" should be an interface such as "List" rather than the implementation "ArrayList".(€¯Ó±8‡õ•Ãİ1
+
+java:S1319Æ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ØéÎƒ8ˆõ•Ãİ1
+‹
+java:S1319Ï"mThe type of "frasiCorrenti" should be an interface such as "List" rather than the implementation "ArrayList".(¯ùûê8ˆõ•Ãİ1
+
+java:S1319ê"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Õîõµ8ˆõ•Ãİ1
+“
+java:S1319ó"pThe type of "notificheInviate" should be an interface such as "List" rather than the implementation "ArrayList".(Å˜èúÿÿÿÿ8ˆõ•Ãİ1
+n	java:S117«"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€¯Ó±8ˆõ•Ãİ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™™òøÿÿÿÿ8ˆõ•Ãİ1
+‹
+java:S4165¬"mRemove this useless assignment; "frasi_collegate" already holds the assigned value along all execution paths.(ò«Å¨8Œõ•Ãİ1
+u	java:S116?"ZRename this field "frasi_collegate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛşğL8Œõ•Ãİ1
+]	java:S1078"AConstructor has 8 parameters, which is greater than 7 authorized.( ½‹«8õ•Ãİ1
+p	java:S100¢"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜¢úÂşÿÿÿÿ8’õ•Ãİ1
+k	java:S100«"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€¯Ó±8’õ•Ãİ1
+a
+java:S1854¬"CRemove this useless assignment to local variable "frasi_collegate".(ò«Å¨8’õ•Ãİ1
+M
+java:S1656¬"/Remove or correct this useless self-assignment.(ò«Å¨8’õ•Ãİ1
+k	java:S100´"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ôéí8’õ•Ãİ1
+p	java:S100½"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ±Â¦ıÿÿÿÿ8’õ•Ãİ1
+L
+java:S1128"*Remove this unused import 'java.sql.Time'.(Üå»‰şÿÿÿÿ8”õ•Ãİ1
+R
+java:S1128"0Remove this unused import 'java.time.LocalTime'.(à®øÃùÿÿÿÿ8”õ•Ãİ1

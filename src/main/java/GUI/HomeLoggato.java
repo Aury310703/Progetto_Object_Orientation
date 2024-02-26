@@ -49,7 +49,7 @@ public class HomeLoggato {
         cercaButton.setText(this.$$$getMessageFromBundle$$$(locale, "cerca"));
 
 
-        ImageIcon originalIcon = new ImageIcon("C:\\Users\\david\\Desktop\\progetto_OO\\Immagini\\logo.png");
+        ImageIcon originalIcon = new ImageIcon("Immagini/logo.png");
         Image originalImage = originalIcon.getImage();
         Image resizedImage = originalImage.getScaledInstance(300, 100, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);

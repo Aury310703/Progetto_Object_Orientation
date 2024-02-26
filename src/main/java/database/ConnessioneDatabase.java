@@ -39,7 +39,7 @@ public class ConnessioneDatabase {
 
     // Metodo per leggere la configurazione da un file
     private void leggiConfigurazione() {
-        String percorsoFileConfigurazione = "C:\\Users\\david\\Desktop\\progetto_OO\\parametriDatabase.txt";
+        String percorsoFileConfigurazione = "src/main/java/database/parametriDatabase.txt";
         Map<String, String> configurazione = new HashMap<>();
 
         try {

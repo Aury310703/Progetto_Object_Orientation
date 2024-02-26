@@ -1,0 +1,99 @@
+
+u	java:S127Ú"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8ˆâµÂİ1
+E
+java:S1604¨"(Make this anonymous inner class a lambda(±Ûà/8ŠâµÂİ1
+K
+java:S1604ä"(Make this anonymous inner class a lambda(² ºˆÿÿÿÿÿ8ŠâµÂİ1
+K
+java:S1604ğ"(Make this anonymous inner class a lambda(² ºˆÿÿÿÿÿ8ŠâµÂİ1
+n
+java:S1104%"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8‹âµÂİ1
+s
+java:S1104'"VMake controller a static final constant or non-public and provide accessors if needed.(Ó‘çõ8‹âµÂİ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İØ˜úÿÿÿÿ8âµÂİ1
+‰
+java:S3008¿"fRename this field "$$$cachedGetBundleMethod$$$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Ñ™Ëûÿÿÿÿ8³âµÂİ1
+Œ
+java:S1450"jRemove the "modificheProposteScrollPane" field and declare it as a local variable in the relevant methods.(›Ÿİ±úÿÿÿÿ8µâµÂİ1
+
+java:S1450"eRemove the "pagineCreateScrollPane" field and declare it as a local variable in the relevant methods.(Êÿ”8µâµÂİ1
+
+java:S1450!"kRemove the "pagineVisualizzateScrollPane" field and declare it as a local variable in the relevant methods.(¤ö¦üÿÿÿÿ8µâµÂİ1
+r
+java:S1450"URemove the "panel1" field and declare it as a local variable in the relevant methods.(–¾Ê‰8µâµÂİ1
+r
+java:S1450"URemove the "panel2" field and declare it as a local variable in the relevant methods.(›ÏÑ´8µâµÂİ1
+r
+java:S1450"URemove the "panel3" field and declare it as a local variable in the relevant methods.(€±Áç8µâµÂİ1
+q
+java:S1450"URemove the "panel4" field and declare it as a local variable in the relevant methods.(ÍçÛg8µâµÂİ1
+w
+java:S1450 "URemove the "panel5" field and declare it as a local variable in the relevant methods.(Ù·ëİøÿÿÿÿ8¶âµÂİ1
+w
+java:S1450""URemove the "panel6" field and declare it as a local variable in the relevant methods.(¯­Ï¿ıÿÿÿÿ8¶âµÂİ1
+r
+java:S1450#"URemove the "panel7" field and declare it as a local variable in the relevant methods.(üéñÚ8¶âµÂİ1
+‚
+java:S1149Ô"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜İâœÿÿÿÿÿ8¶âµÂİ1
+t
+java:S37760"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(îà›æıÿÿÿÿ8·âµÂİ1
+f
+java:S32524"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8¸âµÂİ1
+£
+java:S1186_"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(®î’×üÿÿÿÿ8¹âµÂİ1
+
+java:S1186d"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ãÆĞÂ8¹âµÂİ1
+£
+java:S1186i"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö„˜şúÿÿÿÿ8¹âµÂİ1
+£
+java:S1186n"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•ßçùÿÿÿÿ8ºâµÂİ1
+V
+java:S1854R":Remove this useless assignment to local variable "titolo".(™ÿ©|8ÂâµÂİ1
+G
+java:S1481R"+Remove this unused "titolo" local variable.(™ÿ©|8ÃâµÂİ1
+Z
+java:S3252W"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(ÔËÚĞ8»âµÂİ1
+¤
+java:S1186”"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(®î’×üÿÿÿÿ8½âµÂİ1
+Ÿ
+java:S1186™"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ãÆĞÂ8½âµÂİ1
+¤
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö„˜şúÿÿÿÿ8½âµÂİ1
+¤
+java:S1186£"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•ßçùÿÿÿÿ8½âµÂİ1
+]
+java:S1854‰"?Remove this useless assignment to local variable "paginaTesto".(£¾ÖË8¾âµÂİ1
+[
+java:S1854‡"=Remove this useless assignment to local variable "cellValue".(ÍúÆ×8¡İÌ¨Ş1
+L
+java:S1481‡".Remove this unused "cellValue" local variable.(ÍúÆ×8û§Ì¨Ş1
+N
+java:S1481‰"0Remove this unused "paginaTesto" local variable.(£¾ÖË8¿âµÂİ1
+[
+java:S3252Œ"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(õºÖ¨8¿âµÂİ1
+¤
+java:S1186Ï"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(®î’×üÿÿÿÿ8ÂâµÂİ1
+Ÿ
+java:S1186Ô"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ãÆĞÂ8ÂâµÂİ1
+¤
+java:S1186Ù"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö„˜şúÿÿÿÿ8ÂâµÂİ1
+¤
+java:S1186Ş"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•ßçùÿÿÿÿ8ÂâµÂİ1
+`
+java:S1854Â"=Remove this useless assignment to local variable "cellValue".(²³õ™ıÿÿÿÿ8ú§Ì¨Ş1
+Q
+java:S1481Â".Remove this unused "cellValue" local variable.(²³õ™ıÿÿÿÿ8¦İÌ¨Ş1
+[
+java:S3252Ç"=Use static access with "java.awt.Frame" for "MAXIMIZED_BOTH".(ÔËÚĞ8ÄâµÂİ1
+P
+java:S1135ş"2Complete the task associated to this TODO comment.(¡ç‚Ï8ÇâµÂİ1
+|
+java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ÇâµÂİ1
+p	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–­Œßúÿÿÿÿ8ÇâµÂİ1
+p	java:S100Á"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒäÿÿÿÿÿ8ÒâµÂİ1
+T
+java:S2696Ç"6Make the enclosing method "static" or remove this set.(§¾ã8ÓâµÂİ1
+k	java:S100Ó"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÀ­¢8ÓâµÂİ1
+p	java:S100ñ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ ¨úúÿÿÿÿ8ÕâµÂİ1
+Z
+java:S1144ı"7Remove this unused private "createUIComponents" method.(Á›°çıÿÿÿÿ8ÕâµÂİ1
